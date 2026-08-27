@@ -1,0 +1,14 @@
+RBT_PARAMETER_FILE_V1.00
+RECEPTOR_FILE /home/data/users/gaoletian/rna2smol/casestudy/kras_g4/kpt102_rdock/kpt102_full_r6_receptor.mol2
+RECEPTOR_FLEX 3.0
+
+SECTION MAPPER
+    SITE_MAPPER RbtLigandSiteMapper
+    REF_MOL /home/data/users/gaoletian/rna2smol/casestudy/kras_g4/kpt102_rdock/kpt102_ref.sdf
+    RADIUS 6.0
+    SMALL_SPHERE 1.0
+    MIN_VOLUME 100
+    MAX_CAVITIES 1
+    VOL_INCR 0.0
+    GRIDSTEP 0.5
+END_SECTION

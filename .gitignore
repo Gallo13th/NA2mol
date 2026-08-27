@@ -1,0 +1,59 @@
+# ── Python ──────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+
+# ── OS / editors ─────────────────────────────────────────────────────────
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# ── Large datasets & model weights (re-obtainable, see README) ──────────
+data/
+ckpt/
+paperdata/
+clean_dataset_onlycrossdock/
+clean_dataset_onlyrna/
+clean_exped_dataset/
+output/
+logs/
+*.log
+
+# ── Archives of exploratory / failed runs (kept on disk, not published) ─
+**/_archive/
+casestudy/kras_g4/_archive_ber101_era/
+casestudy/8hzk/_deprecated_graft/
+
+# ── Third-party RNAsmol package: code kept, data & weights dropped ──────
+casestudy/fmn/RNAsmol/datasets/
+casestudy/fmn/RNAsmol/saved_model/
+casestudy/fmn/RNAsmol.tar.gz
+casestudy/fmn/RNAsmol/_plot/
+
+# ── rDock artifacts (regenerable via rdock_protocol/make_cavity.sh) ─────
+*.as
+*.gs
+casestudy/**/dock_*.sd
+casestudy/sp1/rdock/tmp_*.sdf
+casestudy/sp1/rdock/sp1_heavy.pdb
+casestudy/sp1/rdock/sp1_raw.mol2
+
+# ── Bulk generation products (regenerable; reports/JSON evidence kept) ──
+casestudy/**/gen_*/valid_mols.sdf
+casestudy/**/gen_*/frag_hits.sdf
+casestudy/**/gen_*/bm_hits.sdf
+casestudy/kras_g4/library_10k.sdf
+casestudy/kras_g4/ber102_gen2k/
+casestudy/kras_g4/ber102_rdock/_attempts_radius10/
+casestudy/fmn/*.sd
+casestudy/fmn/screening_round*/*.sdf
+casestudy/fmn/screening_round*/*.sd
+casestudy/fmn/final_binders.sdf
+casestudy/fmn/final_binders_sas.sdf
+casestudy/fmn/final_binders_sas3.sdf
+
+# ── Misc generated artifacts ─────────────────────────────────────────────
+*.tar.gz
+*.pth
+nohup.out

@@ -1,0 +1,70 @@
+{
+  "source": {
+    "name": "denovoD1_r12_i043_s3054",
+    "pose": "redock_best_SCORE.INTER_-41.11",
+    "smiles": "c1ccc2sc(Nc3nc4ccccc4s3)nc2c1"
+  },
+  "gate_e1": {
+    "criterion": "P[C] CH2 channel (6,False) at bridge, redock pose",
+    "threshold": 0.1,
+    "best": {
+      "name": "denovoD1_r12_i043_s3054",
+      "P_C_ch2_redock": 0.221
+    },
+    "all_redock_PC": {
+      "denovoD1_r12_i043_s3054": 0.221,
+      "denovoD1_r02_i008_s3044": 0.2054,
+      "denovoD1_r12_i057_s3054": 0.1573
+    },
+    "pass": true
+  },
+  "replacement": {
+    "site": 18,
+    "op": "N->C(CH2) + 2H",
+    "smiles_out": "c1ccc2sc(Cc3nc4ccccc4s3)nc2c1",
+    "is_t2": true
+  },
+  "reprobe": {
+    "masked": {
+      "P_C_ch2": 0.221,
+      "P_C_arom": 0.2726,
+      "P_C_total": 0.4935,
+      "P_N_total": 0.464,
+      "top1": "7",
+      "top3": [
+        [
+          "7",
+          0.3185
+        ],
+        [
+          "6*",
+          0.2726
+        ],
+        [
+          "6",
+          0.221
+        ]
+      ]
+    },
+    "fullinfo": {
+      "P_C_ch2": 0.699,
+      "top1": "6"
+    }
+  },
+  "rdock": {
+    "best_SCORE_INTER": -42.92,
+    "all_SCORE_INTER": [
+      -42.92,
+      -39.92,
+      -35.7,
+      -35.48,
+      -33.94,
+      -31.71,
+      -28.6,
+      -16.4,
+      -11.72,
+      -9.7
+    ]
+  },
+  "product_sdf": "casestudy/kras_g4/t2_denovo/phaseE_bridge/t2_replaced.sdf"
+}

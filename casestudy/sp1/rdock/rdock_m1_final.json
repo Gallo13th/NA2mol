@@ -1,0 +1,147 @@
+[
+ {
+  "name": "sp1runA_r00_i006_s42",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r00_i010_s42",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r00_i014_s42",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r00_i026_s42",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r00_i042_s42",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r00_i054_s42",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r00_i062_s42",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r00_i066_s42",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r00_i070_s42",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r00_i074_s42",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i002_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i014_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i018_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i022_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i030_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i038_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i050_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i062_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i066_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i070_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r01_i074_s43",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r02_i002_s44",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r02_i006_s44",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r02_i010_s44",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r02_i018_s44",
+  "best_INTER": 6.4,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r02_i022_s44",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r02_i026_s44",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r02_i034_s44",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ },
+ {
+  "name": "sp1runA_r02_i038_s44",
+  "best_INTER": -29.83,
+  "n_poses": 10
+ }
+]

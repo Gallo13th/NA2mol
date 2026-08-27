@@ -1,0 +1,168 @@
+t2_best
+     RDKit          3D
+
+ 19 22  0  0  0  0  0  0  0  0999 V2000
+   32.0490   22.2207   32.0830 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.9874   21.8160   33.0271 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.3569   21.9663   32.7867 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.7595   22.5371   31.5677 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.3488   22.8463   30.9854 S   0  0  0  0  0  0  0  0  0  0  0  0
+   35.6953   23.5177   29.5414 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.6033   24.0283   28.4601 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.8891   24.2892   27.1657 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.6066   24.0695   26.9661 N   0  0  0  0  0  0  0  0  0  0  0  0
+   34.2599   24.4029   25.6676 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.9692   24.3143   25.1081 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.7614   24.6838   23.7752 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.8215   25.1377   22.9968 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.1116   25.2337   23.5282 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.3082   24.8607   24.8683 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.7579   24.8640   25.7955 S   0  0  0  0  0  0  0  0  0  0  0  0
+   34.3816   23.4903   29.4539 N   0  0  0  0  0  0  0  0  0  0  0  0
+   33.8362   22.9503   30.6064 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.4616   22.7869   30.8723 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  2  3  1  0
+  3  4  2  0
+  4  5  1  0
+  5  6  1  0
+  6  7  1  0
+  7  8  1  0
+  8  9  2  0
+  9 10  1  0
+ 10 11  2  0
+ 11 12  1  0
+ 12 13  2  0
+ 13 14  1  0
+ 14 15  2  0
+ 15 16  1  0
+  6 17  2  0
+ 17 18  1  0
+ 18 19  2  0
+ 19  1  1  0
+ 18  4  1  0
+ 16  8  1  0
+ 15 10  1  0
+M  END
+>  <CHROM.0>  (1) 
+57.64608355
+
+>  <CHROM.1>  (1) 
+167.10294309,-1.58141993,34.74991129,23.70827084,28.20079736,1.65099282,0.13396137
+1.88077299
+
+>  <Name>  (1) 
+t2_benzothiazolyl_ch2_benzothiazole
+
+>  <RI>  (1) 
+0
+
+>  <Rbt.Current_Directory>  (1) 
+/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+
+>  <Rbt.Executable>  (1) 
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>  (1) 
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>  (1) 
+/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/dock_solv.prm
+
+>  <Rbt.Receptor>  (1) 
+ber102_full_r6_system.prm
+
+>  <SCORE>  (1) 
+-41.4488
+
+>  <SCORE.INTER>  (1) 
+-43.0603
+
+>  <SCORE.INTER.CONST>  (1) 
+1
+
+>  <SCORE.INTER.POLAR>  (1) 
+0
+
+>  <SCORE.INTER.ROT>  (1) 
+2
+
+>  <SCORE.INTER.SOLV>  (1) 
+9.73772
+
+>  <SCORE.INTER.VDW>  (1) 
+-36.8861
+
+>  <SCORE.INTER.norm>  (1) 
+-2.26633
+
+>  <SCORE.INTRA>  (1) 
+4.19409
+
+>  <SCORE.INTRA.DIHEDRAL>  (1) 
+-0.100455
+
+>  <SCORE.INTRA.DIHEDRAL.0>  (1) 
+2.85229
+
+>  <SCORE.INTRA.POLAR>  (1) 
+0
+
+>  <SCORE.INTRA.POLAR.0>  (1) 
+0
+
+>  <SCORE.INTRA.REPUL>  (1) 
+0.680022
+
+>  <SCORE.INTRA.REPUL.0>  (1) 
+0
+
+>  <SCORE.INTRA.SOLV>  (1) 
+-0.0584061
+
+>  <SCORE.INTRA.SOLV.lig_0>  (1) 
+-8.14638
+
+>  <SCORE.INTRA.VDW>  (1) 
+0.873408
+
+>  <SCORE.INTRA.VDW.0>  (1) 
+-1.12989
+
+>  <SCORE.INTRA.norm>  (1) 
+0.220741
+
+>  <SCORE.RESTR>  (1) 
+
+
+>  <SCORE.RESTR.norm>  (1) 
+0
+
+>  <SCORE.SYSTEM>  (1) 
+-2.58258
+
+>  <SCORE.SYSTEM.CONST>  (1) 
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>  (1) 
+0.175883
+
+>  <SCORE.SYSTEM.POLAR>  (1) 
+-0.598665
+
+>  <SCORE.SYSTEM.SOLV>  (1) 
+-0.000458148
+
+>  <SCORE.SYSTEM.VDW>  (1) 
+0.215354
+
+>  <SCORE.SYSTEM.norm>  (1) 
+-0.135925
+
+>  <SCORE.heavy>  (1) 
+19
+
+>  <SCORE.norm>  (1) 
+-2.18152
+
+$$$$

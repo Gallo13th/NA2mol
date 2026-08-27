@@ -1,0 +1,4 @@
+C1(/C(=O)N(C)C(=S)S/1)=C\c1cc2sc(N(C)CCO)cc2s1
+C1(/C(=O)N(C)C(=S)S/1)=C\c1cc2ccc(cc2s1)N(C)CCO
+C1(/C(=O)c2ccccc2O/1)=C\c1cc2sc(N(C)CCO)cc2s1
+c1ccc(/C=C(/c2ccc(-c3ccccc3)cc2)\C#N)cc1N(C)CCO

@@ -1,0 +1,969 @@
+{
+  "gen2k473_bim": {
+    "smiles": "O=C1CCN(c2ccc3[nH]c(-c4ccc(O)cc4)nc3c2)C1",
+    "cls": "benzimidazole",
+    "natoms": 22,
+    "best_SCORE_INTER": -39.86,
+    "sites": {
+      "pyrrolicN": {
+        "redock": {
+          "PS": 0.0047,
+          "PSarom": 0.0046,
+          "PN": 0.883,
+          "PC": 0.0166,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0012,
+          "PSarom": 0.0012,
+          "PN": 0.9269,
+          "PC": 0.0145,
+          "top1": "7*"
+        }
+      },
+      "pyridinicN": {
+        "redock": {
+          "PS": 0.0044,
+          "PSarom": 0.0043,
+          "PN": 0.9256,
+          "PC": 0.0351,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0007,
+          "PSarom": 0.0007,
+          "PN": 0.9306,
+          "PC": 0.024,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k65_bim": {
+    "smiles": "COC1=CCC2=NC(c3cc(C)c4nc(OC)[nH]c4c3)=NC2=C1",
+    "cls": "benzimidazole",
+    "natoms": 23,
+    "best_SCORE_INTER": -37.76,
+    "sites": {
+      "pyrrolicN": {
+        "redock": {
+          "PS": 0.0012,
+          "PSarom": 0.0012,
+          "PN": 0.9008,
+          "PC": 0.0281,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0024,
+          "PSarom": 0.0024,
+          "PN": 0.8692,
+          "PC": 0.0141,
+          "top1": "7*"
+        }
+      },
+      "pyridinicN": {
+        "redock": {
+          "PS": 0.004,
+          "PSarom": 0.004,
+          "PN": 0.7949,
+          "PC": 0.0283,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0021,
+          "PSarom": 0.0021,
+          "PN": 0.9153,
+          "PC": 0.0157,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k111_bim": {
+    "smiles": "COc1ccc(-c2nc3cc(C(=O)O)ccc3[nH]2)c(C)c1",
+    "cls": "benzimidazole",
+    "natoms": 21,
+    "best_SCORE_INTER": -40.45,
+    "sites": {
+      "pyrrolicN": {
+        "redock": {
+          "PS": 0.0002,
+          "PSarom": 0.0002,
+          "PN": 0.9651,
+          "PC": 0.0021,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0012,
+          "PSarom": 0.0012,
+          "PN": 0.8948,
+          "PC": 0.0201,
+          "top1": "7*"
+        }
+      },
+      "pyridinicN": {
+        "redock": {
+          "PS": 0.0012,
+          "PSarom": 0.0012,
+          "PN": 0.9445,
+          "PC": 0.0048,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0032,
+          "PSarom": 0.0032,
+          "PN": 0.839,
+          "PC": 0.0367,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k304_bim": {
+    "smiles": "C=[O+]c1ccc2[nH]c(-c3ccc(C(=O)O)cc3)nc2c1",
+    "cls": "benzimidazole",
+    "natoms": 20,
+    "best_SCORE_INTER": -35.52,
+    "sites": {
+      "pyrrolicN": {
+        "redock": {
+          "PS": 0.0006,
+          "PSarom": 0.0006,
+          "PN": 0.976,
+          "PC": 0.0074,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0026,
+          "PSarom": 0.0026,
+          "PN": 0.9036,
+          "PC": 0.0325,
+          "top1": "7*"
+        }
+      },
+      "pyridinicN": {
+        "redock": {
+          "PS": 0.0003,
+          "PSarom": 0.0003,
+          "PN": 0.9714,
+          "PC": 0.0037,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0111,
+          "PSarom": 0.0111,
+          "PN": 0.8677,
+          "PC": 0.0326,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k1399_bim": {
+    "smiles": "C=[O+]c1cc(C)c2[nH]c(Nc3ccc(C(=O)O)cc3)nc2c1",
+    "cls": "benzimidazole",
+    "natoms": 22,
+    "best_SCORE_INTER": -39.75,
+    "sites": {
+      "pyrrolicN": {
+        "redock": {
+          "PS": 0.0012,
+          "PSarom": 0.0012,
+          "PN": 0.8499,
+          "PC": 0.0016,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0009,
+          "PSarom": 0.0009,
+          "PN": 0.8575,
+          "PC": 0.0033,
+          "top1": "7*"
+        }
+      },
+      "pyridinicN": {
+        "redock": {
+          "PS": 0.0021,
+          "PSarom": 0.0021,
+          "PN": 0.9624,
+          "PC": 0.0035,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0022,
+          "PSarom": 0.0022,
+          "PN": 0.9132,
+          "PC": 0.0186,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k1081_bim": {
+    "smiles": "COc1ccc2[nH]c(-c3ccc4cc(C(=N)O)cc(C)c4c3)nc2c1",
+    "cls": "benzimidazole",
+    "natoms": 25,
+    "best_SCORE_INTER": -48.11,
+    "sites": {
+      "pyrrolicN": {
+        "redock": {
+          "PS": 0.0021,
+          "PSarom": 0.0021,
+          "PN": 0.8967,
+          "PC": 0.0307,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0009,
+          "PSarom": 0.0009,
+          "PN": 0.9486,
+          "PC": 0.0063,
+          "top1": "7*"
+        }
+      },
+      "pyridinicN": {
+        "redock": {
+          "PS": 0.0011,
+          "PSarom": 0.0011,
+          "PN": 0.9451,
+          "PC": 0.0118,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0007,
+          "PSarom": 0.0007,
+          "PN": 0.9491,
+          "PC": 0.0145,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k1271_bim": {
+    "smiles": "O=C(O)NCc1ccc2cc(-c3nc4ccc([C@H](O)CO)cc4[nH]3)ccc2c1",
+    "cls": "benzimidazole",
+    "natoms": 28,
+    "best_SCORE_INTER": -57.43,
+    "sites": {
+      "pyrrolicN": {
+        "redock": {
+          "PS": 0.0099,
+          "PSarom": 0.0099,
+          "PN": 0.773,
+          "PC": 0.0667,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0002,
+          "PSarom": 0.0002,
+          "PN": 0.975,
+          "PC": 0.0085,
+          "top1": "7*"
+        }
+      },
+      "pyridinicN": {
+        "redock": {
+          "PS": 0.0007,
+          "PSarom": 0.0007,
+          "PN": 0.8682,
+          "PC": 0.0134,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.001,
+          "PSarom": 0.001,
+          "PN": 0.9707,
+          "PC": 0.005,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k348_bim": {
+    "smiles": "N=C(N)c1ccc2nc(C3=C4N=c5cc(CO)ccc5=C4N=C3)[nH]c2c1",
+    "cls": "benzimidazole",
+    "natoms": 26,
+    "best_SCORE_INTER": -51.78,
+    "sites": {
+      "pyrrolicN": {
+        "redock": {
+          "PS": 0.0095,
+          "PSarom": 0.0087,
+          "PN": 0.6409,
+          "PC": 0.1726,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0014,
+          "PSarom": 0.0013,
+          "PN": 0.9135,
+          "PC": 0.0205,
+          "top1": "7*"
+        }
+      },
+      "pyridinicN": {
+        "redock": {
+          "PS": 0.0125,
+          "PSarom": 0.0112,
+          "PN": 0.8162,
+          "PC": 0.0955,
+          "top1": "7"
+        },
+        "orig": {
+          "PS": 0.0011,
+          "PSarom": 0.001,
+          "PN": 0.9091,
+          "PC": 0.0514,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k411_bim": {
+    "smiles": "Cc1cc2nc(-c3ccc4c(c3O)C(=O)OCO4)[nH]c2cc1C",
+    "cls": "benzimidazole",
+    "natoms": 23,
+    "best_SCORE_INTER": -43.09,
+    "sites": {
+      "pyrrolicN": {
+        "redock": {
+          "PS": 0.0017,
+          "PSarom": 0.0017,
+          "PN": 0.9219,
+          "PC": 0.0206,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0009,
+          "PSarom": 0.0009,
+          "PN": 0.8852,
+          "PC": 0.0356,
+          "top1": "7*"
+        }
+      },
+      "pyridinicN": {
+        "redock": {
+          "PS": 0.0019,
+          "PSarom": 0.0019,
+          "PN": 0.894,
+          "PC": 0.0208,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0006,
+          "PSarom": 0.0006,
+          "PN": 0.9208,
+          "PC": 0.016,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k104_phen": {
+    "smiles": "C=[O+]c1cc(C)c2nc3cc(OC)c(F)cc3nc2c1",
+    "cls": "phenanthroline",
+    "natoms": 20,
+    "best_SCORE_INTER": -38.98,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0012,
+          "PSarom": 0.0011,
+          "PN": 0.4902,
+          "PC": 0.1629,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0003,
+          "PSarom": 0.0003,
+          "PN": 0.4089,
+          "PC": 0.0744,
+          "top1": "8"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0005,
+          "PSarom": 0.0004,
+          "PN": 0.7808,
+          "PC": 0.0699,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0006,
+          "PSarom": 0.0005,
+          "PN": 0.5065,
+          "PC": 0.3028,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k272_phen": {
+    "smiles": "Cc1ccc2nc3ccc(NC[C@@H](O)C(=O)O)cc3nc2c1",
+    "cls": "phenanthroline",
+    "natoms": 22,
+    "best_SCORE_INTER": -37.83,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0003,
+          "PSarom": 0.0003,
+          "PN": 0.9404,
+          "PC": 0.0341,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0,
+          "PSarom": 0.0,
+          "PN": 0.9552,
+          "PC": 0.0323,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0001,
+          "PSarom": 0.0001,
+          "PN": 0.9286,
+          "PC": 0.0511,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0001,
+          "PSarom": 0.0001,
+          "PN": 0.9582,
+          "PC": 0.0209,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k1369_phen": {
+    "smiles": "Cc1cc2nc3ccc(C(=O)O)c(O)c3nc2c(C)c1C",
+    "cls": "phenanthroline",
+    "natoms": 21,
+    "best_SCORE_INTER": -41.81,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0002,
+          "PSarom": 0.0002,
+          "PN": 0.7695,
+          "PC": 0.0892,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0002,
+          "PSarom": 0.0002,
+          "PN": 0.4799,
+          "PC": 0.2119,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0006,
+          "PSarom": 0.0005,
+          "PN": 0.8458,
+          "PC": 0.0806,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0005,
+          "PSarom": 0.0005,
+          "PN": 0.5465,
+          "PC": 0.3207,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k1541_phen": {
+    "smiles": "CC(=O)Nc1cccc2nc3cc(O)c(O)cc3nc12",
+    "cls": "phenanthroline",
+    "natoms": 20,
+    "best_SCORE_INTER": -40.75,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.001,
+          "PSarom": 0.0008,
+          "PN": 0.4944,
+          "PC": 0.3465,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0003,
+          "PSarom": 0.0002,
+          "PN": 0.7094,
+          "PC": 0.1959,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0004,
+          "PSarom": 0.0004,
+          "PN": 0.3829,
+          "PC": 0.4997,
+          "top1": "6*"
+        },
+        "orig": {
+          "PS": 0.0004,
+          "PSarom": 0.0003,
+          "PN": 0.49,
+          "PC": 0.3406,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k50_phen": {
+    "smiles": "O=C(O)c1ccc2cc3nc4cc(C(=O)O)ccc4nc3cc2c1",
+    "cls": "phenanthroline",
+    "natoms": 24,
+    "best_SCORE_INTER": -44.06,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0003,
+          "PSarom": 0.0003,
+          "PN": 0.8903,
+          "PC": 0.0755,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0009,
+          "PSarom": 0.0008,
+          "PN": 0.75,
+          "PC": 0.1922,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0008,
+          "PSarom": 0.0008,
+          "PN": 0.4712,
+          "PC": 0.4733,
+          "top1": "6*"
+        },
+        "orig": {
+          "PS": 0.0003,
+          "PSarom": 0.0003,
+          "PN": 0.7323,
+          "PC": 0.228,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k319_phen": {
+    "smiles": "O=C(O)c1ccc2nc3cc4ccccc4cc3nc2c1",
+    "cls": "phenanthroline",
+    "natoms": 21,
+    "best_SCORE_INTER": -45.67,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0002,
+          "PSarom": 0.0002,
+          "PN": 0.8677,
+          "PC": 0.1008,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0015,
+          "PSarom": 0.0014,
+          "PN": 0.5885,
+          "PC": 0.3253,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0012,
+          "PSarom": 0.0011,
+          "PN": 0.5167,
+          "PC": 0.4277,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0004,
+          "PSarom": 0.0003,
+          "PN": 0.4479,
+          "PC": 0.5057,
+          "top1": "6*"
+        }
+      }
+    }
+  },
+  "gen2k679_phen": {
+    "smiles": "COc1cc(OC)c2nc3c(O)c4ccc(C(N)=O)cc4c(C)c3nc2c1",
+    "cls": "phenanthroline",
+    "natoms": 27,
+    "best_SCORE_INTER": -51.32,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0004,
+          "PSarom": 0.0004,
+          "PN": 0.7148,
+          "PC": 0.0607,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0033,
+          "PSarom": 0.0031,
+          "PN": 0.405,
+          "PC": 0.1969,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0004,
+          "PSarom": 0.0003,
+          "PN": 0.5441,
+          "PC": 0.1798,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0005,
+          "PSarom": 0.0005,
+          "PN": 0.5744,
+          "PC": 0.1545,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k801_phen": {
+    "smiles": "C=[O+]c1ccc2nc3c(O)c4cc([O+]=C)cc(C)c4cc3nc2c1",
+    "cls": "phenanthroline",
+    "natoms": 24,
+    "best_SCORE_INTER": -48.84,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0009,
+          "PSarom": 0.0009,
+          "PN": 0.6316,
+          "PC": 0.2127,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0002,
+          "PSarom": 0.0002,
+          "PN": 0.8395,
+          "PC": 0.0852,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0013,
+          "PSarom": 0.0013,
+          "PN": 0.6628,
+          "PC": 0.2388,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0012,
+          "PSarom": 0.0011,
+          "PN": 0.7687,
+          "PC": 0.1028,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k807_phen": {
+    "smiles": "O=C(O)c1ccc2cc3nc4ccccc4nc3cc2c1",
+    "cls": "phenanthroline",
+    "natoms": 21,
+    "best_SCORE_INTER": -44.64,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0005,
+          "PSarom": 0.0004,
+          "PN": 0.8821,
+          "PC": 0.0964,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0003,
+          "PSarom": 0.0003,
+          "PN": 0.7827,
+          "PC": 0.198,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0004,
+          "PSarom": 0.0004,
+          "PN": 0.8704,
+          "PC": 0.1124,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0003,
+          "PSarom": 0.0003,
+          "PN": 0.8746,
+          "PC": 0.0874,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k888_phen": {
+    "smiles": "COc1cc(F)c2cc3nc4ccccc4nc3cc2c1",
+    "cls": "phenanthroline",
+    "natoms": 21,
+    "best_SCORE_INTER": -40.53,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0001,
+          "PSarom": 0.0001,
+          "PN": 0.8897,
+          "PC": 0.0958,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0011,
+          "PSarom": 0.0011,
+          "PN": 0.8285,
+          "PC": 0.1364,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0034,
+          "PSarom": 0.0032,
+          "PN": 0.5518,
+          "PC": 0.4072,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0005,
+          "PSarom": 0.0005,
+          "PN": 0.6877,
+          "PC": 0.2898,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k937_phen": {
+    "smiles": "C[C@H](C(N)=O)c1ccc2cc3nc4cc(O)ccc4nc3cc2c1",
+    "cls": "phenanthroline",
+    "natoms": 24,
+    "best_SCORE_INTER": -46.87,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0026,
+          "PSarom": 0.0025,
+          "PN": 0.8188,
+          "PC": 0.1264,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0004,
+          "PSarom": 0.0004,
+          "PN": 0.904,
+          "PC": 0.0791,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0001,
+          "PSarom": 0.0001,
+          "PN": 0.9344,
+          "PC": 0.0522,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0002,
+          "PSarom": 0.0002,
+          "PN": 0.9423,
+          "PC": 0.0328,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k76_phen": {
+    "smiles": "COc1ccc2nc3cc(-c4ccc(C(=O)O)cc4)ccc3nc2c1",
+    "cls": "phenanthroline",
+    "natoms": 25,
+    "best_SCORE_INTER": -43.68,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0003,
+          "PSarom": 0.0003,
+          "PN": 0.9302,
+          "PC": 0.0373,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0001,
+          "PSarom": 0.0001,
+          "PN": 0.9616,
+          "PC": 0.028,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0024,
+          "PSarom": 0.0023,
+          "PN": 0.715,
+          "PC": 0.2533,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0006,
+          "PSarom": 0.0006,
+          "PN": 0.9096,
+          "PC": 0.0651,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k303_phen": {
+    "smiles": "CC(=O)Nc1ccc(-c2cc(C)c3nc4cc(O)ccc4nc3c2C)cc1",
+    "cls": "phenanthroline",
+    "natoms": 27,
+    "best_SCORE_INTER": -46.84,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0018,
+          "PSarom": 0.0018,
+          "PN": 0.8248,
+          "PC": 0.1111,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0003,
+          "PSarom": 0.0003,
+          "PN": 0.8657,
+          "PC": 0.0819,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.001,
+          "PSarom": 0.001,
+          "PN": 0.7524,
+          "PC": 0.1512,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0001,
+          "PSarom": 0.0001,
+          "PN": 0.9192,
+          "PC": 0.0565,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k647_phen": {
+    "smiles": "C=[O+]c1ccc(-c2ccc3nc4ccc(C)cc4nc3c2)cc1",
+    "cls": "phenanthroline",
+    "natoms": 23,
+    "best_SCORE_INTER": -39.65,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0019,
+          "PSarom": 0.0018,
+          "PN": 0.6992,
+          "PC": 0.2669,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0006,
+          "PSarom": 0.0006,
+          "PN": 0.8956,
+          "PC": 0.0713,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0006,
+          "PSarom": 0.0006,
+          "PN": 0.7425,
+          "PC": 0.2029,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0002,
+          "PSarom": 0.0002,
+          "PN": 0.919,
+          "PC": 0.0639,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "gen2k1477_phen": {
+    "smiles": "Cc1cc(C)c2nc3cc(-c4ccc(C(=O)O)cc4)ccc3nc2c1O",
+    "cls": "phenanthroline",
+    "natoms": 26,
+    "best_SCORE_INTER": -47.4,
+    "sites": {
+      "N1": {
+        "redock": {
+          "PS": 0.0001,
+          "PSarom": 0.0001,
+          "PN": 0.9415,
+          "PC": 0.0429,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0008,
+          "PSarom": 0.0008,
+          "PN": 0.6805,
+          "PC": 0.2583,
+          "top1": "7*"
+        }
+      },
+      "N2": {
+        "redock": {
+          "PS": 0.0014,
+          "PSarom": 0.0014,
+          "PN": 0.5674,
+          "PC": 0.2378,
+          "top1": "7*"
+        },
+        "orig": {
+          "PS": 0.0005,
+          "PSarom": 0.0005,
+          "PN": 0.6571,
+          "PC": 0.2132,
+          "top1": "7*"
+        }
+      }
+    }
+  },
+  "_gate": {
+    "max_PS_redock": 0.0125,
+    "n_sites": 48,
+    "n_gt5": 0,
+    "n_gt10": 0,
+    "gate_pass_keys": []
+  }
+}

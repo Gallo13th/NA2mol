@@ -1,0 +1,182 @@
+{
+  "dimer_smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+  "seed_bm_smiles": "c1ccc2[nH]cnc2c1.c1ccc2[nH]cnc2c1",
+  "seed_bt_smiles": "c1ccc2scnc2c1.c1ccc2scnc2c1",
+  "c2c2_dimer": 2.461,
+  "B1_pre": {
+    "seedBC_gp1_endorsed": [
+      0.0076,
+      0.1246
+    ],
+    "seedBC_gp2_endorsed": [
+      0.0032,
+      0.1124
+    ],
+    "seedBC_gp3_endorsed": [
+      0.0032,
+      0.1124
+    ],
+    "seedBC_centroid0_generic": [
+      0.0491,
+      0.0204
+    ],
+    "seedBC_centroid1_generic": [
+      0.0091,
+      0.1311
+    ],
+    "seedBC_centroid2_generic": [
+      0.0195,
+      0.1169
+    ],
+    "seedBC_centroid3_generic": [
+      0.0712,
+      0.0156
+    ]
+  },
+  "B3_post": {
+    "seedBC_gp1_endorsed": {
+      "PS": [
+        0.0066,
+        0.1171
+      ],
+      "PN": [
+        0.8588,
+        0.4673
+      ],
+      "top1": [
+        "7*",
+        "6*"
+      ]
+    },
+    "seedBC_gp2_endorsed": {
+      "PS": [
+        0.0024,
+        0.1123
+      ],
+      "PN": [
+        0.8168,
+        0.2541
+      ],
+      "top1": [
+        "7*",
+        "6*"
+      ]
+    },
+    "seedBC_gp3_endorsed": {
+      "PS": [
+        0.0024,
+        0.1124
+      ],
+      "PN": [
+        0.8168,
+        0.2541
+      ],
+      "top1": [
+        "7*",
+        "6*"
+      ]
+    },
+    "seedBC_centroid0_generic": {
+      "PS": [
+        0.0513,
+        0.0186
+      ],
+      "PN": [
+        0.3014,
+        0.8553
+      ],
+      "top1": [
+        "6*",
+        "7*"
+      ]
+    },
+    "seedBC_centroid1_generic": {
+      "PS": [
+        0.0084,
+        0.1164
+      ],
+      "PN": [
+        0.0808,
+        0.1614
+      ],
+      "top1": [
+        "6*",
+        "6*"
+      ]
+    },
+    "seedBC_centroid2_generic": {
+      "PS": [
+        0.0159,
+        0.1203
+      ],
+      "PN": [
+        0.1517,
+        0.2736
+      ],
+      "top1": [
+        "6*",
+        "6*"
+      ]
+    },
+    "seedBC_centroid3_generic": {
+      "PS": [
+        0.0614,
+        0.015
+      ],
+      "PN": [
+        0.1566,
+        0.3999
+      ],
+      "top1": [
+        "6*",
+        "6*"
+      ]
+    }
+  },
+  "seeds": {
+    "seedBC_gp1_endorsed": {
+      "dmin_pocket": 2.11,
+      "c2c2": 2.461,
+      "classes_ok": true
+    },
+    "seedBC_gp2_endorsed": {
+      "dmin_pocket": 2.23,
+      "c2c2": 2.461,
+      "classes_ok": true
+    },
+    "seedBC_gp3_endorsed": {
+      "dmin_pocket": 2.23,
+      "c2c2": 2.461,
+      "classes_ok": true
+    },
+    "seedBC_centroid0_generic": {
+      "dmin_pocket": 1.62,
+      "c2c2": 2.461,
+      "classes_ok": true
+    },
+    "seedBC_centroid1_generic": {
+      "dmin_pocket": 0.33,
+      "c2c2": 2.461,
+      "classes_ok": true
+    },
+    "seedBC_centroid2_generic": {
+      "dmin_pocket": 0.53,
+      "c2c2": 2.461,
+      "classes_ok": true
+    },
+    "seedBC_centroid3_generic": {
+      "dmin_pocket": 0.95,
+      "c2c2": 2.461,
+      "classes_ok": true
+    }
+  },
+  "seed_files": [
+    "casestudy/kras_g4/t2_denovo/phaseBC_seeds/seedBC_gp1_endorsed.sdf",
+    "casestudy/kras_g4/t2_denovo/phaseBC_seeds/seedBC_gp2_endorsed.sdf",
+    "casestudy/kras_g4/t2_denovo/phaseBC_seeds/seedBC_gp3_endorsed.sdf",
+    "casestudy/kras_g4/t2_denovo/phaseBC_seeds/seedBC_centroid0_generic.sdf",
+    "casestudy/kras_g4/t2_denovo/phaseBC_seeds/seedBC_centroid1_generic.sdf",
+    "casestudy/kras_g4/t2_denovo/phaseBC_seeds/seedBC_centroid2_generic.sdf",
+    "casestudy/kras_g4/t2_denovo/phaseBC_seeds/seedBC_centroid3_generic.sdf"
+  ]
+}

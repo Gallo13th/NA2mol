@@ -1,0 +1,65 @@
+{
+  "rna_seq": "GAGGGCGGTGTGGGAATAGGGAA",
+  "results": {
+    "t2_final": {
+      "per_model": {
+        "pdb_mol": {
+          "P_binder": 0.8992449045181274,
+          "logit_diff": 2.188863158226013
+        },
+        "pdb_net": {
+          "P_binder": 0.36745738983154297,
+          "logit_diff": -0.5431402027606964
+        },
+        "pdb_rna": {
+          "P_binder": 0.9992528557777405,
+          "logit_diff": 7.1985108852386475
+        },
+        "rob_mol": {
+          "P_binder": 0.8856918215751648,
+          "logit_diff": 2.047470986843109
+        },
+        "rob_net": {
+          "P_binder": 0.9999998807907104,
+          "logit_diff": 16.060733318328857
+        },
+        "rob_rna": {
+          "P_binder": 7.624163106401127e-11,
+          "logit_diff": -23.2971134185791
+        }
+      },
+      "ensemble_P": 0.6919411420949212,
+      "multi_gate(P>0.5)": 4
+    },
+    "berberine_ref": {
+      "per_model": {
+        "pdb_mol": {
+          "P_binder": 0.5391640067100525,
+          "logit_diff": 0.15697748214006424
+        },
+        "pdb_net": {
+          "P_binder": 0.36545759439468384,
+          "logit_diff": -0.5517538487911224
+        },
+        "pdb_rna": {
+          "P_binder": 0.9991080164909363,
+          "logit_diff": 7.021259069442749
+        },
+        "rob_mol": {
+          "P_binder": 0.6666979789733887,
+          "logit_diff": 0.693288117647171
+        },
+        "rob_net": {
+          "P_binder": 0.9999910593032837,
+          "logit_diff": 11.628219604492188
+        },
+        "rob_rna": {
+          "P_binder": 1.8377292743121387e-10,
+          "logit_diff": -22.417320251464844
+        }
+      },
+      "ensemble_P": 0.595069776009353,
+      "multi_gate(P>0.5)": 4
+    }
+  }
+}
