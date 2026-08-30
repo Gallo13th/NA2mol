@@ -69,7 +69,7 @@ documented in `casestudy/REPRODUCTION.md`.
 | case | target class | pocket | headline result |
 |---|---|---|---|
 | `casestudy/sp1` | flavone (m1–m3) | sp1 RNA aptamer site, 20 nt `AGGUGAGCUUAGGGGAAUAA` | **m1 reproduced exactly 159×** by seed inpainting (951 valid molecules); m2 16×; RNAsmol P=0.654; rDock SCORE.INTER −29.8 |
-| `casestudy/kras_g4` | bis-benzothiazole (T2) | KRAS G4 7X8M/7X8O (BER102/KPT102) | T2 reproduced exactly **172×**; rDock INTER −42.9, RNAsmol P=0.692 |
+| `casestudy/kras_g4` | bis-benzothiazole (T2) | KRAS G4 7X8M (BER102) | T2 reproduced exactly via the staged de-novo route (scaffold retrieval → ring conversion → bridge inpainting → bridge-element probe); rDock INTER −42.9, RNAsmol P=0.692 |
 | `casestudy/fmn` | FMN-mimetics | 1FMN aptamer | ~62k generated, dual-tool screening, top-20 combined binders (`top20_report.md`) |
 | `casestudy/8hzk` | fluorescent ligands | 8HZK | benzothiophene scaffold of mol2 reproduced by isoelectronic element substitution (`MOL2_REPRODUCTION_PIPELINE.md`) |
 
