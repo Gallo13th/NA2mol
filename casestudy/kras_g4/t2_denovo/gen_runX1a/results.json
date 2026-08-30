@@ -1,0 +1,19 @@
+{
+  "results": [],
+  "fail_total": {
+    "sanitize_fail": 14,
+    "disconnected": 2
+  },
+  "per_seed_valid": {},
+  "config": {
+    "run": "X1a",
+    "rounds": 1,
+    "batch": 16,
+    "natom": 19,
+    "seed0": 1,
+    "seeds_glob": "casestudy/kras_g4/t2_denovo/xfrag_seeds/seed_xfrag_1271x473.sdf",
+    "dist_tol": 0.4,
+    "free_extra": 0
+  },
+  "n_exact_t2": 0
+}

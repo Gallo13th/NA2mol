@@ -65,6 +65,38 @@ from dataloader.featurizer import (GeomSeedMolOnlyPocket, ProteinLigandDataLoade
                                    MAP_INDEX_TO_ATOM_TYPE_AROMATIC as FEAT_TAB)
 from torch.utils.data import ConcatDataset
 from util.mol_utils import reconstruct_from_generated_with_seed, _neutralize_or_reject
+
+def _fix_aromatic_nh(rd_mol):
+    """Repair benzimidazole-type rings whose pyrrolic N lost its H during
+    seed reconstruction. Systematically tries adding one explicit H to each
+    under-valenced aromatic N (and pairs) until the molecule kekulizes."""
+    import itertools as _it
+    def try_with(idx_set):
+        rw = Chem.RWMol(rd_mol)
+        for i in idx_set:
+            a = rw.GetAtomWithIdx(i)
+            a.SetNumExplicitHs(1)
+            a.SetNoImplicit(True)
+        m2 = rw.GetMol()
+        try:
+            Chem.SanitizeMol(m2)
+            return m2
+        except Exception:
+            return None
+    cands = [a.GetIdx() for a in rd_mol.GetAtoms()
+             if a.GetSymbol() == 'N' and a.GetIsAromatic()
+             and a.GetFormalCharge() == 0 and a.GetTotalNumHs() == 0
+             and any(a.GetIdx() in r for r in
+                     (lambda ri: [set(x) for x in ri.AtomRings() if len(x) == 5])(
+                         rd_mol.GetRingInfo()))]
+    if not cands:
+        return rd_mol
+    for k in (1, 2):
+        for combo in _it.combinations(cands, k):
+            m2 = try_with(combo)
+            if m2 is not None:
+                return m2
+    return None
 import dataloader.featurizer as _featurizer
 
 
@@ -214,6 +246,11 @@ def main():
                 rd_mol = reconstruct_from_generated_with_seed(
                     sub_xyz, sub_atomnum, fixed_mask_all[mask].numpy().astype(bool),
                     seed_mols[sf], sub_arom, dist_tol=args.dist_tol)
+                _fixed = _fix_aromatic_nh(rd_mol)
+                if _fixed is None:
+                    fail['aromN_fix'] += 1
+                    continue
+                rd_mol = _fixed
             except Exception as e:
                 msg = str(e).lower()
                 if 'kekul' in msg:

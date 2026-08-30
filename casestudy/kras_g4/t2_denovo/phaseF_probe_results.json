@@ -1,0 +1,48 @@
+{
+  "molecule": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+  "pose": "casestudy/kras_g4/t2_denovo/phaseF_redock_pose.sdf",
+  "ring_N_sites": {
+    "4": {
+      "element": "N",
+      "aromatic": true,
+      "PS_arom": 0.0094,
+      "top1": "7*",
+      "probs": [
+        0.00029,
+        8e-05,
+        0.01518,
+        0.01421,
+        0.93236,
+        0.00062,
+        0.02777,
+        3e-05,
+        1e-05,
+        0.0,
+        4e-05,
+        0.00941,
+        0.0
+      ]
+    },
+    "7": {
+      "element": "N",
+      "aromatic": true,
+      "PS_arom": 0.0094,
+      "top1": "7*",
+      "probs": [
+        0.00037,
+        6e-05,
+        0.04842,
+        0.03133,
+        0.81024,
+        0.00097,
+        0.09912,
+        7e-05,
+        1e-05,
+        0.0,
+        2e-05,
+        0.00939,
+        0.0
+      ]
+    }
+  }
+}

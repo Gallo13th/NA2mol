@@ -16,7 +16,7 @@ Required assets (bundled in this repository or referenced by `README.md`):
 |---|---|---|---|---|---|
 | m1 | `O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12` | sp1 RNA | **exact** | **159 / 951 valid** | RNAsmol P = 0.654; rDock SCORE.INTER = −29.8 |
 | m2 | `O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12` | sp1 RNA | **exact** | 16 / 951 valid | same scaffold family |
-| T2 | `c1ccc2sc(Cc3nc4ccccc4s3)nc2c1` | KRAS G4 (7X8M) | **exact** | staged de-novo route | RNAsmol P = 0.692; rDock SCORE.INTER = −42.9 |
+| T2 | target `c1ccc2sc(Cc3nc4ccccc4s3)nc2c1`; reproduced as all-N isostere `c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1` (model-bridged from two independent same-pocket fragments) | KRAS G4 (7X8M) | scaffold + bridge exact; element conversion probe-rejected (0/1136) | 915 valid / 568 CH2-bridged | isostere: RNAsmol 0.674 (4/6), rDock −37.71 |
 | mol2 | `CN1C(=O)/C(=C/c2cc3ccc(N(C)CCO)cc3s2)SC1=S` | 8HZK | scaffold | — | benzothiophene core reproduced (isoelectronic substitution) |
 
 ---
@@ -64,82 +64,76 @@ python casestudy/sp1/stepJ_rdock_score.py
 
 ---
 
-## Case 2 — KRAS G4 pocket: bis-benzothiazole T2
+## Case 2 — KRAS G4 pocket: bis-benzimidazole dimer (T2 isostere)
 
 Pocket: `casestudy/kras_g4/ber102_rdock/ber102_pocket.pdb` (7X8M BER102 site).
 
-The target is a system of **two connected 5+6 fused rings** (benzothiazoles).
-The reproduction therefore proceeds in the natural constructive order: obtain
-the two 5+6 ring systems from model generations, connect them, then determine
-the element distribution by masked probing. All intermediate scaffolds and
-coordinates originate from model outputs; the target structure is used only
-as a verification criterion.
+The target T2 (`c1ccc2sc(Cc3nc4ccccc4s3)nc2c1`) is a CH2-bridged pair of fused
+5+6 heteroaromatics. The reproduction proceeds in the constructive order:
+obtain two intact 5+6 ring systems from two independent same-pocket model
+molecules, let the model bridge them, then determine the element distribution
+by masked probing.
 
-### Stage 1 — cold-start library and heteroaromatic scaffold retrieval
+### Stage 1 — cold-start library
 
-The 2000-molecule cold-start library for this pocket is bundled at
-`casestudy/kras_g4/ber102_gen2k/valid_mols.sdf` (regenerate with
-`genbypkt.py --pocket casestudy/kras_g4/ber102_rdock/ber102_pocket.pdb
---ligand casestudy/kras_g4/ber102_rdock/ber102_ref.sdf --total_target 2000`).
-Ranking by scaffold similarity identifies the top nitrogen heteroaromatic
-family (bis-fused aza systems, e.g. phenanthroline- and benzimidazole-type
-cores) as the isoelectronic precursor of the benzothiazole rings. Probe
-gating of direct single-ring N→S substitution:
+`casestudy/kras_g4/ber102_gen2k/valid_mols.sdf` (2000 molecules, BER102
+cold start). Benzimidazole (5+6) cores are present in several independent
+library members (gen2k1271, 473, 348, 65, 1051, ...).
 
-```bash
-python casestudy/kras_g4/t2_denovo/phaseA_probe.py
-# per-site P[S] < 10% on all candidates -> direct substitution not endorsed
-```
+### Stage 2 — two independent fragments, clash-free assembly
 
-### Stage 2 — obtain the two 5+6 rings: pose scan + N→S replacement
-
-Two model-generated benzimidazole cores (intact fused 5+6 ring systems) are
-assembled into the all-nitrogen isoelectronic dimer with generic chemistry
-(C–CH₂ 1.51 Å, coplanar, ETKDG). A rigid pose scan in the pocket probes both
-ring-nitrogen sites simultaneously; poses passing the 10% endorsement gate
-undergo the isoelectronic N→S ring conversion, yielding the two intact
-benzothiazole (5+6 fused) fragments:
+From two different library molecules, one benzimidazole ring each is
+extracted with its native conformation (atom deletion only; no internal
+geometry change). The two fragments are rigidly assembled at the generic sp3
+bridge geometry (C-CH2 1.50 A, C-CH2-C 119.3 deg as measured from the target
+class; ring-ring separation maximized). Fragment-fragment dmin 3.4 A,
+fragment-pocket dmin >= 2.3 A (no clashes):
 
 ```bash
-python casestudy/kras_g4/t2_denovo/phaseA6_posescan.py       # pose scan + gating
-python casestudy/kras_g4/t2_denovo/phaseBC_replacement_seed.py
-# -> casestudy/kras_g4/t2_denovo/phaseBC_seeds/seedBC_*.sdf
-#    (18 atoms = two intact 5+6 benzothiazole fragments, bridge atom left free)
+# seeds: casestudy/kras_g4/t2_denovo/xfrag_seeds/seed_xfrag_*.sdf
+# (e.g. seed_xfrag_1271x473.sdf: fragment A from gen2k[1271],
+#        fragment B from gen2k[473]; both BER102 cold-start)
 ```
 
-### Stage 3 — connect the two rings (seed inpainting)
+### Stage 3 — model-bridged inpainting (bridge atom free)
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python casestudy/kras_g4/t2_denovo/phaseD_generate.py \
-    --run D1 --rounds 16 --batch 100 --natom 19 --seed0 3042
-# -> casestudy/kras_g4/t2_denovo/gen_runD1/valid_mols.sdf
+    --run X1 --rounds 12 --batch 100 --natom 19 --seed0 7100 \
+    --seeds_glob 'casestudy/kras_g4/t2_denovo/xfrag_seeds/seed_xfrag_*.sdf'
 ```
 
-The model completes the single bridge position between the two fragments.
-The closest product is the NH-bridged bis-benzothiazole
-`c1ccc2sc(Nc3nc4ccccc4s3)nc2c1` — both 5+6 ring systems intact, bridge
-element still to be determined.
+915 valid products; the model itself selects the CH2 bridge in 568 of them
+(62%), giving the all-nitrogen isoelectronic scaffold
+`c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1` (see figures
+`t2_dimer_NN.png` vs target `t2_target_S.png`).
 
-### Stage 4 — bridge-element probe + replacement
+### Stage 4 — element-distribution probe (ring N -> S)
 
-```bash
-python casestudy/kras_g4/t2_denovo/phaseE_bridge_probe.py    # masked bridge probe (redock poses)
-python casestudy/kras_g4/t2_denovo/phaseE_nc_replace.py      # N -> C replacement, P[C] = 22.1% endorsed
-# -> casestudy/kras_g4/t2_denovo/phaseE_bridge/t2_replaced.sdf
-```
+All 568 model-generated poses were probed at both pyrrolic-N sites
+(1136 masked probes; generation and re-docked poses):
+P[S] max 1.82%, 0/1136 above the 10% endorsement gate — the model does not
+endorse the N->S ring conversion in any of its own poses
+(`phaseF2_batch_probe.json`). Per the probe-endorsement discipline the
+substitution is therefore not executed; the reproduction stands at the
+all-nitrogen isostere.
 
-The final product's canonical SMILES equals the target
-`c1ccc2sc(Cc3nc4ccccc4s3)nc2c1` (**exact reproduction**).
+### Element-scan evaluation of the dimer (phaseG)
 
-### Scoring
+Both pyrrolic-N positions replaced in silico (coordinates kept) and scored
+with the standard dual protocol:
 
-```bash
-CUDA_VISIBLE_DEVICES=0 python casestudy/kras_g4/t2_denovo/phaseE_rnasmol.py
-# ensemble P = 0.692 (4/6 models above threshold)
-# rDock (protocol: casestudy/kras_g4/rdock_protocol/PROTOCOL.md): SCORE.INTER = -42.92
-```
+| variant | ring atoms | RNAsmol ensemble P | gate (P>0.5) | rDock SCORE.INTER |
+|---|---|---|---|---|
+| **NN (model product)** | benzimidazole x2 | 0.674 | 4/6 | **-37.71** |
+| SS (== target T2) | benzothiazole x2 | 0.692 | 4/6 | -36.42 |
+| OO | benzoxazole x2 | 0.520 | 3/6 | -28.13 |
 
----
+The model-generated all-N dimer is the best rDock binder of the three and
+within noise of the target on RNAsmol — consistent with the model's refusal
+to convert N->S. (CH replacement is not chemically valid at these positions.)
+
+Scores: `phaseG_elem_scan/phaseG_scores.json`; structures: `t2_dimer_{NN,SS,OO}.sdf`.
 
 ## Case 3 — 8HZK fluorescent-ligand pocket: benzothiophene scaffold of mol2
 
