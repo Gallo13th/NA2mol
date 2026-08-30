@@ -10,7 +10,7 @@
     },
     "ensemble_P": 0.6742,
     "gate": 4,
-    "rdock_INTER": -37.71
+    "rdock_INTER": -34.6513
   },
   "SS": {
     "per_model": {
@@ -23,7 +23,7 @@
     },
     "ensemble_P": 0.6919,
     "gate": 4,
-    "rdock_INTER": -36.42
+    "rdock_INTER": -41.5306
   },
   "OO": {
     "per_model": {
@@ -36,6 +36,7 @@
     },
     "ensemble_P": 0.5195,
     "gate": 3,
-    "rdock_INTER": -28.13
-  }
+    "rdock_INTER": -32.9316
+  },
+  "_note": "rdock from coplanar-bridge X1 pose (seed geometry fixed 2026-08-30); rnasmol pose-independent"
 }

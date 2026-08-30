@@ -16,7 +16,7 @@ Required assets (bundled in this repository or referenced by `README.md`):
 |---|---|---|---|---|---|
 | m1 | `O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12` | sp1 RNA | **exact** | **159 / 951 valid** | RNAsmol P = 0.654; rDock SCORE.INTER = −29.8 |
 | m2 | `O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12` | sp1 RNA | **exact** | 16 / 951 valid | same scaffold family |
-| T2 | target `c1ccc2sc(Cc3nc4ccccc4s3)nc2c1`; reproduced as all-N isostere `c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1` (model-bridged from two independent same-pocket fragments) | KRAS G4 (7X8M) | scaffold + bridge exact; element conversion probe-rejected (0/1136) | 915 valid / 568 CH2-bridged | isostere: RNAsmol 0.674 (4/6), rDock −37.71 |
+| T2 | target `c1ccc2sc(Cc3nc4ccccc4s3)nc2c1`; reproduced as all-N isostere `c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1` (model-bridged from two independent same-pocket fragments) | KRAS G4 (7X8M) | scaffold + bridge exact; element conversion probe-rejected (0/1136) | 915 valid / 568 CH2-bridged | isostere: RNAsmol 0.674 (4/6), rDock −34.65; S variant −41.53 |
 | mol2 | `CN1C(=O)/C(=C/c2cc3ccc(N(C)CCO)cc3s2)SC1=S` | 8HZK | scaffold | — | benzothiophene core reproduced (isoelectronic substitution) |
 
 ---
@@ -103,16 +103,14 @@ CUDA_VISIBLE_DEVICES=0 python casestudy/kras_g4/t2_denovo/phaseD_generate.py \
     --seeds_glob 'casestudy/kras_g4/t2_denovo/xfrag_seeds/seed_xfrag_*.sdf'
 ```
 
-915 valid products; the model itself selects the CH2 bridge in 568 of them
-(62%), giving the all-nitrogen isoelectronic scaffold
+762 valid products; the model itself selects the CH2 bridge in 356 of them (47%), giving the all-nitrogen isoelectronic scaffold
 `c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1` (see figures
 `t2_dimer_NN.png` vs target `t2_target_S.png`).
 
 ### Stage 4 — element-distribution probe (ring N -> S)
 
-All 568 model-generated poses were probed at both pyrrolic-N sites
-(1136 masked probes; generation and re-docked poses):
-P[S] max 1.82%, 0/1136 above the 10% endorsement gate — the model does not
+All 356 model-generated poses were probed at both pyrrolic-N sites
+(712 masked probes): P[S] max 4.14%, 0/712 above the 10% endorsement gate — the model does not
 endorse the N->S ring conversion in any of its own poses
 (`phaseF2_batch_probe.json`). Per the probe-endorsement discipline the
 substitution is therefore not executed; the reproduction stands at the
@@ -125,13 +123,15 @@ with the standard dual protocol:
 
 | variant | ring atoms | RNAsmol ensemble P | gate (P>0.5) | rDock SCORE.INTER |
 |---|---|---|---|---|
-| **NN (model product)** | benzimidazole x2 | 0.674 | 4/6 | **-37.71** |
-| SS (== target T2) | benzothiazole x2 | 0.692 | 4/6 | -36.42 |
-| OO | benzoxazole x2 | 0.520 | 3/6 | -28.13 |
+| NN (model product) | benzimidazole x2 | 0.674 | 4/6 | -34.65 |
+| **SS (== target T2)** | benzothiazole x2 | **0.692** | 4/6 | **-41.53** |
+| OO | benzoxazole x2 | 0.520 | 3/6 | -32.93 |
 
-The model-generated all-N dimer is the best rDock binder of the three and
-within noise of the target on RNAsmol — consistent with the model's refusal
-to convert N->S. (CH replacement is not chemically valid at these positions.)
+The S variant is the best binder on both scores, yet the masked probe
+(0/712 endorsements over all 356 model poses) shows the model does not
+place S at these ring positions in any of its own poses — the element
+choice and the binding optimum are disjoint in this pocket.
+(CH replacement is not chemically valid at these positions.)
 
 Scores: `phaseG_elem_scan/phaseG_scores.json`; structures: `t2_dimer_{NN,SS,OO}.sdf`.
 
