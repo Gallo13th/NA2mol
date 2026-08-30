@@ -144,11 +144,12 @@ for tag, smi, nm in [('m1', M1, 'sp1_hit_m1'), ('m2', M2, 'sp1_hit_m2')]:
     draw(m, nm, f'generated {tag} exact hit', hl, colors)
 
 # ══ T2 two-fragment chain ══════════════════════════════════════════════════
-# sources (full molecules, benzimidazole core highlighted)
-LIB = {'t2_source_1271': ('O=C(O)NCc1ccc2cc(-c3nc4ccc([C@H](O)CO)cc4[nH]3)ccc2c1', 'gen2k[1271]'),
-       't2_source_473': ('O=C1CCN(c2ccc3[nH]c(-c4ccc(O)cc4)nc3c2)C1', 'gen2k[473]')}
-for nm, (smi, src) in LIB.items():
-    m = Chem.MolFromSmiles(smi)
+# sources (full molecules with ORIGINAL pocket coordinates from the library)
+_gen2k = Chem.SDMolSupplier('casestudy/kras_g4/ber102_gen2k/valid_mols.sdf', removeHs=True)
+LIB = {'t2_source_1271': (1271, 'gen2k[1271]'),
+       't2_source_473': (473, 'gen2k[473]')}
+for nm, (idx, src) in LIB.items():
+    m = _gen2k[idx]          # original 3D pose (BER102 pocket frame)
     core = m.GetSubstructMatches(BI)
     hl, colors = [], {}
     for k, mt in enumerate(core[:2]):
