@@ -1,0 +1,289 @@
+{
+  "pocket": "casestudy/kras_g4/ber102_rdock/ber102_pocket.pdb",
+  "ckpt": "ckpt/onlypkt_ftwithrna_oncrossdocked_onlygeneralfeat_train_best_val_loss_step_111429.pth",
+  "rounds": 20,
+  "batch": 100,
+  "seed0": 42,
+  "n_sampled": 2000,
+  "n_valid": 1601,
+  "validity_rate": 80.05,
+  "fail_total": {
+    "charged_reject": 378,
+    "disconnected": 21
+  },
+  "total_time_s": 1334.9,
+  "round_stats": [
+    {
+      "round": 0,
+      "seed": 42,
+      "valid": 79,
+      "n": 100,
+      "rate": 79.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 21
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 1,
+      "seed": 43,
+      "valid": 76,
+      "n": 100,
+      "rate": 76.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 24
+      },
+      "sdf_kekulize_skip": 2
+    },
+    {
+      "round": 2,
+      "seed": 44,
+      "valid": 86,
+      "n": 100,
+      "rate": 86.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 14
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 3,
+      "seed": 45,
+      "valid": 77,
+      "n": 100,
+      "rate": 77.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 18,
+        "disconnected": 5
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 4,
+      "seed": 46,
+      "valid": 80,
+      "n": 100,
+      "rate": 80.0,
+      "t_sample": 66.3,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 16,
+        "disconnected": 4
+      },
+      "sdf_kekulize_skip": 0
+    },
+    {
+      "round": 5,
+      "seed": 47,
+      "valid": 83,
+      "n": 100,
+      "rate": 83.0,
+      "t_sample": 66.4,
+      "t_recon": 0.4,
+      "fail": {
+        "disconnected": 1,
+        "charged_reject": 16
+      },
+      "sdf_kekulize_skip": 2
+    },
+    {
+      "round": 6,
+      "seed": 48,
+      "valid": 83,
+      "n": 100,
+      "rate": 83.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 14,
+        "disconnected": 3
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 7,
+      "seed": 49,
+      "valid": 85,
+      "n": 100,
+      "rate": 85.0,
+      "t_sample": 66.3,
+      "t_recon": 0.4,
+      "fail": {
+        "disconnected": 1,
+        "charged_reject": 14
+      },
+      "sdf_kekulize_skip": 0
+    },
+    {
+      "round": 8,
+      "seed": 50,
+      "valid": 82,
+      "n": 100,
+      "rate": 82.0,
+      "t_sample": 66.3,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 18
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 9,
+      "seed": 51,
+      "valid": 88,
+      "n": 100,
+      "rate": 88.0,
+      "t_sample": 66.4,
+      "t_recon": 0.4,
+      "fail": {
+        "disconnected": 1,
+        "charged_reject": 11
+      },
+      "sdf_kekulize_skip": 0
+    },
+    {
+      "round": 10,
+      "seed": 52,
+      "valid": 87,
+      "n": 100,
+      "rate": 87.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 13
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 11,
+      "seed": 53,
+      "valid": 79,
+      "n": 100,
+      "rate": 79.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 20,
+        "disconnected": 1
+      },
+      "sdf_kekulize_skip": 3
+    },
+    {
+      "round": 12,
+      "seed": 54,
+      "valid": 78,
+      "n": 100,
+      "rate": 78.0,
+      "t_sample": 66.3,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 21,
+        "disconnected": 1
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 13,
+      "seed": 55,
+      "valid": 76,
+      "n": 100,
+      "rate": 76.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 23,
+        "disconnected": 1
+      },
+      "sdf_kekulize_skip": 0
+    },
+    {
+      "round": 14,
+      "seed": 56,
+      "valid": 78,
+      "n": 100,
+      "rate": 78.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 21,
+        "disconnected": 1
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 15,
+      "seed": 57,
+      "valid": 75,
+      "n": 100,
+      "rate": 75.0,
+      "t_sample": 66.3,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 24,
+        "disconnected": 1
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 16,
+      "seed": 58,
+      "valid": 81,
+      "n": 100,
+      "rate": 81.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 19
+      },
+      "sdf_kekulize_skip": 2
+    },
+    {
+      "round": 17,
+      "seed": 59,
+      "valid": 83,
+      "n": 100,
+      "rate": 83.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 17
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 18,
+      "seed": 60,
+      "valid": 72,
+      "n": 100,
+      "rate": 72.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "disconnected": 1,
+        "charged_reject": 27
+      },
+      "sdf_kekulize_skip": 1
+    },
+    {
+      "round": 19,
+      "seed": 61,
+      "valid": 73,
+      "n": 100,
+      "rate": 73.0,
+      "t_sample": 66.2,
+      "t_recon": 0.4,
+      "fail": {
+        "charged_reject": 27
+      },
+      "sdf_kekulize_skip": 2
+    }
+  ]
+}

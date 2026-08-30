@@ -44,7 +44,7 @@ casestudy/**/gen_*/valid_mols.sdf
 casestudy/**/gen_*/frag_hits.sdf
 casestudy/**/gen_*/bm_hits.sdf
 casestudy/kras_g4/library_10k.sdf
-casestudy/kras_g4/ber102_gen2k/
+# ber102_gen2k/ fully tracked (staged-route Stage-1 evidence, all files small)
 casestudy/kras_g4/ber102_rdock/_attempts_radius10/
 casestudy/fmn/*.sd
 casestudy/fmn/screening_round*/*.sdf
@@ -57,3 +57,7 @@ casestudy/fmn/final_binders_sas3.sdf
 *.tar.gz
 *.pth
 nohup.out
+
+# exceptions: staged-route evidence for the T2 de-novo reproduction chain
+!casestudy/kras_g4/ber102_gen2k/valid_mols.sdf
+!casestudy/kras_g4/t2_denovo/gen_runD1/valid_mols.sdf
