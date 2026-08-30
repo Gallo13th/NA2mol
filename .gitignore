@@ -21,7 +21,7 @@ logs/
 *.log
 
 # ── Archives of exploratory / failed runs (kept on disk, not published) ─
-**/_archive/
+**/_archive*/
 casestudy/kras_g4/_archive_ber101_era/
 casestudy/8hzk/_deprecated_graft/
 
@@ -60,4 +60,4 @@ nohup.out
 
 # exceptions: staged-route evidence for the T2 de-novo reproduction chain
 !casestudy/kras_g4/ber102_gen2k/valid_mols.sdf
-!casestudy/kras_g4/t2_denovo/gen_runD1/valid_mols.sdf
+!casestudy/kras_g4/t2_denovo/gen_runX1/valid_mols.sdf
