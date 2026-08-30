@@ -31,8 +31,11 @@ Pocket: `casestudy/sp1/sp1_recp_pocket.pdb` (20 nt, `AGGUGAGCUUAGGGGAAUAA`).
 python casestudy/sp1/make_seeds.py
 ```
 
-Writes four target-skeleton seeds to `casestudy/sp1/inpaint_seeds/`
-(seeds are also bundled with the repository).
+Writes four seeds to `casestudy/sp1/inpaint_seeds/`. Each seed is the intact
+flavone ring system — a fused 6+6 bicyclic (chromene-type) core plus one
+standalone six-membered ring connected by a single bond — with hydroxyl
+positions left free; no ring systems are fragmented. The same seeds are
+bundled with the repository.
 
 ### 2. Seed-inpainting generation
 
@@ -69,20 +72,24 @@ same way and gives consistent results).
 
 ### 1. Seeds
 
-Bundled under `casestudy/kras_g4/t2_repro/inpaint_seeds/`
-(`seed_btch2ph_etkdg*.sdf`, etc.).
+Bundled under `casestudy/kras_g4/t2_repro/inpaint_seeds_r7/` (`seed_y*.sdf`).
+Each seed consists of **two intact benzothiazole fragments** (fused 5+6 ring
+systems, 18 heavy atoms in total); the model completes the single-atom bridge
+between the two fragments. No ring systems are fragmented.
 
 ### 2. Seed-inpainting generation
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python casestudy/kras_g4/t2_repro/stepC_inpaint_gen.py \
-    --run A --rounds 15 --batch 100 --natom_lo 17 --natom_hi 21
+    --run U --rounds 20 --batch 100 --natom_lo 19 --natom_hi 19 --seed0 2042 \
+    --seeds_glob 'casestudy/kras_g4/t2_repro/inpaint_seeds_r7/seed_y*.sdf'
+# independent replicate:  --run V --seed0 3042
 ```
 
-Output: `casestudy/kras_g4/t2_repro/gen_runA/` — molecules whose canonical
+Output: `casestudy/kras_g4/t2_repro/gen_runU/` — molecules whose canonical
 SMILES equals the target `c1ccc2sc(Cc3nc4ccccc4s3)nc2c1` are recorded in
-`results.json` (172 exact reproductions across runs; see
-`T2_FINAL_REPORT.md`).
+`results.json` (86 exact reproductions per run; two independent runs U and V
+give **172** in total, see `T2_FINAL_REPORT.md`).
 
 ### 3. Scoring
 
