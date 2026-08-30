@@ -11,7 +11,7 @@
 ## T2 two-fragment chain
 | figure | role |
 |---|---|
-| t2_source_1271 / t2_source_473 / t2_source_423 / t2_source_65 | the four same-pocket (BER102) cold-start molecules whose benzimidazole cores supply the anchor-seed fragments; original pocket coordinates |
+| t2_source_1271 / t2_source_473 | two independent same-pocket (BER102) cold-start molecules; benzimidazole cores highlighted |
 | t2_xfrag_seed | two-fragment anchor seed (native conformations, clash-free assembly); red = probed ring-N sites |
 | t2_dimer_NN | model product: all-N isostere, green = model-generated CH2 bridge (568/915 poses) |
 | t2_target_S | target T2 (S version) |
@@ -22,4 +22,7 @@ OO 0.520 (3/6) / -28.13.
 
 Highlights: cyan/blue = the two ring systems; red = element-conversion sites
 analysed; green = model-generated bridge; orange = hydroxyl/retained O.
-Each molecule also exported as a single-molecule SDF.
+Authoritative molecule files (single source of truth; no SDF duplicates
+are kept in this directory):
+- sp1: casestudy/sp1/{skeleton_flavone_sp1.sdf, inpaint_seeds/, gen_runA/valid_mols.sdf}
+- T2: casestudy/kras_g4/t2_denovo/{fragment_sources/, xfrag_seeds/, gen_runX1/, phaseG_elem_scan/}

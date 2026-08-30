@@ -51,10 +51,7 @@ def draw(mol, name, legend='', hl=None, colors=None):
     d.FinishDrawing()
     with open(f'{OUT}/{name}.svg', 'w') as f:
         f.write(d.GetDrawingText())
-    orig = Chem.Mol(mol)
-    orig.SetProp('_Name', name)
-    w = Chem.SDWriter(f'{OUT}/{name}.sdf'); w.write(orig); w.close()
-    print(f'[fig] {name}: {Chem.MolToSmiles(orig)}')
+    print(f'[fig] {name}: {Chem.MolToSmiles(Chem.Mol(mol))}')
 
 def two_rings(m, patt):
     matches = m.GetSubstructMatches(patt)
@@ -144,21 +141,20 @@ for tag, smi, nm in [('m1', M1, 'sp1_hit_m1'), ('m2', M2, 'sp1_hit_m2')]:
     draw(m, nm, f'generated {tag} exact hit', hl, colors)
 
 # ══ T2 two-fragment chain ══════════════════════════════════════════════════
-# sources (full molecules with ORIGINAL pocket coordinates from the library)
-_gen2k = Chem.SDMolSupplier('casestudy/kras_g4/ber102_gen2k/valid_mols.sdf', removeHs=True)
+# sources: canonical copies live in t2_denovo/fragment_sources/
 LIB = {'t2_source_1271': (1271, 'gen2k[1271]'),
        't2_source_473': (473, 'gen2k[473]'),
        't2_source_423': (423, 'gen2k[423]'),
        't2_source_65': (65, 'gen2k[65]')}
-for nm, (idx, src) in LIB.items():
-    m = _gen2k[idx]          # original 3D pose (BER102 pocket frame)
+for nm, (idx, _src) in LIB.items():
+    m = next(Chem.SDMolSupplier(f'casestudy/kras_g4/t2_denovo/fragment_sources/gen2k_{idx}.sdf', removeHs=True))
     core = m.GetSubstructMatches(BI)
     hl, colors = [], {}
     for k, mt in enumerate(core[:2]):
         c = CYAN if k == 0 else BLUE
         for a in mt:
             hl.append(a); colors[a] = c
-    draw(m, nm, f'{src} (BER102 cold start; core highlighted)', hl, colors)
+    draw(m, nm, f"{_src} (BER102 cold start; core highlighted)", hl, colors)
 
 # two-fragment anchor seed
 seed = next(Chem.SDMolSupplier('casestudy/kras_g4/t2_denovo/xfrag_seeds/seed_xfrag_1271x473.sdf', removeHs=True))
