@@ -38,20 +38,23 @@ BI = Chem.MolFromSmarts('c1ccc2[nH]cnc2c1')
 BO = Chem.MolFromSmarts('c1ccc2ocnc2c1')
 
 def draw(mol, name, legend='', hl=None, colors=None):
-    m = Chem.Mol(mol)
+    # 2D depiction on a COPY (SVG only); the exported SDF keeps the ORIGINAL
+    # coordinates (3D poses / fragment assembly geometry).
+    m2d = Chem.Mol(mol)
     rdDepictor.SetPreferCoordGen(True)
-    rdDepictor.Compute2DCoords(m)
+    rdDepictor.Compute2DCoords(m2d)
     d = MolDraw2DSVG(680, 440)
     d.drawOptions().legendFontSize = 20
     d.drawOptions().bondLineWidth = 2.5
-    d.DrawMolecule(m, legend=legend or name,
+    d.DrawMolecule(m2d, legend=legend or name,
                    highlightAtoms=hl or [], highlightAtomColors=colors or {})
     d.FinishDrawing()
     with open(f'{OUT}/{name}.svg', 'w') as f:
         f.write(d.GetDrawingText())
-    m.SetProp('_Name', name)
-    w = Chem.SDWriter(f'{OUT}/{name}.sdf'); w.write(m); w.close()
-    print(f'[fig] {name}: {Chem.MolToSmiles(m)}')
+    orig = Chem.Mol(mol)
+    orig.SetProp('_Name', name)
+    w = Chem.SDWriter(f'{OUT}/{name}.sdf'); w.write(orig); w.close()
+    print(f'[fig] {name}: {Chem.MolToSmiles(orig)}')
 
 def two_rings(m, patt):
     matches = m.GetSubstructMatches(patt)
@@ -163,8 +166,7 @@ for a in seed.GetAtoms():
 draw(seed, 't2_xfrag_seed', 'Two-fragment anchor seed (1271x473; red = probed N sites)', hl, colors)
 
 # model product (all-N isostere)
-nn = next(Chem.SDMolSupplier('casestudy/kras_g4/t2_denovo/phaseG_elem_scan/t2_dimer_NN.sdf', removeHs=True))
-nn = Chem.MolFromSmiles(Chem.MolToSmiles(nn))
+nn = next(Chem.SDMolSupplier('casestudy/kras_g4/t2_denovo/phaseG_elem_scan/t2_dimer_NN.sdf', removeHs=True))  # keep 3D pose
 hl, colors, ra = two_rings(nn, BI)
 for a in nn.GetAtoms():
     if a.GetSymbol() == 'N' and a.GetNumExplicitHs() >= 1:
@@ -186,8 +188,7 @@ for a in t2.GetAtoms():
 draw(t2, 't2_target_S', 'Target T2 (S version)', hl, colors)
 
 # element-scan variant OO
-oo = next(Chem.SDMolSupplier('casestudy/kras_g4/t2_denovo/phaseG_elem_scan/t2_dimer_OO.sdf', removeHs=True))
-oo = Chem.MolFromSmiles(Chem.MolToSmiles(oo))
+oo = next(Chem.SDMolSupplier('casestudy/kras_g4/t2_denovo/phaseG_elem_scan/t2_dimer_OO.sdf', removeHs=True))  # keep 3D pose
 hl, colors, ra = two_rings(oo, BO)
 for a in oo.GetAtoms():
     if a.GetSymbol() == 'O' and a.GetIdx() in ra:
