@@ -127,6 +127,8 @@ with the standard dual protocol:
 | **SS (== target T2)** | benzothiazole x2 | **0.692** | 4/6 | **-41.53** |
 | OO | benzoxazole x2 | 0.520 | 3/6 | -32.93 |
 | berberine (positive ref) | co-crystallized ligand | 0.595 | 4/6 | -44.995 |
+| gen2k[1271] (fragment source) | library molecule | 0.573 | 3/6 | -44.22 |
+| gen2k[473] (fragment source) | library molecule | 0.499 | 3/6 | -39.24 |
 
 The S variant is the best binder on both scores, yet the masked probe
 (0/712 endorsements over all 356 model poses) shows the model does not
