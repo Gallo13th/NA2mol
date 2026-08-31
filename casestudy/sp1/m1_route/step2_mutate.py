@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
-"""Step 2: mutation set on the cold-start assembled seed -> verify m1/m2/m3
-reachable; write mutant SDFs for scoring.
+"""Step 2 (chroman edition): mutation ladder on the clean cold-start seed.
 
-Mutations (elements/substituents only; scaffold coordinates untouched):
-  - dehydrogenate C2=C3 (chromanone -> chromone)
-  - add phenol OH at defined positions (new O placed at 1.37 A outward,
-    in the ring plane - standard sp2 C-O geometry)
+Seed = 2-phenylchroman (independent chroman core from gen[3192] + independent
+phenol B-ring from gen[9945], both native pocket coordinates).
+
+Mutations (scaffold coordinates untouched; new atoms placed at standard
+bond lengths along outward ring directions):
+  M0 seed_sat  : as-is (2-phenylchroman, saturated)
+  M1 +ox       : C4 oxidized CH2 -> C=O (chroman-4-one)
+  M2 +dehyd    : C2=C3 dehydrogenation (chromone)
+  M3 +C3-OH
+  M4 +A5,A7-OH  == m1
+  M5 +B2'-OH    == m2
+  M6 +B3'-OH    == m3
 """
-import sys, os
+import sys, os, json
 import numpy as np
 sys.path.insert(0, '/home/data/users/gaoletian/rna2smol')
 os.chdir('/home/data/users/gaoletian/rna2smol')
@@ -21,44 +28,93 @@ seed = next(Chem.SDMolSupplier(f'{OUTD}/m1_route_seed.sdf', removeHs=True))
 P0 = np.array(seed.GetConformer().GetPositions())
 print(f"seed: {Chem.MolToSmiles(seed)} ({seed.GetNumAtoms()} atoms)")
 
-CHROMANONE = Chem.MolFromSmarts('O=C1CCOc2ccccc21')
-mt = seed.GetSubstructMatches(CHROMANONE)[0]
-Os = [i for i in mt if seed.GetAtomWithIdx(i).GetSymbol() == 'O']
-O_ring = next(i for i in Os if sum(1 for n in seed.GetAtomWithIdx(i).GetNeighbors()) == 2)
-O_carb = next(i for i in Os if i != O_ring)
-C4 = next(n.GetIdx() for n in seed.GetAtomWithIdx(O_carb).GetNeighbors())
-mtset = set(mt)
-C3 = next(n.GetIdx() for n in seed.GetAtomWithIdx(C4).GetNeighbors()
-          if n.GetIdx() in mtset and not n.GetIsAromatic() and n.GetIdx() != O_carb)
-C2 = next(n.GetIdx() for n in seed.GetAtomWithIdx(O_ring).GetNeighbors()
-          if n.GetIdx() in mtset and not n.GetIsAromatic())
-if not any(n.GetIdx() == C2 for n in seed.GetAtomWithIdx(C3).GetNeighbors()):
-    C2, C3 = C3, C2
-BringC = [a.GetIdx() for a in seed.GetAtoms() if a.GetIdx() not in mtset and a.GetSymbol() == 'C' and a.GetIsAromatic()]
-BringC = sorted(BringC)
-print(f"roles: C2={C2} C3={C3} O_ring={O_ring} B-ring C={BringC}")
+# roles on the chroman seed
+O_ring = next(a.GetIdx() for a in seed.GetAtoms() if a.GetSymbol() == 'O')
+ringO = seed.GetAtomWithIdx(O_ring)
+# C2 = sp3 C bonded to O_ring AND to an aromatic C outside the chroman (the B-ring link)
+C2 = None
+for nb in ringO.GetNeighbors():
+    if not nb.GetIsAromatic():
+        nbs = [x for x in nb.GetNeighbors() if x.GetIdx() != O_ring]
+        if any(x.GetIsAromatic() and not x.GetIdx() in
+               [y.GetIdx() for y in seed.GetAtomWithIdx(O_ring).GetNeighbors()] for x in nbs) \
+           and any(not x.GetIsAromatic() for x in nbs):
+            C2 = nb.GetIdx(); break
+assert C2 is not None
+C3 = next(nb.GetIdx() for nb in seed.GetAtomWithIdx(C2).GetNeighbors()
+          if not nb.GetIsAromatic() and nb.GetIdx() != O_ring)
+C4 = next(nb.GetIdx() for nb in seed.GetAtomWithIdx(C3).GetNeighbors()
+          if not nb.GetIsAromatic() and nb.GetIdx() != C2)
+print(f"roles: O_ring={O_ring} C2={C2} C3={C3} C4={C4}")
 
-def add_OH(mol, P, c_idx):
-    """attach an OH oxygen at ring carbon c_idx: 1.37 A outward in ring plane."""
-    ri = mol.GetRingInfo()
-    ring = next(r for r in ri.AtomRings() if c_idx in r)
-    Pring = np.array([P[i] for i in ring])
-    n = np.linalg.svd(Pring - Pring.mean(0))[2][2]
-    v = P[c_idx] - Pring.mean(0)
+# A-ring = the benzene fused to the pyran (contains C4a = aromatic neighbor of C4)
+C4a = next(n.GetIdx() for n in seed.GetAtomWithIdx(C4).GetNeighbors() if n.GetIsAromatic())
+Aring = next(r for r in seed.GetRingInfo().AtomRings() if C4a in r)
+C8a = next(nb.GetIdx() for nb in ringO.GetNeighbors() if nb.GetIsAromatic())
+aord = [C4a]
+while len(aord) < 6:
+    for c in Aring:
+        if c not in aord and seed.GetBondBetweenAtoms(c, aord[-1]):
+            aord.append(c); break
+if aord.index(C8a) == 1:
+    aord = [aord[0]] + aord[:0:-1]
+c5, c6, c7, c8 = aord[1], aord[2], aord[3], aord[4]
+print(f"A-ring: C5={c5} C6={c6} C7={c7} C8={c8}")
+
+# B-ring
+BrC = [a.GetIdx() for a in seed.GetAtoms()
+       if a.GetIsAromatic() and a.GetIdx() not in Aring and a.GetSymbol() == 'C']
+link = next(n.GetIdx() for n in seed.GetAtomWithIdx(C2).GetNeighbors()
+            if n.GetIsAromatic() and n.GetIdx() not in Aring)
+bring_ring = next(r for r in seed.GetRingInfo().AtomRings() if link in r and set(r) <= set(BrC) | {link})
+bord = [link]
+while len(bord) < 6:
+    for c in bring_ring:
+        if c not in bord and seed.GetBondBetweenAtoms(c, bord[-1]):
+            bord.append(c); break
+pos = {2: bord[1], 3: bord[2], 4: bord[3], 5: bord[4], 6: bord[5]}
+have_OH = [k for k, v in pos.items()
+           if any(nb.GetSymbol() == 'O' and nb.GetIdx() != O_ring for nb in seed.GetAtomWithIdx(v).GetNeighbors())]
+print(f"B-ring: link={link}, 已有OH位 {have_OH}")
+
+def place_dir(P, ring_atoms, c):
+    Pr = np.array([P[i] for i in ring_atoms])
+    n = np.linalg.svd(Pr - Pr.mean(0))[2][2]
+    v = P[c] - Pr.mean(0)
     v = v - (v @ n) * n
-    v /= np.linalg.norm(v)
-    opos = P[c_idx] + v * 1.37
+    return v / np.linalg.norm(v)
+
+def add_OH(mol, P, c_idx, ring_atoms):
+    v = place_dir(P, ring_atoms, c_idx)
     rw = Chem.RWMol(mol)
     oidx = rw.AddAtom(Chem.Atom(8))
     rw.AddBond(c_idx, oidx, Chem.BondType.SINGLE)
     m2 = rw.GetMol()
+    a = m2.GetAtomWithIdx(oidx)
+    a.SetNumExplicitHs(1); a.SetNoImplicit(True); a.SetFormalCharge(0)
     Chem.SanitizeMol(m2)
-    P2 = np.vstack([P, opos])
-    return m2, P2
+    return m2, np.vstack([P, P[c_idx] + v * 1.37])
+
+def oxidize_C4(mol, P):
+    """C4 CH2 -> C=O: add carbonyl O along the outward sp2 direction."""
+    # direction: away from ring centroid of the chroman heavy atoms
+    chrom = list(range(10))  # first 10 atoms are the chroman core in the seed
+    v = P[C4] - P[chrom].mean(0)
+    # project into the C3-C4-C4a plane is overkill; outward radial is fine
+    v /= np.linalg.norm(v)
+    rw = Chem.RWMol(mol)
+    oidx = rw.AddAtom(Chem.Atom(8))
+    rw.AddBond(C4, oidx, Chem.BondType.DOUBLE)
+    a4 = rw.GetAtomWithIdx(C4)
+    a4.SetNumExplicitHs(0); a4.SetNoImplicit(True)
+    o = rw.GetAtomWithIdx(oidx)
+    o.SetNumExplicitHs(0); o.SetNoImplicit(True); o.SetFormalCharge(0)
+    m2 = rw.GetMol()
+    Chem.SanitizeMol(m2)
+    return m2, np.vstack([P, P[C4] + v * 1.22])
 
 def dehydrogenate(mol, i, j):
     rw = Chem.RWMol(mol)
-    b = rw.GetBondBetweenAtoms(i, j)
     rw.RemoveBond(i, j)
     rw.AddBond(i, j, Chem.BondType.DOUBLE)
     m2 = rw.GetMol()
@@ -78,80 +134,39 @@ def write(m, P, name):
     w = Chem.SDWriter(f'{OUTD}/{name}.sdf'); w.write(m); w.close()
     return Chem.MolToSmiles(m)
 
-# B-ring mapping: ring atoms in order; find positions relative to the link (C1')
-# link = the B-ring C bonded to C2
-link = next(n.GetIdx() for n in seed.GetAtomWithIdx(C2).GetNeighbors() if n.GetIdx() in BringC)
-ri = seed.GetRingInfo()
-bring_ring = next(r for r in ri.AtomRings() if link in r)
-bring_ring = list(bring_ring)
-# order the ring: BFS from link
-ordered = [link]
-while len(ordered) < 6:
-    for c in bring_ring:
-        if c not in ordered and seed.GetBondBetweenAtoms(c, ordered[-1]):
-            ordered.append(c); break
-# positions: 2',3',4',5',6' = ordered[1..5]
-pos = {2: ordered[1], 3: ordered[2], 4: ordered[3], 5: ordered[4], 6: ordered[5]}
-# existing 4'-OH already on the B-ring? find ring C with O neighbor
-have_OH = [c for c in bring_ring
-           if any(nb.GetSymbol() == 'O' and nb.GetIdx() != O_ring and nb.GetIdx() != O_carb
-                  for nb in seed.GetAtomWithIdx(c).GetNeighbors())]
-print(f"B-ring link={link} ordered={ordered} 已有OH位: {[k for k,v in pos.items() if v in have_OH]}")
+M1S = 'O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12'
+M2S = 'O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12'
+M3S = 'O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12'
+targets = {'m1': M1S, 'm2': M2S, 'm3': M3S}
 
-# A-ring (benzene of chromanone) positions 5,6,7,8: aromatic C in mt
-AringC = [i for i in mt if seed.GetAtomWithIdx(i).GetIsAromatic()]
-aring = next(r for r in ri.AtomRings() if set(r) == set(AringC))
-# order A-ring starting from C4a (bonded to C4)
-C4a = next(n.GetIdx() for n in seed.GetAtomWithIdx(C4).GetNeighbors() if n.GetIdx() in AringC)
-C8a = next(n.GetIdx() for n in seed.GetAtomWithIdx(O_ring).GetNeighbors() if n.GetIdx() in AringC)
-aord = [C4a]
-while len(aord) < 6:
-    for c in aring:
-        if c not in aord and seed.GetBondBetweenAtoms(c, aord[-1]):
-            aord.append(c); break
-# C5 adjacent to C4a on the side away from C8a; C8 adjacent to C8a
-# canonical order along ring: C4a(0) C5(1) C6(2) C7(3) C8(4) C8a(5)
-aord = [C4a]
-while len(aord) < 6:
-    for c in aring:
-        if c not in aord and seed.GetBondBetweenAtoms(c, aord[-1]):
-            aord.append(c); break
-if aord.index(C8a) == 1:            # walked the wrong way; reverse
-    aord = [aord[0]] + aord[:0:-1]
-c5, c6, c7, c8 = aord[1], aord[2], aord[3], aord[4]
-print(f"A-ring order: {aord} -> C5={c5} C6={c6} C7={c7} C8={c8}")
+# ladder build
+ladder = []
+m, P = seed, P0
+smi = write(m, P, 'mut_seed_sat')
+ladder.append(('mut_seed_sat', smi))
+# + C4 oxidation
+m, P = oxidize_C4(m, P)
+ladder.append(('mut_ox', write(m, P, 'mut_ox')))
+# + C2=C3 dehydrogenation
+m = dehydrogenate(m, C2, C3)
+ladder.append(('mut_ox_dehyd', write(m, P, 'mut_ox_dehyd')))
+# + C3-OH
+m, P = add_OH(m, P, C3, list(range(10)))
+ladder.append(('mut_ox_dehyd_3OH', write(m, P, 'mut_ox_dehyd_3OH')))
+# + A5, A7 OH  (== m1)
+mA, PA = add_OH(m, P, c5, list(Aring))
+mA, PA = add_OH(mA, PA, c7, list(Aring))
+ladder.append(('mut_m1', write(mA, PA, 'mut_m1')))
+# m2: m1 + B2'-OH
+mB, PB = add_OH(mA, PA, pos[2], list(bring_ring))
+ladder.append(('mut_m2', write(mB, PB, 'mut_m2')))
+# m3: m1 + B3'-OH
+mC, PC = add_OH(mA, PA, pos[3], list(bring_ring))
+ladder.append(('mut_m3', write(mC, PC, 'mut_m3')))
 
-# ── mutation ladder ────────────────────────────────────────────────────────
-M1 = 'O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12'
-M2 = 'O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12'
-M3 = 'O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12'
-targets = {'m1': M1, 'm2': M2, 'm3': M3}
-
-# ladder: (name, dehyd?, C3-OH?, A-ring OH set, B-ring extra OH set)
-ladder = [
-    ('mut_seed_sat',  False, set(), set(),     set()),   # chromanone as-is
-    ('mut_dehyd',     True,  set(), set(),     set()),   # chromone core
-    ('mut_dehyd_3OH', True,  {3},  set(),     set()),   # +C3-OH
-    ('mut_m1',        True,  {3},  {5, 7},    set()),   # == m1 (A-ring 5,7-diOH)
-    ('mut_m2',        True,  {3},  {5, 7},    {2}),     # m1 + 2'-OH
-    ('mut_m3',        True,  {3},  {5, 7},    {3}),     # m1 + 3'-OH
-]
-results = {}
-for name, dehyd, oh3, aOH, bOH in ladder:
-    m = Chem.Mol(seed); P = P0.copy()
-    if dehyd:
-        m = dehydrogenate(m, C2, C3)
-    if 3 in oh3:
-        m, P = add_OH(m, P, C3)
-    for p_ in sorted(aOH):
-        m, P = add_OH(m, P, {'5': c5, '6': c6, '7': c7}[str(p_)])
-    for p_ in sorted(bOH):
-        m, P = add_OH(m, P, pos.get(p_, pos[3]))
-    smi = write(m, P, name)
+print()
+for name, smi in ladder:
     hit = [t for t, s in targets.items() if s == smi]
-    results[name] = smi
-    print(f"{name:18s}: {smi[:85]}{'  ←== ' + hit[0] if hit else ''}")
-json_out = {k: v for k, v in results.items()}
-import json
-json.dump(json_out, open(f'{OUTD}/mutation_smiles.json', 'w'), indent=2)
-print('[saved] mutants + mutation_smiles.json')
+    print(f"{name:20s}: {smi[:82]}{'  ←== ' + hit[0] if hit else ''}")
+json.dump(dict(ladder), open(f'{OUTD}/mutation_smiles.json', 'w'), indent=2)
+print('[saved] mutants')

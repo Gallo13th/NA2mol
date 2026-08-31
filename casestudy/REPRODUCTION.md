@@ -35,12 +35,10 @@ scored.
 python casestudy/sp1/m1_route/step1_assemble.py
 ```
 
-- chroman-4-one core (11 atoms, native pocket coordinates) extracted from
-  cold-start molecule gen[499] — ring topology identical to the chromone
-  core, C4 carbonyl already present;
-- phenol B-ring (7 atoms, native coordinates) from cold-start molecule
-  gen[12] (4'-OH already present);
-- rigid biphenyl assembly at C2 (fragment dmin 2.51 A, pocket dmin 1.18 A).
+- an INDEPENDENT chroman core (ring system not fused to any other ring,
+  native pocket coordinates) from cold-start gen[3192];
+- an independent phenol B-ring from single-ring cold-start gen[9945];
+- rigid biphenyl assembly at C2 (fragment dmin 2.42 A, pocket dmin 2.45 A).
 
 ### Stage 2 — mutation ladder + dual scoring
 
@@ -51,12 +49,13 @@ python casestudy/sp1/m1_route/step2_mutate.py     # builds mutants, verifies SMI
 
 | mutant | elements applied | SMILES == | RNAsmol P | rDock INTER |
 |---|---|---|---|---|
-| mut_seed_sat | none (chromanone as-is) | — | 0.691 | -40.48 |
-| mut_dehyd | C2=C3 dehydrogenation | — | 0.652 | -39.82 |
-| mut_dehyd_3OH | + C3-OH | — | 0.652 | -42.21 |
-| **mut_m1** | + A-ring 5,7-OH | **m1** | 0.652 | -42.47 |
-| **mut_m2** | + B-ring 2'-OH | **m2** | 0.652 | -44.74 |
-| **mut_m3** | + B-ring 3'-OH | **m3** | 0.652 | **-45.03** |
+| mut_seed_sat | none (2-phenylchroman as-is) | — | 0.713 | -35.49 |
+| mut_ox | C4 oxidation CH2 -> C=O | — | 0.648 | -37.20 |
+| mut_ox_dehyd | + C2=C3 dehydrogenation | — | 0.652 | -36.55 |
+| mut_ox_dehyd_3OH | + C3-OH | — | 0.652 | -38.68 |
+| **mut_m1** | + A-ring 5,7-OH | **m1** | 0.652 | -42.97 |
+| **mut_m2** | + B-ring 2'-OH | **m2** | 0.652 | **-47.81** |
+| **mut_m3** | + B-ring 3'-OH | **m3** | 0.652 | -43.00 |
 
 All three target molecules are reached exactly (canonical SMILES
 identical); rDock improves monotonically along the mutation ladder with

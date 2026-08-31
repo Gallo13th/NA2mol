@@ -94,21 +94,17 @@ for nm, smi, leg in [
     draw(m, nm, leg, hl, colors)
 
 # scaffold sources: COMPLETE molecules with the used fragment highlighted
-CHROMANONE = Chem.MolFromSmarts('O=C1CCOc2ccccc21')
-_gen = Chem.SDMolSupplier('casestudy/sp1/m1_route/fragment_sources/gen499.sdf', removeHs=True)
-m499 = _gen[0]
-mtc = m499.GetSubstructMatches(CHROMANONE)[0]
+CHROMAN = Chem.MolFromSmarts('C1COc2ccccc2C1')
+m3192 = next(Chem.SDMolSupplier('casestudy/sp1/m1_route/fragment_sources/gen3192.sdf', removeHs=True))
+mtc = m3192.GetSubstructMatches(CHROMAN)[0]
 hl = list(mtc)
-draw(m499, 'sp1_source_core_499', 'gen[499] complete (chromanone core highlighted)',
-     hl, {i: CYAN for i in hl})
+draw(m3192, 'sp1_source_core_3192', 'gen[3192] complete (chroman core highlighted)', hl, {i: CYAN for i in hl})
 
-PHEN = Chem.MolFromSmarts('c1ccccc1O')
-_gen12 = Chem.SDMolSupplier('casestudy/sp1/m1_route/fragment_sources/gen12.sdf', removeHs=True)
-m12 = _gen12[0]
-mtb = m12.GetSubstructMatches(PHEN)[0]
+m9945 = next(Chem.SDMolSupplier('casestudy/sp1/m1_route/fragment_sources/gen9945.sdf', removeHs=True))
+PHEN = Chem.MolFromSmarts('c1ccccc1[OH]')
+mtb = m9945.GetSubstructMatches(PHEN)[0]
 hlb = list(mtb)
-draw(m12, 'sp1_source_bring_12', 'gen[12] complete (phenol B-ring highlighted)',
-     hlb, {i: BLUE for i in hlb})
+draw(m9945, 'sp1_source_bring_9945', 'gen[9945] complete (phenol B-ring highlighted)', hlb, {i: BLUE for i in hlb})
 
 # assembled seed
 seed = next(Chem.SDMolSupplier('casestudy/sp1/m1_route/m1_route_seed.sdf', removeHs=True))
@@ -116,7 +112,7 @@ hl, colors = flav_hl(seed)
 draw(seed, 'sp1_route_seed', 'Assembled seed (499 core + 12 B-ring)', hl, colors)
 
 # mutation ladder
-for tag in ['mut_seed_sat', 'mut_dehyd', 'mut_dehyd_3OH', 'mut_m1', 'mut_m2', 'mut_m3']:
+for tag in ['mut_seed_sat', 'mut_ox', 'mut_ox_dehyd', 'mut_ox_dehyd_3OH', 'mut_m1', 'mut_m2', 'mut_m3']:
     m = next(Chem.SDMolSupplier(f'casestudy/sp1/m1_route/{tag}.sdf', removeHs=True))
     hl, colors = flav_hl(m)
     draw(m, f'sp1_{tag}', tag.replace('mut_', ''), hl, colors)

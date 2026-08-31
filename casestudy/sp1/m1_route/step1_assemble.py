@@ -32,10 +32,8 @@ from util.ligand_code_util import parse_pdb_file
 PP = np.array(parse_pdb_file(POCKET)['pos'])
 
 lib = Chem.SDMolSupplier(LIB, removeHs=True)
-CHROMANONE = Chem.MolFromSmarts('O=C1CCOc2ccccc21')
-# SMARTS atom order: [0]=O(carbonyl) [1]=C4 [2]=C3 [3]=C2 [4]=O(ring)
-#                    [5]=C8a [6]=C8 [7]=C7 [8]=C6 [9]=C5 [10]=C4a
-PHENOL = Chem.MolFromSmarts('c1ccccc1O')   # 6 ring C + 1 OH O
+CHROMANONE = Chem.MolFromSmarts('C1COc2ccccc2C1')  # chroman (saturated; C4 oxidized later as mutation)
+PHENOL = Chem.MolFromSmarts('c1ccccc1[OX2H0,OX2H1]')  # 6 ring C + phenol/ether O (charge-free, deg<=2)
 
 def extract(m, keep_idx):
     keep = set(keep_idx)
@@ -76,29 +74,52 @@ def core_roles(mol, mt):
         C2, C3 = C3, C2   # ensure C2-O_ring, C3-C4 adjacency
     return dict(O1=O_ring, O4=O_carb, C4=C4, C3=C3, C2=C2)
 
-cores = []
+def independence(m, frag_atoms):
+    frag = set(frag_atoms)
+    ri = m.GetRingInfo()
+    fused = sum(1 for r in ri.AtomRings() if set(r) & frag and not set(r) <= frag)
+    ext = sum(1 for i in frag for nb in m.GetAtomWithIdx(i).GetNeighbors() if nb.GetIdx() not in frag)
+    return fused, ext
+
+allcores = []
 for idx, m in enumerate(lib):
     if m is None: continue
-    mts = m.GetSubstructMatches(CHROMANONE, uniquify=True)
-    if not mts: continue
-    mt = sorted(mts[0])
+    for mt in m.GetSubstructMatches(CHROMANONE, uniquify=True):
+        fused, ext = independence(m, mt)
+        if fused == 0:
+            allcores.append((ext, idx, sorted(mt)))
+allcores.sort()
+cores = []
+for ext, idx, mt in allcores[:4]:
+    m = lib[idx]
     core, P = extract(m, mt)
-    roles = core_roles(core, list(range(core.GetNumAtoms())))  # roles on the extracted mol
-    cores.append(dict(lib_idx=idx, mol=core, P=P, **roles))
-    print(f"[core] gen[{idx}] {Chem.MolToSmiles(core)} C2@{roles['C2']} C3@{roles['C3']}")
-    if len(cores) >= 4: break
+    # chroman has no carbonyl; roles: O_ring, C2/C3 (sp3 CH2 adjacent chain)
+    O_ring = next(i for i in range(core.GetNumAtoms()) if core.GetAtomWithIdx(i).GetSymbol()=='O')
+    mtsat = [a.GetIdx() for a in core.GetAtoms() if not a.GetIsAromatic()]
+    # sp3 C adjacent to O_ring = C2; the other two sp3 = C3, C4
+    C2 = next(n.GetIdx() for n in core.GetAtomWithIdx(O_ring).GetNeighbors() if not core.GetAtomWithIdx(n.GetIdx()).GetIsAromatic())
+    C3 = next(n.GetIdx() for n in core.GetAtomWithIdx(C2).GetNeighbors() if not core.GetAtomWithIdx(n.GetIdx()).GetIsAromatic() and n.GetIdx() != O_ring)
+    C4 = next(n.GetIdx() for n in core.GetAtomWithIdx(C3).GetNeighbors() if not core.GetAtomWithIdx(n.GetIdx()).GetIsAromatic() and n.GetIdx() != C2)
+    cores.append(dict(lib_idx=idx, mol=core, P=P, O1=O_ring, C2=C2, C3=C3, C4=C4))
+    print(f"[core] gen[{idx}] ext={ext} {Chem.MolToSmiles(core)} C2@{C2} C3@{C3} C4@{C4}")
 
 # ── 2. B-ring phenols (from molecules WITHOUT chromanone, to stay independent)
 core_libs = {c['lib_idx'] for c in cores}
 brings = []
 for idx, m in enumerate(lib):
     if m is None or idx in core_libs: continue
+    if sum(a.GetFormalCharge() for a in m.GetAtoms()) != 0: continue  # neutral only
+    ri = m.GetRingInfo()
+    if len(ri.AtomRings()) != 1: continue          # single-ring molecules only
     mts = m.GetSubstructMatches(PHENOL, uniquify=True)
     if not mts: continue
-    mt = list(mts[0])           # 6 ring C + OH O
+    oI = mts[0][6]
+    oa = m.GetAtomWithIdx(oI)
+    if oa.GetDegree() != 1: continue               # true phenol OH (terminal O)
+    mt = sorted(mts[0][:6]) + [oI]
     frag, P = extract(m, mt)
     brings.append(dict(lib_idx=idx, mol=frag, P=P))
-    if len(brings) >= 30: break
+    if len(brings) >= 20: break
 print(f"[B-ring] {len(brings)} phenol fragments")
 
 # ── 3. assembly ────────────────────────────────────────────────────────────
@@ -181,12 +202,27 @@ print(f"\n[选定] core gen[{core['lib_idx']}] × B-ring gen[{bring['lib_idx']}]
 # 合并分子(核11 + 苯酚环7 = 18原子), C2-C1' 成键
 combined = Chem.CombineMols(core['mol'], bring['mol'])
 rw = Chem.RWMol(combined)
-# B-ring(原子11..17): para-to-OH 的环碳(程序判定)
-ohC = next(c for c in range(11, 17)
-           if any(nb.GetIdx() == 17 for nb in rw.GetAtomWithIdx(c).GetNeighbors()))
-ring_ids = list(range(11, 17))
-para = 11 + (ring_ids.index(ohC) + 3) % 6
+nA = core['mol'].GetNumAtoms()
+# locate the B-ring phenol O (terminal, neutral) AFTER atom reordering by extract
+bo = next(a.GetIdx() for a in rw.GetAtoms()
+          if a.GetIdx() >= nA and a.GetSymbol() == 'O' and a.GetDegree() == 1)
+ohC = next(nb.GetIdx() for nb in rw.GetAtomWithIdx(bo).GetNeighbors())
+bring_c = [a.GetIdx() for a in rw.GetAtoms() if a.GetIdx() >= nA and a.GetIsAromatic()]
+bord = [ohC]
+while len(bord) < 6:
+    for c in bring_c:
+        if c not in bord and rw.GetBondBetweenAtoms(c, bord[-1]):
+            bord.append(c); break
+para = bord[3]                      # position opposite the 4'-OH
 rw.AddBond(core['C2'], para, Chem.BondType.SINGLE)
+print(f"[bond] C2({core['C2']}) - B-ring para({para}); 4'-OH at {ohC}")
+seed = rw.GetMol()
+# normalize the B-ring phenol oxygen (extraction can leave odd H states)
+for a in seed.GetAtoms():
+    if a.GetSymbol() == 'O' and a.GetDegree() == 1:
+        a.SetNumExplicitHs(1)
+        a.SetNoImplicit(True)
+        a.SetFormalCharge(0)
 seed = rw.GetMol()
 conf = Chem.Conformer(seed.GetNumAtoms())
 for k, p in enumerate(Pall):
