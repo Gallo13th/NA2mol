@@ -20,6 +20,7 @@ from rdkit import Chem
 from rdkit import RDLogger
 from rdkit.Chem import rdDepictor
 from rdkit.Chem.Draw import MolDraw2DSVG
+from rdkit.Geometry import Point3D
 RDLogger.DisableLog('rdApp.*')
 
 ROOT = '/home/data/users/gaoletian/rna2smol'
@@ -62,10 +63,13 @@ def two_rings(m, patt):
             hl.append(a); colors[a] = c
     return hl, colors, set(i for mt in matches for i in mt)
 
-# ══ sp1 chain ══════════════════════════════════════════════════════════════
+# ══ sp1 m1-route chain ═════════════════════════════════════════════════════
+print('── sp1 m1 route ──')
+
 def flav_hl(m):
     core = m.GetSubstructMatch(Chem.MolFromSmarts('c1ccc2c(c1)occc2')) or \
-           m.GetSubstructMatch(Chem.MolFromSmarts('O=c1ccoc2ccccc12'))
+           m.GetSubstructMatch(Chem.MolFromSmarts('O=c1ccoc2ccccc12')) or \
+           m.GetSubstructMatch(Chem.MolFromSmarts('O=C1CCOc2ccccc21'))
     ri = m.GetRingInfo()
     bring = next((r for r in ri.AtomRings()
                   if len(r) == 6 and not (set(r) & set(core))), None)
@@ -80,65 +84,63 @@ def flav_hl(m):
             colors[a.GetIdx()] = ORANGE; hl.append(a.GetIdx())
     return hl, colors
 
+# targets
 for nm, smi, leg in [
-        ('sp1_target_m1', 'O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12', 'Target m1 (reproduced 159x)'),
-        ('sp1_target_m2', 'O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12', 'Target m2 (reproduced 16x)'),
-        ('sp1_target_m3', 'O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12', 'Target m3 (not reproduced)')]:
+        ('sp1_target_m1', 'O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12', 'Target m1'),
+        ('sp1_target_m2', 'O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12', 'Target m2'),
+        ('sp1_target_m3', 'O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12', 'Target m3')]:
     m = Chem.MolFromSmiles(smi)
     hl, colors = flav_hl(m)
     draw(m, nm, leg, hl, colors)
 
-# skeleton
-skel = next(Chem.SDMolSupplier('casestudy/sp1/skeleton_flavone_sp1.sdf', removeHs=True))
-ri = skel.GetRingInfo()
-ring_sets = [set(r) for r in ri.AtomRings()]
-fp = next(((s1, s2) for i, s1 in enumerate(ring_sets) for j, s2 in enumerate(ring_sets)
-           if j > i and len(s1 & s2) >= 2 and len(s1) == 6 and len(s2) == 6), None)
-st = next((s for s in ring_sets if s not in fp and len(s) == 6), None)
-hl, colors = [], {}
-for a in fp[0] | fp[1]:
-    hl.append(a); colors[a] = CYAN
-if st:
-    for a in st:
-        hl.append(a); colors[a] = BLUE
-draw(skel, 'sp1_skeleton', '21-atom skeleton (6+6 fused core + six-membered ring)', hl, colors)
+# scaffold sources (original cold-start coordinates)
+CHROMANONE = Chem.MolFromSmarts('O=C1CCOc2ccccc21')
+src_m = next(Chem.SDMolSupplier('/tmp/opencode/sp1_cold_result_keep.sdf', removeHs=True)) if os.path.exists('/tmp/opencode/sp1_cold_result_keep.sdf') else None
+# extract from the library (same code path as step1)
+_gen = None
+if src_m is not None:
+    _gen = Chem.SDMolSupplier('/tmp/opencode/sp1_cold_result_keep.sdf', removeHs=True)
+m499 = _gen[499]
+mtc = m499.GetSubstructMatches(CHROMANONE)[0]
+rw = Chem.RWMol(m499)
+for i in sorted(set(range(m499.GetNumAtoms())) - set(mtc), reverse=True):
+    rw.RemoveAtom(i)
+core_mol = rw.GetMol(); Chem.SanitizeMol(core_mol)
+# rebuild conformer with extracted atom order (sorted keep index)
+order = sorted(mtc)
+P499 = np.array(m499.GetConformer().GetPositions())[order]
+conf = Chem.Conformer(core_mol.GetNumAtoms())
+for k in range(core_mol.GetNumAtoms()):
+    conf.SetAtomPosition(k, Point3D(*map(float, P499[k])))
+core_mol.RemoveAllConformers(); core_mol.AddConformer(conf, assignId=True)
+draw(core_mol, 'sp1_source_core_499', 'gen[499] chromanone core (cold start)', list(range(11)), {i: CYAN for i in range(11)})
 
-# seeds s1-s4
-for s in ['s1', 's2', 's3', 's4']:
-    m = next(Chem.SDMolSupplier(f'casestudy/sp1/inpaint_seeds/seed_{s}_flavone.sdf', removeHs=True))
-    ri = m.GetRingInfo()
-    ring_sets = [set(r) for r in ri.AtomRings()]
-    fp = next(((s1, s2) for i, s1 in enumerate(ring_sets) for j, s2 in enumerate(ring_sets)
-               if j > i and len(s1 & s2) >= 2 and len(s1) == 6 and len(s2) == 6), None)
-    st = next((x for x in ring_sets if x not in fp and len(x) == 6), None)
-    hl, colors = [], {}
-    for a in fp[0] | fp[1]:
-        hl.append(a); colors[a] = CYAN
-    if st:
-        for a in st:
-            hl.append(a); colors[a] = BLUE
-    for a in m.GetAtoms():
-        if a.GetSymbol() == 'O':
-            colors[a.GetIdx()] = ORANGE; hl.append(a.GetIdx())
-    draw(m, f'sp1_seed_{s}', f'sp1 seed {s}', hl, colors)
+m12 = _gen[12]
+PHEN = Chem.MolFromSmarts('c1ccccc1O')
+mtb = m12.GetSubstructMatches(PHEN)[0]
+rw = Chem.RWMol(m12)
+for i in sorted(set(range(m12.GetNumAtoms())) - set(mtb), reverse=True):
+    rw.RemoveAtom(i)
+bring_mol = rw.GetMol(); Chem.SanitizeMol(bring_mol)
+order_b = sorted(mtb)
+P12 = np.array(m12.GetConformer().GetPositions())[order_b]
+conf_b = Chem.Conformer(bring_mol.GetNumAtoms())
+for k in range(bring_mol.GetNumAtoms()):
+    conf_b.SetAtomPosition(k, Point3D(*map(float, P12[k])))
+bring_mol.RemoveAllConformers(); bring_mol.AddConformer(conf_b, assignId=True)
+draw(bring_mol, 'sp1_source_bring_12', 'gen[12] phenol B-ring (cold start)', list(range(7)),
+     {i: BLUE for i in range(6)})
 
-# generated exact hits (one representative each)
-recs = json.load(open('casestudy/sp1/gen_runA/results.json'))['results']
-M1 = 'O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12'
-M2 = 'O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12'
-mols_by_name = {}
-for m in Chem.SDMolSupplier('casestudy/sp1/gen_runA/valid_mols.sdf', removeHs=True):
-    if m is not None and m.HasProp('_Name'):
-        mols_by_name[m.GetProp('_Name')] = m
-for tag, smi, nm in [('m1', M1, 'sp1_hit_m1'), ('m2', M2, 'sp1_hit_m2')]:
-    r = next((x for x in recs if x['smiles'] == smi), None)
-    if r is None:
-        continue
-    m = mols_by_name.get(r['name'])
-    if m is None:
-        continue
+# assembled seed
+seed = next(Chem.SDMolSupplier('casestudy/sp1/m1_route/m1_route_seed.sdf', removeHs=True))
+hl, colors = flav_hl(seed)
+draw(seed, 'sp1_route_seed', 'Assembled seed (499 core + 12 B-ring)', hl, colors)
+
+# mutation ladder
+for tag in ['mut_seed_sat', 'mut_dehyd', 'mut_dehyd_3OH', 'mut_m1', 'mut_m2', 'mut_m3']:
+    m = next(Chem.SDMolSupplier(f'casestudy/sp1/m1_route/{tag}.sdf', removeHs=True))
     hl, colors = flav_hl(m)
-    draw(m, nm, f'generated {tag} exact hit', hl, colors)
+    draw(m, f'sp1_{tag}', tag.replace('mut_', ''), hl, colors)
 
 # ══ T2 two-fragment chain ══════════════════════════════════════════════════
 # sources: canonical copies live in t2_denovo/fragment_sources/

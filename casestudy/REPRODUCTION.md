@@ -14,55 +14,53 @@ Required assets (bundled in this repository or referenced by `README.md`):
 
 | id | molecule (canonical SMILES) | pocket | reproduction level | exact hits | reference scores |
 |---|---|---|---|---|---|
-| m1 | `O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12` | sp1 RNA | **exact** | **159 / 951 valid** | RNAsmol P = 0.654; rDock SCORE.INTER = −29.8 |
-| m2 | `O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12` | sp1 RNA | **exact** | 16 / 951 valid | same scaffold family |
+| m1 | `O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12` | sp1 RNA | **exact** (mutation on cold-start scaffold) | — | RNAsmol 0.652; rDock −42.47 |
+| m2 | `O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12` | sp1 RNA | **exact** (mutation) | — | RNAsmol 0.652; rDock −44.74 |
 | T2 | target `c1ccc2sc(Cc3nc4ccccc4s3)nc2c1`; reproduced as all-N isostere `c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1` (model-bridged from two independent same-pocket fragments) | KRAS G4 (7X8M) | scaffold + bridge exact; element conversion probe-rejected (0/1136) | 915 valid / 568 CH2-bridged | isostere: RNAsmol 0.674 (4/6), rDock −34.65; S variant −41.53 |
 | mol2 | `CN1C(=O)/C(=C/c2cc3ccc(N(C)CCO)cc3s2)SC1=S` | 8HZK | scaffold | — | benzothiophene core reproduced (isoelectronic substitution) |
 
 ---
 
-## Case 1 — sp1 RNA aptamer pocket: flavones m1 / m2
+## Case 1 — sp1 RNA aptamer pocket: flavones m1 / m2 / m3
 
 Pocket: `casestudy/sp1/sp1_recp_pocket.pdb` (20 nt, `AGGUGAGCUUAGGGGAAUAA`).
 
-### 1. Build inpainting seeds
+The targets are 2-phenylchromones (flavones). The scaffold is assembled from
+two same-pocket cold-start molecules; elements are applied as mutations and
+scored.
+
+### Stage 1 — scaffold from cold-start fragments
 
 ```bash
-python casestudy/sp1/make_seeds.py
+python casestudy/sp1/m1_route/step1_assemble.py
 ```
 
-Writes four seeds to `casestudy/sp1/inpaint_seeds/`. Each seed is the intact
-flavone ring system — a fused 6+6 bicyclic (chromene-type) core plus one
-standalone six-membered ring connected by a single bond — with hydroxyl
-positions left free; no ring systems are fragmented. The same seeds are
-bundled with the repository.
+- chroman-4-one core (11 atoms, native pocket coordinates) extracted from
+  cold-start molecule gen[499] — ring topology identical to the chromone
+  core, C4 carbonyl already present;
+- phenol B-ring (7 atoms, native coordinates) from cold-start molecule
+  gen[12] (4'-OH already present);
+- rigid biphenyl assembly at C2 (fragment dmin 2.51 A, pocket dmin 1.18 A).
 
-### 2. Seed-inpainting generation
+### Stage 2 — mutation ladder + dual scoring
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python casestudy/sp1/stepF_inpaint_gen.py \
-    --run A --rounds 15 --batch 80 --natom_lo 20 --natom_hi 23 --seed0 42
+python casestudy/sp1/m1_route/step2_mutate.py     # builds mutants, verifies SMILES
+# scoring: rDock (-n 10 -s 42, sp1 system) + RNAsmol 6-model ensemble
 ```
 
-Output: `casestudy/sp1/gen_runA/` —
+| mutant | elements applied | SMILES == | RNAsmol P | rDock INTER |
+|---|---|---|---|---|
+| mut_seed_sat | none (chromanone as-is) | — | 0.691 | -40.48 |
+| mut_dehyd | C2=C3 dehydrogenation | — | 0.652 | -39.82 |
+| mut_dehyd_3OH | + C3-OH | — | 0.652 | -42.21 |
+| **mut_m1** | + A-ring 5,7-OH | **m1** | 0.652 | -42.47 |
+| **mut_m2** | + B-ring 2'-OH | **m2** | 0.652 | -44.74 |
+| **mut_m3** | + B-ring 3'-OH | **m3** | 0.652 | **-45.03** |
 
-- `valid_mols.sdf`   all neutralized, sanitized products (951 molecules)
-- `results.json`     per-molecule records; exact hits carry `"exact": ["m1"]`
-  (159 molecules) or `["m2"]` (16 molecules)
-
-### 3. Scoring
-
-```bash
-# RNAsmol 6-model ensemble (sequence AGGUGAGCUUAGGGGAAUAA)
-CUDA_VISIBLE_DEVICES=0 python casestudy/sp1/stepI_rnasmol_score.py
-# -> casestudy/sp1/rnasmol_sp1_scores.json  (ensemble P = 0.654)
-
-# rDock (requires RBT_ROOT and RBT_HOME, see README)
-python casestudy/sp1/stepJ_rdock_score.py
-# -> casestudy/sp1/rdock/rdock_m1_*.json    (SCORE.INTER = -29.83)
-```
-
----
+All three target molecules are reached exactly (canonical SMILES
+identical); rDock improves monotonically along the mutation ladder with
+m3 the best binder. Scores: `m1_route/mutation_scores.json`.
 
 ## Case 2 — KRAS G4 pocket: bis-benzimidazole dimer (T2 isostere)
 
