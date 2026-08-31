@@ -93,43 +93,22 @@ for nm, smi, leg in [
     hl, colors = flav_hl(m)
     draw(m, nm, leg, hl, colors)
 
-# scaffold sources (original cold-start coordinates)
+# scaffold sources: COMPLETE molecules with the used fragment highlighted
 CHROMANONE = Chem.MolFromSmarts('O=C1CCOc2ccccc21')
-src_m = next(Chem.SDMolSupplier('/tmp/opencode/sp1_cold_result_keep.sdf', removeHs=True)) if os.path.exists('/tmp/opencode/sp1_cold_result_keep.sdf') else None
-# extract from the library (same code path as step1)
-_gen = None
-if src_m is not None:
-    _gen = Chem.SDMolSupplier('/tmp/opencode/sp1_cold_result_keep.sdf', removeHs=True)
-m499 = _gen[499]
+_gen = Chem.SDMolSupplier('casestudy/sp1/m1_route/fragment_sources/gen499.sdf', removeHs=True)
+m499 = _gen[0]
 mtc = m499.GetSubstructMatches(CHROMANONE)[0]
-rw = Chem.RWMol(m499)
-for i in sorted(set(range(m499.GetNumAtoms())) - set(mtc), reverse=True):
-    rw.RemoveAtom(i)
-core_mol = rw.GetMol(); Chem.SanitizeMol(core_mol)
-# rebuild conformer with extracted atom order (sorted keep index)
-order = sorted(mtc)
-P499 = np.array(m499.GetConformer().GetPositions())[order]
-conf = Chem.Conformer(core_mol.GetNumAtoms())
-for k in range(core_mol.GetNumAtoms()):
-    conf.SetAtomPosition(k, Point3D(*map(float, P499[k])))
-core_mol.RemoveAllConformers(); core_mol.AddConformer(conf, assignId=True)
-draw(core_mol, 'sp1_source_core_499', 'gen[499] chromanone core (cold start)', list(range(11)), {i: CYAN for i in range(11)})
+hl = list(mtc)
+draw(m499, 'sp1_source_core_499', 'gen[499] complete (chromanone core highlighted)',
+     hl, {i: CYAN for i in hl})
 
-m12 = _gen[12]
 PHEN = Chem.MolFromSmarts('c1ccccc1O')
+_gen12 = Chem.SDMolSupplier('casestudy/sp1/m1_route/fragment_sources/gen12.sdf', removeHs=True)
+m12 = _gen12[0]
 mtb = m12.GetSubstructMatches(PHEN)[0]
-rw = Chem.RWMol(m12)
-for i in sorted(set(range(m12.GetNumAtoms())) - set(mtb), reverse=True):
-    rw.RemoveAtom(i)
-bring_mol = rw.GetMol(); Chem.SanitizeMol(bring_mol)
-order_b = sorted(mtb)
-P12 = np.array(m12.GetConformer().GetPositions())[order_b]
-conf_b = Chem.Conformer(bring_mol.GetNumAtoms())
-for k in range(bring_mol.GetNumAtoms()):
-    conf_b.SetAtomPosition(k, Point3D(*map(float, P12[k])))
-bring_mol.RemoveAllConformers(); bring_mol.AddConformer(conf_b, assignId=True)
-draw(bring_mol, 'sp1_source_bring_12', 'gen[12] phenol B-ring (cold start)', list(range(7)),
-     {i: BLUE for i in range(6)})
+hlb = list(mtb)
+draw(m12, 'sp1_source_bring_12', 'gen[12] complete (phenol B-ring highlighted)',
+     hlb, {i: BLUE for i in hlb})
 
 # assembled seed
 seed = next(Chem.SDMolSupplier('casestudy/sp1/m1_route/m1_route_seed.sdf', removeHs=True))

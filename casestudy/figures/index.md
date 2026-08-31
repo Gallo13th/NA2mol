@@ -1,16 +1,12 @@
 # Reproduction-route figures (SVG)
 
-## sp1 m1-route chain
+## sp1 flavone chain
 | figure | role |
 |---|---|
-| sp1_target_m1 / m2 / m3 | targets (all three reached exactly by mutation) |
-| sp1_source_core_499 | gen[499] chromanone core, cold-start original coordinates (11 atoms) |
-| sp1_source_bring_12 | gen[12] phenol B-ring, cold-start original coordinates (7 atoms) |
-| sp1_route_seed | assembled seed (499 core + 12 B-ring, clash-free) |
-| sp1_mut_seed_sat / dehyd / dehyd_3OH / m1 / m2 / m3 | mutation ladder; mut_m1 == m1, mut_m2 == m2, mut_m3 == m3 |
-
-Dual scores along the ladder: seed 0.691/-40.48 → dehyd 0.652/-39.82 → 3OH 0.652/-42.21
-→ m1 0.652/-42.47 → m2 0.652/-44.74 → m3 0.652/-45.03 (rDock monotone, m3 best).
+| sp1_target_m1 / m2 / m3 | targets (m1 159x, m2 16x reproduced) |
+| sp1_skeleton | 21-atom all-C skeleton (6+6 fused core + six-membered ring) |
+| sp1_seed_s1..s4 | inpainting seeds (intact rings; orange = retained O) |
+| sp1_hit_m1 / sp1_hit_m2 | representative exact generated hits |
 
 ## T2 two-fragment chain
 | figure | role |
