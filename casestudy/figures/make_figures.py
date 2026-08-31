@@ -197,6 +197,16 @@ for a in oo.GetAtoms():
         colors[a.GetIdx()] = GREEN; hl.append(a.GetIdx())
 draw(oo, 't2_dimer_OO', 'Element-scan variant OO (benzoxazole)', hl, colors)
 
+# positive reference (berberine, co-crystallized ligand of 7X8M BER102)
+berb = next(Chem.SDMolSupplier('casestudy/kras_g4/t2_denovo/phaseG_elem_scan/berberine_ref.sdf', removeHs=True))
+ri = berb.GetRingInfo()
+hl, colors = [], {}
+for k, r in enumerate(ri.AtomRings()):
+    for a in r:
+        hl.append(a)
+        colors[a] = CYAN if k % 2 == 0 else BLUE
+draw(berb, 't2_positive_ref_berberine', 'Positive reference: berberine (co-crystal, BER102)', hl, colors)
+
 with open(f'{OUT}/index.md', 'w') as f:
     f.write('''# Reproduction-route figures (SVG)
 
@@ -216,6 +226,7 @@ with open(f'{OUT}/index.md', 'w') as f:
 | t2_dimer_NN | model product: all-N isostere, green = model-generated CH2 bridge (568/915 poses) |
 | t2_target_S | target T2 (S version) |
 | t2_dimer_OO | element-scan variant (benzoxazole) |
+| t2_positive_ref_berberine | co-crystallized positive reference of the 7X8M BER102 site (RNAsmol 0.595 / rDock -44.995) |
 
 Dual scores (phaseG): NN 0.674 (4/6) / -37.71; SS(=target) 0.692 (4/6) / -36.42;
 OO 0.520 (3/6) / -28.13.
