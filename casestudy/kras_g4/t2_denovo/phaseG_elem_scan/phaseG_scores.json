@@ -38,5 +38,19 @@
     "gate": 3,
     "rdock_INTER": -32.9316
   },
-  "_note": "rdock from coplanar-bridge X1 pose (seed geometry fixed 2026-08-30); rnasmol pose-independent"
+  "_note": "rdock from coplanar-bridge X1 pose (seed geometry fixed 2026-08-30); rnasmol pose-independent",
+  "berberine_ref": {
+    "per_model": {
+      "pdb_mol": 0.5392,
+      "pdb_net": 0.3655,
+      "pdb_rna": 0.9991,
+      "rob_mol": 0.6667,
+      "rob_net": 1.0,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.5951,
+    "gate": 4,
+    "rdock_INTER": -44.995,
+    "note": "co-crystallized ligand of 7X8M BER102; rdock from the ground-truth redock validation (10 runs, same ber102_full_r6_system)"
+  }
 }

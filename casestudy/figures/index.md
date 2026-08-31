@@ -17,8 +17,8 @@
 | t2_target_S | target T2 (S version) |
 | t2_dimer_OO | element-scan variant (benzoxazole) |
 
-Dual scores (phaseG): NN 0.674 (4/6) / -37.71; SS(=target) 0.692 (4/6) / -36.42;
-OO 0.520 (3/6) / -28.13.
+Dual scores (phaseG): NN 0.674 (4/6) / -34.65; SS(=target) 0.692 (4/6) / -41.53;
+OO 0.520 (3/6) / -32.93; berberine (positive reference) 0.595 (4/6) / -44.995.
 
 Highlights: cyan/blue = the two ring systems; red = element-conversion sites
 analysed; green = model-generated bridge; orange = hydroxyl/retained O.
