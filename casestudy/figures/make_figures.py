@@ -199,12 +199,14 @@ draw(oo, 't2_dimer_OO', 'Element-scan variant OO (benzoxazole)', hl, colors)
 
 # positive reference (berberine, co-crystallized ligand of 7X8M BER102)
 berb = next(Chem.SDMolSupplier('casestudy/kras_g4/t2_denovo/phaseG_elem_scan/berberine_ref.sdf', removeHs=True))
-ri = berb.GetRingInfo()
+# highlight only the benzodioxole fused 5+6 on one side (same 5+6 fused-ring
+# motif as the route's fragments, heteroatoms = O)
+BDX = Chem.MolFromSmarts('c1ccc2c(c1)OCO2')
+mt = berb.GetSubstructMatches(BDX)
 hl, colors = [], {}
-for k, r in enumerate(ri.AtomRings()):
-    for a in r:
-        hl.append(a)
-        colors[a] = CYAN if k % 2 == 0 else BLUE
+if mt:
+    for a in mt[0]:
+        hl.append(a); colors[a] = CYAN
 draw(berb, 't2_positive_ref_berberine', 'Positive reference: berberine (co-crystal, BER102)', hl, colors)
 
 with open(f'{OUT}/index.md', 'w') as f:
