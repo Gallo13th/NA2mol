@@ -107,15 +107,16 @@ hlb = list(mtb)
 draw(m9945, 'sp1_source_bring_9945', 'gen[9945] complete (phenol B-ring highlighted)', hlb, {i: BLUE for i in hlb})
 
 # assembled seed
-seed = next(Chem.SDMolSupplier('casestudy/sp1/m1_route/m1_route_seed.sdf', removeHs=True))
+seed = next(Chem.SDMolSupplier('casestudy/sp1/m1_route/global_scan/seed_g0.sdf', removeHs=True))
 hl, colors = flav_hl(seed)
 draw(seed, 'sp1_route_seed', 'Assembled seed (499 core + 12 B-ring)', hl, colors)
 
 # mutation ladder
-for tag in ['mut_seed_sat', 'mut_ox', 'mut_ox_dehyd', 'mut_ox_dehyd_3OH', 'mut_m1', 'mut_m2', 'mut_m3']:
-    m = next(Chem.SDMolSupplier(f'casestudy/sp1/m1_route/{tag}.sdf', removeHs=True))
+for tag, fname in [('seed_sat', 'mutg0_seed_sat'), ('ox', 'mutg0_ox'), ('ox_dehyd', 'mutg0_ox_dehyd'),
+                ('ox_dehyd_3OH', 'mutg0_ox_dehyd_3OH'), ('m1', 'mutg0_m1'), ('m2', 'mutg0_m2'), ('m3', 'mutg0_m3')]:
+    m = next(Chem.SDMolSupplier(f'casestudy/sp1/m1_route/{fname}.sdf', removeHs=True))
     hl, colors = flav_hl(m)
-    draw(m, f'sp1_{tag}', tag.replace('mut_', ''), hl, colors)
+    draw(m, f'sp1_mut_{tag}', tag.replace('_', ' '), hl, colors)
 
 # ══ T2 two-fragment chain ══════════════════════════════════════════════════
 # sources: canonical copies live in t2_denovo/fragment_sources/
