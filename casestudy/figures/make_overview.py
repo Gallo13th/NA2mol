@@ -55,7 +55,10 @@ for i, (label, path) in enumerate(cells):
     d.DrawMolecule(m)
     d.FinishDrawing()
     inner = d.GetDrawingText()
-    inner = inner[inner.find('>')+1:]
+    # strip the inner <svg ...> opening tag itself (keep its children)
+    i0 = inner.find('<svg')
+    i1 = inner.find('>', i0)
+    inner = inner[i1+1:]
     inner = inner[:inner.rfind('</svg>')]
     parts.append(f'<g transform="translate({x0},60)">{inner}</g>')
     label_parts = label.split('\n')
