@@ -42,6 +42,15 @@ the saturated core and the missing bond orders are introduced as explicit,
 chemically auditable mutation steps (C4 oxidation, C2=C3 dehydrogenation) in
 Stage 2. The 6+6 fused-ring topology is present from the very first atom.
 
+**Coordinate-audit note (verified).** The extracted core keeps its native
+cold-start coordinates unchanged all the way into the final m1/m2/m3
+products (seed->product per-atom RMSD = 0.0000 A; mutation steps only add
+atoms/bond orders without moving any scaffold atom). The B-ring, however,
+comes from a DIFFERENT cold-start molecule, so its placement relative to
+the core is set by the clash-free assembly step - a documented
+cross-molecule rigid move (note in audit_fragment_coords.py).
+
+
 
 
 ```bash
