@@ -31,6 +31,19 @@ scored.
 
 ### Stage 1 — scaffold from cold-start fragments
 
+**Bond-order honesty note.** The assembled scaffold is topological but NOT
+bond-order-identical to the flavone core: cold-start libraries contain an
+INDEPENDENT **saturated chroman core** (6+6 fused ring, pyran ring fully
+saturated) — the bond-order-complete chromone core (4-one + C2=C3) is
+**absent as an independent fragment (0/18641; the only chromone-SMARTS hit is
+a xanthone false positive)**; coumaranone (5+6) exists twice but is ring-
+embedded and of the wrong (5+6) size. Hence the scaffold is assembled with
+the saturated core and the missing bond orders are introduced as explicit,
+chemically auditable mutation steps (C4 oxidation, C2=C3 dehydrogenation) in
+Stage 2. The 6+6 fused-ring topology is present from the very first atom.
+
+
+
 ```bash
 python casestudy/sp1/m1_route/step1_assemble.py
 ```
