@@ -1,0 +1,275 @@
+{
+  "mutg0_seed_sat": {
+    "per_model": {
+      "pdb_mol": 0.8618,
+      "pdb_net": 0.5109,
+      "pdb_rna": 0.9243,
+      "rob_mol": 0.9877,
+      "rob_net": 1.0,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.7141,
+    "gate": 5,
+    "rdock_INTER": -43.17
+  },
+  "mutg0_ox": {
+    "per_model": {
+      "pdb_mol": 0.6926,
+      "pdb_net": 0.3068,
+      "pdb_rna": 0.9206,
+      "rob_mol": 0.9744,
+      "rob_net": 0.9999,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6491,
+    "gate": 4,
+    "rdock_INTER": -40.54
+  },
+  "mutg0_ox_dehyd": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5157,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9632,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6521,
+    "gate": 5,
+    "rdock_INTER": -35.85
+  },
+  "mutg0_ox_dehyd_3OH": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5157,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9632,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6521,
+    "gate": 5,
+    "rdock_INTER": null
+  },
+  "mutg0_m1": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5157,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9632,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6521,
+    "gate": 5,
+    "rdock_INTER": -50.53
+  },
+  "mutg0_m2": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5157,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9632,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6521,
+    "gate": 5,
+    "rdock_INTER": -38.98
+  },
+  "mutg0_m3": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5157,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9632,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6521,
+    "gate": 5,
+    "rdock_INTER": -39.29
+  },
+  "mutg1_seed_sat": {
+    "per_model": {
+      "pdb_mol": 0.8685,
+      "pdb_net": 0.5109,
+      "pdb_rna": 0.9243,
+      "rob_mol": 0.9879,
+      "rob_net": 0.9999,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.7153,
+    "gate": 5,
+    "rdock_INTER": -36.25
+  },
+  "mutg1_ox": {
+    "per_model": {
+      "pdb_mol": 0.7012,
+      "pdb_net": 0.3068,
+      "pdb_rna": 0.9206,
+      "rob_mol": 0.9749,
+      "rob_net": 0.9998,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6505,
+    "gate": 4,
+    "rdock_INTER": -34.18
+  },
+  "mutg1_ox_dehyd": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9641,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -34.62
+  },
+  "mutg1_ox_dehyd_3OH": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.964,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": null
+  },
+  "mutg1_m1": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9641,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -39.98
+  },
+  "mutg1_m2": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9641,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -44.16
+  },
+  "mutg1_m3": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9641,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -41.86
+  },
+  "mutg2_seed_sat": {
+    "per_model": {
+      "pdb_mol": 0.969,
+      "pdb_net": 0.51,
+      "pdb_rna": 0.9312,
+      "rob_mol": 0.9957,
+      "rob_net": 1.0,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.7343,
+    "gate": 5,
+    "rdock_INTER": -41.32
+  },
+  "mutg2_ox": {
+    "per_model": {
+      "pdb_mol": 0.9228,
+      "pdb_net": 0.3016,
+      "pdb_rna": 0.9288,
+      "rob_mol": 0.9911,
+      "rob_net": 0.9999,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6907,
+    "gate": 4,
+    "rdock_INTER": -39.02
+  },
+  "mutg2_ox_dehyd": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9641,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -38.75
+  },
+  "mutg2_ox_dehyd_3OH": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.964,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": null
+  },
+  "mutg2_m1": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9641,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -46.21
+  },
+  "mutg2_m2": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9641,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -47.11
+  },
+  "mutg2_m3": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.9641,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -45.43
+  }
+}

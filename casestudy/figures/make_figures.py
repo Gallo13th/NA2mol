@@ -95,10 +95,10 @@ for nm, smi, leg in [
 
 # scaffold sources: COMPLETE molecules with the used fragment highlighted
 CHROMAN = Chem.MolFromSmarts('C1COc2ccccc2C1')
-m3192 = next(Chem.SDMolSupplier('casestudy/sp1/m1_route/fragment_sources/gen3192.sdf', removeHs=True))
+m3192 = next(Chem.SDMolSupplier('casestudy/sp1/m1_route/fragment_sources/gen16145.sdf', removeHs=True))
 mtc = m3192.GetSubstructMatches(CHROMAN)[0]
 hl = list(mtc)
-draw(m3192, 'sp1_source_core_3192', 'gen[3192] complete (chroman core highlighted)', hl, {i: CYAN for i in hl})
+draw(m3192, 'sp1_source_core_16145', 'gen[16145] complete (chroman core highlighted)', hl, {i: CYAN for i in hl})
 
 m9945 = next(Chem.SDMolSupplier('casestudy/sp1/m1_route/fragment_sources/gen9945.sdf', removeHs=True))
 PHEN = Chem.MolFromSmarts('c1ccccc1[OH]')

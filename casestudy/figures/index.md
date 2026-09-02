@@ -1,11 +1,5 @@
 # Reproduction-route figures (SVG)
 
-## Route overview
-`overview_m1_route.svg` — the full m1/m2/m3 route in one row:
-cold-start molecules (gen[3192], gen[9945]) → extracted fragments →
-2-phenylchroman seed → mutation ladder (+C4=O, +C2=C3, +C3-OH, +A5,A7-OH,
-+B2', +B3') → m1 / m2 / m3 (exact).
-
 ## sp1 flavone chain
 | figure | role |
 |---|---|

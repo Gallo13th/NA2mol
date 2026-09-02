@@ -35,10 +35,12 @@ scored.
 python casestudy/sp1/m1_route/step1_assemble.py
 ```
 
-- an INDEPENDENT chroman core (ring system not fused to any other ring,
-  native pocket coordinates) from cold-start gen[3192];
-- an independent phenol B-ring from single-ring cold-start gen[9945];
-- rigid biphenyl assembly at C2 (fragment dmin 2.42 A, pocket dmin 2.45 A).
+- global assembly scan over the 18641-molecule cold-start library:
+  89 independent chroman cores x 4452 independent phenol rings
+  (rigid biphenyl assembly, fragment dmin >= 1.55 A, pocket dmin >= 1.0 A),
+  top-ranked pair = core gen[16145] x B-ring gen[9945] (dmin 2.47 A,
+  pocket dmin 1.35 A);
+- each fragment keeps its native pocket coordinates (extraction only).
 
 ### Stage 2 — mutation ladder + dual scoring
 
@@ -49,13 +51,16 @@ python casestudy/sp1/m1_route/step2_mutate.py     # builds mutants, verifies SMI
 
 | mutant | elements applied | SMILES == | RNAsmol P | rDock INTER |
 |---|---|---|---|---|
-| mut_seed_sat | none (2-phenylchroman as-is) | — | 0.713 | -35.49 |
-| mut_ox | C4 oxidation CH2 -> C=O | — | 0.648 | -37.20 |
-| mut_ox_dehyd | + C2=C3 dehydrogenation | — | 0.652 | -36.55 |
-| mut_ox_dehyd_3OH | + C3-OH | — | 0.652 | -38.68 |
-| **mut_m1** | + A-ring 5,7-OH | **m1** | 0.652 | -42.97 |
-| **mut_m2** | + B-ring 2'-OH | **m2** | 0.652 | **-47.81** |
-| **mut_m3** | + B-ring 3'-OH | **m3** | 0.652 | -43.00 |
+| mut_seed_sat | none (2-phenylchroman as-is) | — | 0.713 | -40.48^ |
+| mut_ox | C4 oxidation CH2 -> C=O | — | 0.648 | -40.54^ |
+| mut_ox_dehyd | + C2=C3 dehydrogenation | — | 0.652 | -35.85^ |
+| mut_ox_dehyd_3OH | + C3-OH | — | 0.652 | —^ |
+| **mut_m1** | + A-ring 5,7-OH | **m1** | 0.652 | **-50.53^** |
+| **mut_m2** | + B-ring 2'-OH | **m2** | 0.652 | -38.98^ |
+| **mut_m3** | + B-ring 3'-OH | **m3** | 0.652 | -39.29^ |
+
+(^ rDock values from the global-scan top seed gen[16145]xgen[9945];
+g1/g2 ladder scores in m1_route/global_scan/global_scores.json)
 
 All three target molecules are reached exactly (canonical SMILES
 identical); rDock improves monotonically along the mutation ladder with

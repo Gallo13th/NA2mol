@@ -24,7 +24,9 @@ from rdkit.Geometry import Point3D
 RDLogger.DisableLog('rdApp.*')
 
 OUTD = 'casestudy/sp1/m1_route'
-seed = next(Chem.SDMolSupplier(f'{OUTD}/m1_route_seed.sdf', removeHs=True))
+SEEDFILE = sys.argv[1] if len(sys.argv) > 1 else f'{OUTD}/m1_route_seed.sdf'
+TAG = sys.argv[2] if len(sys.argv) > 2 else 'dx'
+seed = next(Chem.SDMolSupplier(SEEDFILE, removeHs=True))
 P0 = np.array(seed.GetConformer().GetPositions())
 print(f"seed: {Chem.MolToSmiles(seed)} ({seed.GetNumAtoms()} atoms)")
 
@@ -49,7 +51,9 @@ print(f"roles: O_ring={O_ring} C2={C2} C3={C3} C4={C4}")
 
 # A-ring = the benzene fused to the pyran (contains C4a = aromatic neighbor of C4)
 C4a = next(n.GetIdx() for n in seed.GetAtomWithIdx(C4).GetNeighbors() if n.GetIsAromatic())
-Aring = next(r for r in seed.GetRingInfo().AtomRings() if C4a in r)
+Aring = next(r for r in seed.GetRingInfo().AtomRings()
+             if C4a in r and all(seed.GetAtomWithIdx(i).GetIsAromatic() for i in r)
+             and C4 not in r and O_ring not in r and len(r) == 6)
 C8a = next(nb.GetIdx() for nb in ringO.GetNeighbors() if nb.GetIsAromatic())
 aord = [C4a]
 while len(aord) < 6:
@@ -142,31 +146,31 @@ targets = {'m1': M1S, 'm2': M2S, 'm3': M3S}
 # ladder build
 ladder = []
 m, P = seed, P0
-smi = write(m, P, 'mut_seed_sat')
+smi = write(m, P, f'mut{TAG}_seed_sat')
 ladder.append(('mut_seed_sat', smi))
 # + C4 oxidation
 m, P = oxidize_C4(m, P)
-ladder.append(('mut_ox', write(m, P, 'mut_ox')))
+ladder.append(('mut_ox', write(m, P, f'mut{TAG}_ox')))
 # + C2=C3 dehydrogenation
 m = dehydrogenate(m, C2, C3)
-ladder.append(('mut_ox_dehyd', write(m, P, 'mut_ox_dehyd')))
+ladder.append(('mut_ox_dehyd', write(m, P, f'mut{TAG}_ox_dehyd')))
 # + C3-OH
 m, P = add_OH(m, P, C3, list(range(10)))
-ladder.append(('mut_ox_dehyd_3OH', write(m, P, 'mut_ox_dehyd_3OH')))
+ladder.append(('mut_ox_dehyd_3OH', write(m, P, f'mut{TAG}_ox_dehyd_3OH')))
 # + A5, A7 OH  (== m1)
 mA, PA = add_OH(m, P, c5, list(Aring))
 mA, PA = add_OH(mA, PA, c7, list(Aring))
-ladder.append(('mut_m1', write(mA, PA, 'mut_m1')))
+ladder.append(('mut_m1', write(mA, PA, f'mut{TAG}_m1')))
 # m2: m1 + B2'-OH
 mB, PB = add_OH(mA, PA, pos[2], list(bring_ring))
-ladder.append(('mut_m2', write(mB, PB, 'mut_m2')))
+ladder.append(('mut_m2', write(mB, PB, f'mut{TAG}_m2')))
 # m3: m1 + B3'-OH
 mC, PC = add_OH(mA, PA, pos[3], list(bring_ring))
-ladder.append(('mut_m3', write(mC, PC, 'mut_m3')))
+ladder.append(('mut_m3', write(mC, PC, f'mut{TAG}_m3')))
 
 print()
 for name, smi in ladder:
     hit = [t for t, s in targets.items() if s == smi]
     print(f"{name:20s}: {smi[:82]}{'  ←== ' + hit[0] if hit else ''}")
-json.dump(dict(ladder), open(f'{OUTD}/mutation_smiles.json', 'w'), indent=2)
+json.dump(dict(ladder), open(f'{OUTD}/global_scan/mutation_smiles_{TAG}.json'.replace(TAG,TAG), 'w'), indent=2)
 print('[saved] mutants')
