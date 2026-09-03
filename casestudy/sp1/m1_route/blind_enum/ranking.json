@@ -1,0 +1,1194 @@
+{
+  "variants": [
+    {
+      "name": "v000",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -33.71,
+      "smiles": "Oc1ccc([C@H]2CCc3ccccc3O2)cc1",
+      "combined": 0.7909
+    },
+    {
+      "name": "v001",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -36.66,
+      "smiles": "Oc1ccc([C@H]2CCc3ccccc3O2)cc1O",
+      "combined": 0.7909
+    },
+    {
+      "name": "v002",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -35.57,
+      "smiles": "Oc1ccc([C@H]2CCc3ccccc3O2)c(O)c1",
+      "combined": 0.7909
+    },
+    {
+      "name": "v003",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -36.92,
+      "smiles": "Oc1ccc([C@H]2CCc3ccccc3O2)c(O)c1O",
+      "combined": 0.7909
+    },
+    {
+      "name": "v004",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -36.16,
+      "smiles": "Oc1ccc([C@H]2CCc3ccc(O)cc3O2)cc1",
+      "combined": 0.7909
+    },
+    {
+      "name": "v005",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -36.29,
+      "smiles": "Oc1ccc2c(c1)O[C@@H](c1ccc(O)c(O)c1)CC2",
+      "combined": 0.7909
+    },
+    {
+      "name": "v006",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -37.56,
+      "smiles": "Oc1ccc([C@H]2CCc3ccc(O)cc3O2)c(O)c1",
+      "combined": 0.7909
+    },
+    {
+      "name": "v007",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -46.0,
+      "smiles": "Oc1ccc2c(c1)O[C@@H](c1ccc(O)c(O)c1O)CC2",
+      "combined": 0.7909
+    },
+    {
+      "name": "v008",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -34.88,
+      "smiles": "Oc1ccc([C@H]2CCc3c(O)cccc3O2)cc1",
+      "combined": 0.7909
+    },
+    {
+      "name": "v009",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -37.85,
+      "smiles": "Oc1ccc([C@H]2CCc3c(O)cccc3O2)cc1O",
+      "combined": 0.7909
+    },
+    {
+      "name": "v010",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -36.51,
+      "smiles": "Oc1ccc([C@H]2CCc3c(O)cccc3O2)c(O)c1",
+      "combined": 0.7909
+    },
+    {
+      "name": "v011",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -37.01,
+      "smiles": "Oc1ccc([C@H]2CCc3c(O)cccc3O2)c(O)c1O",
+      "combined": 0.7909
+    },
+    {
+      "name": "v012",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -39.05,
+      "smiles": "Oc1ccc([C@H]2CCc3c(O)cc(O)cc3O2)cc1",
+      "combined": 0.7909
+    },
+    {
+      "name": "v013",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -45.47,
+      "smiles": "Oc1cc(O)c2c(c1)O[C@@H](c1ccc(O)c(O)c1)CC2",
+      "combined": 0.7909
+    },
+    {
+      "name": "v014",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -44.54,
+      "smiles": "Oc1ccc([C@H]2CCc3c(O)cc(O)cc3O2)c(O)c1",
+      "combined": 0.7909
+    },
+    {
+      "name": "v015",
+      "ensemble_P": 0.7141,
+      "gate": 5,
+      "logit": -0.36507800221443176,
+      "rdock": -38.48,
+      "smiles": "Oc1cc(O)c2c(c1)O[C@@H](c1ccc(O)c(O)c1O)CC2",
+      "combined": 0.7909
+    },
+    {
+      "name": "v016",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -34.4,
+      "smiles": "Oc1ccc([C@@H]2Oc3ccccc3C[C@@H]2O)cc1",
+      "combined": 0.9274
+    },
+    {
+      "name": "v017",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -39.65,
+      "smiles": "Oc1ccc([C@@H]2Oc3ccccc3C[C@@H]2O)cc1O",
+      "combined": 0.9274
+    },
+    {
+      "name": "v018",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -35.46,
+      "smiles": "Oc1ccc([C@@H]2Oc3ccccc3C[C@@H]2O)c(O)c1",
+      "combined": 0.9274
+    },
+    {
+      "name": "v019",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -42.74,
+      "smiles": "Oc1ccc([C@@H]2Oc3ccccc3C[C@@H]2O)c(O)c1O",
+      "combined": 0.9274
+    },
+    {
+      "name": "v020",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -34.84,
+      "smiles": "Oc1ccc([C@@H]2Oc3cc(O)ccc3C[C@@H]2O)cc1",
+      "combined": 0.9274
+    },
+    {
+      "name": "v021",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -37.63,
+      "smiles": "Oc1ccc2c(c1)O[C@@H](c1ccc(O)c(O)c1)[C@@H](O)C2",
+      "combined": 0.9274
+    },
+    {
+      "name": "v022",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -40.39,
+      "smiles": "Oc1ccc([C@@H]2Oc3cc(O)ccc3C[C@@H]2O)c(O)c1",
+      "combined": 0.9274
+    },
+    {
+      "name": "v023",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -40.44,
+      "smiles": "Oc1ccc2c(c1)O[C@@H](c1ccc(O)c(O)c1O)[C@@H](O)C2",
+      "combined": 0.9274
+    },
+    {
+      "name": "v024",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -41.87,
+      "smiles": "Oc1ccc([C@@H]2Oc3cccc(O)c3C[C@@H]2O)cc1",
+      "combined": 0.9274
+    },
+    {
+      "name": "v025",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -42.64,
+      "smiles": "Oc1ccc([C@@H]2Oc3cccc(O)c3C[C@@H]2O)cc1O",
+      "combined": 0.9274
+    },
+    {
+      "name": "v026",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -39.24,
+      "smiles": "Oc1ccc([C@@H]2Oc3cccc(O)c3C[C@@H]2O)c(O)c1",
+      "combined": 0.9274
+    },
+    {
+      "name": "v027",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -42.33,
+      "smiles": "Oc1ccc([C@@H]2Oc3cccc(O)c3C[C@@H]2O)c(O)c1O",
+      "combined": 0.9274
+    },
+    {
+      "name": "v028",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -34.33,
+      "smiles": "Oc1ccc([C@@H]2Oc3cc(O)cc(O)c3C[C@@H]2O)cc1",
+      "combined": 0.9274
+    },
+    {
+      "name": "v029",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -41.31,
+      "smiles": "Oc1cc(O)c2c(c1)O[C@@H](c1ccc(O)c(O)c1)[C@@H](O)C2",
+      "combined": 0.9274
+    },
+    {
+      "name": "v030",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -48.0,
+      "smiles": "Oc1ccc([C@@H]2Oc3cc(O)cc(O)c3C[C@@H]2O)c(O)c1",
+      "combined": 0.9274
+    },
+    {
+      "name": "v031",
+      "ensemble_P": 0.7369,
+      "gate": 5,
+      "logit": 0.2390392447511355,
+      "rdock": -45.05,
+      "smiles": "Oc1cc(O)c2c(c1)O[C@@H](c1ccc(O)c(O)c1O)[C@@H](O)C2",
+      "combined": 0.9274
+    },
+    {
+      "name": "v032",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -34.34,
+      "smiles": "Oc1ccc(C2=CCc3ccccc3O2)cc1",
+      "combined": 0.8769
+    },
+    {
+      "name": "v033",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -37.33,
+      "smiles": "Oc1ccc(C2=CCc3ccccc3O2)cc1O",
+      "combined": 0.8769
+    },
+    {
+      "name": "v034",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -34.27,
+      "smiles": "Oc1ccc(C2=CCc3ccccc3O2)c(O)c1",
+      "combined": 0.8769
+    },
+    {
+      "name": "v035",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -37.55,
+      "smiles": "Oc1ccc(C2=CCc3ccccc3O2)c(O)c1O",
+      "combined": 0.8769
+    },
+    {
+      "name": "v036",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -38.76,
+      "smiles": "Oc1ccc(C2=CCc3ccc(O)cc3O2)cc1",
+      "combined": 0.8769
+    },
+    {
+      "name": "v037",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -34.17,
+      "smiles": "Oc1ccc2c(c1)OC(c1ccc(O)c(O)c1)=CC2",
+      "combined": 0.8769
+    },
+    {
+      "name": "v038",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -42.83,
+      "smiles": "Oc1ccc(C2=CCc3ccc(O)cc3O2)c(O)c1",
+      "combined": 0.8769
+    },
+    {
+      "name": "v039",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -38.48,
+      "smiles": "Oc1ccc2c(c1)OC(c1ccc(O)c(O)c1O)=CC2",
+      "combined": 0.8769
+    },
+    {
+      "name": "v040",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -38.41,
+      "smiles": "Oc1ccc(C2=CCc3c(O)cccc3O2)cc1",
+      "combined": 0.8769
+    },
+    {
+      "name": "v041",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -38.39,
+      "smiles": "Oc1ccc(C2=CCc3c(O)cccc3O2)cc1O",
+      "combined": 0.8769
+    },
+    {
+      "name": "v042",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -35.66,
+      "smiles": "Oc1ccc(C2=CCc3c(O)cccc3O2)c(O)c1",
+      "combined": 0.8769
+    },
+    {
+      "name": "v043",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -37.74,
+      "smiles": "Oc1ccc(C2=CCc3c(O)cccc3O2)c(O)c1O",
+      "combined": 0.8769
+    },
+    {
+      "name": "v044",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -41.12,
+      "smiles": "Oc1ccc(C2=CCc3c(O)cc(O)cc3O2)cc1",
+      "combined": 0.8769
+    },
+    {
+      "name": "v045",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -44.78,
+      "smiles": "Oc1cc(O)c2c(c1)OC(c1ccc(O)c(O)c1)=CC2",
+      "combined": 0.8769
+    },
+    {
+      "name": "v046",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -40.7,
+      "smiles": "Oc1ccc(C2=CCc3c(O)cc(O)cc3O2)c(O)c1",
+      "combined": 0.8769
+    },
+    {
+      "name": "v047",
+      "ensemble_P": 0.5614,
+      "gate": 4,
+      "logit": 0.015423140799005827,
+      "rdock": -46.2,
+      "smiles": "Oc1cc(O)c2c(c1)OC(c1ccc(O)c(O)c1O)=CC2",
+      "combined": 0.8769
+    },
+    {
+      "name": "v048",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -35.34,
+      "smiles": "OC1=C(c2ccc(O)cc2)Oc2ccccc2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v049",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -38.29,
+      "smiles": "OC1=C(c2ccc(O)c(O)c2)Oc2ccccc2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v050",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -36.33,
+      "smiles": "OC1=C(c2ccc(O)cc2O)Oc2ccccc2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v051",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -39.01,
+      "smiles": "OC1=C(c2ccc(O)c(O)c2O)Oc2ccccc2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v052",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -38.09,
+      "smiles": "OC1=C(c2ccc(O)cc2)Oc2cc(O)ccc2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v053",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -42.91,
+      "smiles": "OC1=C(c2ccc(O)c(O)c2)Oc2cc(O)ccc2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v054",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -37.24,
+      "smiles": "OC1=C(c2ccc(O)cc2O)Oc2cc(O)ccc2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v055",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -44.9,
+      "smiles": "OC1=C(c2ccc(O)c(O)c2O)Oc2cc(O)ccc2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v056",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -39.42,
+      "smiles": "OC1=C(c2ccc(O)cc2)Oc2cccc(O)c2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v057",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -46.06,
+      "smiles": "OC1=C(c2ccc(O)c(O)c2)Oc2cccc(O)c2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v058",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -41.99,
+      "smiles": "OC1=C(c2ccc(O)cc2O)Oc2cccc(O)c2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v059",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -43.5,
+      "smiles": "OC1=C(c2ccc(O)c(O)c2O)Oc2cccc(O)c2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v060",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -43.25,
+      "smiles": "OC1=C(c2ccc(O)cc2)Oc2cc(O)cc(O)c2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v061",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -44.57,
+      "smiles": "OC1=C(c2ccc(O)c(O)c2)Oc2cc(O)cc(O)c2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v062",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -43.6,
+      "smiles": "OC1=C(c2ccc(O)cc2O)Oc2cc(O)cc(O)c2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v063",
+      "ensemble_P": 0.5907,
+      "gate": 4,
+      "logit": -0.9255582688686749,
+      "rdock": -45.41,
+      "smiles": "OC1=C(c2ccc(O)c(O)c2O)Oc2cc(O)cc(O)c2C1",
+      "combined": 0.6642
+    },
+    {
+      "name": "v064",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -34.88,
+      "smiles": "O=C1C[C@H](c2ccc(O)cc2)Oc2ccccc21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v065",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -39.39,
+      "smiles": "O=C1C[C@H](c2ccc(O)c(O)c2)Oc2ccccc21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v066",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -41.28,
+      "smiles": "O=C1C[C@H](c2ccc(O)cc2O)Oc2ccccc21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v067",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -42.14,
+      "smiles": "O=C1C[C@H](c2ccc(O)c(O)c2O)Oc2ccccc21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v068",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -39.03,
+      "smiles": "O=C1C[C@H](c2ccc(O)cc2)Oc2cc(O)ccc21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v069",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -38.9,
+      "smiles": "O=C1C[C@H](c2ccc(O)c(O)c2)Oc2cc(O)ccc21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v070",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -36.72,
+      "smiles": "O=C1C[C@H](c2ccc(O)cc2O)Oc2cc(O)ccc21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v071",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -35.93,
+      "smiles": "O=C1C[C@H](c2ccc(O)c(O)c2O)Oc2cc(O)ccc21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v072",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -39.28,
+      "smiles": "O=C1C[C@H](c2ccc(O)cc2)Oc2cccc(O)c21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v073",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -34.65,
+      "smiles": "O=C1C[C@H](c2ccc(O)c(O)c2)Oc2cccc(O)c21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v074",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -43.94,
+      "smiles": "O=C1C[C@H](c2ccc(O)cc2O)Oc2cccc(O)c21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v075",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -37.65,
+      "smiles": "O=C1C[C@H](c2ccc(O)c(O)c2O)Oc2cccc(O)c21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v076",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -34.97,
+      "smiles": "O=C1C[C@H](c2ccc(O)cc2)Oc2cc(O)cc(O)c21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v077",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -45.98,
+      "smiles": "O=C1C[C@H](c2ccc(O)c(O)c2)Oc2cc(O)cc(O)c21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v078",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -46.18,
+      "smiles": "O=C1C[C@H](c2ccc(O)cc2O)Oc2cc(O)cc(O)c21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v079",
+      "ensemble_P": 0.6491,
+      "gate": 4,
+      "logit": -1.029344489177068,
+      "rdock": -44.81,
+      "smiles": "O=C1C[C@H](c2ccc(O)c(O)c2O)Oc2cc(O)cc(O)c21",
+      "combined": 0.6407
+    },
+    {
+      "name": "v080",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -37.09,
+      "smiles": "O=C1c2ccccc2O[C@@H](c2ccc(O)cc2)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v081",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -40.53,
+      "smiles": "O=C1c2ccccc2O[C@@H](c2ccc(O)c(O)c2)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v082",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -41.89,
+      "smiles": "O=C1c2ccccc2O[C@@H](c2ccc(O)cc2O)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v083",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -42.66,
+      "smiles": "O=C1c2ccccc2O[C@@H](c2ccc(O)c(O)c2O)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v084",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -41.47,
+      "smiles": "O=C1c2ccc(O)cc2O[C@@H](c2ccc(O)cc2)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v085",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -44.19,
+      "smiles": "O=C1c2ccc(O)cc2O[C@@H](c2ccc(O)c(O)c2)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v086",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -41.15,
+      "smiles": "O=C1c2ccc(O)cc2O[C@@H](c2ccc(O)cc2O)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v087",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -45.7,
+      "smiles": "O=C1c2ccc(O)cc2O[C@@H](c2ccc(O)c(O)c2O)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v088",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -35.97,
+      "smiles": "O=C1c2c(O)cccc2O[C@@H](c2ccc(O)cc2)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v089",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -38.04,
+      "smiles": "O=C1c2c(O)cccc2O[C@@H](c2ccc(O)c(O)c2)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v090",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -36.87,
+      "smiles": "O=C1c2c(O)cccc2O[C@@H](c2ccc(O)cc2O)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v091",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -42.36,
+      "smiles": "O=C1c2c(O)cccc2O[C@@H](c2ccc(O)c(O)c2O)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v092",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -37.3,
+      "smiles": "O=C1c2c(O)cc(O)cc2O[C@@H](c2ccc(O)cc2)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v093",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -46.83,
+      "smiles": "O=C1c2c(O)cc(O)cc2O[C@@H](c2ccc(O)c(O)c2)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v094",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -47.1,
+      "smiles": "O=C1c2c(O)cc(O)cc2O[C@@H](c2ccc(O)cc2O)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v095",
+      "ensemble_P": 0.6974,
+      "gate": 4,
+      "logit": -0.602698748310407,
+      "rdock": -40.63,
+      "smiles": "O=C1c2c(O)cc(O)cc2O[C@@H](c2ccc(O)c(O)c2O)[C@H]1O",
+      "combined": 0.7371
+    },
+    {
+      "name": "v096",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -39.36,
+      "smiles": "O=c1cc(-c2ccc(O)cc2)oc2ccccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v097",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -37.56,
+      "smiles": "O=c1cc(-c2ccc(O)c(O)c2)oc2ccccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v098",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -35.31,
+      "smiles": "O=c1cc(-c2ccc(O)cc2O)oc2ccccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v099",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -38.6,
+      "smiles": "O=c1cc(-c2ccc(O)c(O)c2O)oc2ccccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v100",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -36.5,
+      "smiles": "O=c1cc(-c2ccc(O)cc2)oc2cc(O)ccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v101",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -36.8,
+      "smiles": "O=c1cc(-c2ccc(O)c(O)c2)oc2cc(O)ccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v102",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -42.86,
+      "smiles": "O=c1cc(-c2ccc(O)cc2O)oc2cc(O)ccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v103",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -40.45,
+      "smiles": "O=c1cc(-c2ccc(O)c(O)c2O)oc2cc(O)ccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v104",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -36.14,
+      "smiles": "O=c1cc(-c2ccc(O)cc2)oc2cccc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v105",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -36.93,
+      "smiles": "O=c1cc(-c2ccc(O)c(O)c2)oc2cccc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v106",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -42.83,
+      "smiles": "O=c1cc(-c2ccc(O)cc2O)oc2cccc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v107",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -36.24,
+      "smiles": "O=c1cc(-c2ccc(O)c(O)c2O)oc2cccc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v108",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -39.93,
+      "smiles": "O=c1cc(-c2ccc(O)cc2)oc2cc(O)cc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v109",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -38.06,
+      "smiles": "O=c1cc(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v110",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -37.95,
+      "smiles": "O=c1cc(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v111",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -48.6,
+      "smiles": "O=c1cc(-c2ccc(O)c(O)c2O)oc2cc(O)cc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v112",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -37.53,
+      "smiles": "O=c1c(O)c(-c2ccc(O)cc2)oc2ccccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v113",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -39.9,
+      "smiles": "O=c1c(O)c(-c2ccc(O)c(O)c2)oc2ccccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v114",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -44.09,
+      "smiles": "O=c1c(O)c(-c2ccc(O)cc2O)oc2ccccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v115",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -44.55,
+      "smiles": "O=c1c(O)c(-c2ccc(O)c(O)c2O)oc2ccccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v116",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -38.69,
+      "smiles": "O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)ccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v117",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -40.27,
+      "smiles": "O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)ccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v118",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -39.48,
+      "smiles": "O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)ccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v119",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -41.75,
+      "smiles": "O=c1c(O)c(-c2ccc(O)c(O)c2O)oc2cc(O)ccc12",
+      "combined": 0.5
+    },
+    {
+      "name": "v120",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -37.66,
+      "smiles": "O=c1c(O)c(-c2ccc(O)cc2)oc2cccc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v121",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -43.34,
+      "smiles": "O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cccc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v122",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -39.52,
+      "smiles": "O=c1c(O)c(-c2ccc(O)cc2O)oc2cccc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v123",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -49.95,
+      "smiles": "O=c1c(O)c(-c2ccc(O)c(O)c2O)oc2cccc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v124",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -49.51,
+      "smiles": "O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v125",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -49.43,
+      "smiles": "O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v126",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -40.48,
+      "smiles": "O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12",
+      "combined": 0.5
+    },
+    {
+      "name": "v127",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": -40.98,
+      "smiles": "O=c1c(O)c(-c2ccc(O)c(O)c2O)oc2cc(O)cc(O)c12",
+      "combined": 0.5
+    }
+  ],
+  "references": [
+    {
+      "name": "berberine_ref",
+      "ensemble_P": 0.5866,
+      "gate": 5,
+      "logit": 0.5599702455413839,
+      "rdock": null,
+      "smiles": "COc1ccc2cc3[n+](cc2c1OC)CCc1cc2c(cc1-3)OCO2",
+      "combined": 0.5
+    },
+    {
+      "name": "real_m1",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": null,
+      "smiles": "O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12",
+      "combined": 0.0
+    },
+    {
+      "name": "real_m2",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": null,
+      "smiles": "O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12",
+      "combined": 0.0
+    },
+    {
+      "name": "real_m3",
+      "ensemble_P": 0.6521,
+      "gate": 5,
+      "logit": -1.6516469793083768,
+      "rdock": null,
+      "smiles": "O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12",
+      "combined": 0.0
+    }
+  ]
+}

@@ -42,6 +42,19 @@ the saturated core and the missing bond orders are introduced as explicit,
 chemically auditable mutation steps (C4 oxidation, C2=C3 dehydrogenation) in
 Stage 2. The 6+6 fused-ring topology is present from the very first atom.
 
+**Blind-enumeration note.** A score-driven enumeration of the full
+bond-order x substituent space on the assembled scaffold (128 unique
+variants, rDock + RNAsmol scored) shows the top-15 scoring molecules are
+saturated 2-phenylchroman-3-ols (C4-CH2, C2-OH, no C2=C3) with
+RNAsmol P = 0.737 (5/6) and rDock down to -48.0; the chromone-type
+bond order (C4=O + C2=C3) found in m1/m2/m3 reaches only
+P = 0.652 (5/6) / rDock -42.97 to -50.53. The high-scoring chiral
+3-ols are not synthetically competitive (stereocentres, no established
+route relative to the commercially available flavone), so the
+reconstruction follows the flavone bond order as the chemically
+accessible target — the CH2-to-C=O oxyflavone redox step is documented
+in the mutation ladder.
+
 **Coordinate-audit note (verified).** The extracted core keeps its native
 cold-start coordinates unchanged all the way into the final m1/m2/m3
 products (seed->product per-atom RMSD = 0.0000 A; mutation steps only add
