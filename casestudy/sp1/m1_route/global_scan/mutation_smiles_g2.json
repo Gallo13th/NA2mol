@@ -1,9 +1,0 @@
-{
-  "mut_seed_sat": "Oc1ccc([C@@H]2CCc3ccccc3O2)cc1",
-  "mut_ox": "O=C1C[C@@H](c2ccc(O)cc2)Oc2ccccc21",
-  "mut_ox_dehyd": "O=c1cc(-c2ccc(O)cc2)oc2ccccc12",
-  "mut_ox_dehyd_3OH": "O=c1c(O)c(-c2ccc(O)cc2)oc2ccccc12",
-  "mut_m1": "O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12",
-  "mut_m2": "O=c1c(O)c(-c2ccc(O)cc2O)oc2cc(O)cc(O)c12",
-  "mut_m3": "O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12"
-}

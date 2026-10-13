@@ -1,5 +1,0 @@
-id,smiles,donors,acceptors,linkers,total_fragments,coverage,success
-mol1,CN(C)c1ccc(N(c2ccccc2)c2ccccc2)cc1,2,0,0,2,1.0,True
-mol2,O=[N+]([O-])c1ccc(C#Cc2ccccc2)cc1,1,1,2,4,1.0,True
-mol3,c1ccc2c(c1)[nH]c1ccccc12,1,0,0,1,1.0,True
-mol4,CN(C)c1ccc(C#Cc2ccncc2)cc1,1,1,1,3,1.0,True

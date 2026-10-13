@@ -20,44 +20,67 @@ output/
 logs/
 *.log
 
-# ── Archives of exploratory / failed runs (kept on disk, not published) ─
-**/_archive*/
-casestudy/kras_g4/_archive_ber101_era/
-casestudy/8hzk/_deprecated_graft/
+# ── Local raw-data and manuscript working files (not part of release) ───
+sn-article*.pdf
+pretrain_smiles.txt.gz
+training_ligands_leakage_table*
+finetuning_ligands_table.tar.gz
+genbypkt_keep.py
 
-# ── Third-party RNAsmol package: code kept, data & weights dropped ──────
+# ── FMN dir: keep only RNAsmol code + scoring wrappers ─────────────────
+casestudy/fmn/*
+!casestudy/fmn/RNAsmol/
 casestudy/fmn/RNAsmol/datasets/
 casestudy/fmn/RNAsmol/saved_model/
-casestudy/fmn/RNAsmol.tar.gz
 casestudy/fmn/RNAsmol/_plot/
+!casestudy/fmn/rnasmol_score.py
+!casestudy/fmn/rnasmol_score_gpu.py
 
 # ── rDock artifacts (regenerable via rdock_protocol/make_cavity.sh) ─────
 *.as
 *.gs
 casestudy/**/dock_*.sd
-casestudy/sp1/rdock/tmp_*.sdf
-casestudy/sp1/rdock/sp1_heavy.pdb
-casestudy/sp1/rdock/sp1_raw.mol2
+casestudy/kras_g4/rdock_r4/*
+!casestudy/kras_g4/rdock_r4/score_only.prm
+!casestudy/kras_g4/rdock_r4/solv_score_only.prm
+casestudy/kras_g4/ber102_rdock/_attempts_radius10/
+casestudy/kras_g4/ber102_rdock/redock_ber102_r6.sd
+
+# ── Pre-paper-era case-study trees (kept on disk, excluded from release) ─
+casestudy/sp1/
+casestudy/kras_mrna/
+casestudy/8hzk/
+casestudy/_dude_test/
+casestudy/figures/
+fluor_util_2/
+fragment_library/
+casestudy/kras_g4/denovo_g4/
+casestudy/kras_g4/t2_denovo/
+casestudy/kras_g4/t2_repro/
+casestudy/kras_g4/kpt102_rdock/
+casestudy/kras_g4/ber102_gen2k/
+casestudy/kras_g4/_archive_ber101_era/
 
 # ── Bulk generation products (regenerable; reports/JSON evidence kept) ──
-casestudy/**/gen_*/valid_mols.sdf
-casestudy/**/gen_*/frag_hits.sdf
-casestudy/**/gen_*/bm_hits.sdf
+casestudy/kras_g4/ber102_gen10k/valid_mols.sdf
 casestudy/kras_g4/library_10k.sdf
-# ber102_gen2k/ fully tracked (staged-route Stage-1 evidence, all files small)
-casestudy/kras_g4/ber102_rdock/_attempts_radius10/
-casestudy/fmn/*.sd
-casestudy/fmn/screening_round*/*.sdf
-casestudy/fmn/screening_round*/*.sd
-casestudy/fmn/final_binders.sdf
-casestudy/fmn/final_binders_sas.sdf
-casestudy/fmn/final_binders_sas3.sdf
+casestudy/kras_g4/gen_*/valid_mols.sdf
+
+# ── Case-study intermediates (large / regenerable by run_chain_ber102.py)
+casestudy/kras_g4/denovo2/paper_stage3_portpairs.json
+casestudy/kras_g4/denovo2/frag_dedup*.sdf
+casestudy/kras_g4/denovo2/frag_dedup*stats.json
+casestudy/kras_g4/denovo2/frag_pool*.json
+casestudy/kras_g4/denovo2/variant_pool*.json
+casestudy/kras_g4/denovo2/chain_frag_dedup.sdf
+casestudy/kras_g4/denovo2/chain_products.sdf
+casestudy/kras_g4/denovo2/port_*.json
+casestudy/kras_g4/denovo2/port_*.sdf
+casestudy/kras_g4/denovo2/final_rnasmol6.json
 
 # ── Misc generated artifacts ─────────────────────────────────────────────
 *.tar.gz
 *.pth
 nohup.out
-
-# exceptions: staged-route evidence for the T2 de-novo reproduction chain
-!casestudy/kras_g4/ber102_gen2k/valid_mols.sdf
-!casestudy/kras_g4/t2_denovo/gen_runX1/valid_mols.sdf
+package.json
+package-lock.json

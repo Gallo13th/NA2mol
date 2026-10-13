@@ -1,0 +1,2346 @@
+[
+ {
+  "idx": 1,
+  "smiles": "c1ccc2c(Nc3ccc4c5c(ccc4c3)CCC5)ccnc2c1",
+  "ms_INTER": -34.9056,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 2,
+  "smiles": "c1ccc2c(Cc3cccc4cccnc34)cccc2c1",
+  "ms_INTER": -28.8229,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 3,
+  "smiles": "c1cc(Cc2cccc3ccccc23)cc2cncc-2c1",
+  "ms_INTER": -31.3741,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 4,
+  "smiles": "c1ccc2ccc(Cc3cccc4cccnc34)c-2cc1",
+  "ms_INTER": -30.9522,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 5,
+  "smiles": "c1ccc2cc(Nc3ccc4ccc5c(c4c3)OCCO5)ccc2c1",
+  "ms_INTER": -30.126,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 6,
+  "smiles": "c1ccc2cnc(Cc3cccc4ccccc34)c-2cc1",
+  "ms_INTER": -31.4282,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 7,
+  "smiles": "c1ccc2ncc(Cc3cccc4ccccc34)c-2cc1",
+  "ms_INTER": -26.8728,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 8,
+  "smiles": "c1cc(Nc2ccc3ccccc3c2)c2c(c1)OCCC2",
+  "ms_INTER": -27.6336,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 9,
+  "smiles": "c1ccc2c(Cc3cncc4ccccc34)cccc2c1",
+  "ms_INTER": -31.3742,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 10,
+  "smiles": "c1ccc2c(Cc3ccc4ccncc4c3)cccc2c1",
+  "ms_INTER": -28.875,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 11,
+  "smiles": "c1ccc2c(Cc3nccc4ccccc34)cccc2c1",
+  "ms_INTER": -33.4655,
+  "cid": 17851501,
+  "name": "1-(naphthalen-1-ylmethyl)isoquinoline",
+  "has_vendors": true
+ },
+ {
+  "idx": 12,
+  "smiles": "c1ccc2cc(Cc3cccc4ccccc34)nc-2cc1",
+  "ms_INTER": -30.2978,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 13,
+  "smiles": "c1ccc2nc(Cc3cccc4ccccc34)ccc2c1",
+  "ms_INTER": -30.894,
+  "cid": 15347358,
+  "name": "2-(naphthalen-1-ylmethyl)quinoline",
+  "has_vendors": false
+ },
+ {
+  "idx": 14,
+  "smiles": "c1ccc2cc(Cc3cccc4cccnc34)ccc2c1",
+  "ms_INTER": -30.6601,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 15,
+  "smiles": "c1ccc2ccc(Nc3cccc4cnccc34)c-2cc1",
+  "ms_INTER": -29.4976,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 16,
+  "smiles": "c1ccc2ncc(Cc3cccc4ccccc34)cc2c1",
+  "ms_INTER": -31.2418,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 17,
+  "smiles": "c1ccc2cnc(Cc3cccc4cccnc34)c-2cc1",
+  "ms_INTER": -29.7792,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 18,
+  "smiles": "c1ccc2c(c1)CCN2Cc1cccc2ccccc12",
+  "ms_INTER": -32.5705,
+  "cid": 16567642,
+  "name": "1-(naphthalen-1-ylmethyl)-2,3-dihydroindole",
+  "has_vendors": true
+ },
+ {
+  "idx": 19,
+  "smiles": "c1ccc2ncc(Cc3cccc4cccnc34)c-2cc1",
+  "ms_INTER": -32.0977,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 20,
+  "smiles": "c1ccc2cc(Cc3cccc4ccccc34)ncc2c1",
+  "ms_INTER": -32.3185,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 21,
+  "smiles": "c1cc(Nc2ccc3ccccc3n2)c2c(c1)OCCC2",
+  "ms_INTER": -26.3752,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 22,
+  "smiles": "c1ccc2nc(Nc3cccc4ccccc34)ccc2c1",
+  "ms_INTER": -30.7486,
+  "cid": 82536246,
+  "name": "N-naphthalen-1-ylquinolin-2-amine",
+  "has_vendors": false
+ },
+ {
+  "idx": 23,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)OCCC4)cccc2c1",
+  "ms_INTER": -30.079,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 24,
+  "smiles": "c1cnc2c(Cc3ccnc4ccccc34)cccc2c1",
+  "ms_INTER": -30.431,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 25,
+  "smiles": "c1ccc2c(Cc3ccc4cnccc4c3)cccc2c1",
+  "ms_INTER": -30.1258,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 26,
+  "smiles": "c1ccc2ccc(Nc3cccc4cccnc34)c-2cc1",
+  "ms_INTER": -29.5517,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 27,
+  "smiles": "c1ccc2c(Cc3ccc4ccncc4n3)cccc2c1",
+  "ms_INTER": -27.8024,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 28,
+  "smiles": "c1ccc2nc(Cc3cccc4cccnc34)ccc2c1",
+  "ms_INTER": -29.7588,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 29,
+  "smiles": "c1ccc2nnc(Cc3cccc4ccccc34)c-2cc1",
+  "ms_INTER": -32.3006,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 30,
+  "smiles": "c1ccc2c(Cc3cccc4cccnc34)nccc2c1",
+  "ms_INTER": -30.3279,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 31,
+  "smiles": "c1ccc2cc(Cc3ccc4c(c3)CCCC4)ccc2c1",
+  "ms_INTER": -26.8065,
+  "cid": 123612010,
+  "name": "2-(5,6,7,8-tetrahydronaphthalen-2-ylmethyl)naphthalene",
+  "has_vendors": false
+ },
+ {
+  "idx": 32,
+  "smiles": "c1ccc2ncc(Nc3cccc4ccccc34)cc2c1",
+  "ms_INTER": -30.7312,
+  "cid": 82536245,
+  "name": "N-naphthalen-1-ylquinolin-3-amine",
+  "has_vendors": true
+ },
+ {
+  "idx": 33,
+  "smiles": "c1ccc2cnc(Nc3cccc4ccccc34)c-2cc1",
+  "ms_INTER": -29.3981,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 34,
+  "smiles": "c1ccc2nc(Cc3cccc4ccccc34)nc-2cc1",
+  "ms_INTER": -28.8667,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 35,
+  "smiles": "c1ccc2cc(Cc3cc4ccccc4cn3)ccc2c1",
+  "ms_INTER": -26.883,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 36,
+  "smiles": "c1ccc2cc(Nc3cccc4ccccc34)nc-2cc1",
+  "ms_INTER": -30.1426,
+  "cid": 132520735,
+  "name": "N-naphthalen-1-ylcyclohepta[b]pyrrol-2-amine",
+  "has_vendors": false
+ },
+ {
+  "idx": 37,
+  "smiles": "c1ccc2c(Cc3ncnc4ccccc34)cccc2c1",
+  "ms_INTER": -33.2672,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 38,
+  "smiles": "c1ccc2c(Nc3nc4ccccc4s3)cccc2c1",
+  "ms_INTER": -29.7788,
+  "cid": 28832778,
+  "name": "N-naphthalen-1-yl-1,3-benzothiazol-2-amine",
+  "has_vendors": true
+ },
+ {
+  "idx": 39,
+  "smiles": "c1ccc2ccc(Nc3cccc4cncnc34)c-2cc1",
+  "ms_INTER": -29.0017,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 40,
+  "smiles": "c1ccc2sc(Nc3nccc4ccccc34)cc2c1",
+  "ms_INTER": -26.9318,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 41,
+  "smiles": "c1ccc2cc(Cc3cncc4ccccc34)ccc2c1",
+  "ms_INTER": -31.1139,
+  "cid": 162400417,
+  "name": "4-(naphthalen-2-ylmethyl)isoquinoline",
+  "has_vendors": false
+ },
+ {
+  "idx": 42,
+  "smiles": "c1ccc2c(Cc3cccc4ncccc34)cccc2c1",
+  "ms_INTER": -30.3671,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 43,
+  "smiles": "c1cnc2cc(Cc3cccc4ccccc34)ccc2c1",
+  "ms_INTER": -29.1424,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 44,
+  "smiles": "c1ccc2ccc(Nc3ccc4cccnc4c3)c-2cc1",
+  "ms_INTER": -27.339,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 45,
+  "smiles": "c1ccc2ccc(Cc3ccc4cnccc4c3)c-2cc1",
+  "ms_INTER": -29.3226,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 46,
+  "smiles": "c1ccc2c(Cc3cnc4ccccc4n3)cccc2c1",
+  "ms_INTER": -29.807,
+  "cid": 158138490,
+  "name": "2-(naphthalen-1-ylmethyl)quinoxaline",
+  "has_vendors": false
+ },
+ {
+  "idx": 47,
+  "smiles": "c1ccc2c(Cc3ccc4cnccc4n3)cccc2c1",
+  "ms_INTER": -28.7766,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 48,
+  "smiles": "c1ccc2cc(Cc3cccc4cccnc34)cc-2cc1",
+  "ms_INTER": -31.1597,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 49,
+  "smiles": "c1ccc2cnc(Nc3cccc4cnccc34)c-2cc1",
+  "ms_INTER": -28.952,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 50,
+  "smiles": "c1ccc2ccc(Cc3ccc4cccnc4c3)c-2cc1",
+  "ms_INTER": -28.7573,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 51,
+  "smiles": "c1cnc2c(Cc3ccc4cnccc4c3)cccc2c1",
+  "ms_INTER": -30.4892,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 52,
+  "smiles": "c1ccc2ncc(Cc3cccc4cccnc34)cc2c1",
+  "ms_INTER": -29.9071,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 53,
+  "smiles": "c1ccc2cc(Nc3nccc4ccccc34)ccc2c1",
+  "ms_INTER": -30.2112,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 54,
+  "smiles": "c1cc(Nc2ccc3cccnc3c2)c2c(c1)OCCC2",
+  "ms_INTER": -28.4002,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 55,
+  "smiles": "c1ccc2c3ccc(Nc4ccc5c(c4)OCCO5)ccc-3nc2c1",
+  "ms_INTER": -30.1303,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 56,
+  "smiles": "c1ccc2cc(Cc3ccnc4ccccc34)ccc2c1",
+  "ms_INTER": -28.5246,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 57,
+  "smiles": "c1ccc2c(Nc3cnc4ccccc4n3)cccc2c1",
+  "ms_INTER": -29.9703,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 58,
+  "smiles": "c1cnc2c(Cc3nc4ccccc4s3)cccc2c1",
+  "ms_INTER": -30.3663,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 59,
+  "smiles": "c1ccc2c(Nc3ccc4c(c3)OCCCO4)cccc2c1",
+  "ms_INTER": -29.3257,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 60,
+  "smiles": "c1ccc2c(Cc3ccc4cncnc4c3)cccc2c1",
+  "ms_INTER": -28.5098,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 61,
+  "smiles": "c1ccc2cc(Cc3nccc4ccccc34)ccc2c1",
+  "ms_INTER": -28.1339,
+  "cid": 11995265,
+  "name": "1-(naphthalen-2-ylmethyl)isoquinoline",
+  "has_vendors": false
+ },
+ {
+  "idx": 62,
+  "smiles": "c1ccc2cnc(Nc3cccc4cccnc34)c-2cc1",
+  "ms_INTER": -28.6498,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 63,
+  "smiles": "c1ccc2nc(Cc3cncc4ccccc34)ccc2c1",
+  "ms_INTER": -30.4688,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 64,
+  "smiles": "c1ccc2cc(Cc3ccc4cnccc4c3)ccc2c1",
+  "ms_INTER": -29.5449,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 65,
+  "smiles": "c1ccc2ccc(Cc3ccc4cncnc4c3)c-2cc1",
+  "ms_INTER": -28.2788,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 66,
+  "smiles": "c1cc(Cc2cccc3ccccc23)c2c(c1)OCO2",
+  "ms_INTER": -28.9547,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 67,
+  "smiles": "c1ccc2c(Nc3ccc4c(c3)OCCO4)cccc2c1",
+  "ms_INTER": -28.4297,
+  "cid": 44629971,
+  "name": "N-naphthalen-1-yl-2,3-dihydro-1,4-benzodioxin-6-amine",
+  "has_vendors": true
+ },
+ {
+  "idx": 68,
+  "smiles": "c1ccc2nnc(Cc3cccc4ccccc34)cc2c1",
+  "ms_INTER": -30.2442,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 69,
+  "smiles": "c1ccc2cc(Cc3ccc4c(c3)COC4)ccc2c1",
+  "ms_INTER": -27.3331,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 70,
+  "smiles": "c1ccc2ccc(Cc3cccc4c3OCO4)c-2cc1",
+  "ms_INTER": -30.2367,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 71,
+  "smiles": "c1cnc2c(Cc3ncnc4ccccc34)cccc2c1",
+  "ms_INTER": -28.956,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 72,
+  "smiles": "c1ccc2cnc(Cc3ccc4ccccc4c3)c-2cc1",
+  "ms_INTER": -28.9584,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 73,
+  "smiles": "c1cnc2ccc(Cc3cccc4ccccc34)cc2c1",
+  "ms_INTER": -28.8961,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 74,
+  "smiles": "c1ccc2cnc(Nc3ccc4ccccc4c3)c-2cc1",
+  "ms_INTER": -30.2947,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 75,
+  "smiles": "c1ccc2ncc(Cc3ccc4ccccc4c3)c-2cc1",
+  "ms_INTER": -30.8136,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 76,
+  "smiles": "c1ccc2cc(Cc3ccc4ccncc4c3)ccc2c1",
+  "ms_INTER": -27.9947,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 77,
+  "smiles": "c1cnc2c(Cc3cnc4ccccc4n3)cccc2c1",
+  "ms_INTER": -28.923,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 78,
+  "smiles": "c1cc(Cc2cccc3c2OCO3)cc2cccc-2c1",
+  "ms_INTER": -29.7804,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 79,
+  "smiles": "c1ccc2nc(Nc3cccc4ccccc34)nc-2cc1",
+  "ms_INTER": -28.918,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 80,
+  "smiles": "c1ccc2cc(Nc3nccc4ccccc34)cc-2cc1",
+  "ms_INTER": -29.6732,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 81,
+  "smiles": "c1ccc2ncc(Nc3cccc4cccnc34)cc2c1",
+  "ms_INTER": -27.0066,
+  "cid": 82536223,
+  "name": "N-quinolin-8-ylquinolin-3-amine",
+  "has_vendors": true
+ },
+ {
+  "idx": 82,
+  "smiles": "c1cc(Nc2ccc3c(c2)OCCCO3)c2ccncc2c1",
+  "ms_INTER": -28.5944,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 83,
+  "smiles": "c1ccc2cc(Nc3cc4ccccc4cn3)ccc2c1",
+  "ms_INTER": -26.9387,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 84,
+  "smiles": "c1ccc2cc(Cc3cccc4cccnc34)nc-2cc1",
+  "ms_INTER": -29.7905,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 85,
+  "smiles": "c1ccc2ncc(Cc3nc4ccccc4s3)cc2c1",
+  "ms_INTER": -28.0221,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 86,
+  "smiles": "c1ccc2cc(Cc3cnc4ccccc4c3)ccc2c1",
+  "ms_INTER": -26.5188,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 87,
+  "smiles": "c1ccc2sc(Nc3ccnc4ccccc34)cc2c1",
+  "ms_INTER": -30.5997,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 88,
+  "smiles": "c1ccc2nc(Nc3cccc4cnccc34)ccc2c1",
+  "ms_INTER": -27.0801,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 89,
+  "smiles": "c1ccc2cc(Cc3cc4ccccc4cn3)ncc2c1",
+  "ms_INTER": -27.1389,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 90,
+  "smiles": "c1ccc2cc(Nc3ccnc4ccccc34)ccc2c1",
+  "ms_INTER": -31.3771,
+  "cid": 12418122,
+  "name": "N-naphthalen-2-ylquinolin-4-amine",
+  "has_vendors": false
+ },
+ {
+  "idx": 91,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)NCC4)cccc2c1",
+  "ms_INTER": -27.0552,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 92,
+  "smiles": "c1cc(Cc2ccnc3ccccc23)c2cccnc2c1",
+  "ms_INTER": -31.1557,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 93,
+  "smiles": "c1ccc2ccc(Cc3cnc4ccccc4c3)c-2cc1",
+  "ms_INTER": -28.3498,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 94,
+  "smiles": "c1ccc2cc(Cc3ccc4ccccc4n3)ncc2c1",
+  "ms_INTER": -27.452,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 95,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)OCCCO4)cccc2c1",
+  "ms_INTER": -27.944,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 96,
+  "smiles": "c1ccc2cnc(Nc3ccc4cnccc4c3)c-2cc1",
+  "ms_INTER": -30.7333,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 97,
+  "smiles": "c1ccc2cnc(Cc3ccc4cnccc4c3)c-2cc1",
+  "ms_INTER": -28.3883,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 98,
+  "smiles": "c1ccc2c(Nc3ccc4c(c3)CCCO4)cccc2c1",
+  "ms_INTER": -27.2561,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 99,
+  "smiles": "c1ccc2c(c1)CCCN2Cc1ccc2ccccc2c1",
+  "ms_INTER": -27.0191,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 100,
+  "smiles": "c1ccc2nc(Cc3cccc4ncccc34)ccc2c1",
+  "ms_INTER": -28.798,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 101,
+  "smiles": "c1ccc2cc(Cc3cncc4ccccc34)cc-2cc1",
+  "ms_INTER": -29.6242,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 102,
+  "smiles": "c1ccc2ncc(Cc3ccc4cnccc4c3)c-2cc1",
+  "ms_INTER": -28.1097,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 103,
+  "smiles": "c1ccc2cc(Cc3ccc4ncccc4c3)ccc2c1",
+  "ms_INTER": -30.169,
+  "cid": 172878072,
+  "name": "6-(naphthalen-2-ylmethyl)quinoline",
+  "has_vendors": true
+ },
+ {
+  "idx": 104,
+  "smiles": "c1ccc2cc(Cc3ccc4ccncc4c3)cc-2cc1",
+  "ms_INTER": -26.555,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 105,
+  "smiles": "c1ccc2cc(Cc3ccc4c(c3)CCOC4)ccc2c1",
+  "ms_INTER": -26.8491,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 106,
+  "smiles": "c1ccc2nc(Nc3ccc4ccccc4n3)ccc2c1",
+  "ms_INTER": -27.8836,
+  "cid": 12917880,
+  "name": "N-quinolin-2-ylquinolin-2-amine",
+  "has_vendors": false
+ },
+ {
+  "idx": 107,
+  "smiles": "c1ccc2c(Cc3ccc4cnccc4c3)cncc2c1",
+  "ms_INTER": -26.5724,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 108,
+  "smiles": "c1cnc2ccc(Cc3nc4ccccc4s3)cc2c1",
+  "ms_INTER": -29.4352,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 109,
+  "smiles": "c1cnc2c(Nc3ccc4c(c3)OCCCO4)cccc2c1",
+  "ms_INTER": -28.6379,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 110,
+  "smiles": "c1ccc2ccc(Nc3ccc4c(c3)CCCO4)c-2cc1",
+  "ms_INTER": -26.7444,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 111,
+  "smiles": "c1cnc2cc(Nc3cccc4ccccc34)ccc2c1",
+  "ms_INTER": -29.4935,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 112,
+  "smiles": "c1ccc2cnc(Cc3ccc4cccnc4c3)c-2cc1",
+  "ms_INTER": -27.6149,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 113,
+  "smiles": "c1ccc2ncc(Nc3nccc4ccccc34)cc2c1",
+  "ms_INTER": -28.9927,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 114,
+  "smiles": "c1ccc2nc(Cc3ccnc4ccccc34)ccc2c1",
+  "ms_INTER": -28.1259,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 115,
+  "smiles": "c1ccc2cc(Nc3cnc4ccccc4n3)ccc2c1",
+  "ms_INTER": -27.7844,
+  "cid": 174719113,
+  "name": "N-naphthalen-2-ylquinoxalin-2-amine",
+  "has_vendors": false
+ },
+ {
+  "idx": 116,
+  "smiles": "c1ccc2ncc(Cc3ccc4cccnc4c3)c-2cc1",
+  "ms_INTER": -29.776,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 117,
+  "smiles": "c1ccc2cc(Cc3ccc4cnccc4c3)ncc2c1",
+  "ms_INTER": -29.3697,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 118,
+  "smiles": "c1cnc2cc(Cc3ccnc4ccccc34)ccc2c1",
+  "ms_INTER": -28.7741,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 119,
+  "smiles": "c1cc2cc(Cc3ccc4ccncc4c3)ccc2cn1",
+  "ms_INTER": -27.6396,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 120,
+  "smiles": "c1ccc2ccc(Cc3ccc4ccccc4n3)c-2cc1",
+  "ms_INTER": -27.7064,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 121,
+  "smiles": "c1ccc2sc(Cc3nc4ccccc4s3)nc2c1",
+  "ms_INTER": -27.0532,
+  "cid": 74755,
+  "name": "2-(1,3-benzothiazol-2-ylmethyl)-1,3-benzothiazole",
+  "has_vendors": true
+ },
+ {
+  "idx": 122,
+  "smiles": "c1cc(Cc2ccc3cnccc3c2)c2ccncc2c1",
+  "ms_INTER": -26.3876,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 123,
+  "smiles": "c1ccc2c(Cc3ccc4cnccc4c3)nccc2c1",
+  "ms_INTER": -27.7166,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 124,
+  "smiles": "c1ccc2cc(Nc3nccc4ccccc34)nc-2cc1",
+  "ms_INTER": -28.8448,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 125,
+  "smiles": "c1ccc2cc(Cc3ccc4c(c3)OCCC4)ccc2c1",
+  "ms_INTER": -26.8755,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 126,
+  "smiles": "c1ccc2nc(Cc3cccc4cnccc34)ccc2c1",
+  "ms_INTER": -29.739,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 127,
+  "smiles": "c1ccc2nc(Cc3nccc4ccccc34)ccc2c1",
+  "ms_INTER": -29.49,
+  "cid": 411862,
+  "name": "1-(quinolin-2-ylmethyl)isoquinoline",
+  "has_vendors": false
+ },
+ {
+  "idx": 128,
+  "smiles": "c1ccc2cc(Cc3ccc4cccnc4c3)ncc2c1",
+  "ms_INTER": -28.179,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 129,
+  "smiles": "c1ccc2c(Nc3ccc4c(c3)OCCO4)ccnc2c1",
+  "ms_INTER": -27.4277,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 130,
+  "smiles": "c1cc(Cc2ccc3ccccc3n2)cc2cccc-2c1",
+  "ms_INTER": -28.4955,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 131,
+  "smiles": "c1cnc2c(Nc3ccc4c(c3)OCCO4)cccc2c1",
+  "ms_INTER": -28.9131,
+  "cid": 82536005,
+  "name": "N-(2,3-dihydro-1,4-benzodioxin-6-yl)quinolin-8-amine",
+  "has_vendors": true
+ },
+ {
+  "idx": 132,
+  "smiles": "c1cc(Cc2ccc3ccccc3c2)c2c(c1)NCC2",
+  "ms_INTER": -27.5003,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 133,
+  "smiles": "c1cnc2cc(Cc3ccc4ccncc4c3)ccc2c1",
+  "ms_INTER": -26.8871,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 134,
+  "smiles": "c1cc(Cc2ccc3ccccc3c2)c2c(c1)OCO2",
+  "ms_INTER": -27.4776,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 135,
+  "smiles": "c1ccc2sc(Cc3cccc4ncccc34)nc2c1",
+  "ms_INTER": -28.7311,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 136,
+  "smiles": "c1ccc2ncc(Cc3ccc4c(c3)CCCC4)cc2c1",
+  "ms_INTER": -27.2755,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 137,
+  "smiles": "c1cnc2cc(Cc3cccc4cnccc34)ccc2c1",
+  "ms_INTER": -26.6155,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 138,
+  "smiles": "c1cnc2cc(Cc3nccc4ccccc34)ccc2c1",
+  "ms_INTER": -26.4703,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 139,
+  "smiles": "c1ccc2cc(Cc3ccc4ccncc4c3)ncc2c1",
+  "ms_INTER": -27.799,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 140,
+  "smiles": "c1ccc2cc(Cc3ncnc4ccccc34)ccc2c1",
+  "ms_INTER": -28.608,
+  "cid": 174669581,
+  "name": "4-(naphthalen-2-ylmethyl)quinazoline",
+  "has_vendors": false
+ },
+ {
+  "idx": 141,
+  "smiles": "c1ccc2cc(Cc3cccc4ncccc34)ncc2c1",
+  "ms_INTER": -30.2533,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 142,
+  "smiles": "c1cc(Cc2ccc3ccccc3c2)cc2cncc-2c1",
+  "ms_INTER": -28.4574,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 143,
+  "smiles": "c1ccc2cc(Nc3ccc4c(c3)CCCO4)ccc2c1",
+  "ms_INTER": -26.925,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 144,
+  "smiles": "c1ccc2cc(Cc3ccc4c(c3)COCC4)ccc2c1",
+  "ms_INTER": -27.8642,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 145,
+  "smiles": "c1ccc2cc(Nc3cnc4ccccc4c3)ncc2c1",
+  "ms_INTER": -26.9574,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 146,
+  "smiles": "c1ccc2[nH]c(Cc3cccc4cccnc34)cc2c1",
+  "ms_INTER": -29.992,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 147,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)OCC4)cccc2c1",
+  "ms_INTER": -29.8247,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 148,
+  "smiles": "c1ccc2sc(Nc3ccnc4ccccc34)nc2c1",
+  "ms_INTER": -32.3001,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 149,
+  "smiles": "c1ccc2nc(Cc3ccc4ccncc4c3)ccc2c1",
+  "ms_INTER": -26.8758,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 150,
+  "smiles": "c1cc(Nc2cccc3ccccc23)c2c(c1)OCCC2",
+  "ms_INTER": -27.9916,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 151,
+  "smiles": "c1ccc2nc(Nc3ccnc4ccccc34)ccc2c1",
+  "ms_INTER": -30.0951,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 152,
+  "smiles": "c1ccc2c(Cc3ccc4cncnc4c3)ccnc2c1",
+  "ms_INTER": -28.7135,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 153,
+  "smiles": "c1ccc2ccc(Cc3ccc4c(c3)OCCO4)c-2cc1",
+  "ms_INTER": -29.009,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 154,
+  "smiles": "c1ccc2cc(Cc3ccc4c(c3)OCCCO4)ccc2c1",
+  "ms_INTER": -29.2392,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 155,
+  "smiles": "c1ccc2sc(Cc3ccc4ccncc4c3)nc2c1",
+  "ms_INTER": -28.2673,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 156,
+  "smiles": "c1ccc2cc(Cc3ccc4c(c3)CCCO4)ccc2c1",
+  "ms_INTER": -27.19,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 157,
+  "smiles": "c1ccc2c(c1)CCN2Cc1ccc2ccccc2c1",
+  "ms_INTER": -29.5155,
+  "cid": 123695931,
+  "name": "1-(naphthalen-2-ylmethyl)-2,3-dihydroindole",
+  "has_vendors": true
+ },
+ {
+  "idx": 158,
+  "smiles": "c1ccc2c(Cc3nc4ccccc4[nH]3)cccc2c1",
+  "ms_INTER": -29.3723,
+  "cid": 170629,
+  "name": "2-(naphthalen-1-ylmethyl)-1H-benzimidazole",
+  "has_vendors": true
+ },
+ {
+  "idx": 159,
+  "smiles": "c1ccc2cc(Cc3ccc4ccccc4c3)nc-2cc1",
+  "ms_INTER": -26.7031,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 160,
+  "smiles": "c1ccc2c(Cc3nc4ccccc4s3)cncc2c1",
+  "ms_INTER": -28.8765,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 161,
+  "smiles": "c1ccc2nc(Cc3cccc4cccnc34)nc-2cc1",
+  "ms_INTER": -28.6874,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 162,
+  "smiles": "c1ccc2nc(Cc3ccc4[nH]c5ccccc5c4c3)cnc2c1",
+  "ms_INTER": -29.3134,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 163,
+  "smiles": "c1cc(Cc2ccc3c(c2)OCCO3)cc2cccc-2c1",
+  "ms_INTER": -27.0995,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 164,
+  "smiles": "c1ccc2cc(Cc3ccc4ncccc4c3)ncc2c1",
+  "ms_INTER": -30.9722,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 165,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)CCCC4)cccc2c1",
+  "ms_INTER": -27.4498,
+  "cid": 85821735,
+  "name": "1-(5,6,7,8-tetrahydronaphthalen-2-ylmethyl)naphthalene",
+  "has_vendors": false
+ },
+ {
+  "idx": 166,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)CCCC4)cncc2c1",
+  "ms_INTER": -29.9557,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 167,
+  "smiles": "c1cc(Cc2ccc3ccccc3c2)c2c(c1)OCCO2",
+  "ms_INTER": -28.4656,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 168,
+  "smiles": "c1ccc2cc(Cc3cccc4c3OCO4)cc-2cc1",
+  "ms_INTER": -27.8393,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 169,
+  "smiles": "c1ccc2cc(Cc3cncc4ccccc34)nc-2cc1",
+  "ms_INTER": -28.0277,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 170,
+  "smiles": "c1ccc2nc(Nc3cnc4ccccc4n3)ccc2c1",
+  "ms_INTER": -27.0072,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 171,
+  "smiles": "c1ccc2c(Nc3ccc4c(c3)CCCO4)nccc2c1",
+  "ms_INTER": -27.6305,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 172,
+  "smiles": "c1ccc2c(Nc3ccc4c(c3)CCN4)cccc2c1",
+  "ms_INTER": -28.9221,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 173,
+  "smiles": "c1ccc2ccc(Cc3ccc4c(c3)CCCC4)c-2cc1",
+  "ms_INTER": -27.8483,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 174,
+  "smiles": "c1ccc2c(Nc3cnc4ccccc4n3)nccc2c1",
+  "ms_INTER": -27.8554,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 175,
+  "smiles": "c1cnc2cc(Nc3nccc4ccccc34)ccc2c1",
+  "ms_INTER": -27.6669,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 176,
+  "smiles": "c1ccc2nc(Cc3ccc4c(c3)CCCC4)cnc2c1",
+  "ms_INTER": -26.3964,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 177,
+  "smiles": "c1ccc2cc(Cc3cncc4ccccc34)ncc2c1",
+  "ms_INTER": -29.9376,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 178,
+  "smiles": "c1ccc2nc(Cc3ccc4cncnc4c3)ccc2c1",
+  "ms_INTER": -27.5472,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 179,
+  "smiles": "c1cc2cc(Cc3ccc4cnccc4c3)ccc2cn1",
+  "ms_INTER": -27.3199,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 180,
+  "smiles": "c1cnc2ccc(Cc3ccc4ccccc4n3)cc2c1",
+  "ms_INTER": -29.0557,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 181,
+  "smiles": "c1ccc2cnc(Cc3cnc4ccccc4c3)c-2cc1",
+  "ms_INTER": -27.4572,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 182,
+  "smiles": "c1ccc2ncc(Cc3ccc4ccncc4c3)cc2c1",
+  "ms_INTER": -27.907,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 183,
+  "smiles": "c1ccc2ncc(Cc3cnc4ccccc4c3)c-2cc1",
+  "ms_INTER": -26.8432,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 184,
+  "smiles": "c1cnc2nc(Nc3cccc4ccccc34)ccc2c1",
+  "ms_INTER": -28.3534,
+  "cid": 175877146,
+  "name": "N-naphthalen-1-yl-1,8-naphthyridin-2-amine",
+  "has_vendors": false
+ },
+ {
+  "idx": 185,
+  "smiles": "c1cc(Cc2ccc3ccccc3n2)cc2cncc-2c1",
+  "ms_INTER": -27.8843,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 186,
+  "smiles": "c1ccc2cc(Nc3nc4ccccc4s3)ncc2c1",
+  "ms_INTER": -26.3929,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 187,
+  "smiles": "c1ccc2sc(Cc3ccc4cnccc4c3)nc2c1",
+  "ms_INTER": -27.8188,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 188,
+  "smiles": "c1ccc2cc(Cc3ccc4cnccc4n3)ccc2c1",
+  "ms_INTER": -26.9852,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 189,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)OCO4)cccc2c1",
+  "ms_INTER": -27.9413,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 190,
+  "smiles": "c1ccc2nc(Cc3ccc4cc[nH]c4c3)ccc2c1",
+  "ms_INTER": -27.0466,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 191,
+  "smiles": "c1ccc2nc(Cc3cccc4ncccc34)cnc2c1",
+  "ms_INTER": -28.7884,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 192,
+  "smiles": "c1cnc2ccc(Cc3nccc4ccccc34)cc2c1",
+  "ms_INTER": -29.5607,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 193,
+  "smiles": "c1cnc2cc(Cc3ccc4cnccc4c3)ccc2c1",
+  "ms_INTER": -26.8046,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 194,
+  "smiles": "c1ccc2nc(Cc3ccc4cnccc4c3)ncc2c1",
+  "ms_INTER": -28.6073,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 195,
+  "smiles": "c1ccc2nnc(Cc3cccc4ncccc34)cc2c1",
+  "ms_INTER": -29.3444,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 196,
+  "smiles": "c1ccc2cc(Cc3cccc4c3CCN4)cc-2cc1",
+  "ms_INTER": -28.399,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 197,
+  "smiles": "c1ccc2nc(Nc3ncc4ccccc4n3)ccc2c1",
+  "ms_INTER": -26.9447,
+  "cid": 141113815,
+  "name": "N-quinolin-2-ylquinazolin-2-amine",
+  "has_vendors": false
+ },
+ {
+  "idx": 198,
+  "smiles": "c1ccc2sc(Cc3ccc4ncncc4c3)nc2c1",
+  "ms_INTER": -27.8238,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 199,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)CCN4)cccc2c1",
+  "ms_INTER": -29.7133,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 200,
+  "smiles": "c1cnc2cc(Cc3nc4ccccc4s3)ccc2c1",
+  "ms_INTER": -26.7069,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 201,
+  "smiles": "c1ccc2nnc(Cc3ccc4cccnc4c3)c-2cc1",
+  "ms_INTER": -26.3884,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 202,
+  "smiles": "c1ccc2sc(Cc3ccc4c(c3)OCCO4)cc2c1",
+  "ms_INTER": -27.1493,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 203,
+  "smiles": "c1ccc2nc(Cc3ccc4[nH]c5ccccc5c4c3)nc-2cc1",
+  "ms_INTER": -29.3989,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 204,
+  "smiles": "c1ccc2cnc(Cc3ccc4ccccc4n3)c-2cc1",
+  "ms_INTER": -26.8827,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 205,
+  "smiles": "c1ccc2ncc(Cc3nccc4ccccc34)cc2c1",
+  "ms_INTER": -28.0748,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 206,
+  "smiles": "c1cnc2cc(Cc3ncc4ccccc4n3)ccc2c1",
+  "ms_INTER": -27.2646,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 207,
+  "smiles": "c1ccc2cc(Cc3ccc4ncccc4c3)cc-2cc1",
+  "ms_INTER": -28.2796,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 208,
+  "smiles": "c1ccc2cc(Nc3ccc4cnccc4c3)ncc2c1",
+  "ms_INTER": -27.2468,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 209,
+  "smiles": "c1ccc2nc(Nc3nccc4ccccc34)nc-2cc1",
+  "ms_INTER": -28.3826,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 210,
+  "smiles": "c1ccc2cc(Cc3cc4ccccc4nn3)ccc2c1",
+  "ms_INTER": -27.9789,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 211,
+  "smiles": "c1ccc2nc(Cc3ccc4ccncc4c3)ncc2c1",
+  "ms_INTER": -26.7932,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 212,
+  "smiles": "c1ccc2cc(Cc3ccc4c(c3)CCN4)ccc2c1",
+  "ms_INTER": -27.019,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 213,
+  "smiles": "c1ccc2nc(Nc3ccc4c(c3)CCCO4)ccc2c1",
+  "ms_INTER": -26.9424,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 214,
+  "smiles": "c1ccc2cc(Nc3ccc4c(c3)OCCC4)ccc2c1",
+  "ms_INTER": -27.569,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 215,
+  "smiles": "c1ccc2c(c1)CCN2Cc1cccc2c1OCO2",
+  "ms_INTER": -29.2011,
+  "cid": 4984937,
+  "name": "1-(1,3-benzodioxol-4-ylmethyl)-2,3-dihydroindole",
+  "has_vendors": false
+ },
+ {
+  "idx": 216,
+  "smiles": "c1cnc2c(Cc3nc4ccccc4[nH]3)cccc2c1",
+  "ms_INTER": -28.6692,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 217,
+  "smiles": "c1ccc2ncc(Cc3ccc4ccccc4n3)c-2cc1",
+  "ms_INTER": -26.7343,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 218,
+  "smiles": "c1ccc2[nH]c(Nc3ccnc4ccccc34)cc2c1",
+  "ms_INTER": -27.1245,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 219,
+  "smiles": "c1ccc2[nH]c(Nc3nccc4ccccc34)cc2c1",
+  "ms_INTER": -27.0298,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 220,
+  "smiles": "c1cc(Cc2ccc3c(c2)NCC3)c2cccnc2c1",
+  "ms_INTER": -30.0894,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 221,
+  "smiles": "c1ccc2nc(Cc3ncnc4ccccc34)ccc2c1",
+  "ms_INTER": -26.6969,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 222,
+  "smiles": "c1ccc2cc(Nc3ccc4c(c3)CCOC4)ccc2c1",
+  "ms_INTER": -27.9177,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 223,
+  "smiles": "c1ccc2sc(Nc3ccc4cnccc4c3)nc2c1",
+  "ms_INTER": -27.1699,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 224,
+  "smiles": "c1ccc2c(Nc3ccc4c(c3)OCCO4)ncnc2c1",
+  "ms_INTER": -28.2129,
+  "cid": 730846,
+  "name": "N-(2,3-dihydro-1,4-benzodioxin-6-yl)quinazolin-4-amine",
+  "has_vendors": true
+ },
+ {
+  "idx": 225,
+  "smiles": "c1cnc2cc(Cc3ncnc4ccccc34)ccc2c1",
+  "ms_INTER": -28.4352,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 226,
+  "smiles": "c1ccc2c(Nc3ccc4c(c3)CCOC4)cccc2c1",
+  "ms_INTER": -26.6342,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 227,
+  "smiles": "c1cnc2c(Nc3ccc4c(c3)CCN4)cccc2c1",
+  "ms_INTER": -28.3456,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 228,
+  "smiles": "c1ccc2cc(Cc3ccc4ncncc4c3)cc-2cc1",
+  "ms_INTER": -27.6729,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 229,
+  "smiles": "c1cnc2ccc(Cc3ncc4ccccc4n3)cc2c1",
+  "ms_INTER": -29.9979,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 230,
+  "smiles": "c1ccc2nc(Cc3ccc4ccncc4c3)cnc2c1",
+  "ms_INTER": -26.8442,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 231,
+  "smiles": "c1ccc2nc(Cc3ccc4cnccc4c3)cnc2c1",
+  "ms_INTER": -26.526,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 232,
+  "smiles": "c1cnc2nc(Nc3nccc4ccccc34)ccc2c1",
+  "ms_INTER": -26.6688,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 233,
+  "smiles": "c1cc(Cc2ccc3c(c2)CCCC3)cc2cccc-2c1",
+  "ms_INTER": -26.5757,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 234,
+  "smiles": "c1ccc2cc(Cc3cnc4ccccc4c3)cc-2cc1",
+  "ms_INTER": -27.6925,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 235,
+  "smiles": "c1ccc2c(Cc3cnc4ccccc4n3)cncc2c1",
+  "ms_INTER": -27.5728,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 236,
+  "smiles": "c1ccc2cnc(Cc3ccc4c(c3)CCCC4)c-2cc1",
+  "ms_INTER": -26.8409,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 237,
+  "smiles": "c1ccc2cc(Cc3ccc4c(c3)OCC4)ccc2c1",
+  "ms_INTER": -28.1448,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 238,
+  "smiles": "c1ccc2ncc(Cc3ccc4cncnc4c3)cc2c1",
+  "ms_INTER": -27.1518,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 239,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)COC4)cccc2c1",
+  "ms_INTER": -29.0372,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 240,
+  "smiles": "c1ccc2c(Nc3nc4ccccc4[nH]3)cccc2c1",
+  "ms_INTER": -27.5128,
+  "cid": 923847,
+  "name": "N-naphthalen-1-yl-1H-benzimidazol-2-amine",
+  "has_vendors": true
+ },
+ {
+  "idx": 241,
+  "smiles": "c1ccc2c(Nc3ccc4c(c3)CCCO4)ncnc2c1",
+  "ms_INTER": -28.0255,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 242,
+  "smiles": "c1ccc2cc(Nc3ccc4c(c3)OCCO4)ncc2c1",
+  "ms_INTER": -27.4601,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 243,
+  "smiles": "c1ccc2ncc(Cc3ccc4c(c3)CCCC4)c-2cc1",
+  "ms_INTER": -30.8601,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 244,
+  "smiles": "c1ccc2nc(Cc3ccc4[nH]c5ccccc5c4c3)ncc2c1",
+  "ms_INTER": -28.1297,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 245,
+  "smiles": "c1cc2cc(Nc3ccc4cnccc4c3)ccc2cn1",
+  "ms_INTER": -27.1233,
+  "cid": 164533985,
+  "name": "N-isoquinolin-6-ylisoquinolin-6-amine",
+  "has_vendors": false
+ },
+ {
+  "idx": 246,
+  "smiles": "c1ccc2nc(Nc3ccc4cnccc4c3)ncc2c1",
+  "ms_INTER": -26.6074,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 247,
+  "smiles": "c1ccc2ncc(Cc3ccc4cc[nH]c4c3)cc2c1",
+  "ms_INTER": -28.2727,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 248,
+  "smiles": "c1cc2cc3ccc(Nc4ccc5c(c4)OCCO5)ccc3nc2c1",
+  "ms_INTER": -28.3476,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 249,
+  "smiles": "c1ccc2cc(Cc3cc4ccccc4cn3)cc-2cc1",
+  "ms_INTER": -27.3625,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 250,
+  "smiles": "c1cnc2ccc(Cc3cnc4ccccc4c3)cc2c1",
+  "ms_INTER": -27.3344,
+  "cid": 173203507,
+  "name": "3-(quinolin-6-ylmethyl)quinoline",
+  "has_vendors": false
+ },
+ {
+  "idx": 251,
+  "smiles": "c1cc2c(c(Cc3cccc4ccccc34)c1)COCC2",
+  "ms_INTER": -31.8626,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 252,
+  "smiles": "c1ccc2cc(Cc3ccc4ccccc4n3)nc-2cc1",
+  "ms_INTER": -27.5694,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 253,
+  "smiles": "c1ccc2sc(Nc3ccc4c(c3)OCCO4)nc2c1",
+  "ms_INTER": -26.9113,
+  "cid": 28832771,
+  "name": "N-(2,3-dihydro-1,4-benzodioxin-6-yl)-1,3-benzothiazol-2-amine",
+  "has_vendors": true
+ },
+ {
+  "idx": 254,
+  "smiles": "c1cnc2ccc(Cc3ncnc4ccccc34)cc2c1",
+  "ms_INTER": -27.4033,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 255,
+  "smiles": "c1cc2cc(Nc3ccc4c(c3)OCCO4)ccc2cn1",
+  "ms_INTER": -28.8776,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 256,
+  "smiles": "c1ccc2nc(Nc3ccc4c(c3)CCOC4)ccc2c1",
+  "ms_INTER": -27.9382,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 257,
+  "smiles": "c1ccc2cc(Cc3ccc4cnccc4n3)cc-2cc1",
+  "ms_INTER": -26.6879,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 258,
+  "smiles": "c1ccc2[nH]c(Cc3ccc4cnccc4c3)cc2c1",
+  "ms_INTER": -27.3567,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 259,
+  "smiles": "c1cc(Cc2ccc3c(c2)CCCC3)cc2cncc-2c1",
+  "ms_INTER": -26.8449,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 260,
+  "smiles": "c1ccc2[nH]c(Nc3cccc4cccnc34)cc2c1",
+  "ms_INTER": -26.7113,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 261,
+  "smiles": "c1ccc2ncc(Cc3ncnc4ccccc34)cc2c1",
+  "ms_INTER": -28.5369,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 262,
+  "smiles": "c1ccc2nc(Cc3cncc4ccccc34)ncc2c1",
+  "ms_INTER": -26.9578,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 263,
+  "smiles": "c1ccc2c(c1)CCN2Cc1ccc2c(c1)OCCO2",
+  "ms_INTER": -27.0597,
+  "cid": 3685999,
+  "name": "1-(2,3-dihydro-1,4-benzodioxin-6-ylmethyl)-2,3-dihydroindole",
+  "has_vendors": false
+ },
+ {
+  "idx": 264,
+  "smiles": "c1ccc2ccc(Cc3cc4ccccc4cn3)c-2cc1",
+  "ms_INTER": -27.4001,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 265,
+  "smiles": "c1cnc2cc(Cc3cc4ccccc4[nH]3)ccc2c1",
+  "ms_INTER": -26.8155,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 266,
+  "smiles": "c1ccc2ncc(Cc3ccc4ncncc4c3)cc2c1",
+  "ms_INTER": -26.7631,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 267,
+  "smiles": "c1cc(Cc2cc3ccccc3cn2)cc2cccc-2c1",
+  "ms_INTER": -27.934,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 268,
+  "smiles": "c1cnc2ccc(Cc3cc4ccccc4[nH]3)cc2c1",
+  "ms_INTER": -28.3423,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 269,
+  "smiles": "c1ccc2nnc(Cc3ccc4ccccc4n3)cc2c1",
+  "ms_INTER": -27.5971,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 270,
+  "smiles": "c1ccc2cc(Cc3cnc4ccccc4c3)nc-2cc1",
+  "ms_INTER": -27.2698,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 271,
+  "smiles": "c1ccc2cc(Nc3ccc4cnccc4n3)ccc2c1",
+  "ms_INTER": -28.8365,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 272,
+  "smiles": "c1ccc2ccc(CN3CCc4ccccc43)c-2cc1",
+  "ms_INTER": -27.3264,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 273,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)CCCC4)ccnc2c1",
+  "ms_INTER": -26.6729,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 274,
+  "smiles": "c1ccc2[nH]c(Cc3ccc4ccncc4c3)cc2c1",
+  "ms_INTER": -26.9928,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 275,
+  "smiles": "c1ccc2cc(Cc3cc4ccccc4cn3)nc-2cc1",
+  "ms_INTER": -26.4715,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 276,
+  "smiles": "c1ccc2[nH]c(Cc3cncc4ccccc34)cc2c1",
+  "ms_INTER": -27.8337,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 277,
+  "smiles": "c1ccc2ncc(Cc3cc4ccccc4nn3)cc2c1",
+  "ms_INTER": -26.8258,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 278,
+  "smiles": "c1cc(Cc2ccc3c(c2)CCCC3)c2ccncc2c1",
+  "ms_INTER": -27.1871,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 279,
+  "smiles": "c1cnc2ccc(Cc3ccc4c(c3)CCN4)cc2c1",
+  "ms_INTER": -26.7505,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 280,
+  "smiles": "c1cnc2ccc(Cc3nc4ccccc4[nH]3)cc2c1",
+  "ms_INTER": -27.7094,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 281,
+  "smiles": "c1ccc2c(c1)COc1cc(Cc3ccc4c(c3)OCO4)ccc1-2",
+  "ms_INTER": -27.124,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 282,
+  "smiles": "c1cc(Cc2cc3ccccc3cn2)cc2cncc-2c1",
+  "ms_INTER": -27.401,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 283,
+  "smiles": "c1ccc2c(c1)CCN2Cc1cc2ccccc2s1",
+  "ms_INTER": -26.4201,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 284,
+  "smiles": "c1ccc2nc(Nc3ccc4cnccc4n3)ccc2c1",
+  "ms_INTER": -28.2476,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 285,
+  "smiles": "c1ccc2[nH]c(Nc3ccnc4ccccc34)nc2c1",
+  "ms_INTER": -29.6808,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 286,
+  "smiles": "c1ccc2c(Cc3nc4ccccc4[nH]3)cncc2c1",
+  "ms_INTER": -27.2457,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 287,
+  "smiles": "c1ccc2cc(Cc3ccnc4ccccc34)ncc2c1",
+  "ms_INTER": -28.3118,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 288,
+  "smiles": "c1ccc2cc(CN3CCc4ccccc43)cc-2cc1",
+  "ms_INTER": -27.0057,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 289,
+  "smiles": "c1ccc2cc(Cc3cccc4cnccc34)ncc2c1",
+  "ms_INTER": -28.0431,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 290,
+  "smiles": "c1ccc2c(c1)CCCN2Cc1ccc2c(c1)CCCC2",
+  "ms_INTER": -28.3296,
+  "cid": 141274090,
+  "name": "1-(5,6,7,8-tetrahydronaphthalen-2-ylmethyl)-3,4-dihydro-2H-quinoline",
+  "has_vendors": false
+ },
+ {
+  "idx": 291,
+  "smiles": "c1cc2c(cc1Nc1ccc3c(c1)OCCO3)OCCCO2",
+  "ms_INTER": -26.8983,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 292,
+  "smiles": "c1ccc2c(c1)CCN2Cc1cccc2c1OCCO2",
+  "ms_INTER": -27.2579,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "idx": 293,
+  "smiles": "c1ccc2cc(Cc3nccc4ccccc34)ncc2c1",
+  "ms_INTER": -27.4584,
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ }
+]
