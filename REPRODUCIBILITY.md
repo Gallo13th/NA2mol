@@ -86,7 +86,7 @@ exploratory scripts are deliberately **not** in the repository.
 | `data/benchmark/output/smrtbench_combined_results.csv` | merged 392,887-row benchmark table, all configurations | no |
 | `data/benchmark/output/tables/{smrtbench,dude}/` | derived per-target tables | no |
 | `data/benchmark/output/chemspace_targeted/` | chemical-space audit tables | no |
-| `data/v2/`(corpora) | training LMDBs | no — **pretraining LMDB supplied separately** |
+| `data/pretrain/` | ligand-only pretraining LMDB | no — unpack `data/pretrain.tar.gz` |
 | `data/tht/*.opj`, `*.opju` | authoritative ThT assay data (Origin) | yes |
 | `data/tht/export/` | per-sheet CSV export of the Origin projects | yes |
 | `paperdata/*.tar.gz` | benchmark input archives (pockets, references) | yes |

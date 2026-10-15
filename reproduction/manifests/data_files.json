@@ -1,8 +1,6 @@
 {
   "note": "Bulk inputs excluded from git; deposit these with the release.",
-  "excluded_by_design": [
-    "pretraining LMDB (author to upload separately)"
-  ],
+  "excluded_by_design": [],
   "files": [
     {
       "path": "notebooks/dude_stat_all.csv",
@@ -63,6 +61,21 @@
       "present": true,
       "bytes": 22449973,
       "sha256": "c74887227474f4310aeac1f9cee5ad327292ef1bf5f0837c4965a1b2794afe54"
+    },
+    {
+      "path": "data/pretrain.tar.gz",
+      "present": true,
+      "expected_bytes": 5916109016,
+      "sha256": null,
+      "provenance": "authors' AutoDL storage (autodl-fs/pretrain.tar.gz)",
+      "note": "ligand-only pretraining corpus; unpack with reproduction/scripts/finalize_pretrain.sh"
+    },
+    {
+      "path": "data/pretrain/",
+      "present": false,
+      "expected_bytes": null,
+      "sha256": null,
+      "note": "extraction target for the archive above"
     }
   ]
 }
