@@ -8,7 +8,7 @@
       "files": 33388,
       "bytes": 1690961088
     },
-    "casestudy": {
+    "case_study": {
       "files": 39074,
       "bytes": 1201815693
     },
@@ -16,7 +16,7 @@
       "files": 9,
       "bytes": 268828213
     },
-    "leakage_audit": {
+    "audit": {
       "files": 41,
       "bytes": 213790254
     },

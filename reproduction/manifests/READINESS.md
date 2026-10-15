@@ -21,11 +21,11 @@ baseline −0.077/−0.077, Pretrain Only −0.017/−0.014, Pretrain+Constrain 
 counts 24/18/19/19/26/14 (RNA test set) and 84/81 (DUD-E) also match.
 
 `reproduction/results/benchmark_tables/dude/` regenerates DUD-E ECFP4 recovery and the four-tier
-screening funnel from `notebooks/dude_stat_all.csv` (438,543 rows, 5 methods) with a recorded log.
+screening funnel from `data/benchmark/dude_stat_all.csv` (438,543 rows, 5 methods) with a recorded log.
 
 
 `reproduction/figures/molcraft_mapping_control.pdf` was regenerated end-to-end from
-`notebooks/dude_stat_all.csv` by `reproduction/scripts/render_mapping_control.py`. The run produced the
+`data/benchmark/dude_stat_all.csv` by `reproduction/scripts/render_mapping_control.py`. The run produced the
 100 paired DUD-E targets, all eight metrics, ECFP4 recovery, the four-tier funnel and the paired
 bootstrap/Wilcoxon-BH effect table that Supplementary Fig. 2 and its source tables require. This is
 Supplementary Fig. 2 reproduced from repository data, not a copy of a published asset.
@@ -48,11 +48,11 @@ Supplementary Fig. 2 reproduced from repository data, not a copy of a published 
 
 ## Required uploads to close reproduction
 
-1. Merged RNA benchmark table (`notebooks/output/smrtbench_combined_results.csv`) plus
+1. Merged RNA benchmark table (`data/benchmark/output/smrtbench_combined_results.csv`) plus
    `output/tables/{smrtbench,dude}/`, or a deterministic command that rebuilds it from the `paperdata/`
-   SDF archives. The legacy `notebooks/smrtnet_stat_all.csv` holds only four methods and does not include
+   SDF archives. The legacy `data/benchmark/smrtnet_stat_all.csv` holds only four methods and does not include
    the ablation configurations.
-2. `notebooks/output/cache_chemspace/{smiles_bkg_na,smiles_bkg_protein,bkg_na_fps,bkg_protein_fps}.npy`
+2. `data/benchmark/output/cache_chemspace/{smiles_bkg_na,smiles_bkg_protein,bkg_na_fps,bkg_protein_fps}.npy`
    and `output/chemspace_targeted/*.csv` (Supplementary Fig. 1).
 3. The current Main Fig. 4 and Supplementary Fig. 4 assembly scripts.
 4. The two Origin ThT projects (copied into `reproduction/data/tht/`) plus their
@@ -71,5 +71,5 @@ stalled I/O with `wchan=ertp_qos_handle_new_event`). All rendering entry points 
 and limit BLAS threads via `OMP_NUM_THREADS`. Render with the environment set, or the first plot of a
 session will appear to hang.
 
-Large CSV reads on this mount are also slow; `notebooks/dude_stat_all.csv` is 121 MB and takes about a
+Large CSV reads on this mount are also slow; `data/benchmark/dude_stat_all.csv` is 121 MB and takes about a
 minute to read.

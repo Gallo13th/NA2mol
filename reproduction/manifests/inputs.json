@@ -6,7 +6,7 @@
   "inputs": [
     {
       "id": "rna_combined",
-      "path": "notebooks/output/smrtbench_combined_results.csv",
+      "path": "data/benchmark/output/smrtbench_combined_results.csv",
       "items": [
         "fig2",
         "fig3",
@@ -37,7 +37,7 @@
     },
     {
       "id": "dude_metrics",
-      "path": "notebooks/dude_stat_all.csv",
+      "path": "data/benchmark/dude_stat_all.csv",
       "items": [
         "fig2",
         "sfig2",
@@ -65,35 +65,35 @@
     },
     {
       "id": "bindingdb_rna_smiles",
-      "path": "notebooks/output/cache_chemspace/smiles_bkg_na.npy",
+      "path": "data/benchmark/output/cache_chemspace/smiles_bkg_na.npy",
       "items": [
         "sfig1"
       ]
     },
     {
       "id": "bindingdb_protein_smiles",
-      "path": "notebooks/output/cache_chemspace/smiles_bkg_protein.npy",
+      "path": "data/benchmark/output/cache_chemspace/smiles_bkg_protein.npy",
       "items": [
         "sfig1"
       ]
     },
     {
       "id": "bindingdb_rna_fingerprints",
-      "path": "notebooks/output/cache_chemspace/bkg_na_fps.npy",
+      "path": "data/benchmark/output/cache_chemspace/bkg_na_fps.npy",
       "items": [
         "sfig1"
       ]
     },
     {
       "id": "bindingdb_protein_fingerprints",
-      "path": "notebooks/output/cache_chemspace/bkg_protein_fps.npy",
+      "path": "data/benchmark/output/cache_chemspace/bkg_protein_fps.npy",
       "items": [
         "sfig1"
       ]
     },
     {
       "id": "dude_actives",
-      "path": "notebooks/DUDE_active_compounds.csv",
+      "path": "data/benchmark/DUDE_active_compounds.csv",
       "items": [
         "sfig1"
       ]
@@ -128,21 +128,21 @@
     },
     {
       "id": "recovery_authoritative",
-      "path": "leakage_audit/tables/recovery_manuscript_authoritative.csv",
+      "path": "audit/tables/recovery_manuscript_authoritative.csv",
       "items": [
         "tables"
       ]
     },
     {
       "id": "kras_library",
-      "path": "casestudy/kras_g4/ber102_gen10k/valid_mols.sdf",
+      "path": "case_study/kras_g4/ber102_gen10k/valid_mols.sdf",
       "items": [
         "kras_pipeline"
       ]
     },
     {
       "id": "kras_funnel",
-      "path": "casestudy/kras_g4/denovo2/paper_funnel.json",
+      "path": "case_study/kras_g4/denovo2/paper_funnel.json",
       "items": [
         "fig4",
         "sfig4"
@@ -150,21 +150,21 @@
     },
     {
       "id": "kras_candidates",
-      "path": "casestudy/kras_g4/denovo2/g4_tier1_order_table.csv",
+      "path": "case_study/kras_g4/denovo2/g4_tier1_order_table.csv",
       "items": [
         "fig4"
       ]
     },
     {
       "id": "kras_assembly",
-      "path": "casestudy/kras_g4/polish_figure4.py",
+      "path": "case_study/kras_g4/polish_figure4.py",
       "items": [
         "fig4"
       ]
     },
     {
       "id": "kras_si_assembly",
-      "path": "casestudy/kras_g4/assemble_extended_data_fig_kras.py",
+      "path": "case_study/kras_g4/assemble_extended_data_fig_kras.py",
       "items": [
         "sfig4"
       ]
@@ -201,7 +201,7 @@
         "fig4",
         "assay"
       ],
-      "note": "Per-sheet Origin export consumed by g4tasks/audit_v2/09_panel_kras_inhib.py; validate with reproduction/scripts/check_tht_origin.py"
+      "note": "Per-sheet Origin export consumed by analysis/fig4g_tht_panel.py; validate with reproduction/scripts/check_tht_origin.py"
     }
   ]
 }

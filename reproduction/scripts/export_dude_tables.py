@@ -11,7 +11,7 @@ import pandas as pd
 ROOT=Path(__file__).resolve().parents[2]
 
 def main():
-    source=ROOT/'notebooks/dude_stat_all.csv'
+    source=ROOT/'data/benchmark/dude_stat_all.csv'
     cols=['mode','pdb_id','affinity','qed','sa_score','tpsa','strain','max_ecfp4_tanimoto']
     df=pd.read_csv(source,usecols=cols)
     df['SEI']=-df.affinity/df.tpsa.replace(0,np.nan)

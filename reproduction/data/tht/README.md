@@ -53,7 +53,7 @@ or substitutes values.
 Once the export validates, the panels are produced by:
 
 ```bash
-python3 g4tasks/audit_v2/09_panel_kras_inhib.py
+python3 analysis/fig4g_tht_panel.py
 ```
 
 which writes `panel_kras_tht_inhib100nM.{pdf,svg,png}` and `panel_kras_tht_inhib1uM.{pdf,svg,png}`.

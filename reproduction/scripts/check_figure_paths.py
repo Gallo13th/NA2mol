@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-SCRIPTS = sorted((REPO / 'notebooks').glob('*.py')) + sorted((REPO / 'g4tasks').rglob('*.py'))
+SCRIPTS = sorted((REPO / 'analysis').glob('*.py')) + sorted((REPO / 'g4tasks').rglob('*.py'))
 
 ASSIGN = re.compile(r'^([A-Z][A-Z0-9_]*)\s*=\s*(?:\(\s*)?ROOT\s*((?:/\s*"[^"]*"\s*)+)', re.M)
 PART = re.compile(r'/\s*"([^"]*)"')

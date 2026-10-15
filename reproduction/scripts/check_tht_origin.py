@@ -7,7 +7,7 @@ so the plotting code consumes a per-sheet CSV export produced from them.
 
 This script does not invent data. It reports exactly which export files are
 present, which are missing, and whether their schema matches what
-`g4tasks/audit_v2/09_panel_kras_inhib.py` reads:
+`analysis/fig4g_tht_panel.py` reads:
 
     {PREF}_ex{N}_sheet2.csv     # one file per experiment sheet
     skiprows=1, header=0

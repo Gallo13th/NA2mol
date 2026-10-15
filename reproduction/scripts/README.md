@@ -1,6 +1,6 @@
 # Paper-facing canonical entry points
 
-Historical scripts under `notebooks/` and `leakage_audit/` are the provenance layer. New work must go
+Historical scripts under `data/benchmark/` and `audit/` are the provenance layer. New work must go
 through these entry points, use repository-relative paths, and write only under `reproduction/results/`
 or `reproduction/figures/`.
 
@@ -33,5 +33,5 @@ or `reproduction/figures/`.
 - External baselines keep their published names (`MolCRAFT`, `Pocket2Mol`, `ED2Mol`), except where case
   variants of the same tool exist (`ed2mol` → `ED2Mol`).
 - Prefer paper-facing names over pipeline codenames: `render_mapping_control.py`, not
-  `assemble_molcraft_mapping_control.py`.
+  `analysis/sfig2_mapping_control.py`.
 - No absolute `/home/...` or `/tmp/...` paths in new code.

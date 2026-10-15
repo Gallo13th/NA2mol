@@ -1,43 +1,43 @@
 [
   {
-    "source": "/home/data/users/gaoletian/rna2smol/casestudy/8hzk",
-    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/casestudy/8hzk",
+    "source": "/home/data/users/gaoletian/rna2smol/case_study/8hzk",
+    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/case_study/8hzk",
     "reason": "historical non-paper case study or unrelated root artifact",
     "status": "quarantined"
   },
   {
-    "source": "/home/data/users/gaoletian/rna2smol/casestudy/sp1",
-    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/casestudy/sp1",
+    "source": "/home/data/users/gaoletian/rna2smol/case_study/sp1",
+    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/case_study/sp1",
     "reason": "historical non-paper case study or unrelated root artifact",
     "status": "quarantined"
   },
   {
-    "source": "/home/data/users/gaoletian/rna2smol/casestudy/kras_mrna",
-    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/casestudy/kras_mrna",
+    "source": "/home/data/users/gaoletian/rna2smol/case_study/kras_mrna",
+    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/case_study/kras_mrna",
     "reason": "historical non-paper case study or unrelated root artifact",
     "status": "quarantined"
   },
   {
-    "source": "/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/_archive_ber101_era",
-    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/casestudy/kras_g4/_archive_ber101_era",
+    "source": "/home/data/users/gaoletian/rna2smol/case_study/kras_g4/_archive_ber101_era",
+    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/case_study/kras_g4/_archive_ber101_era",
     "reason": "historical non-paper case study or unrelated root artifact",
     "status": "quarantined"
   },
   {
-    "source": "/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/t2_denovo",
-    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/casestudy/kras_g4/t2_denovo",
+    "source": "/home/data/users/gaoletian/rna2smol/case_study/kras_g4/t2_denovo",
+    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/case_study/kras_g4/t2_denovo",
     "reason": "historical non-paper case study or unrelated root artifact",
     "status": "quarantined"
   },
   {
-    "source": "/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/t2_repro",
-    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/casestudy/kras_g4/t2_repro",
+    "source": "/home/data/users/gaoletian/rna2smol/case_study/kras_g4/t2_repro",
+    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/case_study/kras_g4/t2_repro",
     "reason": "historical non-paper case study or unrelated root artifact",
     "status": "quarantined"
   },
   {
-    "source": "/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/kpt102_rdock",
-    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/casestudy/kras_g4/kpt102_rdock",
+    "source": "/home/data/users/gaoletian/rna2smol/case_study/kras_g4/kpt102_rdock",
+    "backup": "/home/data/users/gaoletian/rna2smol_cleanup_backup_20261015/quarantine/case_study/kras_g4/kpt102_rdock",
     "reason": "historical non-paper case study or unrelated root artifact",
     "status": "quarantined"
   },

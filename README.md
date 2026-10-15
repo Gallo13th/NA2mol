@@ -1,51 +1,84 @@
 # NA2smol
 
-Code and data layout for the NA2smol paper release. NA2smol is a pocket-conditioned 3D molecular generator based on a Bayesian Flow Network, with ligand-only electron-density pretraining and teacher–student alignment.
+Code and data layout for the NA2smol manuscript.
 
-## Paper-facing reproduction layer
+**NA2smol** is a pocket-conditioned 3D molecular generator built on a Bayesian Flow Network. It combines
+ligand-only electron-density pretraining with a teacher–student alignment objective and a shared
+physicochemical pocket encoder to generate small molecules inside nucleic-acid binding sites. The model
+name in the manuscript is **NA2smol**; the repository keeps its historical name `rna2smol`.
 
-Start with [`reproduction/README.md`](reproduction/README.md). The canonical entry points, relative paths, display-item manifest and readiness ledger are there. They are deliberately separate from the historical exploratory notebooks.
+> **Reproducing the paper?** Start with **[REPRODUCIBILITY.md](REPRODUCIBILITY.md)**. It maps every
+> figure and table to the data it needs and the command that regenerates it.
 
-```bash
-python3 reproduction/scripts/validate_inputs.py
-```
+---
 
-At the current checkout this validator is expected to report missing inputs: the canonical merged benchmark table, chemical-space cache, current KRAS figure assembly sources, ThT raw data and Fig. 1 editable asset still need to be staged. The validator reports the exact missing paths. The ligand-only pretraining LMDB is intentionally excluded and will be uploaded separately.
-
-## Repository layout
-
-```
-reproduction/                 paper-facing paths, manifests and validators
-model/                        BFN model implementation
-dataloader/                  featurisation, atom-count and data utilities
-util/                         molecule reconstruction/refinement/scoring
-train_scripts/                pretraining, fine-tuning and ablation entry points
-scripts/                      training launchers
-paperdata/                    benchmark input archives
-notebooks/                    historical metric exports and figure-analysis scripts
-leakage_audit/                recovery/leakage audit code and tables
-casestudy/kras_g4/            BER102 case-study inputs, manifests and protocol
-```
-
-`notebooks/` and `leakage_audit/` contain historical provenance needed to close source-table gaps; do not delete their raw tables until the readiness ledger says the corresponding canonical tables are staged. Old case-study routes have been quarantined outside the repository, not deleted.
-
-## Key facts
-
-- `SMRTnet` is the method; the evaluation data is always named **RNA test set**.
-- Fine-tuning: PDB 45,871 train + 5,000 validation; CrossDocked2020 81,028 train; nucleic-acid 356 train + 382 validation. Total train/validation records: 127,255/5,382.
-- The pretraining LMDB is not part of this release by design.
-- The release checkpoints are large binary inputs; do not silently replace them with newly trained checkpoints.
-- The baseline training script still calls an undefined `baseline_loss_one_step`; this is documented as a reproduction blocker rather than hidden.
-
-## Environment
+## Quick start
 
 ```bash
 source setup_env.sh
 conda activate rna2smol
+
+# 1. check that the inputs this checkout needs are present
+python3 reproduction/scripts/validate_inputs.py
+
+# 2. confirm every figure script's data paths resolve
+python3 reproduction/scripts/check_figure_paths.py
+
+# 3. run all checks at once (fails loudly on any gap)
+bash reproduction/scripts/smoke_test.sh
 ```
 
-The model and generation scripts remain available as `train_scripts/*.py` and `genbypkt.py`. The exact benchmark and figure commands are being normalized under `reproduction/scripts/`; no command is advertised as complete until its source tables and output are validated.
+## Layout
 
-## Data and privacy
+```
+model/          BFN score model and samplers
+dataloader/     featurisation, datasets, atom-count tables
+util/           molecule reconstruction, refinement, scoring
 
-Do not commit private credentials, the pretraining LMDB before its intended upload, or unrelated historical case-study data. Large staged inputs should have checksums in `reproduction/manifests/`.
+training/       pretraining, fine-tuning, baseline and ablation entry points
+generation/     library generation from a pocket
+
+analysis/       evaluation metrics, table export, every figure script
+audit/          ligand-leakage and recovery audit
+case_study/     KRAS promoter G-quadruplex (BER102) case study
+reproduction/   validators, manifests and canonical entry points
+```
+
+See [REPRODUCIBILITY.md §2](REPRODUCIBILITY.md) for the annotated tree.
+
+## The four training configurations
+
+| Configuration | Entry point | Objective |
+|---|---|---|
+| Baseline | `training/baseline_scratch.py` | coordinate + type loss only, from scratch |
+| Pretrain Only | `training/ablation_pretrain_only.py` | pretrained weights, no teacher |
+| Pretrain+Constrain | `training/ablation_pretrain_constrain.py` | pretrained weights + teacher–student alignment |
+| Full model | `training/finetune_full.py` | both paths, plus the temporal contrastive term |
+
+`analysis/fig3_ablation.py` renders the comparison.
+
+## Data
+
+Bulk inputs (benchmark result tables, training LMDBs, checkpoints) are **not** in git; see
+`reproduction/manifests/data_files.json`. The ligand-only pretraining LMDB is supplied separately.
+
+The only experimental data versioned here are the ThT assay Origin projects in `data/tht/`; see
+`data/tht/README.md` for the export step the plotting code requires.
+
+## Terminology
+
+`SMRTnet` is the method that supplied the source evaluation set; the evaluation data is called the
+**RNA test set** throughout. `NA2smol` is the model. See
+[REPRODUCIBILITY.md §9](REPRODUCIBILITY.md) for the full convention.
+
+## Known limitations
+
+- `training/baseline_scratch.py` calls an undefined `baseline_loss_one_step`; baseline retraining is not
+  reproducible as shipped, though its reported metrics are reproducible from frozen outputs.
+- The ThT Origin export must be produced in Origin before `analysis/fig4g_tht_panel.py` can run.
+- Live status and blockers: `reproduction/manifests/READINESS.md`.
+
+## License
+
+MIT — see [LICENSE](LICENSE). The bundled RNAsmol scoring package keeps its upstream license
+(`case_study/fmn/RNAsmol/LICENSE`).

@@ -11,16 +11,16 @@ ROOT = Path(__file__).resolve().parents[2]
 
 # Files the reproduction entry points read. Changing these changes paper numbers.
 LOAD_BEARING = [
-    'notebooks/dude_stat_all.csv',
-    'notebooks/smrtnet_stat_all.csv',
-    'notebooks/DUDE_active_compounds.csv',
-    'notebooks/output/smrtbench_combined_results.csv',
+    'data/benchmark/dude_stat_all.csv',
+    'data/benchmark/smrtnet_stat_all.csv',
+    'data/benchmark/DUDE_active_compounds.csv',
+    'data/benchmark/output/smrtbench_combined_results.csv',
     'training_ligands_leakage_table.csv',
     'pretrain_smiles.txt.gz',
     'paperdata/smrtbench.tar.gz',
     'paperdata/smrtnet_ablation_rna2smol.tar.gz',
     'paperdata/dudue_onlygeneral_0506.tar.gz',
-    'casestudy/kras_g4/ber102_gen10k/valid_mols.sdf',
+    'case_study/kras_g4/ber102_gen10k/valid_mols.sdf',
 ]
 
 def sha256(path, limit_mb=400):

@@ -59,7 +59,7 @@
       "sha256": "f3b72859f22b499ea9deffb442edf2663f9e0a3f201259c9c325dd3dd4eb09a5"
     },
     {
-      "path": "casestudy/kras_g4/ber102_gen10k/valid_mols.sdf",
+      "path": "case_study/kras_g4/ber102_gen10k/valid_mols.sdf",
       "present": true,
       "bytes": 22449973,
       "sha256": "c74887227474f4310aeac1f9cee5ad327292ef1bf5f0837c4965a1b2794afe54"

@@ -3,7 +3,7 @@
 
 Handles the patterns found in the checkout:
   /home/glt/github_official/DiffEDMol/<x>   -> ROOT / "<x>"
-  /home/glt/github_official/RNALigBench/<x> -> ROOT / "notebooks" / "RNALigBench" / "<x>"
+  /home/glt/github_official/RNALigBench/<x> -> ROOT / "data" / "benchmark" / "RNALigBench" / "<x>"
   /tmp/opencode/<x>                         -> ROOT / "reproduction" / "cache" / "<x>"
   ROOT / "RNA2smol_paper" / "figures"       -> ROOT / "reproduction" / "figures"
 
@@ -20,8 +20,8 @@ RNALigBench = '/home/glt/github_official/RNALigBench'
 TmpOpen = '/tmp/opencode'
 
 TARGETS = [
-    *sorted((REPO / 'notebooks').glob('*.py')),
-    *sorted((REPO / 'leakage_audit/scripts').glob('*.py')),
+    *sorted((REPO / 'analysis').glob('*.py')),
+    *sorted((REPO / 'audit/scripts').glob('*.py')),
     *sorted((REPO / 'g4tasks').rglob('*.py')),
 ]
 
@@ -63,9 +63,9 @@ def patch(path: Path, rel: Path) -> list[str]:
         src = re.sub(rf'"{re.escape(DiffEDMol)}/([^"]*)"', r'str(ROOT / "\1")', src)
         src = src.replace(f"'{DiffEDMol}'", 'str(ROOT)')
         src = re.sub(rf"'{re.escape(RNALigBench)}/([^']*)'",
-                     r"str(ROOT / 'notebooks/RNALigBench/\1')", src)
+                     r"str(ROOT / 'data/benchmark/RNALigBench/\1')", src)
         src = re.sub(rf'"{re.escape(RNALigBench)}/([^"]*)"',
-                     r'str(ROOT / "notebooks/RNALigBench/\1")', src)
+                     r'str(ROOT / "data/benchmark/RNALigBench/\1")', src)
         src = re.sub(rf"'{re.escape(TmpOpen)}/([^']*)'",
                      r"str(ROOT / 'reproduction/cache/\1')", src)
         src = re.sub(rf'Path\(\"{re.escape(TmpOpen)}/([^\"]*)\"\)',

@@ -34,14 +34,14 @@ def main():
     if args.tables_only:
         return
 
-    sys.path.insert(0, str(ROOT / 'notebooks'))
-    script = ROOT / 'notebooks/assemble_molcraft_mapping_control.py'
+    sys.path.insert(0, str(ROOT / 'data' / 'benchmark'))
+    script = ROOT / 'analysis' / 'sfig2_mapping_control.py'
     spec = importlib.util.spec_from_file_location('mapping_control', script)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
 
     module.TABLE_DIR = ROOT / 'reproduction/results/benchmark_tables/dude'
-    module.RAW_DATA = ROOT / 'notebooks/dude_stat_all.csv'
+    module.RAW_DATA = ROOT / 'data/benchmark/dude_stat_all.csv'
     module.OUT_DIR = ROOT / 'reproduction/results/molcraft_mapping_control'
     module.PAPER_DIR = ROOT / 'reproduction/figures'
 

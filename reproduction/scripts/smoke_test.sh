@@ -14,7 +14,7 @@ python3 reproduction/scripts/check_figure_paths.py; p=$?
 echo
 echo "== 3. Script syntax =="
 s=0
-for f in notebooks/*.py leakage_audit/scripts/*.py g4tasks/audit_v2/*.py reproduction/scripts/*.py; do
+for f in analysis/*.py audit/scripts/*.py reproduction/scripts/*.py training/*.py case_study/kras_g4/*.py case_study/kras_g4/denovo2/*.py; do
     python3 -m py_compile "$f" 2>/dev/null || { echo "  SYNTAX FAIL: $f"; s=1; }
 done
 [ "$s" -eq 0 ] && echo "  all scripts compile"
