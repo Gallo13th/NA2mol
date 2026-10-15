@@ -21,7 +21,15 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 
 THIS = Path(__file__).resolve().parent
-FLUOR = (ROOT / "reproduction" / "data" / "荧光数据汇总.csv")
+# Authoritative experimental data are the two Origin projects. They are binary
+# and must be exported sheet-by-sheet before this script can read them; see
+# reproduction/data/tht/README.md. 荧光数据汇总.csv is NOT used: it aggregates
+# all sheets into one table with an extra leading column, so the column offsets
+# below (S1/R1 at index 4) do not line up.
+THT_DIR = ROOT / "reproduction" / "data" / "tht"
+THT_ORIGIN = [THT_DIR / "KRAS-THT-Compatative.opj",
+              THT_DIR / "THT-Compatative.opju"]
+THT_EXPORT = THT_DIR / "export"
 OUT = THIS / "figures"
 
 INK = "#202124"
@@ -57,7 +65,7 @@ def load(base_dir: Path) -> dict:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    stats = load((ROOT / "reproduction/cache/kras_opj_extract"))
+    stats = load(THT_EXPORT)
 
 
 
@@ -113,7 +121,7 @@ def draw(pref: str, title: str, fname: str, stats: dict) -> None:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    stats = load((ROOT / "reproduction/cache/kras_opj_extract"))
+    stats = load(THT_EXPORT)
     # 100 nM experiment: THT file (KRAS 100 nM + THT 100 nM)
     draw("THT", "KRAS 100 nM + THT 100 nM", "panel_kras_tht_inhib100nM", stats)
     # 1 uM experiment: 10X file (KRAS 1 uM + THT 1 uM)

@@ -116,3 +116,10 @@ leakage_audit/tables/reference_actives.csv
 leakage_audit/cache/
 # ── Generated snapshot (compact summary is tracked) ─────────────────────────
 reproduction/manifests/inventory_before.json
+
+# ── Re-include the paper's authoritative experimental data ──────────────────
+# The root `data/` rule above excludes the (regenerable, huge) LMDB corpora.
+# The Origin ThT projects are small, irreplaceable raw measurements and must be
+# versioned, so un-ignore this specific subtree.
+!reproduction/data/
+!reproduction/data/**

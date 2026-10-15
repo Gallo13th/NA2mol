@@ -43,7 +43,7 @@ remaining gaps reduce to four distinct absent data files:
 | `notebooks/output/smrtbench_combined_results.csv` | Main Fig. 2, Fig. 3, SI Fig. 1, SI Fig. 3 |
 | `notebooks/output/tables/smrtbench` | the same figure scripts |
 | `notebooks/output/chemspace_targeted` (needs `cache_chemspace/*.npy`) | SI Fig. 1 |
-| `reproduction/data/荧光数据汇总.csv` (ThT raw data) | case-study assay panel |
+| `reproduction/data/tht/` Origin projects + their per-sheet export | case-study assay panel |
 
 These are absent **data**, not broken paths. Every declared path now points at the right place in the
 repository.

@@ -55,7 +55,9 @@ Supplementary Fig. 2 reproduced from repository data, not a copy of a published 
 2. `notebooks/output/cache_chemspace/{smiles_bkg_na,smiles_bkg_protein,bkg_na_fps,bkg_protein_fps}.npy`
    and `output/chemspace_targeted/*.csv` (Supplementary Fig. 1).
 3. The current Main Fig. 4 and Supplementary Fig. 4 assembly scripts.
-4. ThT raw data and the completed assay protocol.
+4. The two Origin ThT projects (copied into `reproduction/data/tht/`) plus their
+   per-sheet export, and the completed assay protocol. `荧光数据汇总.csv` is not used: it
+   aggregates all sheets with an extra leading column, so the script reads the wrong one.
 5. Final Fig. 1 editable source, or an explicit statement that it is not regenerable.
 
 Until these are uploaded, legacy notebooks and raw archives must be retained: they are the only
