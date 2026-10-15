@@ -92,7 +92,7 @@ accelerate launch \
     --multi_gpu \
     --num_processes 4 \
     --mixed_precision bf16 \
-    ftwithcrossdocked_train.py \
+    finetune_full.py \
     --epochs 50 \
     --batch_size 20 \
     --lr 1e-4 \

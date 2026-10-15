@@ -5,7 +5,7 @@
 
 用法：
     source /home/bi_group7/zhouwenbiao/rna2smol_env/bin/activate
-    python rebuild_crossdock_indices.py --nproc 64
+    python prepare_crossdock_indices.py --nproc 64
 """
 
 import os

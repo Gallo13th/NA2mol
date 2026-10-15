@@ -3,7 +3,7 @@
 # Baseline 训练脚本 —— 从头训练，不使用预训练、教师模型和对比学习
 # =============================================================================
 # 
-# 【与 ftwithcrossdocked_train.py 的区别】
+# 【与 finetune_full.py 的区别】
 # - 不加载预训练权重（ckpt/molcraft_edmol_onlyed_cst_best_val_loss_step_369999.pth）
 # - 不创建 teacher_model，不使用 distillation
 # - 不使用对比学习（contrastive loss），只优化坐标+类型主损失

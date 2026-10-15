@@ -37,7 +37,7 @@ echo "时间: $(date)"
 echo "GPU: $CUDA_VISIBLE_DEVICES"
 echo "Epochs: 100"
 
-python training/ablation_pretrain_only_train.py \
+python training/ablation_pretrain_only.py \
     --epochs 100 \
     --batch_size 1 \
     --lr 1e-4 \
