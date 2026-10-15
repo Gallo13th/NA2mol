@@ -1,0 +1,82 @@
+
+notebooks/assemble_ablation_figure.py
+  NEW  output OUT_DIR                  notebooks.output.smrtbench
+  OK   output PAPER_DIR                reproduction.figures
+  MISS input  CSV_PATH                 notebooks.output.smrtbench_combined_results.csv
+
+notebooks/assemble_cross_benchmark_figure.py
+  MISS input  SMRT_TABLE_DIR           notebooks.output.tables.smrtbench
+  MISS input  DUDE_TABLE_DIR           notebooks.output.tables.dude
+  NEW  output OUT_DIR                  notebooks.output.cross_benchmark
+  OK   output PAPER_DIR                reproduction.figures
+  MISS input  SMRT_RAW                 notebooks.output.smrtbench_combined_results.csv
+  OK   input  DUDE_RAW                 notebooks.dude_stat_all.csv
+  MISS input  SCAFFOLD_CSV             notebooks.output.chemspace_targeted.scaffold_breadth_table.csv
+
+notebooks/assemble_dude_paper_figure.py
+  MISS input  TABLE_DIR                notebooks.output.tables.dude
+  NEW  output OUT_DIR                  notebooks.output.dude
+  OK   output PAPER_DIR                reproduction.figures
+
+notebooks/assemble_fine_grained_ablation.py
+  NEW  output OUT_DIR                  notebooks.output.smrtbench
+  OK   output PAPER_DIR                reproduction.figures
+  MISS input  CSV_PATH                 notebooks.output.smrtbench_combined_results.csv
+
+notebooks/assemble_molcraft_mapping_control.py
+  MISS input  TABLE_DIR                notebooks.output.tables.dude
+  OK   input  RAW_DATA                 notebooks.dude_stat_all.csv
+  NEW  output OUT_DIR                  notebooks.output.molcraft_mapping_control
+  OK   output PAPER_DIR                reproduction.figures
+
+notebooks/assemble_smrtnet_paper_figure.py
+  MISS input  TABLE_DIR                notebooks.output.tables.smrtbench
+  NEW  output OUT_DIR                  notebooks.output.smrtbench
+  OK   output PAPER_DIR                reproduction.figures
+
+notebooks/chemical_space_targeted_analysis.py
+  OK   input  NB                       notebooks
+
+notebooks/plot_chemical_space_audit.py
+  MISS input  DATA_DIR                 notebooks.output.chemspace_targeted
+  OK   output PAPER_FIG_DIR            reproduction.figures
+
+notebooks/plot_property_landscape_audit.py
+  MISS input  SMRT_RAW                 notebooks.output.smrtbench_combined_results.csv
+  OK   input  DUDE_RAW                 notebooks.dude_stat_all.csv
+  NEW  output OUT_DIR                  notebooks.output.property_landscape
+  OK   output PAPER_DIR                reproduction.figures
+
+notebooks/prepare_pipeline_figure.py
+  OK   output FIG_DIR                  reproduction.figures
+
+g4tasks/audit_v2/09_panel_kras_inhib.py
+  MISS input  FLUOR                    reproduction.data.荧光数据汇总.csv
+
+====================================================================
+12 missing INPUT(S):
+  notebooks/output/smrtbench_combined_results.csv
+      declared in notebooks/assemble_ablation_figure.py as CSV_PATH
+  notebooks/output/tables/smrtbench
+      declared in notebooks/assemble_cross_benchmark_figure.py as SMRT_TABLE_DIR
+  notebooks/output/tables/dude
+      declared in notebooks/assemble_cross_benchmark_figure.py as DUDE_TABLE_DIR
+  notebooks/output/smrtbench_combined_results.csv
+      declared in notebooks/assemble_cross_benchmark_figure.py as SMRT_RAW
+  notebooks/output/chemspace_targeted/scaffold_breadth_table.csv
+      declared in notebooks/assemble_cross_benchmark_figure.py as SCAFFOLD_CSV
+  notebooks/output/tables/dude
+      declared in notebooks/assemble_dude_paper_figure.py as TABLE_DIR
+  notebooks/output/smrtbench_combined_results.csv
+      declared in notebooks/assemble_fine_grained_ablation.py as CSV_PATH
+  notebooks/output/tables/dude
+      declared in notebooks/assemble_molcraft_mapping_control.py as TABLE_DIR
+  notebooks/output/tables/smrtbench
+      declared in notebooks/assemble_smrtnet_paper_figure.py as TABLE_DIR
+  notebooks/output/chemspace_targeted
+      declared in notebooks/plot_chemical_space_audit.py as DATA_DIR
+  notebooks/output/smrtbench_combined_results.csv
+      declared in notebooks/plot_property_landscape_audit.py as SMRT_RAW
+  reproduction/data/荧光数据汇总.csv
+      declared in g4tasks/audit_v2/09_panel_kras_inhib.py as FLUOR
+(NEW = output directory created at runtime)

@@ -1,0 +1,23 @@
+{
+ "cold_start_unique": 10077,
+ "ring_instances": 18365,
+ "ring_systems": 2108,
+ "fragments_dedup": 9278,
+ "fragments_pass_gates_and_pool": 717,
+ "variants_after_mutation_and_QEDSAS": 1588,
+ "port_candidates": 216092,
+ "assemblies_pass": 9812,
+ "unique_products": 1721,
+ "products_pass_filter": 785,
+ "minimise_resolved": 728,
+ "tier1": 293,
+ "tier2": 435,
+ "pubchem_registered": 34,
+ "purchasable": 14,
+ "t2": {
+  "in_products": true,
+  "tier1": true,
+  "purchasable": true,
+  "CID": 74755
+ }
+}

@@ -84,3 +84,35 @@ casestudy/kras_g4/denovo2/final_rnasmol6.json
 nohup.out
 package.json
 package-lock.json
+
+# ── Notebook bulk data (load-bearing; documented + checksummed in ------------
+#    reproduction/manifests/data_files.json; deposit with the release, do not
+#    commit to git)
+notebooks/*.csv
+notebooks/*.ipynb
+notebooks/*.tsv
+notebooks/output/
+notebooks/outputs/
+notebooks/eval_fixed_rings/
+notebooks/molcraft_random_mapping_dude/
+notebooks/zqf_res_pocket_new_epoch113_smina/
+notebooks/DUDE_complex/
+notebooks/RNALigBench/
+notebooks/cache_*/
+
+# ── Reproduction layer runtime state ────────────────────────────────────────
+reproduction/cache/
+reproduction/**/__pycache__/
+
+# ── Quarantined / archived historical material ──────────────────────────────
+archive/
+
+# ── Leakage audit bulk outputs (summaries are tracked; see README) ──────────
+leakage_audit/tables/generated_long.csv
+leakage_audit/tables/generated_overlap_molecules.csv
+leakage_audit/tables/generated_overlap_pretrain_sample.csv
+leakage_audit/tables/reference_active_overlap.csv
+leakage_audit/tables/reference_actives.csv
+leakage_audit/cache/
+# ── Generated snapshot (compact summary is tracked) ─────────────────────────
+reproduction/manifests/inventory_before.json

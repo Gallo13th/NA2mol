@@ -315,6 +315,11 @@ def main():
                         choices=['zero', 'randn'])
     # Eval params
     parser.add_argument('--ckpt_path', type=str, default='best')
+    # Separate teacher checkpoint. Leave unset to disable the teacher-student
+    # constraint entirely (the Pretrain Only configuration).
+    parser.add_argument('--ckpt_path_teacher', type=str, default=None,
+                        help='Teacher checkpoint. If unset, no teacher is loaded and '
+                             'the alignment terms are zero, i.e. no constraint loss.')
     parser.add_argument("--num_samples", type=int, default=5)
     parser.add_argument("--sample_steps", type=int, default=100)
     parser.add_argument('--sample_num_atoms', type=str, default='ref',
@@ -434,7 +439,8 @@ def main():
 
     # 9. 加载预训练权重（若存在）
     ckpt_path_student = args.ckpt_path if args.ckpt_path != 'best' else 'ckpt/molcraft_edmol_onlyed_cst_best_val_loss_step_369999.pth'
-    ckpt_path_teacher = args.ckpt_path if args.ckpt_path != 'best' else 'ckpt/molcraft_edmol_onlyed_cst_best_val_loss_step_369999.pth'
+    ckpt_path_teacher = args.ckpt_path_teacher
+    use_teacher = bool(ckpt_path_teacher) and os.path.exists(ckpt_path_teacher)
 
     # 若指定了 resume_ckpt，优先从断点恢复（学生模型）
     if args.resume_ckpt and os.path.exists(args.resume_ckpt):
@@ -442,7 +448,7 @@ def main():
         sd = torch.load(args.resume_ckpt, map_location='cpu')
         model.load_state_dict(remove_compiled_prefix(sd), strict=False)
         # teacher 仍从预训练权重加载，保持固定
-        if os.path.exists(ckpt_path_teacher):
+        if use_teacher:
             logger.info(f"Loading teacher model from {ckpt_path_teacher}")
             sd = torch.load(ckpt_path_teacher, map_location='cpu')
             teacher_model.load_state_dict(remove_compiled_prefix(sd), strict=False)
@@ -452,7 +458,7 @@ def main():
             sd = torch.load(ckpt_path_student, map_location='cpu')
             model.load_state_dict(remove_compiled_prefix(sd), strict=False)
 
-        if os.path.exists(ckpt_path_teacher):
+        if use_teacher:
             logger.info(f"Loading teacher model from {ckpt_path_teacher}")
             sd = torch.load(ckpt_path_teacher, map_location='cpu')
             teacher_model.load_state_dict(remove_compiled_prefix(sd), strict=False)
@@ -587,6 +593,11 @@ def main():
                                 pocket_ele=val_batch.pocket_element,
                                 onlygeneral=True
                             )
+                        if not use_teacher:
+                            _zero = torch.zeros(())
+                            coord_align_loss = type_align_loss = _zero
+                            coord_align_pkt_loss = type_align_pkt_loss = _zero
+                            contrastive_loss = _zero
 
                         loss = torch.mean(c_loss + d_loss +
                                           0.1 * coord_align_loss + 0.1 * type_align_loss +
@@ -690,6 +701,11 @@ def main():
                                 pocket_ele=val_batch.pocket_element,
                                 onlygeneral=True
                             )
+                        if not use_teacher:
+                            _zero = torch.zeros(())
+                            coord_align_loss = type_align_loss = _zero
+                            coord_align_pkt_loss = type_align_pkt_loss = _zero
+                            contrastive_loss = _zero
 
                         loss = torch.mean(c_loss + d_loss +
                                           0.1 * coord_align_loss + 0.1 * type_align_loss +
@@ -759,6 +775,11 @@ def main():
                     pocket_ele=batch.pocket_element,
                     onlygeneral=True
                 )
+            if not use_teacher:
+                _zero = torch.zeros(())
+                coord_align_loss = type_align_loss = _zero
+                coord_align_pkt_loss = type_align_pkt_loss = _zero
+                contrastive_loss = _zero
 
             # RNA 样本加权（如果数据包含 is_rna 标记）
             if hasattr(batch, 'pocket_is_rna'):

@@ -1,0 +1,26 @@
+method,filter_step,mols_retained,targets_ge1,targets_ge5
+MolCRAFT,All,98257,100,100
+MolCRAFT,"aff<-8,QED>0.5,SA<5",36410,98,97
+MolCRAFT,+SEI>0.1,28938,96,96
+MolCRAFT,"aff<-9,QED>0.5,SA<5,SEI>0.15",13287,87,84
+MolCRAFT,"aff<-9,QED>0.6,SA<4,SEI>0.2,strain<200",2361,64,58
+MolCRAFT (Original),All,76351,100,100
+MolCRAFT (Original),"aff<-8,QED>0.5,SA<5",29639,95,95
+MolCRAFT (Original),+SEI>0.1,24377,92,91
+MolCRAFT (Original),"aff<-9,QED>0.5,SA<5,SEI>0.15",11667,79,75
+MolCRAFT (Original),"aff<-9,QED>0.6,SA<4,SEI>0.2,strain<200",2471,61,49
+Pocket2Mol,All,65662,86,86
+Pocket2Mol,"aff<-8,QED>0.5,SA<5",6628,67,58
+Pocket2Mol,+SEI>0.1,5048,58,52
+Pocket2Mol,"aff<-9,QED>0.5,SA<5,SEI>0.15",1526,38,28
+Pocket2Mol,"aff<-9,QED>0.6,SA<4,SEI>0.2,strain<200",115,16,9
+RNA2smol,All,104980,102,102
+RNA2smol,"aff<-8,QED>0.5,SA<5",39590,99,98
+RNA2smol,+SEI>0.1,32813,99,97
+RNA2smol,"aff<-9,QED>0.5,SA<5,SEI>0.15",12989,96,85
+RNA2smol,"aff<-9,QED>0.6,SA<4,SEI>0.2,strain<200",3726,83,69
+ed2mol,All,93293,97,97
+ed2mol,"aff<-8,QED>0.5,SA<5",4854,74,70
+ed2mol,+SEI>0.1,4439,74,68
+ed2mol,"aff<-9,QED>0.5,SA<5,SEI>0.15",832,53,34
+ed2mol,"aff<-9,QED>0.6,SA<4,SEI>0.2,strain<200",405,43,22

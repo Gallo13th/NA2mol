@@ -1,0 +1,61 @@
+# Main figure and table display-item manifest.
+# This is a human-readable inventory; numerical source tables are validated separately.
+
+figures:
+  fig1:
+    manuscript_label: "Main Fig. 1"
+    role: workflow
+    source: "figures/main_workflow_rev2.pdf (author-rendered; editable source not in checkout)"
+  fig2:
+    manuscript_label: "Main Fig. 2"
+    role: paired RNA test set / DUD-E benchmark
+    required_tables:
+      - benchmarks/rna_test_set.csv
+      - benchmarks/dude.csv
+      - benchmark_tables/cross_benchmark.csv
+      - chemical_space/scaffold_breadth.csv
+  fig3:
+    manuscript_label: "Main Fig. 3"
+    role: four-configuration RNA ablation
+    required_tables:
+      - benchmarks/rna_ablation.csv
+      - benchmark_tables/ablation.csv
+  fig4:
+    manuscript_label: "Main Fig. 4"
+    role: KRAS promoter G-quadruplex BER102 case study
+    required_tables:
+      - kras_g4/paper_funnel.json
+      - kras_g4/paper_stage1_fragments.json
+      - kras_g4/paper_stage2_variants.json
+      - kras_g4/paper_stage4_products.json
+      - kras_g4/chain_tiers.json
+      - kras_g4/g4_tier1_order_table.csv
+
+tables:
+  training_composition:
+    manuscript_label: "Main Table 2"
+    role: supervised fine-tuning split composition
+    source: manifests/training_split.csv
+  recovery_sensitivity:
+    manuscript_label: "Main Table 1"
+    role: overlap/recovery sensitivity
+    source: leakage/recovery_manuscript_authoritative.csv
+
+supplementary_figures:
+  - {label: "Supplementary Fig. 1", role: chemical-space audit, source: chemical_space/}
+  - {label: "Supplementary Fig. 2", role: MolCRAFT mapping control, source: molcraft_mapping_control/}
+  - {label: "Supplementary Fig. 3", role: property landscape, source: property_landscape/}
+  - {label: "Supplementary Fig. 4", role: KRAS G4 ranking, source: kras_g4/}
+
+supplementary_tables:
+  - {label: "Supplementary Table 1", role: model configuration}
+  - {label: "Supplementary Table 2", role: row-level recovery}
+  - {label: "Supplementary Table 3", role: matched scaffold subsampling}
+  - {label: "Supplementary Table 4", role: identifier exclusion sensitivity}
+  - {label: "Supplementary Table 5", role: screened unique molecules/scaffold matches}
+  - {label: "Supplementary Table 6", role: nucleic-acid modality and split manifest}
+  - {label: "Supplementary Table 7", role: cross-benchmark scaffold breadth}
+  - {label: "Supplementary Table 8", role: RNA per-target metric comparison}
+  - {label: "Supplementary Table 9", role: PoseCheck/strain summary}
+  - {label: "Supplementary Table 10", role: overlap sensitivity}
+  - {label: "Supplementary Table 11", role: recovery summary}

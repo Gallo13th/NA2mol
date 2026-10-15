@@ -1,0 +1,61 @@
+{
+  "complete": false,
+  "inputs": [
+    {
+      "id": "kras_funnel",
+      "path": "casestudy/kras_g4/denovo2/paper_funnel.json",
+      "items": [
+        "fig4",
+        "sfig4"
+      ],
+      "ok": true,
+      "errors": []
+    },
+    {
+      "id": "kras_candidates",
+      "path": "casestudy/kras_g4/denovo2/g4_tier1_order_table.csv",
+      "items": [
+        "fig4"
+      ],
+      "ok": true,
+      "errors": []
+    },
+    {
+      "id": "kras_assembly",
+      "path": "casestudy/kras_g4/polish_figure4.py",
+      "items": [
+        "fig4"
+      ],
+      "ok": false,
+      "errors": [
+        "missing file"
+      ]
+    },
+    {
+      "id": "kras_si_assembly",
+      "path": "casestudy/kras_g4/assemble_extended_data_fig_kras.py",
+      "items": [
+        "sfig4"
+      ],
+      "ok": false,
+      "errors": [
+        "missing file"
+      ]
+    },
+    {
+      "id": "tht_raw",
+      "path": "experimental_data/\u8367\u5149\u6570\u636e\u6c47\u603b.csv",
+      "items": [
+        "fig4",
+        "assay"
+      ],
+      "ok": false,
+      "errors": [
+        "missing file"
+      ]
+    }
+  ],
+  "excluded_by_design": [
+    "pretraining LMDB"
+  ]
+}

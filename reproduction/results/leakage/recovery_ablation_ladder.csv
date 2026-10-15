@@ -1,0 +1,29 @@
+filter,config,n_eligible,A_original_subset,A_filtered_subset,delta,A_filtered_boot_lo,A_filtered_boot_hi
+original,ablation:RNA2smol (Baseline),27,0.1406,0.1406,0.0,0.0677,0.2327
+original,ablation:Pretrain Only,27,0.0344,0.0344,0.0,0.011,0.0648
+original,ablation:Pretrain+Constrain,27,0.1318,0.1318,0.0,0.0593,0.2161
+original,RNA2smol,27,0.2175,0.2175,0.0,0.1081,0.3328
+ft_exact,ablation:RNA2smol (Baseline),24,0.1581,0.1556,-0.0025,0.0742,0.2629
+ft_exact,ablation:Pretrain Only,24,0.0387,0.0387,0.0,0.0098,0.0702
+ft_exact,ablation:Pretrain+Constrain,24,0.1482,0.1457,-0.0025,0.066,0.2349
+ft_exact,RNA2smol,24,0.2447,0.2447,0.0,0.1271,0.3724
+ft_T0.5,ablation:RNA2smol (Baseline),18,0.2108,0.134,-0.0768,0.0737,0.2001
+ft_T0.5,ablation:Pretrain Only,18,0.0517,0.0343,-0.0174,0.0085,0.0682
+ft_T0.5,ablation:Pretrain+Constrain,18,0.1976,0.1821,-0.0156,0.0922,0.2789
+ft_T0.5,RNA2smol,18,0.3263,0.2494,-0.0768,0.1263,0.3769
+ft_T0.6,ablation:RNA2smol (Baseline),19,0.1997,0.1575,-0.0422,0.0879,0.2246
+ft_T0.6,ablation:Pretrain Only,19,0.0489,0.0405,-0.0084,0.0139,0.0704
+ft_T0.6,ablation:Pretrain+Constrain,19,0.1872,0.1807,-0.0066,0.0851,0.2799
+ft_T0.6,RNA2smol,19,0.3091,0.283,-0.0261,0.1622,0.4188
+ft_T0.7,ablation:RNA2smol (Baseline),19,0.1997,0.1966,-0.0032,0.1026,0.312
+ft_T0.7,ablation:Pretrain Only,19,0.0489,0.0489,0.0,0.0162,0.0882
+ft_T0.7,ablation:Pretrain+Constrain,19,0.1872,0.1841,-0.0032,0.0912,0.3
+ft_T0.7,RNA2smol,19,0.3091,0.3091,0.0,0.1713,0.4465
+pretrain_exact,ablation:RNA2smol (Baseline),26,0.146,0.146,0.0,0.0701,0.2411
+pretrain_exact,ablation:Pretrain Only,26,0.0358,0.0358,0.0,0.0114,0.0672
+pretrain_exact,ablation:Pretrain+Constrain,26,0.1368,0.1368,0.0,0.0658,0.2208
+pretrain_exact,RNA2smol,26,0.2259,0.2259,0.0,0.1182,0.3418
+pretrain_T0.5,ablation:RNA2smol (Baseline),14,0.1912,0.1143,-0.077,0.0139,0.2607
+pretrain_T0.5,ablation:Pretrain Only,14,0.0664,0.0521,-0.0143,0.0109,0.0963
+pretrain_T0.5,ablation:Pretrain+Constrain,14,0.2029,0.1038,-0.0991,0.0142,0.2354
+pretrain_T0.5,RNA2smol,14,0.2505,0.0523,-0.1982,0.0,0.1252
