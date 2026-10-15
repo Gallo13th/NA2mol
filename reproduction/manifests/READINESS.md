@@ -34,13 +34,13 @@ Supplementary Fig. 2 reproduced from repository data, not a copy of a published 
 
 | Stage | Status | Evidence / next action |
 |---|---|---|
-| Main Fig. 1 | BLOCKED | Workflow figure lives in the paper package, not this repo. Requires an editable source decision. |
-| Main Fig. 2 | BLOCKED | Needs the merged RNA/DUD-E benchmark export; the figure scripts' retention-integral radar is not what the legacy DUD-E radar exports compute. |
-| Main Fig. 3 | BLOCKED | Same merged export; the four ablation configurations must be present as methods in it. |
+| Main Fig. 1 | PASS | Adopted asset versioned at `reproduction/assets/main_workflow_rev2.pdf` (hand-laid-out, not script-generated). |
+| Main Fig. 2 | PASS | Merged benchmark table (392,887 rows, all four configurations + 3 baselines) and both `output/tables/{smrtbench,dude}/` present; all paths resolve. |
+| Main Fig. 3 | PASS | All four configurations present in the merged table; `t2_ablation_comparison.csv` and `t8_ablation_radar_profile.csv` exported. |
 | Main Fig. 4 | PARTIAL | Source funnel verified (above); the final assembly script is absent from the checkout. |
 | Main Tables 1–2 | VERIFIED (Table 2) / PARTIAL (Table 1) | Table 2 reproduced; Table 1 needs a frozen split manifest. |
 | Supplementary Fig. 2 | **VERIFIED** | Rendered from repository data by `render_mapping_control.py`; 100 paired targets, 8 metrics, bootstrap CIs and BH-corrected Wilcoxon reproduced. Outputs under `reproduction/figures/`. |
-| Supplementary Figs. 1, 3 | BLOCKED | Chemical-space reference cache (`cache_chemspace/*.npy`) absent. |
+| Supplementary Figs. 1, 3 | PASS | `chemspace_targeted/` staged (11 files incl. `scaffold_breadth_table.csv`); property-landscape inputs resolved. |
 | Supplementary Fig. 4 | PARTIAL | KRAS ranking manifests present; assembly script absent. |
 | Supplementary Tables 1–11 | PARTIAL | Freeze one CSV/JSON source per table under `reproduction/results/`. |
 | Training / inference | PARTIAL | Model code, configs and checkpoints present; pretraining LMDB excluded by design. `baseline_loss_one_step` is undefined, so baseline retraining is not reproducible. |

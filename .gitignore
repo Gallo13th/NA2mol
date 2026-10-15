@@ -123,3 +123,6 @@ reproduction/manifests/inventory_before.json
 # versioned, so un-ignore this specific subtree.
 !reproduction/data/
 !reproduction/data/**
+# ── Non-regenerable figure art (small, authoritative) ──────────────────────
+!reproduction/assets/
+!reproduction/assets/**
