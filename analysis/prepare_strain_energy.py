@@ -15,7 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 RDLogger.DisableLog('rdApp.*')
 
-OUT_DIR = Path(__file__).resolve().parent / 'output'
+# Data lives under data/, not next to this script.
+OUT_DIR = ROOT / 'data' / 'benchmark' / 'output'
 CSV_PATH = OUT_DIR / 'smrtbench_combined_results.csv'
 CACHE_PATH = OUT_DIR / 'cache_strain_energy.pkl'
 

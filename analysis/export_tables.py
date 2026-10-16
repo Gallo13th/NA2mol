@@ -18,10 +18,11 @@ try:
 except ImportError:
     sascorer = None
 
-OUT_DIR = Path(__file__).resolve().parent / 'output' / 'tables'
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT = SCRIPT_DIR.parent
 DATA_DIR = ROOT / 'data' / 'benchmark'
+# Tables are data, not code: they belong under data/, not next to this script.
+OUT_DIR = DATA_DIR / 'output' / 'tables'
 EVAL_DIR = DATA_DIR / 'eval_fixed_rings'
 
 # ── Helpers ─────────────────────────────────────────────────────────────────
