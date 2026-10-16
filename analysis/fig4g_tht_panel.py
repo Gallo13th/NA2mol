@@ -43,9 +43,11 @@ def load(base_dir: Path) -> dict:
     sheet 2 = 2nd/equilibrated). Return per-(experiment, condition) values
     of the second reading (3 wells each)."""
     out = {}
-    # experiment "THT" (KRAS 100 nM + ThT 100 nM): ex0-5 = Buffer1, Buffer2,
-    # DMSO1, DMSO2, DSF, CPD2 ; "10X" (KRAS 1 uM + ThT 1 uM): ex0-4 = KONGMIN,
-    # Buffer+ThT, DMSO, DSF, CPD2
+    # experiment "THT" (KRAS 100 nM + ThT 200 nM, per the experimental team's
+    # protocol): ex0-5 = Buffer1, Buffer2, DMSO1, DMSO2, DSF, CPD2.
+    # "10X" is the higher-concentration condition (KRAS 1 uM): ex0-4 = KONGMIN,
+    # Buffer+ThT, DMSO, DSF, CPD2. Its ThT concentration is NOT stated in the
+    # protocol; read it from the Origin project before quoting it anywhere.
     maps = {
         "THT": {"DMSO": [2, 3], "DSF": [4], "gen": [5]},
         "10X": {"DMSO": [2], "DSF": [3], "gen": [4]},
@@ -121,7 +123,7 @@ def draw(pref: str, title: str, fname: str, stats: dict) -> None:
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     stats = load(THT_EXPORT)
-    # 100 nM experiment: THT file (KRAS 100 nM + THT 100 nM)
+    # 100 nM experiment: THT file (KRAS 100 nM + ThT 200 nM)
     draw("THT", "KRAS 100 nM + THT 100 nM", "panel_kras_tht_inhib100nM", stats)
     # 1 uM experiment: 10X file (KRAS 1 uM + THT 1 uM)
     draw("10X", "KRAS 1 uM + THT 1 uM", "panel_kras_tht_inhib1uM", stats)
