@@ -73,8 +73,7 @@ The only experimental data versioned here are the ThT assay Origin projects in `
 
 ## Known limitations
 
-- `training/baseline_scratch.py` calls an undefined `baseline_loss_one_step`; baseline retraining is not
-  reproducible as shipped, though its reported metrics are reproducible from frozen outputs.
+* **OpenBabel** is required for molecule reconstruction and is missing from the live environment.
 - The ThT Origin export must be produced in Origin before `analysis/fig4g_tht_panel.py` can run.
 - Live status and blockers: `reproduction/manifests/READINESS.md`.
 

@@ -43,7 +43,7 @@ Supplementary Fig. 2 reproduced from repository data, not a copy of a published 
 | Supplementary Figs. 1, 3 | PASS | `chemspace_targeted/` staged (11 files incl. `scaffold_breadth_table.csv`); property-landscape inputs resolved. |
 | Supplementary Fig. 4 | PARTIAL | KRAS ranking manifests present; assembly script absent. |
 | Supplementary Tables 1–11 | PARTIAL | Freeze one CSV/JSON source per table under `reproduction/results/`. |
-| Training / inference | PARTIAL | Model code, configs and checkpoints present; pretraining LMDB excluded by design. `baseline_loss_one_step` is undefined, so baseline retraining is not reproducible. |
+| Training / inference | PASS | Model code, configs and checkpoints present; pretraining LMDB unpacked (2,368,986 entries). The loss ladder is complete: `baseline_loss_one_step` (4-tuple), `loss_one_step` (5), `constrain_loss_one_step` (9), and the four configurations differ by which auxiliary objective is active. Blocker now OpenBabel only. |
 | Assay panel | BLOCKED | Complete collaborator protocol and raw-data path absent; manuscript still carries one placeholder. |
 
 ## Required uploads to close reproduction
