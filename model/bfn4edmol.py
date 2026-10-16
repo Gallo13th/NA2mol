@@ -1833,6 +1833,45 @@ class BFN4SBDDScoreModel(BFNBase):
             discretized_loss,   # [B] reserved
         )
 
+    def contrastive_loss_with_queue(self, z_a, z_b):
+        """InfoNCE with a FIFO memory bank of past representations.
+
+        Positive pairs are (z_a[i], z_b[i]); negatives are the other views in the
+        batch plus the queued representations from previous steps. z_b is enqueued
+        (detached) after the loss is computed. Selected by `use_contrastive_queue`;
+        the plain in-batch path is used otherwise.
+        """
+        z_a = F.normalize(z_a, p=2, dim=-1)
+        z_b = F.normalize(z_b, p=2, dim=-1)
+        queue = self.rep_queue.t().detach()          # [queue_size, dim]
+        scale = torch.exp(self.logit_scale)
+
+        def _nce(anchor, positive):
+            negatives = torch.cat([positive, queue], dim=0)   # [B + queue_size, dim]
+            logits = anchor @ negatives.t() * scale
+            labels = torch.arange(anchor.size(0), device=anchor.device)
+            return F.cross_entropy(logits, labels)
+
+        loss = 0.5 * (_nce(z_a, z_b) + _nce(z_b, z_a))
+
+        with torch.no_grad():
+            n = z_b.size(0)
+            ptr = int(self.queue_ptr)
+            if n >= self.queue_size:
+                self.rep_queue.copy_(z_b[-self.queue_size:].t())
+                ptr = 0
+            else:
+                end = ptr + n
+                if end <= self.queue_size:
+                    self.rep_queue[:, ptr:end] = z_b.t()
+                else:
+                    head = self.queue_size - ptr
+                    self.rep_queue[:, ptr:] = z_b[:head].t()
+                    self.rep_queue[:, :end - self.queue_size] = z_b[head:].t()
+                ptr = end % self.queue_size
+            self.queue_ptr[0] = ptr
+        return loss
+
     def constrain_loss_one_step(
         self,
         rep_model,
