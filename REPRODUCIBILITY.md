@@ -163,7 +163,22 @@ python analysis/export_tables.py             # every published table, from the m
 ```
 
 `export_tables.py` is the single source of all numerical tables. Run it after any change to
-`prepare_*`, because it rewrites the CSVs.
+`prepare_*`, because it rewrites the CSVs. It clears its output directory first and exits
+non-zero if any of 15 required tables is missing — a missing cache used to produce a partial
+table set silently.
+
+**Bond-JS caches.** The radar tables need two caches that are not in git:
+
+```bash
+python3 reproduction/scripts/build_bond_js_caches.py   # ~10 min, RDKit 3D embedding
+```
+
+Without `cache_dude_bond_js.pkl`, `d8b`/`d8c` are not written and Main Fig. 2 fails.
+
+**Known numerical caveat.** The `bond_len_js`/`bond_angle_js` metrics are derived from 3D
+conformer embedding and are not stable across RDKit versions. Rank normalisation amplifies
+this into a rank swap between NA2smol (baseline) and ED2Mol in the radar panel. Record the
+RDKit version used for the paper; expect small radar differences on other versions.
 
 ### Step 4 — figures
 
@@ -249,8 +264,15 @@ the export is complete.
 
 ## 8. Verification
 
+The results of actually re-running the pipeline are in
+[`reproduction/manifests/VALIDATION.md`](reproduction/manifests/VALIDATION.md): 40 of 44
+tables regenerate byte-identically, 6 of 7 figures pass, and four defects that static
+checks could not see were found and fixed.
+
 ```bash
-bash reproduction/scripts/smoke_test.sh
+bash reproduction/scripts/smoke_test.sh      # static: paths, schema, syntax
+bash reproduction/scripts/verify_tables.sh   # honest table regeneration (clears first)
+bash reproduction/scripts/verify_figures.sh  # run every figure, validate the output
 ```
 
 Three checks, each of which fails loudly:

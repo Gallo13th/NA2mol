@@ -1100,8 +1100,60 @@ def export_dude():
 
 
 # ══════════════════════════════════════════════════════════════════════════════
+
+# ── Completeness gate ───────────────────────────────────────────────────────
+# Several blocks above are guarded by `if <cache>.exists():`. When a cache is
+# missing the block is skipped silently, which yields a PARTIAL table set that
+# only fails later inside a figure script (d8b/d8c missing breaks
+# fig2_cross_benchmark.py). Fail loudly here instead.
+REQUIRED_TABLES = [
+    'smrtbench/t1_main_comparison.csv',
+    'smrtbench/t1b_ecfp4_target_success_by_threshold.csv',
+    'smrtbench/t1d_per_target_paired_stats.csv',
+    'smrtbench/t2_ablation_comparison.csv',
+    'smrtbench/t2b_ablation_paired_stats.csv',
+    'smrtbench/t6_virtual_screening_funnel.csv',
+    'smrtbench/t7a_radar_profile_raw.csv',
+    'smrtbench/t7b_radar_rank_normalized.csv',
+    'smrtbench/t8_ablation_radar_profile.csv',
+    'dude/d1_main_comparison.csv',
+    'dude/d2_ecfp4_target_success_by_threshold.csv',
+    'dude/d7_virtual_screening_funnel.csv',
+    'dude/d8a_radar_profile_raw.csv',
+    'dude/d8b_radar_rank_normalized.csv',
+    'dude/d8c_radar_minmax_normalized.csv',
+]
+
+
+def check_completeness() -> int:
+    missing = [t for t in REQUIRED_TABLES if not (OUT_DIR / t).exists()]
+    if missing:
+        print("\n" + "=" * 68)
+        print(f"INCOMPLETE: {len(missing)} expected table(s) were not produced.")
+        print("A guarded block was skipped, most likely a missing cache:")
+        for m in missing:
+            print(f"  missing {m}")
+        print("\nProducers (see analysis/README.md):")
+        print("  data/benchmark/output/cache_bond_js.pkl       <- analysis/prepare_bond_js.py")
+        print("  data/benchmark/output/cache_dude_bond_js.pkl  <- analysis/prepare_bond_js_dude.py")
+        print("  or run: python3 reproduction/scripts/build_bond_js_caches.py")
+        print("=" * 68)
+        return 2
+    print(f"\nCompleteness check: all {len(REQUIRED_TABLES)} expected tables present.")
+    return 0
+
+
 if __name__ == '__main__':
+    # Clear previous output first. Without this, a skipped guarded block leaves the
+    # PREVIOUS run's file in place, the completeness check passes on stale data, and
+    # the problem only surfaces later inside a figure script. Everything under
+    # OUT_DIR is derived, so removing it is safe.
+    import shutil
+    shutil.rmtree(OUT_DIR, ignore_errors=True)
+    print(f"cleared {OUT_DIR}")
+
     export_smrtbench()
     export_ringfix()
     export_dude()
     print(f"\nAll tables saved to: {OUT_DIR}")
+    raise SystemExit(check_completeness())

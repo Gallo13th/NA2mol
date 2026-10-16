@@ -88,7 +88,7 @@ METRIC_DIRECTION = {col: d for col, _, d in METRICS_LIST}
 
 # ── Data loading ─────────────────────────────────────────────────────────
 print("Loading DUDE data...")
-df = pd.read_csv(Path(__file__).resolve().parent / 'dude_stat_all.csv')
+df = pd.read_csv(ROOT / 'data' / 'benchmark' / 'dude_stat_all.csv')
 # Drop strain column
 if 'strain' in df.columns:
     df = df.drop(columns=['strain'])
