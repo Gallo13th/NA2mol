@@ -49,12 +49,12 @@ else
     echo "RESULT: integrity check skipped (--skip-verify)."
 fi
 
-# ── 3. what is inside ───────────────────────────────────────────────────────
-# `head` closes the pipe so tar stops early; do NOT pipe this through `sort`,
-# which would buffer the entire listing and decompress the whole archive.
+# ── 3. listing is deliberately omitted ──────────────────────────────────────
+# `tar tzf` must read every member's data to reach the next header, so even
+# `| head -10` decompresses the whole archive when the first member is a
+# multi-gigabyte LMDB. The post-extraction report below already shows the layout.
 echo
-echo "first entries:"
-tar tzf "$ARCHIVE" 2>/dev/null | head -10
+echo "skipping the entry listing (it would decompress the archive); extracting next."
 
 # ── 4. extract ──────────────────────────────────────────────────────────────
 if [ -d "$TARGET" ] && [ -n "$(ls -A "$TARGET" 2>/dev/null)" ]; then
