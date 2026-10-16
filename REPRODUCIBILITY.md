@@ -100,6 +100,16 @@ python3 reproduction/scripts/validate_inputs.py
 
 It exits non-zero for any gap and never silently skips.
 
+### Pretraining corpus (verified)
+
+`data/pretrain.tar.gz` (5,916,109,016 bytes, SHA256
+`b1f834c60c6329ac3318d0a86c8c0acf2649f15ac6653c04df5211bd386a860e`) unpacks via
+`reproduction/scripts/finalize_pretrain.sh` into `data/pretrain/merged/`. That LMDB holds
+**2,368,986 entries**, consistent with the ~2.4 M ligand-only library cited in the manuscript.
+`training/pretrain_ed.py` reads it from that path.
+
+Run long unpacks under `tmux`: an SSH drop will otherwise kill a 20-minute extraction.
+
 ---
 
 ## 4. Full reproduction sequence
