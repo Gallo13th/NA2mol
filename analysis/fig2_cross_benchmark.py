@@ -281,7 +281,7 @@ def plot_scaffold_diversity(ax: plt.Axes, label: str) -> None:
 
     # Legend: neutral grey swatches explain the hatch convention.
     legend_handles = [
-        Patch(facecolor="#888888", edgecolor="#888888", label="SMRT-Net RNA"),
+        Patch(facecolor="#888888", edgecolor="#888888", label="RNA test set"),
         Patch(facecolor="#888888", edgecolor="#aaaaaa", hatch="////", label="DUD-E protein"),
     ]
     ax.legend(handles=legend_handles, fontsize=5.2, loc="upper right", frameon=False)
@@ -344,7 +344,7 @@ def plot_per_target_coverage(
     ax.set_yticklabels([label_for(m) for m in methods], fontsize=6.0)
     ax.set_xticks(range(len(targets)))
     ax.set_xticklabels(targets, rotation=0, ha="center", fontsize=5.5)
-    ax.set_xlabel("SMRT-Net RNA target (PDB ID)")
+    ax.set_xlabel("RNA test set target (PDB ID)")
     ax.set_title("Per-target coverage", loc="left", pad=4)
 
     cbar = plt.colorbar(im, ax=ax, shrink=0.7, pad=0.02)
@@ -473,14 +473,14 @@ def render_panels(tables: dict, panels_dir: Path) -> dict:
         colors=METHOD_COLORS, labels=METHOD_LABELS),
         (2.48, 2.08), [0.13, 0.16, 0.82, 0.62], polar=True)
 
-    # b — RNA ECFP4 recovery
-    _one("b", lambda ax: plot_ecfp4(ax, tables["smrt_ecfp4"], SMRT_METHODS,
-                                    "RNA ECFP4 recovery", "b", y_max=28), (3.33, 2.08))
+    # b — Protein ECFP4 recovery (row 0 is the DUD-E control, as in the manuscript)
+    _one("b", lambda ax: plot_ecfp4(ax, tables["dude_ecfp4"], DUDE_METHODS,
+                                    "Protein ECFP4 recovery", "b", y_max=105), (3.33, 2.08))
 
-    # c — RNA target retention funnel
-    _one("c", lambda ax: plot_funnel(ax, tables["smrt_funnel"], SMRT_METHODS,
+    # c — Protein target retention funnel
+    _one("c", lambda ax: plot_funnel(ax, tables["dude_funnel"], DUDE_METHODS,
                                      "targets_ge1", "Targets",
-                                     "RNA target retention", "c", y_max=28), (3.33, 2.08))
+                                     "Protein target retention", "c", y_max=105), (3.33, 2.08))
 
     # d — DUD-E profile table
     _one("d", lambda ax: R.draw_radar(
@@ -488,14 +488,14 @@ def render_panels(tables: dict, panels_dir: Path) -> dict:
         colors=METHOD_COLORS, labels=METHOD_LABELS),
         (2.48, 1.84), [0.13, 0.16, 0.82, 0.62], polar=True)
 
-    # e — Protein ECFP4 recovery
-    _one("e", lambda ax: plot_ecfp4(ax, tables["dude_ecfp4"], DUDE_METHODS,
-                                    "Protein ECFP4 recovery", "e", y_max=105), (3.33, 1.84))
+    # e — RNA ECFP4 recovery (row 1 is the RNA test set)
+    _one("e", lambda ax: plot_ecfp4(ax, tables["smrt_ecfp4"], SMRT_METHODS,
+                                    "RNA ECFP4 recovery", "e", y_max=28), (3.33, 1.84))
 
-    # f — Protein target retention funnel
-    _one("f", lambda ax: plot_funnel(ax, tables["dude_funnel"], DUDE_METHODS,
+    # f — RNA target retention funnel
+    _one("f", lambda ax: plot_funnel(ax, tables["smrt_funnel"], SMRT_METHODS,
                                      "targets_ge1", "Targets",
-                                     "Protein target retention", "f", y_max=105), (3.33, 1.84))
+                                     "RNA target retention", "f", y_max=28), (3.33, 1.84))
 
     # g — scaffold diversity
     _one("g", lambda ax: plot_scaffold_diversity(ax, "g"), (2.48, 1.36))
