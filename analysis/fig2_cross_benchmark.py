@@ -529,10 +529,10 @@ def render_master(tables: dict) -> None:
     RH0, RH1, RH2 = R0_T - R0_B, R1_T - R1_B, R2_T - R2_B
 
     axes = {}
-    axes["a"] = fig.add_axes([C0_L, R0_B, CW0, RH0])
+    axes["a"] = fig.add_axes([C0_L, R0_B, CW0, RH0], projection="polar")
     axes["b"] = fig.add_axes([C1_L, R0_B, CW1, RH0])
     axes["c"] = fig.add_axes([C2_L, R0_B, CW2, RH0])
-    axes["d"] = fig.add_axes([C0_L, R1_B, CW0, RH1])
+    axes["d"] = fig.add_axes([C0_L, R1_B, CW0, RH1], projection="polar")
     axes["e"] = fig.add_axes([C1_L, R1_B, CW1, RH1])
     axes["f"] = fig.add_axes([C2_L, R1_B, CW2, RH1])
     axes["g"] = fig.add_axes([C0_L, R2_B, CW0, RH2])

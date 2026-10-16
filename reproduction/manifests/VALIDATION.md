@@ -64,6 +64,68 @@ that the correct implementation is absent.
 
 ---
 
+## 0b. Radar panels reimplemented (16 October 2026)
+
+The gap in section 0 has been closed. `analysis/radar.py` and
+`analysis/radar_profiles.py` now implement the manuscript's scheme exactly, and
+`fig2_cross_benchmark.py` / `fig3_ablation.py` draw it for their profile panels.
+
+**Verified against the manuscript, RNA test set** (the panels used by Fig. 2d and 3a):
+
+| method | observed recovery | manuscript |
+|---|---|---|
+| NA2smol (full) | 0.2176 | 0.2175 |
+| NA2smol (baseline) | 0.1407 | 0.141 |
+| Pretrain Only | 0.0346 | 0.034 |
+| Pretrain+Constrain | 0.1316 | 0.132 |
+
+Universe: 27 targets, matching "27 shared evaluable targets". The DUD-E side reports
+101 targets with reference actives, matching the manuscript's "fixed universe of 101".
+
+**Implementation notes.**
+
+* The retention integral has an exact closed form — for one molecule it is
+  ``clip((u-v)/(u-l), 0, 1)`` (lower-is-better) or ``clip((v-l)/(u-l), 0, 1)``
+  (higher-is-better) — so ``s_m`` is a mean over molecules with no numerical
+  integration. ``radar.integral_form`` evaluates the manuscript's integral directly
+  and the two agree to 1e-6 across six distributions and the edge cases.
+* Strain uses log10 over [1, 5]; non-finite or non-positive strain scores 0 (such a
+  molecule fails every threshold). TPSA = 0 gives SEI = 0 rather than +inf.
+* ECFP4 similarity is computed vectorised from bit matrices; verified bit-identical
+  to the per-molecule RDKit reference.
+* `pdb_id` must be read as ``str``: ``1e66`` and ``3e37`` are otherwise parsed as
+  scientific notation and stop matching the actives file.
+* DUD-E uses ``DUDE_active_compounds.csv`` — the manuscript's reference set (101
+  targets, 38,759 unique actives after dedup) — not the per-row ``active_smi`` in
+  ``dude_stat_all.csv``, which holds only 42–332 unique actives per target.
+
+**Residual discrepancy, DUD-E (open).** Observed recoveries computed here differ from
+the manuscript's `A_original_full`:
+
+| method | computed | manuscript | delta |
+|---|---|---|---|
+| NA2smol | 0.656 | 0.6918 | 0.036 |
+| MolCRAFT | 0.331 | 0.3452 | 0.014 |
+| Pocket2Mol | 0.417 | 0.5023 | 0.085 |
+| ed2mol | 0.483 | 0.5138 | 0.031 |
+
+Averaging over the targets each method actually produced output for instead of the
+fixed 101-target universe brings three of the four much closer (MolCRAFT 0.3443 vs
+0.3452, Pocket2Mol 0.5008 vs 0.5023, ed2mol 0.5126 vs 0.5138 — all within 0.0015),
+which suggests the manuscript's DUD-E figures were computed on a per-method eligible
+set. NA2smol remains off by 0.016 under either convention. The written Methods
+specify a fixed universe with zero for missing output, so that convention is what
+the code implements; the remaining gap most likely reflects a different DUD-E
+molecule snapshot for that method. It cannot be closed from the artifacts in this
+checkout, and it is recorded rather than smoothed over.
+
+Consequence for the DUD-E radar: because the shuffled null is high for the external
+generators (e.g. MolCRAFT null 0.483 vs observed 0.331), their ECFP4 score clips to
+0. If the manuscript's per-method eligible-set convention is adopted, those scores
+would be small but non-zero.
+
+---
+
 ## 1. What does reproduce
 
 | Layer | Result |
