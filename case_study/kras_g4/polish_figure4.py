@@ -16,11 +16,11 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "data" / "benchmark"))
-from figure_style import setup_publication_style, save_all, INK, MUTED, GRID
+sys.path.insert(0, str(ROOT / "analysis"))   # shared figure style lives here
+from style import setup_publication_style, save_all, INK, MUTED, GRID
 
 BASE = Path(__file__).resolve().parent
-DATA = BASE / "protocol_package_g4" / "denovo2"
+DATA = BASE / "denovo2"   # stage manifests written by run_chain_ber102.py
 OUT = ROOT / "reproduction" / "figures"
 TEAL = "#246B70"
 GREY = "#CDD3D9"
@@ -31,7 +31,33 @@ def stage(name):
 
 
 def assay_coordinates():
-    root = ET.parse(BASE / "kd_fit.svg").getroot()
+    """Assay points, SDs and the fitted displacement curve for panel g.
+
+    The canonical source is ``kd_fit.svg``, the graph export that this script
+    converts from SVG user units. That file is not part of the repository, so when
+    it is absent we fall back to the coordinates previously extracted from it
+    (``figure4_assay_plotted_values.csv``) and refit the four-parameter logistic so
+    the fitted curve is still drawn. The fallback prints which route it used.
+    """
+    fit_svg = BASE / "kd_fit.svg"
+    if not fit_svg.is_file():
+        from scipy.optimize import curve_fit
+        table = pd.read_csv(BASE / "figure4_assay_plotted_values.csv")
+        x = table["concentration_um"].to_numpy(float)
+        y = table["normalised_fluorescence"].to_numpy(float)
+        sd = table["sd"].to_numpy(float)
+
+        def f4pl(xx, bottom, top, dc50, hill):
+            return bottom + (top - bottom) / (1.0 + (xx / dc50) ** hill)
+
+        popt, _ = curve_fit(f4pl, x, y, p0=[y.min(), y.max(), np.median(x), 1.0],
+                            maxfev=200000)
+        grid = np.logspace(np.log10(x.min()), np.log10(x.max()), 300)
+        print(f"  assay: kd_fit.svg absent, refit from CSV -> DC50 = {popt[2]:.2f} uM")
+        return np.column_stack((x, y)), sd, np.column_stack((grid, f4pl(grid, *popt)))
+
+    print("  assay: using kd_fit.svg")
+    root = ET.parse(fit_svg).getroot()
     namespace = {"s": "http://www.w3.org/2000/svg"}
     def group(ident):
         return root.find(f'.//*[@id="{ident}"]')
@@ -145,7 +171,7 @@ def main():
     assay_ax.axvline(22.387, color=MUTED, ls="--", lw=0.7)
     assay_ax.set(xscale="log", xlabel="Concentration (µM)", ylabel="Normalised ThT fluorescence", ylim=(-0.05, 1.08))
     assay_ax.set_title("ThT displacement", loc="left", fontsize=6.8)
-    assay_ax.text(0.97, 0.96, "IC$_{50}$ = 22.4 µM\nMean ± SD; 3 wells", transform=assay_ax.transAxes,
+    assay_ax.text(0.97, 0.96, "DC$_{50}$ = 22.4 µM\nMean ± SD; 3 wells", transform=assay_ax.transAxes,
                   ha="right", va="top", fontsize=6)
     label(assay_ax, "g")
     registered = [record for record in json.loads((DATA / "tier1_pubchem.json").read_text()) if record.get("cid")]
