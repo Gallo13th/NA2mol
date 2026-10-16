@@ -226,9 +226,9 @@ build OpenBabel molecule (all atoms temporarily carbon, uniform covalent radii)
   -> postprocess_rd_mol_1 / postprocess_rd_mol_2, RDKit sanitisation
 ```
 
-`import openbabel` currently fails in this environment (`ModuleNotFoundError`). Molecules already
-generated and stored in the benchmark tables are unaffected, but **no new molecule can be reconstructed**
-until it is installed. Add it to `setup_env.sh` / the environment specification.
+`setup_env.sh` already lists `openbabel`, but `import openbabel` currently fails in this environment
+(`ModuleNotFoundError`). Molecules already generated and stored in the benchmark tables are unaffected,
+but **no new molecule can be reconstructed until it is installed** in the live environment.
 
 This is also why the Methods previously said only "standard bond inference": the routine spans OpenBabel
 and RDKit and is not a one-line call. The Methods now name `reconstruct_from_generated`, the 1.3 covalent

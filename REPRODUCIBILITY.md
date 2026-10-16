@@ -28,11 +28,13 @@ External binaries and packages:
 
 * **smina** — `util/smina.static` is bundled.
 * **rDock 2013.1** — set `RBT_ROOT`; required only for the case study.
-* **OpenBabel** (`openbabel` Python bindings) — **required for every generated molecule.**
+* **OpenBabel** (`openbabel` Python bindings) — **required for every generated molecule.** Listed in
+  `setup_env.sh`; missing from the live environment.
   `util/mol_utils.py::reconstruct_from_generated` is the only path from a generated atom cloud to a
   molecular graph. It builds an OpenBabel molecule, infers bonds from covalent radii, calls
-  `PerceiveBondOrders`, and only then converts to RDKit. It is not installed in the current environment,
-  so `import openbabel` fails and no molecule can be reconstructed.
+  `PerceiveBondOrders`, and only then converts to RDKit. `setup_env.sh` already lists it, but it is
+  **not installed in the current environment**, so `import openbabel` fails and no molecule can be
+  reconstructed until it is added.
 
 > **Rendering on a shared filesystem.** Matplotlib's font-cache build is extremely slow on network
 > mounts (observed: minutes of stalled I/O). All rendering entry points pin `MPLCONFIGDIR` to local
