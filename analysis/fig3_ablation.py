@@ -21,6 +21,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.lines import Line2D
 
+import radar as R
 from style import (
     ABL_COLORS,
     FUNNEL_STEPS,
@@ -42,6 +43,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "data" / "benchmark" / "output" / "smrtbench"
 PAPER_DIR = ROOT / "reproduction" / "figures"
 CSV_PATH = ROOT / "data" / "benchmark" / "output" / "smrtbench_combined_results.csv"
+RADAR_DIR = ROOT / "data" / "benchmark" / "output" / "tables" / "radar"
 
 # ── Ablation palette ──────────────────────────────────────────────────────
 # Method colours are imported from ``style.ABL_COLORS`` (shared with
@@ -118,7 +120,28 @@ def _rank_normalize(profile, methods, metrics):
     return normed
 
 
+def _radar_table() -> pd.DataFrame:
+    path = RADAR_DIR / "radar_scores_smrtbench.csv"
+    if not path.is_file():
+        raise SystemExit(
+            f"missing {path}\n"
+            "Panel a needs the seven-axis radar scores. Build them with:\n"
+            "  python3 analysis/radar_profiles.py")
+    return pd.read_csv(path).set_index("method")
+
+
 def plot_profile(ax, df, title_pad: float | None = None):
+    """Panel a — the manuscript's seven-axis radar for the four configurations.
+
+    Uses the same radar scheme as Fig. 2 (Methods, "Radar-chart normalisation"):
+    r_m = 1 + 2 s_m over seven axes. `df` is accepted for signature compatibility
+    but the scores come from analysis/radar_profiles.py so the two figures share
+    one implementation.
+    """
+    tbl = _radar_table()
+    scores = {m: {a: float(tbl.loc[m, a]) for a in R.AXIS_ORDER}
+              for m in ABL_ORDER if m in tbl.index}
+    return R.draw_radar(ax, scores, title="", colors=ABL_COLORS, labels=ABL_LABELS)
     # 1. Per-method, per-metric raw profile (mean of per-target medians).
     profile = {}
     for m in ABL_ORDER:
@@ -458,7 +481,7 @@ def render_panels(df) -> dict:
 
     # Panel a — profile table (wide, standalone)
     fig = plt.figure(figsize=(5.6, 2.7), facecolor="white")
-    ax = fig.add_axes([0.16, 0.16, 0.80, 0.62])
+    ax = fig.add_axes([0.16, 0.16, 0.80, 0.62], projection="polar")
     plot_profile(ax, df)
     assets["a"] = save_panel(fig, PANELS_DIR, "a_profile")
     plt.close(fig)
@@ -513,7 +536,7 @@ def render_master(df) -> None:
         left=0.105, right=0.985, bottom=0.12, top=0.88,
         wspace=0.42, hspace=0.72,
     )
-    ax_a = fig.add_subplot(gs[0, 0])
+    ax_a = fig.add_subplot(gs[0, 0], projection="polar")
     ax_b = fig.add_subplot(gs[0, 1])
     ax_c = fig.add_subplot(gs[1, 0])
     ax_d = fig.add_subplot(gs[1, 1])

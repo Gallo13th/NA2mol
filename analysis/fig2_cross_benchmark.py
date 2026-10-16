@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.lines import Line2D
 
+import radar as R
 from style import (
     FUNNEL_STEPS,
     INK,
@@ -36,6 +37,7 @@ PAPER_DIR = ROOT / "reproduction" / "figures"
 SMRT_RAW = ROOT / "data" / "benchmark" / "output" / "smrtbench_combined_results.csv"
 DUDE_RAW = ROOT / "data" / "benchmark" / "dude_stat_all.csv"
 SCAFFOLD_CSV = ROOT / "data" / "benchmark" / "output" / "chemspace_targeted" / "scaffold_breadth_table.csv"
+RADAR_DIR = ROOT / "data" / "benchmark" / "output" / "tables" / "radar"
 
 SMRT_METHODS = [
     "RNA2smol (Only General Feat)",
@@ -65,6 +67,29 @@ PROFILE_METRICS_DIR = group_metrics_by_direction(PROFILE_METRICS, LOWER_BETTER)
 # FUNNEL_STEPS is imported from style.
 
 
+
+def _read_radar(name: str) -> pd.DataFrame:
+    path = RADAR_DIR / name
+    if not path.is_file():
+        raise SystemExit(
+            f"missing {path}\n"
+            "The radar panels need the seven-axis score tables. Build them with:\n"
+            "  python3 analysis/radar_profiles.py")
+    return pd.read_csv(path)
+
+
+def radar_scores(table: pd.DataFrame, methods: list) -> dict:
+    """{method: {axis_key: s_m}} for the methods present, in the given order."""
+    sub = table.set_index('method')
+    axes = list(R.AXIS_ORDER)
+    out = {}
+    for m in methods:
+        if m in sub.index:
+            row = sub.loc[m]
+            out[m] = {a: float(row[a]) for a in axes if a in row}
+    return out
+
+
 def color_for(method: str) -> str:
     return METHOD_COLORS.get(method, "#606060")
 
@@ -84,7 +109,12 @@ def read_tables() -> dict[str, pd.DataFrame]:
     )
     dude_raw["SEI"] = -dude_raw["affinity"] / dude_raw["tpsa"].replace(0, np.nan)
     return {
-        "smrt_profile": pd.read_csv(SMRT_TABLE_DIR / "t7b_radar_rank_normalized.csv"),
+        # Radar panels a/d use the manuscript's seven-axis scores (Methods,
+        # "Radar-chart normalisation"), produced by analysis/radar_profiles.py.
+        # NOT t7b/d8b: those are rank-normalised tables from an earlier code
+        # generation and include metrics the manuscript's radar does not plot.
+        "smrt_radar": _read_radar("radar_scores_smrtbench.csv"),
+        "dude_radar": _read_radar("radar_scores_dude.csv"),
         "smrt_ecfp4": pd.read_csv(SMRT_TABLE_DIR / "t1b_ecfp4_target_success_by_threshold.csv"),
         "smrt_funnel": pd.read_csv(SMRT_TABLE_DIR / "t6_virtual_screening_funnel.csv"),
         "smrt_raw": smrt_raw,
@@ -425,22 +455,23 @@ def render_panels(tables: dict, panels_dir: Path) -> dict:
     lower_better = LOWER_BETTER
     assets = {}
 
-    def _one(name: str, plot_fn, figsize, rect=None, xy_lbl=None) -> None:
+    def _one(name: str, plot_fn, figsize, rect=None, xy_lbl=None,
+             polar: bool = False) -> None:
         fig = plt.figure(figsize=figsize, facecolor="white")
+        kw = {"projection": "polar"} if polar else {}
         if rect is None:
-            ax = fig.add_axes([0.10, 0.15, 0.86, 0.68])
+            ax = fig.add_axes([0.10, 0.15, 0.86, 0.68], **kw)
         else:
-            ax = fig.add_axes(rect)
+            ax = fig.add_axes(rect, **kw)
         plot_fn(ax)
         assets[name] = save_panel(fig, panels_dir, name)
         plt.close(fig)
 
-    # a — SMRT-Net profile table
-    _one("a", lambda ax: plot_profile_table(
-        ax, tables["smrt_profile"], SMRT_METHODS, PROFILE_METRICS_DIR,
-        title="SMRT-Net RNA", label="a",
-        lower_is_better=lower_better, value_fmt=profile_value_formatter,
-        bar_mode="rank"), (2.48, 2.08), [0.13, 0.16, 0.82, 0.62])
+    # a — DUD-E radar (paper order: DUD-E is panel a, the RNA test set is panel d)
+    _one("a", lambda ax: R.draw_radar(
+        ax, radar_scores(tables["dude_radar"], DUDE_METHODS), title="",
+        colors=METHOD_COLORS, labels=METHOD_LABELS),
+        (2.48, 2.08), [0.13, 0.16, 0.82, 0.62], polar=True)
 
     # b — RNA ECFP4 recovery
     _one("b", lambda ax: plot_ecfp4(ax, tables["smrt_ecfp4"], SMRT_METHODS,
@@ -452,11 +483,10 @@ def render_panels(tables: dict, panels_dir: Path) -> dict:
                                      "RNA target retention", "c", y_max=28), (3.33, 2.08))
 
     # d — DUD-E profile table
-    _one("d", lambda ax: plot_profile_table(
-        ax, tables["dude_profile"], DUDE_METHODS, PROFILE_METRICS_DIR,
-        title="DUD-E protein", label="d",
-        lower_is_better=lower_better, value_fmt=profile_value_formatter,
-        bar_mode="rank"), (2.48, 1.84), [0.13, 0.16, 0.82, 0.62])
+    _one("d", lambda ax: R.draw_radar(
+        ax, radar_scores(tables["smrt_radar"], SMRT_METHODS), title="",
+        colors=METHOD_COLORS, labels=METHOD_LABELS),
+        (2.48, 1.84), [0.13, 0.16, 0.82, 0.62], polar=True)
 
     # e — Protein ECFP4 recovery
     _one("e", lambda ax: plot_ecfp4(ax, tables["dude_ecfp4"], DUDE_METHODS,
@@ -510,33 +540,29 @@ def render_master(tables: dict) -> None:
 
     lower_better = {"affinity", "rmsd", "sa_score", "strain"}
 
-    # Row 0 — SMRT-Net RNA benchmark
-    plot_profile_table(
-        axes["a"], tables["smrt_profile"], SMRT_METHODS, PROFILE_METRICS_DIR,
-        title="SMRT-Net RNA", label="a",
-        lower_is_better=lower_better, value_fmt=profile_value_formatter,
-        bar_mode="rank",
-    )
-    axes["a"].set_title("SMRT-Net RNA", fontsize=7.5, color=INK, pad=20)
+    # Row 0 — DUD-E protein control (manuscript order: a = DUD-E, d = RNA test set)
+    R.draw_radar(
+        axes["a"], radar_scores(tables["dude_radar"], DUDE_METHODS),
+        title="DUD-E protein", colors=METHOD_COLORS, labels=METHOD_LABELS,
+        legend=False)
+    panel_label(axes["a"], "a", x=-0.14, y=1.06)
 
-    plot_ecfp4(axes["b"], tables["smrt_ecfp4"], SMRT_METHODS,
-              "RNA ECFP4 recovery", "b", y_max=28)
-    plot_funnel(axes["c"], tables["smrt_funnel"], SMRT_METHODS,
+    plot_ecfp4(axes["b"], tables["dude_ecfp4"], DUDE_METHODS,
+              "Protein ECFP4 recovery", "b", y_max=105)
+    plot_funnel(axes["c"], tables["dude_funnel"], DUDE_METHODS,
               "targets_ge1", "Targets",
-              "RNA target retention", "c", y_max=28)
+              "Protein target retention", "c", y_max=105)
 
-    # Row 1 — DUD-E protein control
-    plot_profile_table(
-        axes["d"], tables["dude_profile"], DUDE_METHODS, PROFILE_METRICS_DIR,
-        title="DUD-E protein", label="d",
-        lower_is_better=lower_better, value_fmt=profile_value_formatter,
-        bar_mode="rank",
-    )
-    axes["d"].set_title("DUD-E protein", fontsize=7.5, color=INK, pad=20)
+    # Row 1 — RNA test set
+    R.draw_radar(
+        axes["d"], radar_scores(tables["smrt_radar"], SMRT_METHODS),
+        title="RNA test set", colors=METHOD_COLORS, labels=METHOD_LABELS,
+        legend=False)
+    panel_label(axes["d"], "d", x=-0.14, y=1.06)
 
-    plot_ecfp4(axes["e"], tables["dude_ecfp4"], DUDE_METHODS,
-              "Protein ECFP4 recovery", "e", y_max=105)
-    plot_funnel(axes["f"], tables["dude_funnel"], DUDE_METHODS,
+    plot_ecfp4(axes["e"], tables["smrt_ecfp4"], SMRT_METHODS,
+              "RNA ECFP4 recovery", "e", y_max=28)
+    plot_funnel(axes["f"], tables["smrt_funnel"], SMRT_METHODS,
               "targets_ge1", "Targets",
               "Protein target retention", "f", y_max=105)
 
