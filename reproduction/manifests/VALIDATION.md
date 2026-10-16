@@ -207,3 +207,29 @@ non-blank, multi-page PDF. It cannot tell whether the figure *matches the manusc
 gap is exactly how a non-matching Fig. 2 was reported as PASS. Any automated check of figure
 correctness needs a reference comparison against the published artwork, which this harness
 does not do.
+
+---
+
+## 7. OpenBabel is a hard dependency and is not installed
+
+`util/mol_utils.py::reconstruct_from_generated` is the only route from a generated atom cloud to a
+molecular graph, and it requires the OpenBabel Python bindings:
+
+```
+build OpenBabel molecule (all atoms temporarily carbon, uniform covalent radii)
+  -> connect_the_dots: bond if d(i,j) < 1.3 * (r_cov(i) + r_cov(j))
+     max valence = min(OpenBabel max bonds, RDKit default); sulfone exception (S with >=2 O -> 6)
+     delete bonds between two max-valence-1 atoms
+  -> AddPolarHydrogens, PerceiveBondOrders        (OpenBabel assigns bond orders)
+  -> restore original element types
+  -> _adjust_heteroatom_charges, _neutralize_or_reject
+  -> postprocess_rd_mol_1 / postprocess_rd_mol_2, RDKit sanitisation
+```
+
+`import openbabel` currently fails in this environment (`ModuleNotFoundError`). Molecules already
+generated and stored in the benchmark tables are unaffected, but **no new molecule can be reconstructed**
+until it is installed. Add it to `setup_env.sh` / the environment specification.
+
+This is also why the Methods previously said only "standard bond inference": the routine spans OpenBabel
+and RDKit and is not a one-line call. The Methods now name `reconstruct_from_generated`, the 1.3 covalent
+factor, the valence caps and the OpenBabel bond-order perception.
