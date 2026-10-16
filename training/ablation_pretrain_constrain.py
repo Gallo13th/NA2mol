@@ -599,9 +599,12 @@ def main():
                             coord_align_pkt_loss = type_align_pkt_loss = _zero
                             contrastive_loss = _zero
 
+                        # Pretrain+Constrain: primary losses + ED->student alignment.
+                        # The contrastive term is deliberately absent here; it is the
+                        # component that distinguishes the full model from this
+                        # configuration.
                         loss = torch.mean(c_loss + d_loss +
-                                          0.1 * coord_align_loss + 0.1 * type_align_loss +
-                                          0.1 * contrastive_loss)
+                                          0.1 * coord_align_loss + 0.1 * type_align_loss)
                         bs = val_batch.mol_element_batch.size(0)
                         val_losses_list.append({
                             'loss': loss.item() * bs,
@@ -707,9 +710,12 @@ def main():
                             coord_align_pkt_loss = type_align_pkt_loss = _zero
                             contrastive_loss = _zero
 
+                        # Pretrain+Constrain: primary losses + ED->student alignment.
+                        # The contrastive term is deliberately absent here; it is the
+                        # component that distinguishes the full model from this
+                        # configuration.
                         loss = torch.mean(c_loss + d_loss +
-                                          0.1 * coord_align_loss + 0.1 * type_align_loss +
-                                          0.1 * contrastive_loss)
+                                          0.1 * coord_align_loss + 0.1 * type_align_loss)
                         bs = val_batch.mol_element_batch.size(0)
                         expdb_val_losses_list.append({
                             'loss': loss.item() * bs,
