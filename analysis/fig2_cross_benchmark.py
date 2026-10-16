@@ -564,7 +564,7 @@ def render_master(tables: dict) -> None:
               "RNA ECFP4 recovery", "e", y_max=28)
     plot_funnel(axes["f"], tables["smrt_funnel"], SMRT_METHODS,
               "targets_ge1", "Targets",
-              "Protein target retention", "f", y_max=105)
+              "RNA target retention", "f", y_max=28)
 
     # Row 2 — Cross-benchmark evidence
     plot_scaffold_diversity(axes["g"], "g")
