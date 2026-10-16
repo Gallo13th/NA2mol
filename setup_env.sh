@@ -30,8 +30,12 @@ eval "$(conda shell.bash hook)"
 # 检查环境是否已存在
 if conda env list | grep -q "^${ENV_NAME}\s"; then
     echo -e "${YELLOW}警告: 环境 ${ENV_NAME} 已存在${NC}"
-    read -p "是否删除并重新创建? (y/n): " -n 1 -r
-    echo
+    if [ "${RECREATE_ENV:-n}" = "y" ]; then
+        REPLY=y
+    else
+        read -p "是否删除并重新创建? (y/n) [或设置 RECREATE_ENV=y]: " -n 1 -r
+        echo
+    fi
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         echo -e "${YELLOW}删除现有环境...${NC}"
         conda env remove -n ${ENV_NAME} -y
@@ -41,30 +45,24 @@ if conda env list | grep -q "^${ENV_NAME}\s"; then
     fi
 fi
 
-# 步骤1: 创建基础 conda 环境（不含 pip 依赖）
-echo -e "\n${GREEN}[步骤 1/5] 创建基础 conda 环境...${NC}"
-cat > temp_base_env.yml << 'EOF'
-name: rna2smol
-channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-  - defaults
-  - conda-forge
-dependencies:
-  - python=3.10.18
-  - pip=25.1
-  - setuptools=78.1.1
-  - wheel=0.45.1
-  - openbabel
-EOF
+# 步骤1: 从版本化的 environment.yml 创建环境
+# The environment spec is committed, not generated: environment.yml pins every
+# dependency (torch, torch-scatter, torch-geometric, openbabel, rdkit). The
+# conda environment is REQUIRED -- the system Python lacks torch_scatter and
+# openbabel, so the model and molecule reconstruction cannot run outside it.
+echo -e "\n${GREEN}[步骤 1/5] 从 environment.yml 创建 conda 环境...${NC}"
 
-# 显示创建命令
-echo "执行: conda env create -f temp_base_env.yml"
-conda env create -f temp_base_env.yml
+ENV_FILE="$SCRIPT_DIR/environment.yml"
+if [ ! -f "$ENV_FILE" ]; then
+    echo -e "${RED}错误: 缺少 $ENV_FILE${NC}"
+    exit 1
+fi
+
+echo "执行: conda env create -f environment.yml"
+conda env create -f "$ENV_FILE"
 
 if [ $? -ne 0 ]; then
-    echo -e "${RED}错误: 创建基础环境失败${NC}"
-    rm -f temp_base_env.yml
+    echo -e "${RED}错误: 创建环境失败${NC}"
     exit 1
 fi
 

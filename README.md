@@ -15,8 +15,8 @@ name in the manuscript is **NA2smol**; the repository keeps its historical name 
 ## Quick start
 
 ```bash
-source setup_env.sh
-conda activate rna2smol
+bash setup_env.sh          # creates the `rna2smol` conda env from environment.yml
+conda activate rna2smol    # REQUIRED: the system Python lacks torch_scatter and openbabel
 
 # 1. check that the inputs this checkout needs are present
 python3 reproduction/scripts/validate_inputs.py

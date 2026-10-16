@@ -9,10 +9,29 @@ Everything below is repository-relative. Nothing depends on a machine-specific p
 
 ## 1. Environment
 
+**The conda environment is required, not optional.** The system Python cannot run this project:
+`model/bfn4edmol.py` imports `torch_scatter` and `torch_geometric`, and
+`util/mol_utils.py::reconstruct_from_generated` imports OpenBabel. Neither is available outside the
+environment, so the model and molecule reconstruction fail with `ModuleNotFoundError` there.
+
 ```bash
-source setup_env.sh          # creates/activates the `rna2smol` conda env and sets RBT_ROOT
+bash setup_env.sh            # creates the `rna2smol` env from the committed environment.yml
 conda activate rna2smol
+python -c "import torch, torch_scatter, torch_geometric, openbabel; print('ok')"
 ```
+
+`environment.yml` is committed and pins the full specification (exported with
+`conda env export --no-builds`), rather than being generated at setup time as in earlier versions.
+`setup_env.sh` reads it; set `RECREATE_ENV=y` to rebuild an existing environment non-interactively.
+
+If you are invoking scripts without activating the environment, use its interpreter directly:
+
+```bash
+/path/to/envs/rna2smol/bin/python analysis/fig2_cross_benchmark.py
+```
+
+Analyses that only need pandas/matplotlib/RDKit (`analysis/`, `audit/`) do run under a plain Python 3.9,
+which is why the missing `torch_scatter` is easy to overlook — anything touching the model does not.
 
 Verified versions at the time of writing:
 
