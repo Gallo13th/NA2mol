@@ -43,7 +43,8 @@ python training/ablation_pretrain_constrain.py \
     --rna_loss_weight 5.0 \
     --max_grad_norm 2.0 \
     --mixed_precision bf16 \
-    --ckpt_path ckpt/molcraft_edmol_onlyed_cst_best_val_loss_step_369999.pth
+    --ckpt_path ckpt/molcraft_edmol_onlyed_cst_best_val_loss_step_369999.pth \
+    --ckpt_path_teacher ckpt/molcraft_edmol_onlyed_cst_best_val_loss_step_369999.pth
 
 echo "===== Ablation 2 训练结束 ====="
 echo "时间: $(date)"

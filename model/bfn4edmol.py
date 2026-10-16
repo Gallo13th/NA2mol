@@ -1734,6 +1734,105 @@ class BFN4SBDDScoreModel(BFNBase):
             discretized_loss,   # [B] reserved
             contrastive_loss,   # scalar self-supervised contrastive loss
         )
+    def baseline_loss_one_step(
+        self,
+        t,  # [N_ligand, 1]
+        pocket_pos,
+        pocket_v,
+        batch_pocket,
+        ed_pos,
+        ed_v,
+        batch_ed,
+        ligand_pos,
+        ligand_v,
+        batch_ligand=None,
+    ):
+        """Primary Bayesian-flow losses only.
+
+        Used by the two configurations that apply no auxiliary objective: the
+        no-pretraining baseline and Pretrain Only. The two differ solely in their
+        starting checkpoint, so they share this function.
+
+        Returns (continuous, discrete, reserved, reserved), which is the 4-tuple
+        baseline_scratch.py unpacks.
+        """
+        K = self.num_classes
+        device = ligand_v.device
+
+        assert ligand_v.max().item() < K, f"Error: ligand_v.max().item() >= {K}"
+        ligand_v_onehot = F.one_hot(ligand_v, K).float()  # [N, K]
+
+        # --- Bayesian Flow: sample theta_t = (mu_pos_t, theta_h_t) ---
+        mu_coord, gamma_coord = self.continuous_var_bayesian_update(
+            t, sigma1=self.sigma1_coord, x=ligand_pos
+        )  # [N, 3], [N, 1]
+        theta = self.discrete_var_bayesian_update(
+            t, beta1=self.beta1, x=ligand_v_onehot, K=K
+        )  # [N, K]
+
+        # --- Forward pass ---
+        coord_pred, p0_h, _, _final_h, *_ = self.interdependency_modeling(
+            time=t,
+            pocket_pos=pocket_pos,
+            pocket_v=pocket_v,
+            batch_pocket=batch_pocket,
+            ed_pos=ed_pos,
+            ed_v=ed_v,
+            batch_ed=batch_ed,
+            theta_h_t=theta,
+            mu_pos_t=mu_coord,
+            batch_ligand=batch_ligand,
+            gamma_coord=gamma_coord,
+            return_logits=True
+        )
+
+        # --- Primary diffusion losses (continuous + discrete) ---
+        if not self.use_discrete_t:
+            closs = self.ctime4continuous_loss(
+                t=t,
+                sigma1=self.sigma1_coord,
+                x_pred=coord_pred,
+                x=ligand_pos,
+                segment_ids=batch_ligand,
+            )  # [B,]
+            dloss = self.ctime4discrete_loss(
+                t=t,
+                beta1=self.beta1,
+                one_hot_x=ligand_v_onehot,
+                p_0=p0_h,
+                K=K,
+                segment_ids=batch_ligand,
+            )  # [B,]
+        else:
+            i = (t * self.discrete_steps).int() + 1
+            closs = self.dtime4continuous_loss(
+                i=i,
+                N=self.discrete_steps,
+                sigma1=self.sigma1_coord,
+                x_pred=coord_pred,
+                x=ligand_pos,
+                segment_ids=batch_ligand,
+            )
+            dloss = self.dtime4discrete_loss_prob(
+                i=i,
+                N=self.discrete_steps,
+                beta1=self.beta1,
+                one_hot_x=ligand_v_onehot,
+                p_0=p0_h,
+                K=K,
+                segment_ids=batch_ligand,
+            )
+
+        eloss = torch.zeros_like(closs)
+        discretized_loss = torch.zeros_like(closs)
+
+        return (
+            closs,              # [B] continuous coordinate loss
+            dloss,              # [B] discrete type loss
+            eloss,              # [B] reserved
+            discretized_loss,   # [B] reserved
+        )
+
     def constrain_loss_one_step(
         self,
         rep_model,
