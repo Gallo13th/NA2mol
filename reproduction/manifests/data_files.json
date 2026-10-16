@@ -72,10 +72,12 @@
     },
     {
       "path": "data/pretrain/",
-      "present": false,
+      "present": true,
       "expected_bytes": null,
       "sha256": null,
-      "note": "extraction target for the archive above"
+      "note": "ligand-only pretraining corpus; read by training/pretrain_ed.py",
+      "bytes": 29508640768,
+      "kind": "LMDB (data.mdb + lock.mdb)"
     }
   ]
 }

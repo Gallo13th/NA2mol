@@ -21,7 +21,7 @@ from figure_style import setup_publication_style, save_all, INK, MUTED, GRID
 
 BASE = Path(__file__).resolve().parent
 DATA = BASE / "protocol_package_g4" / "denovo2"
-OUT = ROOT / "RNA2smol_paper" / "figures"
+OUT = ROOT / "reproduction" / "figures"
 TEAL = "#246B70"
 GREY = "#CDD3D9"
 

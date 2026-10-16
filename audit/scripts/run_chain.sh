@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
-cd /home/glt/github_official/DiffEDMol/audit
-source /home/glt/miniconda3/etc/profile.d/conda.sh
+cd "$(git rev-parse --show-toplevel)/audit/scripts"
+eval "$(conda shell.bash hook)"   # conda must be on PATH
 conda activate diffedmol
 python scripts/exp3_recovery_sensitivity.py > logs/exp3.log 2>&1
 python scripts/exp2a_generated_ft_overlap.py > logs/exp2a.log 2>&1

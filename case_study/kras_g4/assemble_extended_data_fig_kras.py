@@ -1,16 +1,16 @@
 """Compose the Extended Data figure holding the relaxed-product and
 ensemble-triage scatters moved out of Figure 4.
 
-Output: RNA2smol_paper/figures/ed_figure4.{pdf,png}
+Output: reproduction/figures/ed_figure4.{pdf,png}
 """
 from pathlib import Path
 
 import fitz
 import xml.etree.ElementTree as ET
 
-BASE = Path("/home/glt/github_official/DiffEDMol/case_study/kras_g4")
+BASE = Path(__file__).resolve().parent
 PANELS = BASE / "fig5_panels"
-OUT = Path("/home/glt/github_official/DiffEDMol/RNA2smol_paper/figures")
+OUT = Path(__file__).resolve().parents[2] / "reproduction" / "figures"
 
 PAGE_W_IN, PAGE_H_IN = 7.0, 3.6
 W, H = PAGE_W_IN * 72, PAGE_H_IN * 72

@@ -4,7 +4,7 @@
 纯 CPU 运行，不占用 GPU。
 
 用法：
-    source /home/bi_group7/zhouwenbiao/rna2smol_env/bin/activate
+    source setup_env.sh   # creates/activates the rna2smol conda env
     python prepare_crossdock_indices.py --nproc 64
 """
 

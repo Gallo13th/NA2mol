@@ -12,6 +12,7 @@
 """
 
 import os
+from pathlib import Path
 import sys
 import pickle
 import argparse
@@ -25,6 +26,7 @@ import lmdb
 # DUDE 解析
 from rdkit import Chem
 from Bio.PDB import PDBParser
+ROOT = Path(__file__).resolve().parents[1]  # repository root
 
 
 def parse_dude_ligand_center(sdf_path):
@@ -349,10 +351,10 @@ def _icp_worker_init(pair):
 def main():
     parser = argparse.ArgumentParser(description='Filter ExpDB by DUDE similarity')
     parser.add_argument('--dude_dir', type=str,
-                        default='/root/autodl-fs/DiffEDMol-unitrans/DUDE_complex',
+                        default=str(ROOT / 'data/DUDE_complex'),
                         help='DUDE complex directory')
     parser.add_argument('--expdb_lmdb', type=str,
-                        default='/root/autodl-tmp/lmdbcache_expdb',
+                        default=str(ROOT / 'data/expdb'),
                         help='ExpDB LMDB path')
     parser.add_argument('--output', type=str,
                         default='./clean_exped_dataset/expdb_dude_filtered_indices.pkl',

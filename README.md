@@ -60,7 +60,7 @@ See [REPRODUCIBILITY.md §2](REPRODUCIBILITY.md) for the annotated tree.
 ## Data
 
 Bulk inputs (benchmark result tables, training LMDBs, checkpoints) are **not** in git; see
-`reproduction/manifests/data_files.json`. The ligand-only pretraining archive (`data/pretrain.tar.gz`, 5.5 GB) is fetched from the authors' AutoDL storage and unpacked with `reproduction/scripts/finalize_pretrain.sh`.
+`reproduction/manifests/data_files.json`. The ligand-only pretraining archive (`data/pretrain.tar.gz`, 5.5 GB) is fetched from the authors' AutoDL storage and unpacked into `data/pretrain/merged/` with `reproduction/scripts/finalize_pretrain.sh`.
 
 The only experimental data versioned here are the ThT assay Origin projects in `data/tht/`; see
 `data/tht/README.md` for the export step the plotting code requires.

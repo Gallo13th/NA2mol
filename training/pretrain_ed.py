@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import sys
 
 from model.bfn4edmol import Config, BFN4SBDDScoreModel
@@ -359,12 +360,16 @@ if __name__ == '__main__':
     
     cfg = Config(**_args.__dict__)
     
-    raw_dataset = MolPocketPointCloud(lmdb_path="/root/autodl-tmp/merged/")
+    # Ligand-only pretraining corpus (LMDB). Unpacked from data/pretrain.tar.gz by
+    # reproduction/scripts/finalize_pretrain.sh into data/pretrain/merged/.
+    ROOT = Path(__file__).resolve().parents[1]
+    LMDB_PATH = str(ROOT / "data" / "pretrain" / "merged")
+    OUTPUT_DIR = str(ROOT / "data" / "pretrain" / "clean_edpretrained_dataset")
+
+    raw_dataset = MolPocketPointCloud(lmdb_path=LMDB_PATH)
     dataset = GeomMolPointCloudPretrain(raw_dataset)
 
-    LMDB_PATH = "/root/autodl-tmp/merged/"  # 修改为您的实际路径
-    OUTPUT_DIR = "./clean_edpretrained_dataset"  # 保存索引文件的目录
-    TARGET_TRAIN_SIZE = 2000000       # 您期望的训练集大小
+    TARGET_TRAIN_SIZE = 2000000       # size of the clean training split
 
     # 第一次运行：创建干净数据集并保存索引
     train_set, val_set = create_clean_dataset(

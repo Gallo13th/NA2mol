@@ -158,6 +158,7 @@ def load_compiled_model(model, state_dict):
     print(f"successed ratio: {load_ratio}")
     return new_state_dict
 from scipy.spatial import cKDTree
+ROOT = Path(__file__).resolve().parents[1]  # repository root
 def is_sample_valid(item):
     """
     判断一个数据样本是否有效。
@@ -371,7 +372,7 @@ if __name__ == '__main__':
     cfg = Config(**_args.__dict__)
     
 
-    LMDB_PATH = "/root/autodl-fs/exped_com"  # 数据集路径
+    LMDB_PATH = str(ROOT / "data/expdb")  # 数据集路径
     OUTPUT_DIR = "./clean_exped_dataset"  # 保存索引文件的目录
     TARGET_TRAIN_SIZE = 35000       # 训练集大小
 

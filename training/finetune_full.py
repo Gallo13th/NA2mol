@@ -23,6 +23,7 @@ from model.bfn4edmol import Config, BFN4SBDDScoreModel
 from dataloader.dataloader_pointcloud import MolPocketPointCloud
 from dataloader.featurizer import GeomMolOnlyPocket, ProteinLigandDataLoader
 from util.optims import SingleDeviceMuonWithAuxAdam, Muon
+ROOT = Path(__file__).resolve().parents[1]  # repository root
 
 # 抑制 RDKit 日志
 RDLogger.DisableLog('rdApp.*')
@@ -336,11 +337,11 @@ def main():
     logger.info(f"Starting experiment on rank {accelerator.process_index}, device: {device}")
 
     # 4. 数据路径配置
-    LMDB_PATH_CROSSDOCKED = "/root/autodl-fs/data/crossdocked_diffedmol_total"
+    LMDB_PATH_CROSSDOCKED = str(ROOT / "data/crossdock/crossdocked_diffedmol_total")
     INDICES_PATH_CROSSDOCKED = "./clean_dataset_onlycrossdock/Onlycrossdock.pkl"
-    LMDB_PATH_RNA = "/root/autodl-fs/DiffEDMol-unitrans/rnaligandwithedid"
+    LMDB_PATH_RNA = str(ROOT / "data/rnaligand")
     INDICES_PATH_RNA = "./clean_dataset_onlyrna/OnlyRNA.pkl"
-    LMDB_PATH_EXPDB = "/root/autodl-tmp/lmdbcache_expdb"
+    LMDB_PATH_EXPDB = str(ROOT / "data/expdb")
     INDICES_PATH_EXPDB = "./clean_exped_dataset"
 
     # 5. 加载数据集

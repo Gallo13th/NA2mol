@@ -49,7 +49,6 @@
 set -euo pipefail
 
 # 使用当前目录（无需 cd，应在项目根目录执行本脚本）
-# cd /root/autodl-fs/DiffEDMol-unitrans
 
 # 激活环境（使用本机实际环境路径）
 source "$PROJ_DIR/setup_env.sh" 2>/dev/null || eval "$(conda shell.bash hook)" && conda activate rna2smol

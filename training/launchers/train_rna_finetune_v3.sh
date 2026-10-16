@@ -49,7 +49,6 @@
 set -euo pipefail
 
 # 使用当前目录（无需 cd，应在项目根目录执行本脚本）
-# cd /root/autodl-fs/DiffEDMol-unitrans
 
 # 激活环境（使用本机实际环境路径）
 source "$PROJ_DIR/setup_env.sh" 2>/dev/null || eval "$(conda shell.bash hook)" && conda activate rna2smol
@@ -101,7 +100,7 @@ accelerate launch \
     --rna_loss_weight 5.0 \
     --max_grad_norm 2.0 \
     --mixed_precision bf16 \
-    --ckpt_path /home/bi_group7/zhouwenbiao/rna2smol/ckpt/molcraft_edmol_onlyed_cst_best_val_loss_step_369999.pth \
+    --ckpt_path "$PROJ_DIR/ckpt/molcraft_edmol_onlyed_cst_best_val_loss_step_369999.pth" \
     ${RESUME_ARG:-}
 
 echo "===== 训练结束 ====="
