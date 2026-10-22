@@ -297,6 +297,23 @@ def ed_to_tensor(ed, min_distance=None):
         'ed_pos': ed_pos
     }
 
+# Cold-start heavy-atom count range. Defaults to the benchmark setting (20, 28).
+# Override with NA2SMOL_ATOM_RANGE="26,29" for a tighter, series-matched distribution.
+def _atom_range_from_env(default=(20, 28)):
+    import os
+    raw = os.environ.get('NA2SMOL_ATOM_RANGE', '')
+    if not raw:
+        return default
+    try:
+        lo, hi = (int(x) for x in raw.split(','))
+    except Exception:
+        return default
+    return (lo, hi) if 0 < lo <= hi else default
+
+
+COLD_START_ATOM_RANGE = _atom_range_from_env()
+
+
 class PocketEDMol(Data):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -628,8 +645,11 @@ class GeomSeedMolOnlyPocket(Dataset):
         if self.remain_seed:
             total_n = max(origin_n + 6, sample_atom_num(self.pocket_size))
         else:
-            # SPEC06: limit cold-start atom count to known_mols heavy-atom range (22-27) + margin
-            total_n = random.randint(20, 28)
+            # SPEC06: limit cold-start atom count to known_mols heavy-atom range (22-27) + margin.
+            # The benchmark used (20, 28); set NA2SMOL_ATOM_RANGE="lo,hi" to narrow it, e.g.
+            # to match a series of known actives without editing this file.
+            lo, hi = COLD_START_ATOM_RANGE
+            total_n = random.randint(lo, hi)
         # Initialize full tensors
         pos = torch.zeros(total_n, 3)
         element = torch.zeros(total_n, dtype=torch.long)
