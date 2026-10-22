@@ -100,3 +100,36 @@ distribution for these two pockets. Reproducing it would need either far larger 
 regiochemistry difference (2,6 vs 2,4) is the most informative single discrepancy.
 
 Per-run tables: `reports/comparison_{clivia,squash}_run2k.csv`.
+
+### Correction to the scaffold count
+
+The first count reported **0 / 4,049** molecules with the 2,4-diaryl-quinoline scaffold. That
+was an artefact of the SMARTS used (`c1ccc2nc(-c3ccccc3)cc(-c3ccccc3)c2c1`), which requires a
+plain phenyl at both positions and so also fails to match **mol4** (its C2 aryl is pyridine).
+
+Re-counted with a generic definition — match the quinoline core, then ask whether the atoms at
+C2 and C4 each bear an aromatic ring — every target mol1–mol4 is detected correctly, and:
+
+| Run | C2-aryl | C4-aryl | **2,4-diaryl** |
+|---|---|---|---|
+| Clivia (2042) | 118 (5.8%) | 7 (0.3%) | **1 (0.05%)** |
+| Squash (2007) | 90 (4.5%) | 49 (2.4%) | **18 (0.90%)** |
+
+So **19 molecules do carry the scaffold**, at 0.5–0.9% — rare but reachable, not absent.
+
+### What actually differs
+
+The 19 scaffold hits all carry **carboxylic acid / amide** substituents, peaking at ECFP4 0.37.
+The molecules with the **right** substituent chemistry (methoxy + hydroxyl) instead place the
+second ring at **C6**, or use a **quinazoline** core, peaking at 0.49. No single molecule
+combines the right scaffold *and* the right substituents:
+
+| | scaffold | substituents | best ECFP4 |
+|---|---|---|---|
+| mol1–mol4 | 2,4-diaryl quinoline | 2xOMe + OH/NH2/NMe2/pyridyl | — |
+| scaffold hits | **correct** | COOH / amide | 0.37 |
+| best overall | 2,6-diaryl, or quinazoline | **correct** (OMe, OH) | **0.49** |
+
+Figures: `figures/targets_vs_hits.png` (targets vs the five closest hits from each pocket),
+`figures/scaffold_vs_substituents.png` (right scaffold / wrong substituents vs right
+substituents / wrong scaffold).

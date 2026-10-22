@@ -1,1 +1,38 @@
 watching for output/squash_run2k ...
+[16:18:16] SDF stable at 5036969 bytes; analysing
+=== squash_run2k: 2007 generated molecules vs mol1-mol5 ===
+ECFP4 to the closest target compound:
+  >= 0.90:      0  ( 0.00%)
+  >= 0.80:      0  ( 0.00%)
+  >= 0.70:      0  ( 0.00%)
+  >= 0.60:      0  ( 0.00%)
+  >= 0.50:      0  ( 0.00%)
+  >= 0.40:     11  ( 0.55%)
+  >= 0.30:     71  ( 3.54%)
+
+quinoline core present     :    168 (8.37%)
+2,4-diaryl quinoline       :      0 (0.00%)
+
+closest target distribution:
+best_target
+mol1    947
+mol5    920
+mol3     98
+mol2     39
+mol4      3
+
+top 10 by ECFP4:
+                                                  smiles  heavy     mw best_target  best_ecfp4
+           COc1ccc(-c2cc3cc(C)cc-3c3ccc(C(=O)O)cc3n2)cc1     26 343.38        mol1      0.4906
+       COc1ccc2c(-c3ccc(O)cc3)nc(-c3ccc(C(=O)O)cc3)nc2c1     28 372.38        mol1      0.4528
+           COc1ccc2nc(-c3ccc(C(=O)O)cc3)cc(OCCCNC=O)c2c1     28 380.40        mol1      0.4333
+    COc1ccc(-c2cc3c4c(c(O)ccc4n2)[N+](C)=C3OCCC(=O)O)cc1     28 379.39        mol1      0.4333
+           COc1ccc(-c2nc3nc(C(=O)O)cc-3c3cc(C)ccc3n2)cc1     26 345.36        mol1      0.4259
+              COc1ccc(-c2ccc3c(OCCO)cc(OC(C)=O)cc3n2)cc1     26 353.37        mol1      0.4211
+         COC1=CCc2c(Nc3ccc(N(C)C)cc3)nc3ccc(OC)cc3c2C=C1     29 387.48        mol3      0.4194
+COc1ccc(-c2cc3c4c(c(O)c(C(=O)O)cc4n2)C(=O)C(C)=[O+]3)cc1     27 364.33        mol1      0.4167
+           COc1ccc(-c2cc(OCC(=O)O)c3ccc(C(N)=O)cc3n2)cc1     26 352.35        mol1      0.4138
+        COc1ccc(-c2nc(N3CCO[C@H](O)C3)c3cc(OC)ccc3n2)cc1     27 367.41        mol1      0.4068
+
+wrote case_study/clivia_squash/reports/comparison_squash_run2k.csv
+[16:18:17] DONE
