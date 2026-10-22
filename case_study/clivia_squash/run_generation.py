@@ -34,6 +34,7 @@ TARGETS = {
     'clivia': {'pdb': '8HZE', 'pocket': 'clivia_8HZE_pocket.pdb', 'dummy': 'clivia_8HZE_dummy.sdf'},
     'squash': {'pdb': '7KVU', 'pocket': 'squash_7KVU_pocket.pdb', 'dummy': 'squash_7KVU_dummy.sdf'},
 }
+SEED = "case_study/clivia_squash/seed_2_4_diaryl_quinoline.sdf"
 CKPT = "ckpt/onlypkt_ftwithrna_oncrossdocked_onlygeneralfeat_train_best_val_loss_step_111429.pth"
 
 
@@ -46,6 +47,8 @@ def main():
                     help="Target number of good-affinity molecules; monkey-patched "
                          "into genbypkt.generate at runtime.")
     ap.add_argument('--gpu', type=int, default=None)
+    ap.add_argument('--seed_scaffold', action='store_true',
+                    help='constrain generation to the shared 2,4-diaryl-quinoline core')
     ap.add_argument('--compile', action='store_true',
                     help='torch.compile the model. Off by default: it costs many '
                          'minutes on the shared filesystem and only buys per-step speed.')
@@ -115,9 +118,12 @@ def main():
 
     print('[4/4] generating', flush=True)
     t0 = time.time()
-    genbypkt.generate((dummy_sdf, pocket_pdb),
+    task_ligand = os.path.join(SCRIPT_DIR, f"seed_{args.target}_2_4_diaryl.sdf") if args.seed_scaffold else dummy_sdf
+    if args.seed_scaffold:
+        print(f'[seed] constrained to {task_ligand}', flush=True)
+    genbypkt.generate((task_ligand, pocket_pdb),
                       output_prefix=args.output_prefix,
-                      seed_used=False,
+                      seed_used=args.seed_scaffold,
                       total_target=args.total_target)
     print(f'\n[DONE] {args.target} in {time.time()-t0:.1f}s -> output/{args.output_prefix}/')
 

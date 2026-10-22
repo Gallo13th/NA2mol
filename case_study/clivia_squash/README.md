@@ -133,3 +133,38 @@ combines the right scaffold *and* the right substituents:
 Figures: `figures/targets_vs_hits.png` (targets vs the five closest hits from each pocket),
 `figures/scaffold_vs_substituents.png` (right scaffold / wrong substituents vs right
 substituents / wrong scaffold).
+
+## Scaffold-constrained attempt: the seed mechanism does not hold the core
+
+Seeded with the bare **2,4-diphenylquinoline** core (22 heavy atoms, translated onto each
+pocket's fluorophore centre so the 14 Å re-extraction succeeds), `seed_used=True`,
+`total_target=1000`.
+
+**The core did not survive.** Scaffold retention in the seeded runs is no better than in the
+unconstrained ones, and for Squash it is worse:
+
+| Run | quinoline | 2,4-diaryl | max ECFP4 |
+|---|---|---|---|
+| Clivia unconstrained (2042) | 5.8% C2-aryl | 0.05% | 0.42 |
+| Squash unconstrained (2007) | 4.5% C2-aryl | 0.90% | **0.49** |
+| **Clivia seeded (1021)** | 9.5% | **0.20%** | 0.44 |
+| **Squash seeded (1014)** | 7.3% | **0.49%** | 0.44 |
+
+The closest seeded hit is not even a quinoline: `CCCCNc1ccc(-c2cc(O)cc(-c3ccc(OC)cc3)n2)cc1`
+is a **pyridine**, ECFP4 0.44 to mol1.
+
+**Why.** `genbypkt`'s seed path sets `remain_seed=True` only for the initial batch; after a
+molecule passes the affinity screen it is split into fragments by `prepare_seed_fragments`
+and subsequent iterations elaborate from *those* fragments. The seeded core therefore
+constrains the first iteration and is then progressively replaced. This is a
+fragment-elaboration bootstrap, not a substructure constraint.
+
+**Consequence.** True scaffold-constrained sampling is not reachable through this entry point.
+It would need the core atoms pinned via `fixed_atom_mask` in the featurizer for *every*
+iteration, i.e. a modification to `genbypkt.generate` rather than a new seed file. That has
+not been done here, and the negative result above should not be read as evidence that the
+model cannot decorate the correct core — only that this pipeline cannot hold it fixed.
+
+Nothing in this section changes the main finding: free generation produces the right
+substituent chemistry and the right scaffold separately, never together, and tops out at
+ECFP4 0.49.
