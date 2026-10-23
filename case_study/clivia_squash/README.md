@@ -391,3 +391,55 @@ COc1ccc2c(-c3ccc(NC(C)=O)cc3)nc3c(C)c(O)cc(O)c3c2c1    ECFP4 0.333
 
 Files: `overwrite_core_mol.py`, `known_core_mol.py`, `_test_builders.py`,
 `output_traj/h3/molecules.sdf`.
+
+### Corrected construction and 2,175-molecule run
+
+`overwrite_core_mol.py` now derives bond orders with RDKit's `rdDetermineBonds` instead of
+OpenBabel's `PerceiveBondOrders`. Three details mattered:
+
+* the total charge is unknown, so a charge ladder (0, -1, +1, -2, +2) is tried and the first
+  consistent assignment wins;
+* `rdDetermineBonds` sets `NoImplicit` on every atom (it works with explicit H), which left
+  radical-laden SMILES such as `[C][c]`; clearing the flag lets valence fill in hydrogens;
+* routes are tried in order - DetermineBonds, then connectivity only, then OpenBabel with the
+  core overwritten - so a failure degrades instead of dropping the molecule.
+
+Four harvested cores (hits 0, 3, 5, 6) were resampled in parallel across four GPUs, 70
+batches each:
+
+| metric | value |
+|---|---|
+| molecules written | **2,175** |
+| chemically valid (RDKit sanitisable) | 1,474 = **67.8%** (was 51%) |
+| core (2,4-diaryl quinoline) retained | 1,355/1,474 = **91.9%** |
+| unique core-retaining molecules | **1,101** |
+| best ECFP4 to mol1-mol5 | **0.532** (free generation: 0.535) |
+| >= 0.50 / 0.45 / 0.40 / 0.35 | 18 / 73 / 148 / 350 |
+| with >= 2 methoxy | 130 |
+
+**The substantive change is the substituent distribution.** Constraining the core to a real
+trajectory rebalances it strongly toward the target chemistry:
+
+| substituent | free generation (20k) | core-fixed (1,474) | targets |
+|---|---|---|---|
+| methoxy | 25.6% | **55.5%** | 100% |
+| hydroxyl | 75.6% | 86.4% | 60% |
+| carboxyl | 48.9% | **0.6%** | 0% |
+| amide | 30.0% | **0.4%** | 0% |
+| NMe2 | 12.2% | 12.8% | 20% |
+| amino | 22.2% | 8.8% | 20% |
+
+Methoxy roughly doubled and the spurious carboxyl/amide production collapsed by ~50x. Best
+hits now carry methoxy plus hydroxyl on the correct core:
+
+```
+COc1cc2c3c(cc(-c4ccc(O)cc4)nc3c1)-c1ccc(O)cc1-2   ECFP4 0.532  MW 341
+COc1ccc(-c2nc3ccc(OC)cc3c3c(O)cc(O)cc23)cc1        ECFP4 0.521  MW 347
+```
+
+**What still differs.** In the best hits the C4 aryl closes back onto the quinoline benzo ring,
+giving a fused cyclopentaquinoline (four rings) instead of the targets' three connected ring
+systems. The fixed core - quinoline plus both aryl attachments - is intact; the free atoms
+close an extra ring. That is why similarity plateaus at 0.53 rather than approaching 1.
+
+Figures: `figures/core_fixed_best.png`. Outputs: `output_traj/h{0,3,5,6}/molecules.sdf`.
