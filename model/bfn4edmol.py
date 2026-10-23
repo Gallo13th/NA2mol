@@ -2370,8 +2370,12 @@ class BFN4SBDDScoreModel(BFNBase):
     
         theta_h_t = torch.ones(N_ligand_total, K, device=device) / K  # uniform prior
     
-        # Overwrite initial belief for fixed atoms with pseudo at t=0
-    
+        # Overwrite initial belief for fixed atoms with the trajectory state at t=0, so the
+        # sampler genuinely starts from that probability rather than from zeros/uniform.
+        if fixed_atom_mask.any():
+            mu_pos_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_mu_pos[0], mu_pos_t)
+            theta_h_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_theta_h[0], theta_h_t)
+
         ro_coord = 1.0  # scalar precision accumulator
         sample_traj = []
         theta_traj = []
@@ -2466,6 +2470,13 @@ class BFN4SBDDScoreModel(BFNBase):
     
                 ro_coord = ro_coord + alpha_coord  # scalar update
     
+                # Fixed atoms' belief follows the supplied path exactly; only the free
+                # atoms carry the model's own posterior.
+                if fixed_atom_mask.any():
+                    j = min(i, pseudo_mu_pos.shape[0] - 1)
+                    mu_pos_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_mu_pos[j], mu_pos_t)
+                    theta_h_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_theta_h[j], theta_h_t)
+
                 sample_traj.append((coord_pred, sample_onehot, k_hat))
     
             elif "end_back" in self.sampling_strategy:
@@ -2512,6 +2523,13 @@ class BFN4SBDDScoreModel(BFNBase):
                     theta_h_t = theta_h_t_new
                     mu_pos_t = mu_pos_t_new
     
+                # Fixed atoms' belief follows the supplied path exactly; only the free
+                # atoms carry the model's own posterior.
+                if fixed_atom_mask.any():
+                    j = min(i, pseudo_mu_pos.shape[0] - 1)
+                    mu_pos_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_mu_pos[j], mu_pos_t)
+                    theta_h_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_theta_h[j], theta_h_t)
+
                 sample_traj.append((coord_pred, sample_onehot, k_hat))
     
             else:

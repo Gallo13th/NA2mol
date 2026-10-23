@@ -341,3 +341,53 @@ and none retained the full three-ring system. That is a coordinate-to-graph fide
 not a sampling one, and is the next thing to fix.
 
 Files: `harvest_trajectory.py`, `resample_with_traj.py`, `_diag_core.py`, `traj_squash.pt`.
+
+### Fixed core, real trajectory: 93% core retention
+
+Three changes, in the order the problem required:
+
+1. **Start from the real probability.** `sample_by_seed` had a comment
+   `# Overwrite initial belief for fixed atoms with pseudo at t=0` with **no code under it** -
+   the fixed atoms' belief stayed at zero/uniform for the whole run and only the *network
+   input* carried the trajectory. Now the belief itself is initialised from the path at t=0
+   and re-imposed after every update, so the sampler genuinely travels along it.
+2. **Real path, not pseudo path** (`given_traj`, commit ee7b177).
+3. **Do not let OpenBabel rebuild the core.** `overwrite_core_mol.py` lets OpenBabel perceive
+   the whole graph, then deletes every core-core bond and re-adds the reference bonds. Only
+   the substituents are perceived from geometry.
+
+Validated on the eight harvested trajectories: the core is reproduced **exactly** in 7/8 and
+the result is a single connected molecule in 8/8 (`_test_builders.py`).
+
+Resampling the 20-atom three-ring core of hit 3 (29 atoms, 9 free), 20 batches:
+
+| metric | value |
+|---|---|
+| molecules written | 146 |
+| core (2,4-diaryl-quinoline) retained | **70 / 75 of the sanitizable = 93%** |
+| chemically valid (sanitizable) | 75 / 146 = 51% |
+| unique | 146 / 146 |
+| substituents seen | methoxy 41%, hydroxyl 88%, NMe2 51%, amide 34% |
+| best ECFP4 to mol1-mol5 | 0.382 |
+
+Compare with the analytic pseudo path, which retained the core in 0.2% of molecules. Fixing
+the core is now solved.
+
+Two quality problems remain, both about the substituents rather than the core:
+
+* **Half the molecules do not sanitize.** The free atoms' bonds are perceived from geometry
+  and often cannot form a valid valence, so 71/146 are rejected on read.
+* **Best similarity fell** from 0.535 (free generation, best over 20k) to 0.382, because the
+  run is pinned to a single core instance. More seeds and more batches should recover the
+  spread; the mechanism is what needed proving first.
+
+Example outputs (core retained, substituents varied):
+
+```
+COc1ccc2c(c1)nc(-c1ccc(OCC(=O)O)cc1)c1ccc(OC)cc12     ECFP4 0.382
+CC[C@@H](O)Cc1ccc(-c2nc3cc(OC)ccc3c3cc(OC)ccc23)cc1    ECFP4 0.345
+COc1ccc2c(-c3ccc(NC(C)=O)cc3)nc3c(C)c(O)cc(O)c3c2c1    ECFP4 0.333
+```
+
+Files: `overwrite_core_mol.py`, `known_core_mol.py`, `_test_builders.py`,
+`output_traj/h3/molecules.sdf`.

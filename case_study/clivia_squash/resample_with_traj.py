@@ -37,7 +37,6 @@ from dataloader.featurizer import ProteinLigandDataLoader, GeomSeedMolOnlyPocket
 from model.bfn4edmol import Config, BFN4SBDDScoreModel                            # noqa: E402
 from genbypkt import load_compiled_model                                          # noqa: E402
 from util.mol_utils import (reconstruct_from_generated,                            # noqa: E402
-                            sampletraj_to_sdf,
                             MAP_INDEX_TO_ATOM_TYPE_AROMATIC_PDB)
 
 CKPT = "ckpt/onlypkt_ftwithrna_oncrossdocked_onlygeneralfeat_train_best_val_loss_step_111429.pth"
@@ -78,6 +77,16 @@ def full_ring_system_core(h, n_atoms):
                         if nb.GetIdx() in ring:
                             atoms.update(ring)
     return sorted(atoms)
+
+
+def _load_overwrite_builder():
+    import importlib.util
+    path = SCRIPT_DIR / 'overwrite_core_mol.py'
+    spec = importlib.util.spec_from_file_location('ocm', path)
+    m = importlib.util.module_from_spec(spec)
+    sys.modules['ocm'] = m
+    spec.loader.exec_module(m)
+    return m
 
 
 def build_model():
@@ -136,6 +145,15 @@ def main() -> int:
     core_rel = full_ring_system_core(h, n_atoms)
     print(f'  core at relative indices {core_rel}')
 
+    # reference molecule: the harvested core with its true connectivity, same atom order
+    ref_pos = mu_mol[-1].numpy() * 2.0
+    zs = [MAP_INDEX_TO_ATOM_TYPE_AROMATIC_PDB.get(int(th_mol[-1, k].argmax()), (6, False))[0]
+          for k in range(n_atoms)]
+    ref_mol = reconstruct_from_generated(ref_pos.tolist(), zs)
+    if ref_mol is None:
+        print('reference reconstruction failed'); return 1
+    OCM = _load_overwrite_builder()
+
     bs = 8
     pocket = str(SCRIPT_DIR / TARGETS[a.target][0])
     dummy = str(SCRIPT_DIR / TARGETS[a.target][1])
@@ -153,6 +171,12 @@ def main() -> int:
     outdir = SCRIPT_DIR / f'output_traj/{a.out_prefix}'
     outdir.mkdir(parents=True, exist_ok=True)
     written = 0
+    failed = 0
+    # one writer for the whole run (re-opening truncates the file), and no kekulisation:
+    # molecules whose core could not be kekulised would otherwise raise on write
+    sdf_path = outdir / 'molecules.sdf'
+    writer = Chem.SDWriter(str(sdf_path))
+    writer.SetKekulize(False)
     for nb in range(a.n_batch):
         dl = ProteinLigandDataLoader(batch_dataset, batch_size=bs, shuffle=False)
         batch = next(iter(dl)).to(device)
@@ -188,15 +212,30 @@ def main() -> int:
                 fix_atom_types=True,
                 given_traj=(given_mu, given_th),
             )
-        new_traj = (sample_traj[-1][0] * 2 + batch.mol_geom_center[:3],
-                    sample_traj[-1][1])
-        sampletraj_to_sdf({'trajs': new_traj, 'batch_idx': batch.mol_element_batch.cpu()},
-                          str(outdir))
-        written += bs
+        # write with the known core overwritten, not re-perceived by OpenBabel
+        P = (sample_traj[-1][0].detach().cpu().numpy() * 2.0
+             + batch.mol_geom_center[:3].detach().cpu().numpy())
+        T = sample_traj[-1][1].detach().cpu().numpy()
+        for b in range(bs):
+            lo, hi = b * n_atoms, (b + 1) * n_atoms
+            zzb = [MAP_INDEX_TO_ATOM_TYPE_AROMATIC_PDB.get(int(np.argmax(T[k])), (6, False))[0]
+                   for k in range(lo, hi)]
+            mol = OCM.build_with_overwritten_core(P[lo:hi], zzb, core_rel, ref_mol)
+            if mol is None:
+                continue
+            mol.SetProp('_Name', f'{a.out_prefix}_{written}')
+            try:
+                writer.write(mol)
+                written += 1
+            except Exception as e:
+                if failed < 5:
+                    print(f'  write failed ({type(e).__name__}): skipped')
+                failed += 1
         if nb % 10 == 0:
             print(f'  batch {nb}/{a.n_batch} ({written} molecules)', flush=True)
 
-    print(f'\nwrote {written} molecules to {outdir}')
+    writer.close()
+    print(f'\nwrote {written} molecules to {sdf_path}  ({failed} failed)')
     return 0
 
 
