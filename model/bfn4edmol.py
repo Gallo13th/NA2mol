@@ -2269,6 +2269,7 @@ class BFN4SBDDScoreModel(BFNBase):
         pocket_ele=None,
         fix_atom_types=True,
         return_traj=False,    # reserved: full trajectory dumps are not implemented
+        given_traj=None,      # (mu_pos [T+1, N, 3], theta_h [T+1, N, K]) from a real run
     ):
         """
         Conditional sampling with fixed (seeded) atoms by constructing pseudo forward trajectories
@@ -2276,6 +2277,12 @@ class BFN4SBDDScoreModel(BFNBase):
         
         When fix_atom_types=False, only coordinates are fixed; atom types of seeded atoms
         are generated freely by the model.
+
+        given_traj supplies the intermediate states of the fixed atoms from an actual free
+        generation run (the trajectory `sample` already accumulates). The default
+        constructs them analytically from the final answer, mu(t) = gamma(t) * x_true,
+        which is a state the network never visits and which pulls the trajectory out of
+        distribution. Passing the real path keeps the conditioning in distribution.
         """
         if return_traj:
             raise NotImplementedError('return_traj=True is not implemented')
@@ -2312,10 +2319,25 @@ class BFN4SBDDScoreModel(BFNBase):
         fixed_atom_indices_full = torch.full((N_ligand_total,), -1, dtype=torch.long, device=device)
         fixed_atom_indices_full[fixed_atom_mask] = fixed_atom_types_indices
     
-        # --- Precompute pseudo trajectories for fixed atoms ---
-        # Shape: [sample_steps + 1, N_ligand_total, ...]
-        pseudo_mu_pos = torch.zeros(sample_steps + 1, N_ligand_total, 3, device=device)
-        pseudo_theta_h = torch.ones(sample_steps + 1, N_ligand_total, K, device=device) / K
+        # --- Fixed-atom states over time ---
+        # Either the caller's real trajectory, or an analytic pseudo path from the final
+        # answer. Shape: [sample_steps + 1, N_ligand_total, ...]
+        use_real = given_traj is not None
+        if use_real:
+            gm, gt = given_traj
+            pseudo_mu_pos = gm.to(device).float()
+            pseudo_theta_h = gt.to(device).float()
+            if pseudo_mu_pos.shape[0] != sample_steps + 1:
+                raise ValueError(f'given_traj has {pseudo_mu_pos.shape[0]} frames, '
+                                 f'need {sample_steps + 1}')
+            if pseudo_mu_pos.shape[1] != N_ligand_total:
+                raise ValueError('given_traj atom count does not match the batch')
+            print(f'[sample_by_seed] REAL trajectory for {int(n_fixed)} fixed atoms '
+                  f'({pseudo_mu_pos.shape[0]} frames)', flush=True)
+        else:
+            pseudo_mu_pos = torch.zeros(sample_steps + 1, N_ligand_total, 3, device=device)
+            pseudo_theta_h = torch.ones(sample_steps + 1, N_ligand_total, K,
+                                        device=device) / K
     
         # Time points: t_i = i / sample_steps for i in 0..sample_steps
         t_all = torch.linspace(0, 1, steps=sample_steps + 1, device=device)  # [T+1]
@@ -2326,6 +2348,8 @@ class BFN4SBDDScoreModel(BFNBase):
             t = t_val.repeat(N_ligand_total, 1)  # [N_ligand, 1]
     
             # Continuous: mu(t) = gamma(t) * x_true, gamma(t) = 1 - sigma1^(2t)
+            if use_real:
+                continue          # keep the harvested trajectory verbatim
             gamma_coord = 1 - torch.pow(self.sigma1_coord, 2 * t)  # [N, 1]
             pseudo_mu_pos[i] = gamma_coord * fixed_atom_pos_full  # [N, 3]
     

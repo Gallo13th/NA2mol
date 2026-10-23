@@ -304,3 +304,40 @@ The best core hit (ECFP4 0.482) already illustrates this:
 hydroxyl and carboxyl; only the carboxyl-bearing aryl is wrong.
 
 Files: `pocket_properties.py`, `pocket_properties.json`.
+
+## Fixed core via a real trajectory (in progress)
+
+The earlier seeded runs failed because `sample_by_seed` fabricates the fixed atoms' history
+analytically: `mu(t) = gamma(t) * x_true`, `p(k|t) ∝ exp(beta(t) * 1_{k=k_true})`. That path
+is derived from the answer and is a state the network never visits, so conditioning on it
+pushes the whole trajectory out of distribution.
+
+`sample()` already accumulates the real per-step belief (`theta_traj`); genbypkt throws all
+but the last frame away. The implemented route therefore:
+
+1. `harvest_trajectory.py` - runs `sample()` directly, keeps `theta_traj`, screens the
+   finished molecules for the 2,4-diaryl-quinoline core, and stores the real per-step
+   `mu_pos`/`theta_h` for each hit (8 harvested from 150 batches on Squash, all 12-atom
+   quinoline cores; expanded to the full 20-22-atom three-ring system for resampling).
+2. `model/bfn4edmol.py::sample_by_seed` gains `given_traj=(mu_pos, theta_h)`; when supplied
+   the analytic construction is skipped and the harvested states are used verbatim.
+3. `resample_with_traj.py` pins the ring-system atoms, tiles one hit across the batch, and
+   samples the substituents.
+
+**Verified result: the sampler preserves the pinned core exactly.**
+
+```
+[sample_by_seed] REAL trajectory for 160 fixed atoms (101 frames)
+--- core fidelity in the RAW sample output ---
+  pos RMSD vs harvested : 0.0
+  type agreement        : 20 / 20
+```
+
+So the fixed-core problem is solved at the generation level. The remaining failure is
+downstream: `reconstruct_from_generated` (OpenBabel bond perception + `postprocess_rd_mol_*`
++ `_neutralize_or_reject`) does not return a graph containing the core that was fed in -
+earlier resampling wrote 96 molecules of which many were rejected as "Disconnected molecule"
+and none retained the full three-ring system. That is a coordinate-to-graph fidelity issue,
+not a sampling one, and is the next thing to fix.
+
+Files: `harvest_trajectory.py`, `resample_with_traj.py`, `_diag_core.py`, `traj_squash.pt`.
