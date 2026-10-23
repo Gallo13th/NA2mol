@@ -207,3 +207,43 @@ likely the product of a guided or scaffold-constrained run, not free generation.
 
 Figures: `figures/ten_k_best.png`. Per-molecule tables (ECFP4 >= 0.40):
 `reports/ten_k_clivia.csv`, `reports/ten_k_squash.csv`.
+
+## Complete pocket inventory
+
+All known structures were retrieved from the RCSB full-text search: **Clivia 7 entries**
+(8HZD, 8HZE, 8HZF, 8HZJ, 8HZK, 8HZL, 8HZM) and **Squash 3 entries** (7KVT, 7KVV, 7KVU).
+Every non-solvent, non-ion hetero group was treated as a ligand instance, giving **21
+candidate pockets**, then clustered by superposition (RMSD <= 2 Å on shared nucleotide
+backbone atoms).
+
+**Four distinct sites:**
+
+| Cluster | Pockets | Composition | Size |
+|---|---|---|---|
+| **Clivia site 1** (functional) | **14** — every Clivia entry, both chains | A-rich: {A:6, C:3-4, G:2-4, U:2} + 1-3 Mg | 14-19 res |
+| Clivia site 2 (8HZL only) | 2 | {A:5, C:5, G:5} + 3 Mg | 19 res |
+| Clivia site 3 (8HZL only) | 2 | {A:6, C:3, G:2} + 2 Mg | 15 res |
+| **Squash** | **3** — every Squash entry | **G-rich**: {A:7, C:1, G:8-9, U:3} + 2-3 Mg | 21-22 res |
+
+Key points:
+
+* **Clivia and Squash are unrelated pockets.** Their representative sites share **zero**
+  nucleotide residues, so no superposition is even definable; composition is also opposite
+  (Clivia A/C-rich, Squash G-rich) and Squash is ~50% larger.
+* **Within Clivia, site 1 is the functional fluorophore site** and is present in all seven
+  entries as one copy per RNA chain — the crystallised ligand differs (O2I, NI4, NJL, O00)
+  but the site is the same.
+* **8HZL is a different construct** (84-mer aptamer_III) and contains **three** NI4 sites
+  per RNA copy. Those two extra sites appear nowhere else.
+* Ligand choices per entry: 8HZD O2I; 8HZE/8HZK/8HZL/8HZM NI4; 8HZF NJL; 8HZJ O00;
+  7KVT/7KVU 2ZY; 7KVV 747. Iodides (IRI) in 7KVT/8HZK and GTP/GDP/PEG were excluded as
+  ions/additives.
+
+**Consequence for the runs already done.** The generation used 8HZE NI4 chain A
+(= Clivia site 1) and 7KVU 2ZY chain G (= Squash). Those are the correct functional sites,
+so the negative reproduction result stands on the right pockets — it was not a
+wrong-pocket artefact. What remains untested is Clivia sites 2 and 3, and whether the
+series might bind a site other than the crystallised one.
+
+Files: `pockets/` (all 21), `pockets_summary.json`, `pocket_rmsd.npy`,
+`pocket_clusters.json`.

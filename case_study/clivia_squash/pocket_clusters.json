@@ -1,0 +1,57 @@
+{
+  "cutoff": 2.0,
+  "clusters": {
+    "cluster_1": [
+      "8HZD_O2I104_A",
+      "8HZD_O2I105_B",
+      "8HZE_NI4109_A",
+      "8HZE_NI4109_B",
+      "8HZF_NJL105_A",
+      "8HZF_NJL105_B",
+      "8HZJ_O00107_A",
+      "8HZJ_O00105_B",
+      "8HZK_NI4116_A",
+      "8HZK_NI4110_B",
+      "8HZL_NI4111_A",
+      "8HZL_NI4114_B",
+      "8HZM_NI4112_A",
+      "8HZM_NI4110_B"
+    ],
+    "cluster_2": [
+      "8HZL_NI4112_A",
+      "8HZL_NI4115_B"
+    ],
+    "cluster_3": [
+      "8HZL_NI4113_A",
+      "8HZL_NI4116_B"
+    ],
+    "cluster_4": [
+      "7KVT_2ZY101_B",
+      "7KVV_747302_D",
+      "7KVU_2ZY106_G"
+    ]
+  },
+  "names": [
+    "8HZD_O2I104_A",
+    "8HZD_O2I105_B",
+    "8HZE_NI4109_A",
+    "8HZE_NI4109_B",
+    "8HZF_NJL105_A",
+    "8HZF_NJL105_B",
+    "8HZJ_O00107_A",
+    "8HZJ_O00105_B",
+    "8HZK_NI4116_A",
+    "8HZK_NI4110_B",
+    "8HZL_NI4111_A",
+    "8HZL_NI4112_A",
+    "8HZL_NI4113_A",
+    "8HZL_NI4114_B",
+    "8HZL_NI4115_B",
+    "8HZL_NI4116_B",
+    "8HZM_NI4112_A",
+    "8HZM_NI4110_B",
+    "7KVT_2ZY101_B",
+    "7KVV_747302_D",
+    "7KVU_2ZY106_G"
+  ]
+}
