@@ -13,6 +13,8 @@ Order of work, per the requirement "do not let OpenBabel rebuild the core, overw
   4. sanitise; if that fails, fall back to OpenBabel perception for the whole graph and
      overwrite the core the same way
 """
+import sys
+from pathlib import Path
 from typing import Iterable, Optional
 
 import numpy as np
@@ -72,8 +74,26 @@ def _sanitise(mol):
     return None
 
 
+def _repair(mol):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        'rb', str(Path(__file__).resolve().parent / 'repair_bond_orders.py'))
+    m = importlib.util.module_from_spec(spec); sys.modules['rb'] = m
+    spec.loader.exec_module(m)
+    out, _ = m.repair_bond_orders(mol)
+    return out
+
+
 def build_with_overwritten_core(pos, zs, core_idx: Iterable[int],
                                 ref_mol: Chem.Mol) -> Optional[Chem.Mol]:
+    mol = _build_raw(pos, zs, core_idx, ref_mol)
+    if mol is None:
+        return None
+    return _repair(mol)
+
+
+def _build_raw(pos, zs, core_idx: Iterable[int],
+               ref_mol: Chem.Mol) -> Optional[Chem.Mol]:
     from rdkit.Chem import rdDetermineBonds
 
     pos = np.asarray(pos, dtype=float)

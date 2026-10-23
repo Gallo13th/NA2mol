@@ -502,3 +502,69 @@ generated molecules. Bond-order repair for such centres is the next refinement.
 Files: `ring_system_check.py`, `harvest_trajectory.py` (strict screen),
 `traj_strict_{0,1,2}.pt`, `output_traj/st*/molecules.sdf`,
 `figures/strict_core_best.png`, `draw_strict_results.py`.
+
+## Carboxylic-acid repair, and scoring on the RNA2smol stack
+
+### Bond-order repair
+
+`repair_bond_orders.py` converts gem-diols to carboxylic acids, the most common
+`rdDetermineBonds` error when the two C-O distances are nearly equal:
+
+```
+C(-OH)(-OH)  ->  C(=O)(-OH)
+```
+
+It also neutralises the protonated carbonyl `[O+]=C-OH`. Wired into
+`overwrite_core_mol.py`, so new runs emit repaired molecules. Verified on the top hits, e.g.
+`...c3cc(C(O)O)ccc3n2...` -> `...c3cc(C(=O)O)ccc3n2...`.
+
+### Scoring
+
+Scored with exactly the stack generation uses:
+
+```
+./util/smina.static -r <pocket.pdb> -l <mol.sdf> -o <out.sdf> --minimize --minimize_iters 1000
+```
+
+1,176 unique repaired three-ring molecules plus the five references, 64 workers in parallel.
+Two things had to be right before the numbers meant anything:
+
+* **the ligand needs 3D coordinates** - scoring a flat molecule gives 0.00000 regardless of pose;
+* **the ligand must be placed in the pocket** - an embedded conformer sits at the origin and
+  scores identically in every pocket. Once translated to the pocket centroid the two pockets
+  separate.
+
+The output SDF's `minimizedAffinity` property is unreliable (0.00000 for every pose), so the
+score is parsed from stdout: `Affinity: <input> <minimized> (kcal/mol)`.
+
+### Reference affinities
+
+| compound | Clivia | Squash |
+|---|---|---|
+| mol1 | −0.17 | −0.14 |
+| mol2 | −0.10 | −0.22 |
+| mol3 | −0.19 | −0.23 |
+| mol4 | −0.72 | −0.11 |
+| mol5 | −0.49 | −0.65 |
+
+### Generated molecules (n = 1,176)
+
+| | Clivia | Squash |
+|---|---|---|
+| best | **−1.20** | **−1.21** |
+| median | +0.26 | −0.05 |
+| worse than mol1 | 67.5% | 53.6% |
+| better than mol4 | 8.2% | 47.6% |
+| better than mol5 | 13.3% | 15.6% |
+
+So roughly a third (Clivia) to a half (Squash) of the generated molecules dock more strongly
+than the reference compounds, and the best reach −1.2 kcal/mol against references of
+−0.1 to −0.7.
+
+Best-scoring molecules are not the most similar ones - top affinity sits at ECFP4 0.28-0.49 -
+but the images are not in conflict: the highest-similarity Clivia hit (ECFP4 0.756,
+`COc1ccc(-c2cc(-c3ccc(C(C)C)cc3)c3cc(OC)ccc3n2)cc1`) also docks at −1.15, i.e. it is both
+target-like and among the strongest binders.
+
+Files: `repair_bond_orders.py`, `score_with_rna2smol.py`,
+`reports/rna2smol_scores.csv` (2,362 rows).
