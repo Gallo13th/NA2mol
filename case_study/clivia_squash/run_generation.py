@@ -47,6 +47,8 @@ def main():
                     help="Target number of good-affinity molecules; monkey-patched "
                          "into genbypkt.generate at runtime.")
     ap.add_argument('--gpu', type=int, default=None)
+    ap.add_argument('--pin_scaffold', action='store_true',
+                    help='pin the seed core for every iteration, not just the first')
     ap.add_argument('--seed_scaffold', action='store_true',
                     help='constrain generation to the shared 2,4-diaryl-quinoline core')
     ap.add_argument('--compile', action='store_true',
@@ -105,6 +107,9 @@ def main():
     model = accelerator.prepare(model)
     model.eval()
 
+    if args.pin_scaffold:
+        genbypkt.PIN_SCAFFOLD = True
+        print('[pin] scaffold pinned for every iteration (genbypkt.PIN_SCAFFOLD=True)', flush=True)
     genbypkt.accelerator = accelerator
     genbypkt.model = model
 

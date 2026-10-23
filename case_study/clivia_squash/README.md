@@ -168,3 +168,42 @@ model cannot decorate the correct core — only that this pipeline cannot hold i
 Nothing in this section changes the main finding: free generation produces the right
 substituent chemistry and the right scaffold separately, never together, and tops out at
 ECFP4 0.49.
+
+## 10,000-per-pocket free generation: final result
+
+Two seeds per pocket (42, 123) x 5,000, unconstrained, atom range 26-29: **10,046 Clivia**
+and **10,053 Squash** molecules. ~20,100 in total.
+
+| Run | molecules | max ECFP4 | >=0.5 | 2,4-diaryl | >=2 OMe + >=1 OH |
+|---|---|---|---|---|---|
+| Clivia 258 (atoms 20-28) | 258 | 0.375 | 0 | 0 | - |
+| Clivia 2k | 2,042 | 0.420 | 0 | 1 (0.05%) | - |
+| Squash 2k | 2,007 | 0.491 | 0 | 18 (0.90%) | - |
+| Clivia pinned 1k | 1,036 | 0.521 | - | 0 | 4 (0.4%) |
+| Squash pinned 1k | 1,012 | 0.509 | - | 10 (1.0%) | 18 (1.8%) |
+| **Clivia 10k** | 10,046 | **0.535** | 1 (0.01%) | 4 (0.04%) | 23 (0.23%) |
+| **Squash 10k** | 10,053 | **0.518** | 1 (0.01%) | **86 (0.86%)** | **144 (1.43%)** |
+
+**No compound reproduces the series.** Nothing exceeds ECFP4 0.535; there is no 0.7+ molecule,
+no 0.6+, and only two above 0.5 in 20,099 draws.
+
+The sampling curve has flattened: a 5x increase (2,000 -> 10,000) bought +0.12 ECFP4 for
+Clivia (0.42 -> 0.535) and +0.03 for Squash (0.49 -> 0.518), with the top hits changing
+identity between runs rather than converging. Further scaling is not a plausible route to
+reproduction.
+
+The best 2,4-diaryl-quinoline hit is ECFP4 **0.482** to mol1 -
+`COc1ccc2c(-c3cc[o+]c(O)c3)cc(-c3ccc(C(=O)O)cc3)nc2c1` - the closest anything has come to
+combining the right scaffold with plausible substituents, but it still carries COOH where the
+targets have methoxy/hydroxyl.
+
+The closest molecules overall are *not* the scaffold matches: the top Clivia hit (0.535) is a
+bis-quinoline and the top Squash hit (0.518) carries NMe2 + OH but only one aryl.
+
+**Conclusion.** Unconstrained generation from the Clivia and Squash pockets produces the right
+scaffold (rarely) and the right substituent chemistry (more often) as separate populations, and
+does not converge on the series at any sampling depth tested. The five compounds are most
+likely the product of a guided or scaffold-constrained run, not free generation.
+
+Figures: `figures/ten_k_best.png`. Per-molecule tables (ECFP4 >= 0.40):
+`reports/ten_k_clivia.csv`, `reports/ten_k_squash.csv`.
