@@ -247,3 +247,60 @@ series might bind a site other than the crystallised one.
 
 Files: `pockets/` (all 21), `pockets_summary.json`, `pocket_rmsd.npy`,
 `pocket_clusters.json`.
+
+## Pocket properties (measured against the crystallised ligand)
+
+The earlier attempt to score cavity volume from the pocket centroid alone was meaningless -
+it counted solvent-exposed space. These metrics reload the crystallised fluorophore and
+measure against it.
+
+| Site | pocket | ligand | ligand vol | free vol <10 Å | enclosure | shape compl. | sphericity | contacts | N/O <5 Å |
+|---|---|---|---|---|---|---|---|---|---|
+| **Clivia 1** (functional) | 15 res, A-rich | NI4, 27 atoms | 297 Å³ | 1138 Å³ | 73% | 52.3% | 0.34 | 6 | 42 |
+| Clivia 2 (8HZL) | 19 res | NI4, 27 | 296 Å³ | 1083 Å³ | 74% | 54.8% | 0.32 | 6 | 38 |
+| Clivia 3 (8HZL) | 15 res | NI4, 27 | 294 Å³ | 1193 Å³ | 72% | 53.0% | 0.36 | 6 | 43 |
+| **Squash** | 22 res, G-rich | 2ZY, 22 | 219 Å³ | 483 Å³ | **88%** | **62.2%** | 0.22 | **8** | 44 |
+
+What this says:
+
+* **The three Clivia sites are the same kind of pocket** - 72-74% enclosure, 1083-1193 Å³,
+  same complementarity. Sites 2 and 3 are not a different environment, just more copies.
+* **Squash is a different pocket**: half the free volume, 15 points more enclosed, 10 points
+  better shape complementarity, 8 vs 6 direct contacts. It is a tight, preorganised slot.
+* **All four are strongly non-spherical** (sphericity 0.22-0.36), i.e. flat elongated slots -
+  consistent with selecting flat aromatic ligands, which is what the series is.
+* **Size match favours Clivia for this series**: Clivia is built for a 297 Å³ ligand, and
+  mol1-mol5 are 26-29 heavy atoms ~ 290-320 Å³. Squash's native ligand is 219 Å³, ~40% smaller.
+
+## The core skeleton IS reproduced
+
+Of 20,099 molecules, **90 carry the 2,4-diaryl-quinoline core** (Squash 86, Clivia 4). The
+three connected ring systems that define the series - quinoline plus two aryls - are
+generated de novo, best ECFP4 0.482 to mol1.
+
+Substituent inventory across those 90 core hits:
+
+| substituent | present in | targets have it |
+|---|---|---|
+| hydroxyl | 68/90 (75.6%) | yes (mol1, mol5) |
+| carboxyl | 44/90 (48.9%) | no |
+| amide | 27/90 (30.0%) | no |
+| **methoxy** | **23/90 (25.6%)** | **yes - all five** |
+| amino | 20/90 (22.2%) | yes (mol2) |
+| NMe2 | 11/90 (12.2%) | yes (mol3) |
+| aza-aryl | 90/90 | yes (mol4) |
+
+So the discrepancy is **not categorical**. Every substituent the targets use does appear on
+the correct core. What differs is the proportions: the model over-produces carboxylic acid
+and amide (49% / 30%, absent from the targets) and under-produces the methoxy that all five
+targets carry (26% vs 100%).
+
+**Revised objective.** Not "can the core be generated" - it can - but "can the methoxy-rich
+substitution pattern be enriched on the correct core". That is a sampling/enrichment problem,
+which is what the extra rounds were for.
+
+The best core hit (ECFP4 0.482) already illustrates this:
+`COc1ccc2c(-c3cc[o+]c(O)c3)cc(-c3ccc(C(=O)O)cc3)nc2c1` has the correct core plus methoxy,
+hydroxyl and carboxyl; only the carboxyl-bearing aryl is wrong.
+
+Files: `pocket_properties.py`, `pocket_properties.json`.
