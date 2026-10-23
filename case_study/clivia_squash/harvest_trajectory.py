@@ -48,6 +48,12 @@ TARGETS = {
     'squash': ('squash_7KVU_pocket.pdb', 'squash_7KVU_dummy.sdf'),
 }
 QUIN = Chem.MolFromSmarts('c1ccc2ncccc2c1')
+
+# strict screen: the molecule must be the three-ring-system skeleton, not a fused
+# polycyclic that merely happens to bear two aromatic substituents
+import importlib.util as _ilu
+_rs = _ilu.spec_from_file_location('rsc', str(SCRIPT_DIR / 'ring_system_check.py'))
+RSC = _ilu.module_from_spec(_rs); sys.modules['rsc'] = RSC; _rs.loader.exec_module(RSC)
 # the model's classes are NOT atomic numbers: map class index -> atomic number
 
 
@@ -146,6 +152,9 @@ def main() -> int:
             if mol is None:
                 continue
             if diaryl_positions(mol) != {'C2', 'C4'}:
+                continue
+            strict_ok, why = RSC.check_three_ring_systems(mol)
+            if not strict_ok:
                 continue
             core = set()
             for mt in mol.GetSubstructMatches(QUIN):

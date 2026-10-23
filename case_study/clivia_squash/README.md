@@ -443,3 +443,62 @@ systems. The fixed core - quinoline plus both aryl attachments - is intact; the 
 close an extra ring. That is why similarity plateaus at 0.53 rather than approaching 1.
 
 Figures: `figures/core_fixed_best.png`. Outputs: `output_traj/h{0,3,5,6}/molecules.sdf`.
+
+## Forbidding ring extension reveals the real bottleneck
+
+`ring_system_check.py` enforces the three-ring-system rule by counting **ring systems**
+(connected components of the ring-adjacency graph, rings joined when they share a bond), not
+rings. The targets have sizes [2,1,1]; a fused cyclopentaquinoline has [3,1] or [4]. Validated:
+all four targets pass, genuinely fused structures are rejected.
+
+Applying it to the previous core-fixed run rejected **everything** (~900 per worker, 0
+written). The reason is that the earlier harvest's screen - "quinoline with an aromatic
+substituent at C2 and C4" - also accepts fused polycyclics, so the cores it fixed were
+already fused and every rebuild inherited the fusion.
+
+Scanning the 20,099 free-generation molecules confirms how rare the correct topology is:
+
+| screen | count |
+|---|---|
+| sanitizable | 20,099 |
+| quinoline + aromatic substituent at C2 and C4 | 90 |
+| **true three-ring system (strict)** | **3** |
+
+So genuine target-topology molecules are ~0.015% of free generation, not 0.45%.
+
+## Re-harvested cores and the result
+
+Eight harvest workers, 400 batches each (25,600 molecules) with the strict screen produced
+**5 genuine three-ring trajectories**. Resampling those five cores with the strict filter:
+
+| metric | value |
+|---|---|
+| molecules written | 2,277 |
+| unique three-ring-system molecules | **1,172** |
+| **best ECFP4 to mol1-mol5** | **0.767** |
+| >= 0.70 / 0.65 / 0.60 / 0.55 / 0.50 / 0.45 | 11 / 23 / 44 / 86 / 157 / 266 |
+
+Compare with 0.532 before the ring-system constraint, and 0.49 with free generation. Forbidding
+ring extension - i.e. refusing to let the free atoms close a ring back onto the core - is the
+single most effective change made.
+
+Best hits, all with the correct three-ring topology:
+
+```
+COc1ccc(-c2cc(-c3ccc(O)cc3)c3cc(C(O)O)ccc3n2)cc1     ECFP4 0.767  MW 373
+COc1ccc(-c2cc(-c3ccc(C(C)C)cc3)c3cc(OC)ccc3n2)cc1    ECFP4 0.756  MW 383
+COc1ccc(-c2cc(-c3ccc(C(O)O)cc3)c3cc(OC)ccc3n2)cc1    ECFP4 0.738  MW 387
+COc1ccc(-c2cc(-c3ccc(O)cc3)c3cc(O)c(OC)cc3n2)cc1     ECFP4 0.721  MW 373
+```
+
+The last one carries two methoxy plus two hydroxyl on the correct core - the closest approach
+to mol1 so far.
+
+**Remaining discrepancy.** The model often writes `C(O)O` (a gem-diol) where a carboxylic
+acid `C(=O)O` is intended, because `rdDetermineBonds` assigns single bonds to both oxygens
+when the geometry is ambiguous. This inflates the apparent difference for acid-bearing
+generated molecules. Bond-order repair for such centres is the next refinement.
+
+Files: `ring_system_check.py`, `harvest_trajectory.py` (strict screen),
+`traj_strict_{0,1,2}.pt`, `output_traj/st*/molecules.sdf`,
+`figures/strict_core_best.png`, `draw_strict_results.py`.

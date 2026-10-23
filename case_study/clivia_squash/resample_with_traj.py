@@ -79,6 +79,16 @@ def full_ring_system_core(h, n_atoms):
     return sorted(atoms)
 
 
+def _load_ring_check():
+    import importlib.util
+    path = SCRIPT_DIR / 'ring_system_check.py'
+    spec = importlib.util.spec_from_file_location('rsc', path)
+    m = importlib.util.module_from_spec(spec)
+    sys.modules['rsc'] = m
+    spec.loader.exec_module(m)
+    return m
+
+
 def _load_overwrite_builder():
     import importlib.util
     path = SCRIPT_DIR / 'overwrite_core_mol.py'
@@ -153,6 +163,7 @@ def main() -> int:
     if ref_mol is None:
         print('reference reconstruction failed'); return 1
     OCM = _load_overwrite_builder()
+    RSC = _load_ring_check()
 
     bs = 8
     pocket = str(SCRIPT_DIR / TARGETS[a.target][0])
@@ -172,6 +183,8 @@ def main() -> int:
     outdir.mkdir(parents=True, exist_ok=True)
     written = 0
     failed = 0
+    rejected_structure = 0
+    rej_reasons = {}
     # one writer for the whole run (re-opening truncates the file), and no kekulisation:
     # molecules whose core could not be kekulised would otherwise raise on write
     sdf_path = outdir / 'molecules.sdf'
@@ -222,6 +235,13 @@ def main() -> int:
                    for k in range(lo, hi)]
             mol = OCM.build_with_overwritten_core(P[lo:hi], zzb, core_rel, ref_mol)
             if mol is None:
+                failed += 1
+                continue
+            # reject any extension of the core: the series must stay three ring systems
+            keep, why = RSC.check_three_ring_systems(mol, core_rel)
+            if not keep:
+                rejected_structure += 1
+                rej_reasons[why] = rej_reasons.get(why, 0) + 1
                 continue
             mol.SetProp('_Name', f'{a.out_prefix}_{written}')
             try:
@@ -235,7 +255,10 @@ def main() -> int:
             print(f'  batch {nb}/{a.n_batch} ({written} molecules)', flush=True)
 
     writer.close()
-    print(f'\nwrote {written} molecules to {sdf_path}  ({failed} failed)')
+    print(f'\nwrote {written} molecules to {sdf_path}')
+    print(f'  build failed {failed}   core extended/rejected {rejected_structure}')
+    for why, c in sorted(rej_reasons.items(), key=lambda x: -x[1])[:6]:
+        print(f'    {c:5d}  {why}')
     return 0
 
 
