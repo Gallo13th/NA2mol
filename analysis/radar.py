@@ -161,6 +161,32 @@ def property_scores(frame) -> dict[str, float]:
     return vals
 
 
+
+def property_summaries(frame) -> dict[str, float]:
+    """Single-number summaries of the six property metrics, pooling molecules.
+
+    The radar's property axes are retention-curve integrals, i.e. functions of the
+    whole distribution, so they cannot be read back as one metric value. These pooled
+    medians are the matching summaries for the companion source table (they use the
+    same molecule pool as the integrals, not per-target medians).
+    """
+    out: dict[str, float] = {}
+    out['median_docking'] = float(np.nanmedian(np.asarray(frame['affinity'], dtype=float)))
+    out['median_rmsd'] = float(np.nanmedian(np.asarray(frame['rmsd'], dtype=float)))
+    out['median_qed'] = float(np.nanmedian(np.asarray(frame['qed'], dtype=float)))
+    out['median_sa'] = float(np.nanmedian(np.asarray(frame['sa_score'], dtype=float)))
+    out['median_sei'] = float(np.nanmedian(sei(frame)))
+    strain = np.asarray(frame['strain'], dtype=float)
+    ok = np.isfinite(strain) & (strain > 0)
+    if ok.any():
+        out['median_strain'] = float(np.nanmedian(strain[ok]))
+        out['median_log10_strain'] = float(np.nanmedian(np.log10(strain[ok])))
+    else:
+        out['median_strain'] = out['median_log10_strain'] = float('nan')
+    out['n_strain_valid'] = int(ok.sum())
+    return out
+
+
 # ── ECFP4 recovery gain ─────────────────────────────────────────────────────
 def recovery_from_maxima(maxima: np.ndarray) -> float:
     """Mean over targets of the recovery curve over tau in [0.25, 0.50].
@@ -227,7 +253,8 @@ def normalise_ecfp4(recovery_observed: dict[str, float],
 # ── drawing ─────────────────────────────────────────────────────────────────
 def draw_radar(ax, scores_by_method: dict[str, dict], title: str = '',
                colors: dict | None = None, labels: dict | None = None,
-               legend: bool = True, fontsize: float = 7.0):
+               legend: bool = True, fontsize: float = 7.0,
+               title_pad: float = 24.0):
     """Draw the manuscript's seven-axis radar on ``ax`` (a polar axes).
 
     ``scores_by_method[method]`` maps axis key -> s_m in [0, 1]; the radius drawn is
@@ -260,7 +287,8 @@ def draw_radar(ax, scores_by_method: dict[str, dict], title: str = '',
                 markersize=2.6, label=labels.get(method, method))
         ax.fill(closed, r, color=colour, alpha=0.06)
     if title:
-        ax.set_title(title, fontsize=fontsize * 1.15, pad=12)
+        # pad clears the topmost axis label, which sits above the circle
+        ax.set_title(title, fontsize=fontsize * 1.15, pad=title_pad)
     if legend:
         ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.06),
                   ncol=min(4, max(1, len(scores_by_method))), frameon=False,

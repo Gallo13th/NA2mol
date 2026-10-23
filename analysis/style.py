@@ -112,8 +112,13 @@ def setup_publication_style() -> None:
     )
 
 
-def panel_label(ax, label: str, x: float = -0.13, y: float = 1.08,
+def panel_label(ax, label: str | None, x: float = -0.13, y: float = 1.08,
                 ha: str = "left") -> None:
+    """Draw a bold panel letter. ``label=None`` is a no-op, so a figure that
+    composes several subplots can suppress the per-axes labels and place all of
+    them itself in figure coordinates (see place_panel_labels)."""
+    if not label:
+        return
     ax.text(
         x,
         y,
@@ -548,3 +553,21 @@ def plot_profile_table(
     ax.set_title(title, fontsize=8, color=INK,
                  pad=(14 if title_pad is None else title_pad))
     panel_label(ax, label)
+
+
+def place_panel_labels(fig, gridspec, cells: dict, dx: float = 0.078,
+                       dy: float = 0.012, fontsize: float = 9) -> None:
+    """Place panel letters at fixed figure coordinates, one per gridspec cell.
+
+    Anchoring to the *cell* rather than the axes is what makes the letters line up:
+    a polar axes is shrunk to a square inside its cell (x0 0.165 where the
+    rectilinear panels of the same column sit at 0.105), so axes-relative offsets
+    land in different places for different panel types. Call this after every
+    subplot has been drawn.
+
+    ``cells`` maps the letter to its (row, col) in ``gridspec``.
+    """
+    for letter, (row, col) in cells.items():
+        box = gridspec[row, col].get_position(fig)
+        fig.text(box.x0 - dx, box.y1 + dy, letter, ha="left", va="bottom",
+                 fontsize=fontsize, fontweight="bold", color=INK)

@@ -179,6 +179,7 @@ def score_benchmark(key: str, permutations: int) -> tuple[pd.DataFrame, pd.DataF
         row = {'benchmark': key, 'method': m, 'n_molecules': int(len(sub)),
                'n_targets': len(targets)}
         row.update(scores)
+        row.update(R.property_summaries(sub))   # raw pooled values for the source table
         row['recovery_observed'] = ec['recovery_observed']
         row['recovery_random'] = ec['recovery_random']
         row['recovery_random_sd'] = ec['recovery_random_sd']

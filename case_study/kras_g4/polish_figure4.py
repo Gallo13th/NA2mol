@@ -82,32 +82,40 @@ def label(ax, letter):
 
 def workflow(ax):
     ax.axis("off")
+    # (count, [detail lines]). The screening gates are spelled out with their actual
+    # thresholds rather than described generically: the fragment and product gates and
+    # the Tier-1 vote rule are otherwise only recoverable from Methods.
     phases = [
         ("Generation & fragmentation", "#E9F1F1", [
-            ("10,077 molecules", "NA2smol · BER102 pocket (7X8M)"),
-            ("9,278 ring fragments", "Fragmentation and deduplication"),
-            ("717 fragments retained", "Docking, size and property gate")]),
+            ("10,077 molecules", ["NA2smol · BER102 pocket (7X8M)"]),
+            ("9,278 ring fragments", ["Fragmentation and deduplication"]),
+            ("717 fragments retained", ["smina ≤ −2.5 · ≥3 contacts",
+                                        "≤14 heavy atoms · QED > 0.5 · SA < 2.0"])]),
         ("Fragment-based amplification", "#F4ECE7", [
-            ("1,588 variants", "Saturated heteroatom mutation"),
-            ("216,092 candidate pairs", "Port-matched recombination"),
-            ("9,812 pairs → 1,721 products", "Geometry filter and deduplication")]),
+            ("1,588 variants", ["Saturated heteroatom mutation"]),
+            ("216,092 candidate pairs", ["Port-matched recombination"]),
+            ("9,812 pairs → 1,721 products", ["Geometry filter and deduplication"])]),
         ("Screening & experimental test", "#ECEBF3", [
-            ("785 retained → 728 resolved", "Property gate and relaxed docking"),
-            ("293 Tier-1 candidates", "RNAsmol ensemble + rDock ranking"),
-            ("34 PubChem records → 14 vendor-listed", "candidates → 1 tested (ThT displacement)")])]
+            ("785 retained → 728 resolved", ["QED ≥ 0.5 · SA ≤ 2.16 → 785",
+                                             "rDock relaxed docking → 728"]),
+            ("293 Tier-1 candidates", ["rDock rank + top-half votes",
+                                       "≥3 of 5 active RNAsmol rankers"]),
+            ("34 PubChem records → 14 vendor-listed", ["candidates → 1 tested (ThT)"])])]
     for column, (title, shade, steps) in enumerate(phases):
         left = column / 3 + 0.012
         width = 0.309
         ax.add_patch(Rectangle((left, 0.02), width, 0.94, facecolor=shade, edgecolor="none"))
         ax.text(left + width / 2, 0.9, title, ha="center", fontsize=7, fontweight="bold")
-        for row, (count, operation) in enumerate(steps):
+        for row, (count, details) in enumerate(steps):
             bottom = 0.65 - row * 0.27
             ax.add_patch(FancyBboxPatch((left + 0.014, bottom), width - 0.028, 0.19,
                         boxstyle="round,pad=0.004,rounding_size=0.015",
                         facecolor="white", edgecolor="#B6C3C8", linewidth=0.65))
-            ax.text(left + width / 2, bottom + 0.122, count, ha="center",
+            ax.text(left + width / 2, bottom + 0.130, count, ha="center",
                     fontsize=5.8 if len(count) > 36 else 6.6, fontweight="bold")
-            ax.text(left + width / 2, bottom + 0.053, operation, ha="center", fontsize=5.8, color=MUTED)
+            for k, line in enumerate(details):
+                ax.text(left + width / 2, bottom + 0.082 - k * 0.046, line, ha="center",
+                        fontsize=5.2 if k == 0 else 4.9, color=MUTED)
             if row < 2:
                 ax.annotate("", (left + width / 2, bottom - 0.072), (left + width / 2, bottom),
                             arrowprops={"arrowstyle": "->", "lw": 0.8, "color": MUTED})

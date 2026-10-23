@@ -31,6 +31,7 @@ from style import (
     group_metrics_by_direction,
     lighten,
     panel_label,
+    place_panel_labels,
     plot_profile_table,
     profile_value_formatter,
     save_all,
@@ -130,7 +131,8 @@ def _radar_table() -> pd.DataFrame:
     return pd.read_csv(path).set_index("method")
 
 
-def plot_profile(ax, df, title_pad: float | None = None):
+def plot_profile(ax, df, title_pad: float | None = None, panel_lbl: str | None = None,
+                 title: str = "Ablation profile"):
     """Panel a — the manuscript's seven-axis radar for the four configurations.
 
     Uses the same radar scheme as Fig. 2 (Methods, "Radar-chart normalisation"):
@@ -141,49 +143,9 @@ def plot_profile(ax, df, title_pad: float | None = None):
     tbl = _radar_table()
     scores = {m: {a: float(tbl.loc[m, a]) for a in R.AXIS_ORDER}
               for m in ABL_ORDER if m in tbl.index}
-    return R.draw_radar(ax, scores, title="", colors=ABL_COLORS, labels=ABL_LABELS)
-    # 1. Per-method, per-metric raw profile (mean of per-target medians).
-    profile = {}
-    for m in ABL_ORDER:
-        profile[m] = {}
-        sub = df[df["mode"] == m]
-        for col, _ in PROFILE_METRICS:
-            pt = per_target_median(sub, col)
-            profile[m][col] = pt.mean()
-
-    # 2. Rank-normalised scores (higher = better; matches Fig 2 convention).
-    normed = _rank_normalize(profile, ABL_ORDER, PROFILE_METRICS)
-
-    # 3. Build a tidy DataFrame for ``plot_profile_table``.
-    rows = []
-    for m in ABL_ORDER:
-        row = {"method": m}
-        for i, (col, _) in enumerate(PROFILE_METRICS):
-            row[f"{col}_raw"] = profile[m][col]
-            row[f"{col}_rank_norm"] = normed[m][i]
-        rows.append(row)
-    profile_df = pd.DataFrame(rows)
-
-    # 3b. Direction-grouped column order: higher-is-better together (left,
-    #     marked ↑), lower-is-better together (right, marked ↓). Bars use the
-    #     rank-normalised score directly (no min-max re-normalisation).
-    metrics_disp = group_metrics_by_direction(PROFILE_METRICS, LOWER_IS_BETTER_METRICS)
-
-    # 4. Render the chart-enhanced table.
-    plot_profile_table(
-        ax,
-        profile_df,
-        ABL_ORDER,
-        metrics_disp,
-        title="Rank-normalised ablation profile",
-        label="a",
-        method_colors=ABL_COLORS,
-        method_labels=ABL_LABELS,
-        lower_is_better=LOWER_IS_BETTER_METRICS,
-        value_fmt=profile_value_formatter,
-        bar_mode="rank",
-        title_pad=title_pad,
-    )
+    R.draw_radar(ax, scores, title=title, colors=ABL_COLORS, labels=ABL_LABELS)
+    if panel_lbl:
+        panel_label(ax, panel_lbl, x=-0.10, y=1.02)
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -482,7 +444,7 @@ def render_panels(df) -> dict:
     # Panel a — profile table (wide, standalone)
     fig = plt.figure(figsize=(5.6, 2.7), facecolor="white")
     ax = fig.add_axes([0.16, 0.16, 0.80, 0.62], projection="polar")
-    plot_profile(ax, df)
+    plot_profile(ax, df, panel_lbl="a")
     assets["a"] = save_panel(fig, PANELS_DIR, "a_profile")
     plt.close(fig)
 
@@ -543,13 +505,23 @@ def render_master(df) -> None:
     ax_e = fig.add_subplot(gs[2, 0])
     ax_f = fig.add_subplot(gs[2, 1])
 
-    plot_profile(ax_a, df, title_pad=14)
+    # Panel letters are suppressed here and placed in figure coordinates below,
+    # once the grid exists. Per-axes offsets cannot align across panel types: the
+    # polar axes is shrunk to a square inside its cell (x0 0.165) while the
+    # rectilinear panels of the same column start at 0.105.
+    plot_profile(ax_a, df, title_pad=14, panel_lbl=None)
     plot_funnel(ax_b, df, "targets_ge1", "Targets with >=1 candidate",
-                "Target retention through strain-aware screening", "b")
-    plot_affinity_distribution(ax_c, df, "c")
-    plot_strain_distribution(ax_d, df, "d")
-    plot_docking_strain_hexbin(ax_e, df, "e")
-    plot_component_waterfall(ax_f, df, "f")
+                "Target retention through strain-aware screening", None)
+    plot_affinity_distribution(ax_c, df, None)
+    plot_strain_distribution(ax_d, df, None)
+    plot_docking_strain_hexbin(ax_e, df, None)
+    plot_component_waterfall(ax_f, df, None)
+
+    place_panel_labels(fig, gs, {
+        "a": (0, 0), "b": (0, 1),
+        "c": (1, 0), "d": (1, 1),
+        "e": (2, 0), "f": (2, 1),
+    })
 
     # Shared legend at top
     handles = [
