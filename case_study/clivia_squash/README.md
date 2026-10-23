@@ -615,3 +615,52 @@ Clivia, so every molecule was generated against Squash and contacts nothing in t
 pocket, scoring 0.00.
 
 Files: `score_fast.py`, `reports/rna2smol_scores.csv`.
+
+## RNAsmol scoring (independent check)
+
+Scored with [hongli-ma/RNAsmol](https://github.com/hongli-ma/RNAsmol), an RNA-ligand
+interaction classifier. Unlike smina it uses no 3D pose: it builds a ligand graph from the
+SMILES plus an RNA-sequence encoding and outputs the probability that the pair binds. That
+makes it an independent check on the docking numbers, and it puts the generated molecules and
+the references on identical footing.
+
+Setup notes: the repository is cloned to `~/RNAsmol`; the supplied `rnasmol` conda env has
+torch 1.7.1 / pyg 2.1.0 as required, but **torch 1.7.1 predates sm_89 so the RTX 4090 cannot
+be used** - inference runs on CPU. Input is `<root>/raw/data_test.csv` with
+`compound_iso_smiles, target_sequence, affinity`; the sequence is the full 82-nt Squash chain
+extracted from 7KVU.
+
+**The six supplied checkpoints do not agree and two are degenerate**, so a plain average is
+meaningless and per-checkpoint values are reported in the CSV:
+
+| checkpoint | reference range | generated median | above best ref | verdict |
+|---|---|---|---|---|
+| pdb_bothaug_netperturbation | 0.293-0.621 | 0.302 | 168/1142 | informative |
+| pdb_bothaug_molperturbation | 0.358-1.000 | 0.484 | 163/1142 | informative |
+| pdb_bothaug_rnaperturbation | 1.000-1.000 | 1.000 | 0/1142 | **degenerate** |
+| robin_bothaug_netperturbation | 0.905-1.000 | 1.000 | 0/1142 | saturated |
+| robin_bothaug_molperturbation | 0.627-0.998 | 0.888 | 150/1142 | near-saturated |
+| robin_bothaug_rnaperturbation | 0.000-0.000 | 0.000 | 55/1142 | **degenerate** |
+
+On the most informative checkpoint (`pdb_bothaug_molperturbation`):
+
+| compound | prob |
+|---|---|
+| mol1 | 0.440 |
+| mol2 | 0.358 |
+| mol3 | 0.502 |
+| mol4 | 0.363 |
+| mol5 | 1.000 |
+| **generated** | **median 0.484, max 1.000** |
+
+The generated median sits between mol2 and mol3 - i.e. the generated set is scored as
+RNA-binder-like as the reference series, not better and not worse, and 465/1142 (41%) exceed
+the reference mean while 1016/1142 exceed the weakest reference.
+
+Two caveats belong with these numbers: the model's training distribution does not include
+fluorogenic aptamers, and feeding an 82-nt sequence padded to 500 is far outside what it was
+trained on, so absolute probabilities are not calibrated for these targets - only the relative
+ordering is informative.
+
+Files: `score_with_rnasmol.py`, `reports/rnasmol_scores.csv` (1,147 rows, all six
+checkpoints).
