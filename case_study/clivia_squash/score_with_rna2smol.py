@@ -1,15 +1,22 @@
 #!/usr/bin/env python3
-"""Score generated and reference molecules on the RNA2smol stack, in parallel.
+"""Score generated and reference molecules on the RNA2smol stack, correctly.
 
-The stack is what generation itself uses: smina minimisation against the pocket
+Two different questions need two different smina modes, and mixing them up produced the
+earlier nonsense of everything being ~0:
 
-    ./util/smina.static -r <pocket.pdb> -l <mol.sdf> -o <out.sdf> --minimize --minimize_iters 1000
+* **Generated molecules already have a binding pose.** The sampler emits coordinates in the
+  pocket frame (verified: centroid within ~1 A of the pocket centroid), so their pose is
+  scored with `--score_only`. Re-embedding from SMILES would throw the model's conformer
+  away and score a different molecule.
+* **The references have no experimental pose in these structures.** They are placed by
+  global docking, `--autobox_ligand <pocket> --autobox_add 4 --exhaustiveness N`, and the
+  best affinity is reported.
 
-and the reported score is `minimizedAffinity`. The five reference compounds go through the
-identical call, so generated vs reference affinities are directly comparable.
+`--minimize` is not used: it minimises the input pose under a scoring box that must be
+supplied, and with the box omitted it returns unphysical near-zero or positive values.
 
-Reports per pocket: reference affinities, generated distribution, how many generated
-molecules beat each reference, and the relation between ECFP4 similarity and affinity.
+Output columns: kind, pocket, smiles, affinity_native (score of the given pose, generated
+only), affinity_docked (best global pose), ecfp4_to_ref, nearest_ref.
 """
 import argparse
 import os
@@ -40,6 +47,7 @@ REFERENCES = {
     'mol4': 'COc1ccc(-c2cc(-c3ccncc3)nc3ccc(OC)cc23)cc1',
     'mol5': 'COc1ccc2c(c1)C(-c1ccc(O)cc1)C=C(-c1cccc(C(=O)O)c1)N2',
 }
+NAN = float('nan')
 
 
 def _repair(mol):
@@ -51,83 +59,75 @@ def _repair(mol):
     return out
 
 
-_POCKET_CENTRE = {}
-
-
-def pocket_centre(pocket):
-    """Centroid of the pocket atoms, cached. The embedded ligand must be moved here:
-    a conformer left at the origin contacts nothing and scores the same in any pocket."""
-    if pocket in _POCKET_CENTRE:
-        return _POCKET_CENTRE[pocket]
-    import numpy as np
-    xyz = []
-    with open(pocket) as f:
-        for line in f:
-            if line.startswith(('ATOM', 'HETATM')):
-                try:
-                    xyz.append([float(line[30:38]), float(line[38:46]), float(line[46:54])])
-                except ValueError:
-                    continue
-    c = np.asarray(xyz).mean(axis=0)
-    _POCKET_CENTRE[pocket] = c
-    return c
-
-
-def _dock(task):
-    """task = (smiles, pocket_path) -> affinity (nan on failure)."""
-    smi, pocket = task
-    mol = Chem.MolFromSmiles(smi)
-    if mol is None:
-        return float('nan')
-    # smina scores 0 for a molecule without 3D coordinates; embed and optimise first so
-    # every molecule (reference and generated alike) enters the stack the same way
-    from rdkit.Chem import AllChem
-    mol = Chem.AddHs(mol)
-    if AllChem.EmbedMolecule(mol, randomSeed=42) != 0:
-        return float('nan')
-    AllChem.MMFFOptimizeMolecule(mol, maxIters=200)
-    # move the conformer into the pocket so the receptor actually contributes
-    import numpy as np
-    conf = mol.GetConformer()
-    pts = np.array([list(conf.GetAtomPosition(i)) for i in range(mol.GetNumAtoms())])
-    shift = pocket_centre(pocket) - pts.mean(axis=0)
-    from rdkit.Geometry import Point3D
-    for i in range(mol.GetNumAtoms()):
-        pp = conf.GetAtomPosition(i)
-        conf.SetAtomPosition(i, Point3D(pp.x + shift[0], pp.y + shift[1], pp.z + shift[2]))
-    mol = Chem.RemoveHs(mol)
-    d = tempfile.mkdtemp(prefix='smn_')
-    mf = os.path.join(d, 'mol.sdf')
-    out = os.path.join(d, 'out.sdf')
-    w = Chem.SDWriter(mf)
-    w.write(mol); w.close()
+def _score_only(sdf, pocket):
     try:
-        res = subprocess.run([str(SMINA), '-r', pocket, '-l', mf, '-o', out,
-                              '--minimize', '--minimize_iters', '1000', '--cpu', '1'],
-                             capture_output=True, text=True, timeout=300, check=False)
+        r = subprocess.run([str(SMINA), '-r', pocket, '-l', sdf, '--score_only', '--cpu', '1'],
+                           capture_output=True, text=True, timeout=300, check=False)
     except subprocess.TimeoutExpired:
-        return float('nan')
-    # The output SDF's minimizedAffinity property is unreliable here (it comes back 0.00000
-    # regardless of the pose), so take the post-minimisation value from stdout:
-    #   "Affinity: <input> <minimized> (kcal/mol)"
-    for line in (res.stdout or '').splitlines():
+        return NAN
+    for line in (r.stdout or '').splitlines():
         if line.startswith('Affinity:'):
-            parts = line.split()
             try:
-                return float(parts[-2])
+                return float(line.split()[1])
             except (ValueError, IndexError):
-                return float('nan')
-    return float('nan')
+                return NAN
+    return NAN
+
+
+def _dock(sdf, pocket, exhaustiveness):
+    try:
+        r = subprocess.run([str(SMINA), '-r', pocket, '-l', sdf,
+                            '--autobox_ligand', pocket, '--autobox_add', '4',
+                            '--exhaustiveness', str(exhaustiveness), '--num_modes', '1',
+                            '--cpu', '1'],
+                           capture_output=True, text=True, timeout=900, check=False)
+    except subprocess.TimeoutExpired:
+        return NAN
+    best = NAN
+    for line in (r.stdout or '').splitlines():
+        # "1       -12.5      0.000      0.000"
+        parts = line.split()
+        if len(parts) == 4 and parts[0] == '1':
+            try:
+                best = float(parts[1])
+            except ValueError:
+                pass
+            break
+    return best
+
+
+def _worker(task):
+    kind, smi_or_sdf, sdf_text, pocket, exhaustiveness = task
+    d = tempfile.mkdtemp(prefix='smn_')
+    sdf = os.path.join(d, 'm.sdf')
+    if sdf_text is not None:
+        with open(sdf, 'w') as f:
+            f.write(sdf_text)
+    else:
+        mol = Chem.MolFromSmiles(smi_or_sdf)
+        if mol is None:
+            return (kind, smi_or_sdf, NAN, NAN)
+        from rdkit.Chem import AllChem
+        mol = Chem.AddHs(mol)
+        if AllChem.EmbedMolecule(mol, randomSeed=42) != 0:
+            return (kind, smi_or_sdf, NAN, NAN)
+        AllChem.MMFFOptimizeMolecule(mol, maxIters=200)
+        w = Chem.SDWriter(sdf); w.SetKekulize(False)
+        w.write(Chem.RemoveHs(mol)); w.close()
+    native = _score_only(sdf, pocket) if kind == 'generated' else NAN
+    docked = _dock(sdf, pocket, exhaustiveness)
+    return (kind, smi_or_sdf, native, docked)
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--limit', type=int, default=0)
-    ap.add_argument('--workers', type=int, default=48)
+    ap.add_argument('--workers', type=int, default=64)
+    ap.add_argument('--exhaustiveness', type=int, default=8)
     ap.add_argument('--out', default=str(HERE / 'reports' / 'rna2smol_scores.csv'))
     a = ap.parse_args()
 
-    # unique, sanitizable, repaired generated molecules
+    # generated: keep the model's own 3D pose, repair bond orders, keep as SDF text
     gen = {}
     for f in sorted(HERE.glob('output_traj/st*/molecules.sdf')):
         if f.stat().st_size == 0:
@@ -142,11 +142,14 @@ def main() -> int:
             m = _repair(m)
             if m is None:
                 continue
-            gen.setdefault(Chem.MolToSmiles(m), None)
-    gen_smis = sorted(gen)
+            smi = Chem.MolToSmiles(m)
+            if smi in gen:
+                continue
+            gen[smi] = Chem.MolToMolBlock(m, kekulize=False)
+    items = list(gen.items())
     if a.limit:
-        gen_smis = gen_smis[:a.limit]
-    print(f'generated (unique, repaired): {len(gen_smis)}   references: {len(REFERENCES)}')
+        items = items[:a.limit]
+    print(f'generated (unique, repaired, own pose): {len(items)}   references: {len(REFERENCES)}')
 
     ref_fps = {k: GEN.GetFingerprint(Chem.MolFromSmiles(v)) for k, v in REFERENCES.items()}
     rows = []
@@ -154,16 +157,16 @@ def main() -> int:
         for pname, ppath in POCKETS.items():
             if not os.path.exists(ppath):
                 print(f'missing {ppath}'); continue
-            work = [(smi, ppath) for smi in REFERENCES.values()] + \
-                   [(smi, ppath) for smi in gen_smis]
-            print(f'  docking {len(work)} molecules against {pname} ...', flush=True)
-            affs = pool.map(_dock, work, chunksize=4)
-            for (smi, _), aff in zip(work, affs):
+            tasks = [('reference', smi, None, ppath, a.exhaustiveness) for smi in REFERENCES.values()]
+            tasks += [('generated', smi, block, ppath, a.exhaustiveness) for smi, block in items]
+            print(f'  {pname}: scoring {len(tasks)} ...', flush=True)
+            for kind, key, native, docked in pool.imap_unordered(_worker, tasks, chunksize=2):
+                smi = key if kind == 'generated' else key
                 fp = GEN.GetFingerprint(Chem.MolFromSmiles(smi))
                 sims = {k: DataStructs.TanimotoSimilarity(fp, v) for k, v in ref_fps.items()}
                 b = max(sims, key=sims.get)
-                kind = 'reference' if smi in REFERENCES.values() else 'generated'
-                rows.append(dict(smiles=smi, kind=kind, pocket=pname, affinity=aff,
+                rows.append(dict(kind=kind, pocket=pname, smiles=smi,
+                                 affinity_native=native, affinity_docked=docked,
                                  ecfp4_to_ref=round(sims[b], 4), nearest_ref=b))
 
     import pandas as pd
@@ -175,22 +178,29 @@ def main() -> int:
     for pname in df.pocket.unique():
         sub = df[df.pocket == pname]
         ref = sub[sub.kind == 'reference']
-        g = sub[sub.kind == 'generated'].dropna(subset=['affinity'])
+        g = sub[sub.kind == 'generated']
         print(f'\n================ {pname} ================')
-        print('  reference affinities:')
+        print('  references (global dock, best pose):')
         for _, r in ref.iterrows():
-            print(f'    {r.nearest_ref}  {r.affinity:8.2f}')
-        if len(g):
-            print(f'  generated: n={len(g)}  best {g.affinity.min():.2f}  '
-                  f'median {g.affinity.median():.2f}  worst {g.affinity.max():.2f}')
-            for k, r in zip(ref.nearest_ref, ref.affinity):
-                better = int((g.affinity < r).sum())
-                print(f'    better than {k} ({r:.2f}): {better}/{len(g)} '
-                      f'({100*better/len(g):.1f}%)')
-            top = g.nsmallest(5, 'affinity')
-            print('  best generated:')
+            print(f'    {r.nearest_ref:5s} docked {r.affinity_docked:8.2f}')
+        gn = g.dropna(subset=['affinity_native'])
+        gd = g.dropna(subset=['affinity_docked'])
+        if len(gn):
+            print(f'  generated, OWN model pose (score_only): n={len(gn)}  '
+                  f'best {gn.affinity_native.min():.2f}  median {gn.affinity_native.median():.2f}')
+        if len(gd):
+            print(f'  generated, global docked:               n={len(gd)}  '
+                  f'best {gd.affinity_docked.min():.2f}  median {gd.affinity_docked.median():.2f}')
+        best_ref = ref.affinity_docked.min()
+        if len(gn):
+            better = int((gn.affinity_native < best_ref).sum())
+            print(f'  native pose beats the best reference ({best_ref:.2f}): '
+                  f'{better}/{len(gn)} ({100*better/len(gn):.1f}%)')
+        top = gn.nsmallest(5, 'affinity_native') if len(gn) else gn
+        if len(top):
+            print('  best generated (native pose):')
             for _, t in top.iterrows():
-                print(f'    {t.affinity:8.2f}  ECFP4 {t.ecfp4_to_ref:.3f}  {t.smiles[:64]}')
+                print(f'    {t.affinity_native:8.2f}  ECFP4 {t.ecfp4_to_ref:.3f}  {t.smiles[:60]}')
     return 0
 
 

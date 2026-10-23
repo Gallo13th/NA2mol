@@ -568,3 +568,50 @@ target-like and among the strongest binders.
 
 Files: `repair_bond_orders.py`, `score_with_rna2smol.py`,
 `reports/rna2smol_scores.csv` (2,362 rows).
+
+### Corrected scoring protocol
+
+The first scoring run was wrong on both counts and returned ~0 for everything.
+
+**Generated molecules must be scored on their own pose.** The sampler emits coordinates in
+the pocket frame (verified: centroid within ~1 A of the pocket centroid, extent ~10 A), so
+the model's conformer *is* its predicted binding mode. Re-embedding from SMILES and
+re-docking discards exactly the thing being evaluated. Fixed: generated molecules are scored
+with `--score_only` on the model's pose.
+
+**`--minimize` was the wrong mode.** It needs an explicit scoring box; without one it returns
+unphysical near-zero or positive values (that is where the +0.33..+1.89 came from, despite the
+ligand having zero clashes at 2.7 A minimum distance). Not used any more.
+
+**References have no pose in these structures**, so they are placed by global docking in a box
+around the pocket (`--autobox_ligand pocket --autobox_add 4 --exhaustiveness 8`) and the best
+affinity is reported. This favours the references, since docking optimises their pose while
+the generated molecules are scored as produced.
+
+### Squash results (the valid comparison)
+
+The strict cores were harvested on Squash, and all resampling used that pocket.
+
+| | affinity (kcal/mol) |
+|---|---|
+| mol1 (docked) | −12.50 |
+| mol2 (docked) | −12.60 |
+| mol3 (docked) | −11.20 |
+| mol4 (docked) | −12.00 |
+| mol5 (docked) | −9.30 |
+| **generated, own pose** | **best −15.35, median −11.66** |
+
+**19.8% of the generated molecules (233/1176) score better than the best reference**, and the
+median is within 1 kcal/mol of it - while being scored on an unoptimised pose against docked
+references.
+
+Top scoring generated molecules do carry artefacts (sulfonic/phosphonic groups, `[PH](O)(O)O`,
+`S(N)(O)O`) inherited from the model's atom-type quirks; their ECFP4 to the targets is low
+(0.18-0.35). The highest-similarity molecules are not the strongest binders, but several sit in
+both the top similarity band and the top affinity band.
+
+**The Clivia column in `rna2smol_scores.csv` is not valid**: no strict core was harvested on
+Clivia, so every molecule was generated against Squash and contacts nothing in the Clivia
+pocket, scoring 0.00.
+
+Files: `score_fast.py`, `reports/rna2smol_scores.csv`.
