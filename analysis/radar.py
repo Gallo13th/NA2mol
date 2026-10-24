@@ -254,7 +254,8 @@ def normalise_ecfp4(recovery_observed: dict[str, float],
 def draw_radar(ax, scores_by_method: dict[str, dict], title: str = '',
                colors: dict | None = None, labels: dict | None = None,
                legend: bool = True, fontsize: float = 7.0,
-               title_pad: float = 24.0):
+               title_pad: float = 24.0, markers: dict | None = None,
+               linestyles: dict | None = None):
     """Draw the manuscript's seven-axis radar on ``ax`` (a polar axes).
 
     ``scores_by_method[method]`` maps axis key -> s_m in [0, 1]; the radius drawn is
@@ -277,14 +278,18 @@ def draw_radar(ax, scores_by_method: dict[str, dict], title: str = '',
 
     colors = colors or {}
     labels = labels or {}
+    markers = markers or {}
+    linestyles = linestyles or {}
     closed = np.append(theta, theta[0])
     for method, sc in scores_by_method.items():
         s = np.array([sc.get(a, 0.0) for a in AXIS_ORDER], dtype=float)
         r = np.asarray(radial(np.nan_to_num(s, nan=0.0)))
         r = np.append(r, r[0])
         colour = colors.get(method, '#606060')
-        ax.plot(closed, r, color=colour, linewidth=1.15, marker='o',
-                markersize=2.6, label=labels.get(method, method))
+        ax.plot(closed, r, color=colour, linewidth=1.15,
+                marker=markers.get(method, 'o'), markersize=2.6,
+                linestyle=linestyles.get(method, 'solid'),
+                label=labels.get(method, method))
         ax.fill(closed, r, color=colour, alpha=0.06)
     if title:
         # pad clears the topmost axis label, which sits above the circle

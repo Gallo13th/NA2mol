@@ -1,41 +1,10 @@
-\section*{Supplementary Table 12 | Raw metric values behind the radar panels of Figs.~2 and 3}
+\section*{Supplementary Table 12 | Normalised radar scores behind the radar panels of Figs.~2 and 3}
 Values underlying the radar panels of Figs.~2a, 2d and 3a. The radar axes are normalised scores $s_m$ drawn at $r_m = 1 + 2s_m$, so the raw metric values are not recoverable from the figure and are given here. Property values are pooled medians over all of the method's molecules, the same molecule pool used by the retention-curve integrals; the radar axes for docking, RMSD, QED, SA, SEI and strain are the normalised integral of the retention curve (log$_{10}$ scale for strain), so a median is a summary and not the plotted quantity. Dock. is in kcal mol$^{-1}$, RMSD in \AA, and strain in kcal mol$^{-1}$; strain values above 10$^3$ are written in scientific notation. ECFP4 rec. is the observed recovery (fraction of targets with at least one molecule reaching ECFP4-TS $\geq\tau$, averaged over $\tau \in [0.25,0.50]$). Panel~B gives the seven normalised scores actually plotted: on the six property axes $s=0.5$ is the mid-ring, and on the ECFP4 axis $s=0$ is the shuffled-label baseline and $s=1$ the best method. NA2smol appears under both Fig.~2d and Fig.~3a because the full model is the same output set in both.
 
 \bigskip
 
 \noindent\begin{minipage}{\textwidth}
-\textbf{Panel A. Raw metric values}
-\begin{center}\footnotesize
-\setlength{\tabcolsep}{3.5pt}
-\begin{tabular}{@{}llccccccc@{}}
-\toprule
-\textbf{Method} & \textbf{$n$} & \textbf{Dock.} & \textbf{RMSD} & \textbf{QED} & \textbf{SA} & \textbf{SEI} & \textbf{Strain} & \textbf{ECFP4 rec.} \\
-\midrule
-\multicolumn{9}{@{}l}{\textit{Fig. 2a — DUD-E protein}} \\
-NA2smol & 104,980 & -8.19 & 0.87 & 0.647 & 3.14 & 0.114 & 129 & 0.656 \\
-MolCRAFT & 98,257 & -9.86 & 0.38 & 0.527 & 4.11 & 0.106 & 258 & 0.331 \\
-Pocket2Mol & 65,662 & -5.89 & 1.47 & 0.565 & 3.00 & 0.092 & 215 & 0.417 \\
-ED2Mol & 93,293 & -6.06 & 1.87 & 0.736 & 3.04 & 0.128 & 25 & 0.482 \\
-\midrule
-\multicolumn{9}{@{}l}{\textit{Fig. 2d — RNA test set}} \\
-NA2smol & 35,358 & -7.27 & 1.12 & 0.641 & 3.53 & 0.103 & 218 & 0.218 \\
-MolCRAFT & 34,925 & -6.91 & 0.39 & 0.421 & 3.84 & 0.062 & 125 & 0.059 \\
-Pocket2Mol & 34,097 & -5.86 & 1.32 & 0.554 & 2.94 & 0.070 & 275 & 0.080 \\
-ED2Mol & 29,932 & -5.16 & 1.62 & 0.699 & 2.85 & 0.116 & 23 & 0.077 \\
-\midrule
-\multicolumn{9}{@{}l}{\textit{Fig. 3a — RNA test set, four configurations}} \\
-Baseline & 36,209 & -6.03 & 1.09 & 0.484 & 3.86 & 0.078 & 376 & 0.141 \\
-Pretrain Only & 32,782 & -7.19 & 1.32 & 0.509 & 5.11 & 0.096 & $1.4\times10^{4}$ & 0.035 \\
-Pretrain+Constrain & 35,640 & -7.21 & 1.26 & 0.619 & 4.35 & 0.104 & 285 & 0.132 \\
-NA2smol & 35,358 & -7.27 & 1.12 & 0.641 & 3.53 & 0.103 & 218 & 0.218 \\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{minipage}
-\bigskip
-
-\noindent\begin{minipage}{\textwidth}
-\textbf{Panel B. Normalised radar scores $s_m$}
+\textbf{Normalised radar scores $s_m$}
 \begin{center}\footnotesize
 \setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{@{}llccccccc@{}}

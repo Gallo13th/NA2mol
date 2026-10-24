@@ -112,6 +112,7 @@ def main() -> int:
               'median_qed', 'median_sa', 'median_sei', 'median_strain',
               'recovery_observed', 's_ecfp4']].to_string(index=False))
     write_latex(df)
+    write_main_table(df)
     return 0
 
 
@@ -191,15 +192,90 @@ def write_latex(df: pd.DataFrame) -> None:
         'output set in both.'
     )
     parts = [
-        '\\section*{Supplementary Table 12 | Raw metric values behind the radar panels of Figs.~2 and 3}',
+        '\\section*{Supplementary Table 12 | Normalised radar scores behind the radar panels of Figs.~2 and 3}',
         notes, '', '\\bigskip', '',
-        _grouped_table(df, RAW_COLS, 'Panel A. Raw metric values'),
-        '\\bigskip', '',
-        _grouped_table(df, SCORE_COLS, 'Panel B. Normalised radar scores $s_m$'),
+        _grouped_table(df, SCORE_COLS, 'Normalised radar scores $s_m$'),
     ]
     OUT_TEX.parent.mkdir(parents=True, exist_ok=True)
     OUT_TEX.write_text('\n'.join(parts) + '\n')
     print(f'wrote {OUT_TEX.relative_to(ROOT)}')
+
+
+# ── main-text table: ranks within each benchmark group ------------------------
+# direction per column: True = lower is better
+LOWER_IS_BETTER = {
+    'median_docking': True, 'median_rmsd': True, 'median_qed': False,
+    'median_sa': True, 'median_sei': False, 'median_strain': True,
+    'recovery_observed': False,
+}
+MAIN_COLS = [
+    ('median_docking', 'Dock.', '%.2f'), ('median_rmsd', 'RMSD', '%.2f'),
+    ('median_qed', 'QED', '%.3f'), ('median_sa', 'SA', '%.2f'),
+    ('median_sei', 'SEI', '%.3f'), ('median_strain', 'Strain', _fmt_strain),
+    ('recovery_observed', 'ECFP4 rec.', '%.3f'),
+]
+MAIN_GROUPS = [('Fig. 2a', 'DUD-E protein'), ('Fig. 2d', 'RNA test set'),
+               ('Fig. 3a', 'RNA test set, four configurations')]
+
+
+def write_main_table(df: pd.DataFrame) -> None:
+    """Best value in each benchmark group in bold, runner-up underlined."""
+    out = ['\\begin{table}[!htbp]', '\\centering', '\\footnotesize',
+           '\\setlength{\\tabcolsep}{4pt}',
+           f'\\begin{{tabular}}{{@{{}}l{chr(99) * len(MAIN_COLS)}@{{}}}}', '\\toprule',
+           '\\textbf{Method} & ' + ' & '.join(f'\\textbf{{{l}}}' for _, l, _ in MAIN_COLS) + ' \\\\',
+           '\\midrule']
+    for gi, (panel, group_label) in enumerate(MAIN_GROUPS):
+        sub = df[df['panel'] == panel].reset_index(drop=True)
+        if sub.empty:
+            continue
+        # rank each column inside the group; ties share the best emphasis
+        marks = {}
+        for key, _, _ in MAIN_COLS:
+            vals = sub[key].astype(float).to_numpy()
+            finite = np.isfinite(vals)
+            if not finite.any():
+                continue
+            ordered = np.sort(np.unique(vals[finite]))
+            ranked = ordered if LOWER_IS_BETTER[key] else ordered[::-1]
+            for rank, v in enumerate(ranked[:2]):
+                for i, x in enumerate(vals):
+                    if np.isfinite(x) and x == v:
+                        marks.setdefault((i, key), rank)
+        if gi:
+            out.append('\\midrule')
+        out.append(f'\\multicolumn{{{1 + len(MAIN_COLS)}}}{{@{{}}l}}{{\\textit{{{panel} \u2014 {group_label}}}}} \\\\')
+        for i, r in sub.iterrows():
+            cells = []
+            for key, _, fmt in MAIN_COLS:
+                v = r[key]
+                txt = fmt(v) if callable(fmt) else ('--' if v != v else fmt % v)
+                if txt.startswith('-'):      # math minus, not a text hyphen
+                    txt = f'${txt}$'
+                rank = marks.get((i, key))
+                if rank == 0:
+                    txt = f'\\textbf{{{txt}}}'
+                elif rank == 1:
+                    txt = f'\\underline{{{txt}}}'
+                cells.append(txt)
+            out.append(f"{r['method']} & " + ' & '.join(cells) + ' \\\\')
+    out += ['\\bottomrule', '\\end{tabular}',
+            '\\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the '
+            'configuration comparison (Fig.~3a). Dock., smina docking score (kcal mol$^{-1}$); '
+            'RMSD (\\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, '
+            'surface efficiency index ($-$docking score / TPSA); Strain, conformational strain '
+            'energy (kcal mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., the observed '
+            'recovery on the ECFP4-Tanimoto axis. Values are pooled medians over all of a '
+            "method's molecules. \\textbf{Bold} marks the best value in each benchmark group and "
+            '\\underline{underline} the second best; better is lower for Dock., RMSD, SA and '
+            'Strain and higher for QED, SEI and ECFP4 rec. These are the single-number summaries '
+            'of the distributions whose normalised retention-curve integrals are drawn in the '
+            'radars; the normalised scores themselves are in Supplementary Table~12.}',
+            '\\label{radar_values_tab}', '\\end{table}']
+    path = ROOT / 'reproduction' / 'manuscript' / 'table_radar_values.tex'
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text('\n'.join(out) + '\n')
+    print(f'wrote {path.relative_to(ROOT)}')
 
 
 if __name__ == '__main__':

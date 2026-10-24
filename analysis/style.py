@@ -28,11 +28,27 @@ METHOD_COLORS = {
     "ed2mol":                         "#0072B2",
 }
 
+# Fig. 3 follows the same convention as Fig. 2: only the protagonist (the full model)
+# carries a colour, and the configurations it is compared against take a grey ramp.
+# Three greys alone would not be separable, so each also gets its own marker and dash
+# pattern -- the same device Fig. 2 uses for the external generators.
 ABL_COLORS = {
-    "RNA2smol (Baseline)":          "#555555",  # neutral dark grey
-    "Pretrain Only":                "#E69F00",  # Wong orange
-    "Pretrain+Constrain":           "#56B4E9",  # Wong sky blue
+    "RNA2smol (Baseline)":          "#3F3F3F",  # dark grey
+    "Pretrain Only":                "#7F7F7F",  # mid grey
+    "Pretrain+Constrain":           "#B3B3B3",  # light grey
     "RNA2smol (Only General Feat)": "#009E73",  # Wong bluish green (full model)
+}
+ABL_MARKERS = {
+    "RNA2smol (Baseline)":          "o",
+    "Pretrain Only":                "s",
+    "Pretrain+Constrain":           "^",
+    "RNA2smol (Only General Feat)": "D",
+}
+ABL_DASHES = {
+    "RNA2smol (Baseline)":          (0, (1, 1.2)),              # dotted
+    "Pretrain Only":                (0, (4, 1.8)),              # dashed
+    "Pretrain+Constrain":           (0, (6, 1.8, 1.2, 1.8)),    # dash-dot
+    "RNA2smol (Only General Feat)": "solid",
 }
 
 # ── Attrition (endpoint gate losses) palette ──────────────────────────────
@@ -571,3 +587,15 @@ def place_panel_labels(fig, gridspec, cells: dict, dx: float = 0.078,
         box = gridspec[row, col].get_position(fig)
         fig.text(box.x0 - dx, box.y1 + dy, letter, ha="left", va="bottom",
                  fontsize=fontsize, fontweight="bold", color=INK)
+
+
+def readable_ink(hex_color: str, threshold: float = 0.6) -> str:
+    """White or INK, whichever stays legible on the given fill colour.
+
+    Needed once the comparison series became a grey ramp: a white label on the
+    light grey is invisible.
+    """
+    c = hex_color.lstrip('#')
+    r, g, b = (int(c[i:i + 2], 16) / 255 for i in (0, 2, 4))
+    luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    return INK if luminance > threshold else 'white'

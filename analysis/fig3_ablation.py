@@ -24,6 +24,9 @@ from matplotlib.lines import Line2D
 import radar as R
 from style import (
     ABL_COLORS,
+    ABL_MARKERS,
+    ABL_DASHES,
+    readable_ink,
     FUNNEL_STEPS,
     INK,
     MUTED,
@@ -143,7 +146,8 @@ def plot_profile(ax, df, title_pad: float | None = None, panel_lbl: str | None =
     tbl = _radar_table()
     scores = {m: {a: float(tbl.loc[m, a]) for a in R.AXIS_ORDER}
               for m in ABL_ORDER if m in tbl.index}
-    R.draw_radar(ax, scores, title=title, colors=ABL_COLORS, labels=ABL_LABELS)
+    R.draw_radar(ax, scores, title=title, colors=ABL_COLORS, labels=ABL_LABELS,
+                 markers=ABL_MARKERS, linestyles=ABL_DASHES)
     if panel_lbl:
         panel_label(ax, panel_lbl, x=-0.10, y=1.02)
 
@@ -191,8 +195,9 @@ def plot_funnel(ax, df, value_col, ylabel, title, panel_lbl, log=False):
             yvals = np.where(yvals > 0, yvals, np.nan)
         ax.plot(
             x, yvals,
-            marker="o", markersize=3.0, linewidth=1.1,
+            marker=ABL_MARKERS.get(m, "o"), markersize=3.0, linewidth=1.1,
             color=color_for(m), label=label_for(m),
+            linestyle=ABL_DASHES.get(m, "solid"),
         )
     ax.set_xticks(x)
     ax.set_xticklabels(step_labels, rotation=35, ha="right")
@@ -412,7 +417,7 @@ def plot_component_waterfall(ax, df, panel_lbl="f"):
             ax.text(bar.get_x() + bar.get_width() / 2,
                     bar_bottoms[i] + bar_heights[i] / 2,
                     f"{sign}{inc}", ha="center", va="center",
-                    fontsize=5.8, color="white", fontweight="bold")
+                    fontsize=5.8, color=readable_ink(colors[i]), fontweight="bold")
         else:
             ax.text(bar.get_x() + bar.get_width() + 0.04,
                     bar_bottoms[i] + bar_heights[i] / 2,
@@ -525,7 +530,8 @@ def render_master(df) -> None:
 
     # Shared legend at top
     handles = [
-        Line2D([0], [0], color=color_for(m), marker="o", linewidth=1.1,
+        Line2D([0], [0], color=color_for(m), marker=ABL_MARKERS.get(m, "o"),
+               linestyle=ABL_DASHES.get(m, "solid"), linewidth=1.1,
                markersize=3.2, label=label_for(m).replace("\n", " "))
         for m in ABL_ORDER
     ]
