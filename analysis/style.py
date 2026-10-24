@@ -33,16 +33,16 @@ METHOD_COLORS = {
 # Three greys alone would not be separable, so each also gets its own marker and dash
 # pattern -- the same device Fig. 2 uses for the external generators.
 ABL_COLORS = {
-    "RNA2smol (Baseline)":          "#3F3F3F",  # dark grey
-    "Pretrain Only":                "#7F7F7F",  # mid grey
-    "Pretrain+Constrain":           "#B3B3B3",  # light grey
-    "RNA2smol (Only General Feat)": "#009E73",  # Wong bluish green (full model)
+    "RNA2smol (Baseline)":          "#555555",  # grey ramp, sampled from the reference figure
+    "Pretrain Only":                "#707070",
+    "Pretrain+Constrain":           "#989898",
+    "RNA2smol (Only General Feat)": "#246B70",  # protagonist teal, shared with Fig. 2
 }
 ABL_MARKERS = {
     "RNA2smol (Baseline)":          "o",
     "Pretrain Only":                "s",
     "Pretrain+Constrain":           "^",
-    "RNA2smol (Only General Feat)": "D",
+    "RNA2smol (Only General Feat)": "o",
 }
 ABL_DASHES = {
     "RNA2smol (Baseline)":          (0, (1, 1.2)),              # dotted

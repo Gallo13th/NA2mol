@@ -299,7 +299,7 @@ def plot_strain_distribution(ax, df, panel_lbl="d"):
     for i, m in enumerate(ABL_ORDER):
         med = np.median(per_target[m].reindex(common).dropna())
         ax.text(i + 0.35, np.log10(med) if med > 0 else 0,
-               f'{med:.0f}', fontsize=5.5, va='center', ha='left', color=INK)
+               f'{med:,.0f}', fontsize=5.5, va='center', ha='left', color=INK)
 
     ax.set_xticks(x)
     ax.set_xticklabels([label_for(m) for m in ABL_ORDER], rotation=18, ha="right")
@@ -339,9 +339,12 @@ def plot_docking_strain_hexbin(ax, df, panel_lbl="e"):
         if len(sub) > 20000:
             sub = sub.sample(20000, random_state=42 + idx)
 
+        # greyscale density for the configurations the full model is compared
+        # against; colour is reserved for the full model, as in the reference figure
+        cmap = "YlGnBu" if config == ABL_ORDER[-1] else "Greys"
         hb = sub_ax.hexbin(
             sub["affinity"], np.log10(sub["strain"]),
-            gridsize=gridsize, cmap="YlGnBu", mincnt=1,
+            gridsize=gridsize, cmap=cmap, mincnt=1,
             extent=(-12, -2, 1, 5),
         )
         vmax = max(vmax, hb.get_array().max())
