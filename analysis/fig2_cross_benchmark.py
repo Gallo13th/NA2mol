@@ -563,7 +563,8 @@ def render_master(tables: dict) -> None:
     # Row 2 is not tied to the radar column: the scaffold-diversity panel needs more
     # width than a radar does, or its rotated category labels collide at print size.
     G_R = 0.330
-    H_L = 0.384
+    # h starts far enough right that panel g's legend cannot run into its y labels
+    H_L = 0.406
     axes["g"] = fig.add_axes([C0_L, R2_B, G_R - C0_L, RH2])
     axes["h"] = fig.add_axes([H_L, R2_B, C2_R - H_L, RH2])  # spans what is left
 
