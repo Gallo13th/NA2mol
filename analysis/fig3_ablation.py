@@ -380,6 +380,10 @@ def plot_docking_strain_hexbin(ax, df, panel_lbl="e"):
     cbar = ax.figure.colorbar(ims[0], cax=cax)
     cbar.set_label("Molecule density", fontsize=5.0)
     cbar.ax.tick_params(labelsize=4.5)
+    # one density scale covers all four tiles, but only the full model is drawn in
+    # colour, so say so under the bar (as the reference panel does)
+    cax.text(0.5, -0.10, "Shared scale", transform=cax.transAxes, ha="center",
+             va="top", fontsize=5.0, color=MUTED)
 
     # (the strain-aware endpoint threshold lines — docking -9 kcal mol^-1 and
     # strain < 200 kcal mol^-1 — are already visualised as dashes inside each
