@@ -125,15 +125,64 @@ def workflow(ax):
     ax.text(-0.01, 1, "a", fontsize=9, fontweight="bold")
 
 
+FIG4A_SVG = BASE / "assets" / "figure4a.svg"
+
+
+def place_panel_a(fig, out_pdf: Path, ax_a) -> None:
+    """Put the designed SVG into panel a's slot, keeping it vector.
+
+    Panel a is now the designer's artwork (assets/figure4a.svg) rather than a matplotlib
+    drawing. matplotlib cannot embed an SVG, so the figure is saved with that slot empty
+    and the SVG -- converted to PDF by rsvg-convert -- is placed over the slot with
+    PyMuPDF. Both steps keep the panel as vector, so the result is not a raster inset.
+    """
+    import subprocess
+
+    import fitz  # PyMuPDF
+
+    fig.canvas.draw()
+    pad = plt.rcParams["savefig.pad_inches"]
+    bb = fig.get_tightbbox(fig.canvas.get_renderer())   # inches, tight-bbox save
+
+    base = out_pdf.with_name(out_pdf.stem + "_base.pdf")
+    fig.savefig(base, bbox_inches="tight")
+
+    panel_pdf = out_pdf.with_name(out_pdf.stem + "_panela.pdf")
+    subprocess.run(["rsvg-convert", "-f", "pdf", "-o", str(panel_pdf),
+                    str(FIG4A_SVG)], check=True)
+
+    fw, fh = fig.get_size_inches()
+    box = ax_a.get_position()
+    doc = fitz.open(base)
+    page = doc[0]
+    # matplotlib measures from the bottom, PyMuPDF from the top: convert using the
+    # height of the page that was actually written, not a recomputed one.
+    x0 = (box.x0 * fw - bb.x0 + pad) * 72
+    x1 = ((box.x0 + box.width) * fw - bb.x0 + pad) * 72
+    y0 = (box.y0 * fh - bb.y0 + pad) * 72            # from the bottom
+    y1 = ((box.y0 + box.height) * fh - bb.y0 + pad) * 72
+    rect = fitz.Rect(x0, page.rect.height - y1, x1, page.rect.height - y0)
+    page.show_pdf_page(rect, fitz.open(panel_pdf), 0)
+    doc.save(out_pdf, deflate=True)
+    for tmp in (base, panel_pdf):
+        tmp.unlink(missing_ok=True)
+
+
 def main():
     setup_publication_style()
-    fig = plt.figure(figsize=(7.2, 8.2), facecolor="white")
-    workflow(fig.add_axes([0.02, 0.755, 0.97, 0.235]))
-    fragment_ax = fig.add_axes([0.065, 0.495, 0.18, 0.20])
-    product_ax = fig.add_axes([0.315, 0.495, 0.18, 0.20])
-    relaxed_ax = fig.add_axes([0.565, 0.495, 0.18, 0.20])
-    votes_ax = fig.add_axes([0.815, 0.495, 0.18, 0.20])
-    assay_ax = fig.add_axes([0.745, 0.10, 0.24, 0.25])
+    # Panel a is the designed artwork (524.868 x 184 pt), so the canvas is widened to its
+    # width and the slots below keep the absolute positions they had on the 7.2 x 8.2 in
+    # canvas -- only the fractions change, because the canvas is now 7.29 x 8.83 in.
+    FW, FH = 7.290, 8.830
+    OLD_H = 8.2
+    fig = plt.figure(figsize=(FW, FH), facecolor="white")
+    panel_a_ax = fig.add_axes([0.0, (FH - 184 / 72) / FH, 1.0, (184 / 72) / FH])
+    panel_a_ax.axis("off")   # blank slot for the designed artwork
+    fragment_ax = fig.add_axes([0.065, 0.495 * OLD_H / FH, 0.18, 0.20 * OLD_H / FH])
+    product_ax = fig.add_axes([0.315, 0.495 * OLD_H / FH, 0.18, 0.20 * OLD_H / FH])
+    relaxed_ax = fig.add_axes([0.565, 0.495 * OLD_H / FH, 0.18, 0.20 * OLD_H / FH])
+    votes_ax = fig.add_axes([0.815, 0.495 * OLD_H / FH, 0.18, 0.20 * OLD_H / FH])
+    assay_ax = fig.add_axes([0.745, 0.10 * OLD_H / FH, 0.24, 0.25 * OLD_H / FH])
     fragments = stage("paper_stage1_fragments.json").dropna(subset=["smina", "QED"])
     products = stage("paper_stage4_products.json").dropna(subset=["QED", "SAS"])
     for ax, frame, xkey, ykey, passkey, title, letter in [
@@ -210,7 +259,18 @@ def main():
                  ha="center", va="top", fontsize=4.8)
     pd.DataFrame([{ "candidate": index + 1, **record} for index, record in enumerate(registered)]).to_csv(
         OUT / "figure4_candidate_labels.csv", index=False)
-    save_all(fig, OUT / "figure4", include_tiff=False)
+    # save the matplotlib layers, then place panel a over its slot; the png/svg/eps are
+    # re-derived from the composited pdf so every format carries the new panel
+    out_pdf = OUT / "figure4.pdf"
+    place_panel_a(fig, out_pdf, panel_a_ax)
+    import subprocess
+    subprocess.run(["pdftocairo", "-png", "-singlefile", "-r", "600",
+                    str(out_pdf), str(out_pdf.with_suffix(""))], check=True)
+    subprocess.run(["pdftocairo", "-svg", str(out_pdf),
+                    str(out_pdf.with_suffix(".svg"))], check=True)
+    subprocess.run(["pdftocairo", "-eps", str(out_pdf),
+                    str(out_pdf.with_suffix(".eps"))], check=True)
+    print(f"Wrote {out_pdf} and .png/.svg/.eps")
     plt.close(fig)
 
 
