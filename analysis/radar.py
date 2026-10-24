@@ -251,9 +251,13 @@ def normalise_ecfp4(recovery_observed: dict[str, float],
 
 
 # ── drawing ─────────────────────────────────────────────────────────────────
+RING_DARK = '#68717A'    # heavy rings at r=1 and r=3
+RING_LIGHT = '#DCE0E3'   # spokes and the r=2 ring
+
+
 def draw_radar(ax, scores_by_method: dict[str, dict], title: str = '',
                colors: dict | None = None, labels: dict | None = None,
-               legend: bool = True, fontsize: float = 7.0,
+               legend: bool = False, fontsize: float = 7.0,
                title_pad: float = 24.0, markers: dict | None = None,
                linestyles: dict | None = None):
     """Draw the manuscript's seven-axis radar on ``ax`` (a polar axes).
@@ -265,22 +269,33 @@ def draw_radar(ax, scores_by_method: dict[str, dict], title: str = '',
     import numpy as np
 
     theta = np.linspace(0.0, 2 * np.pi, len(AXIS_ORDER), endpoint=False)
+    closed_theta = np.append(theta, theta[0])
     ax.set_theta_offset(np.pi / 2)
     ax.set_theta_direction(-1)
     ax.set_xticks(theta)
     ax.set_xticklabels([SEVEN_LABELS[a] for a in AXIS_ORDER], fontsize=fontsize)
     ax.set_ylim(0.0, 3.0)
+    # The reference panels carry no radial tick numbers: the rings are told apart by
+    # weight, with the inner (r=1) and outer (r=3) rings heavy and the r=2 ring light.
     ax.set_yticks([1, 2, 3])
-    ax.set_yticklabels(['1', '2', '3'], fontsize=fontsize * 0.8, color='#8a9299')
-    ax.set_rlabel_position(180.0 / len(AXIS_ORDER))
-    ax.grid(color='#E4E7EA', linewidth=0.6)
-    ax.spines['polar'].set_color('#c8ced3')
+    ax.set_yticklabels([])
+    ax.grid(False)
+    for th in theta:
+        ax.plot([th, th], [0.0, 3.0], color=RING_LIGHT, linewidth=0.6, zorder=0)
+    # the rings are circles, not the 7-gon the axis vertices would produce
+    ring_theta = np.linspace(0.0, 2 * np.pi, 361)
+    ax.plot(ring_theta, np.full(ring_theta.shape, 2.0),
+            color=RING_LIGHT, linewidth=0.6, zorder=0)
+    ax.plot(ring_theta, np.full(ring_theta.shape, 1.0),
+            color=RING_DARK, linewidth=1.8, zorder=1)
+    ax.spines['polar'].set_color(RING_DARK)
+    ax.spines['polar'].set_linewidth(1.8)
 
     colors = colors or {}
     labels = labels or {}
     markers = markers or {}
     linestyles = linestyles or {}
-    closed = np.append(theta, theta[0])
+    closed = closed_theta
     for method, sc in scores_by_method.items():
         s = np.array([sc.get(a, 0.0) for a in AXIS_ORDER], dtype=float)
         r = np.asarray(radial(np.nan_to_num(s, nan=0.0)))
