@@ -49,6 +49,10 @@ External binaries and packages:
 * **rDock 2013.1** — set `RBT_ROOT`; required only for the case study.
 * **OpenBabel** (`openbabel` Python bindings) — **required for every generated molecule.** Listed in
   `setup_env.sh`; missing from the live environment.
+* **rsvg-convert** (librsvg) and **PyMuPDF** — only for Fig. 4. Panel a there is designed
+  artwork (`case_study/kras_g4/assets/figure4a.svg`); rsvg-convert turns it into a PDF and
+  PyMuPDF places it over the panel-a slot, keeping it vector. **pdftocairo** (poppler) then
+  re-derives the png/svg/eps from the composited PDF. Without these, Fig. 4 cannot be rebuilt.
   `util/mol_utils.py::reconstruct_from_generated` is the only path from a generated atom cloud to a
   molecular graph. It builds an OpenBabel molecule, infers bonds from covalent radii, calls
   `PerceiveBondOrders`, and only then converts to RDKit. `setup_env.sh` already lists it, but it is
