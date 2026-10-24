@@ -623,3 +623,17 @@ def readable_ink(hex_color: str, threshold: float = 0.6) -> str:
     r, g, b = (int(c[i:i + 2], 16) / 255 for i in (0, 2, 4))
     luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
     return INK if luminance > threshold else 'white'
+
+
+def place_panel_labels_from_rects(fig, rects: dict, dx: float = 0.030,
+                                  dy: float = 0.012, fontsize: float = 9) -> None:
+    """Place panel letters from explicit ``(x0, y0, w, h)`` cell rectangles.
+
+    The counterpart of place_panel_labels for figures laid out with add_axes instead of
+    a gridspec. Anchoring to the cell rather than the axes is what makes the letters
+    line up: a polar axes is inset inside its cell and reports a smaller box, so
+    axes-relative offsets put its letter somewhere else.
+    """
+    for letter, (x0, y0, w, h) in rects.items():
+        fig.text(x0 - dx, y0 + h + dy, letter, ha="left", va="bottom",
+                 fontsize=fontsize, fontweight="bold", color=INK)

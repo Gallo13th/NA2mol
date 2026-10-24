@@ -17,6 +17,7 @@ from style import (
     METHOD_COLORS,
     METHOD_MARKERS,
     METHOD_DASHES,
+    place_panel_labels_from_rects,
     METHOD_LABELS,
     detect_text_overlaps,
     group_metrics_by_direction,
@@ -566,6 +567,16 @@ def render_master(tables: dict) -> None:
     axes["g"] = fig.add_axes([C0_L, R2_B, G_R - C0_L, RH2])
     axes["h"] = fig.add_axes([H_L, R2_B, C2_R - H_L, RH2])  # spans what is left
 
+    # All eight letters placed from the cell rectangles, in figure coordinates. Per-axes
+    # placement cannot align them: panels a/d are inset polar axes inside a larger cell,
+    # and the plot_* helpers each use their own axes-fraction offset.
+    place_panel_labels_from_rects(fig, {
+        "a": (C0_L, R0_B, CW0, RH0), "b": (C1_L, R0_B, CW1, RH0),
+        "c": (C2_L, R0_B, CW2, RH0), "d": (C0_L, R1_B, CW0, RH1),
+        "e": (C1_L, R1_B, CW1, RH1), "f": (C2_L, R1_B, CW2, RH1),
+        "g": (C0_L, R2_B, G_R - C0_L, RH2), "h": (H_L, R2_B, C2_R - H_L, RH2),
+    })
+
     lower_better = {"affinity", "rmsd", "sa_score", "strain"}
 
     # Row 0 — DUD-E protein control (manuscript order: a = DUD-E, d = RNA test set)
@@ -574,13 +585,12 @@ def render_master(tables: dict) -> None:
         title="DUD-E protein", colors=METHOD_COLORS, labels=METHOD_LABELS,
         markers=METHOD_MARKERS, linestyles=METHOD_DASHES,
         legend=False)
-    panel_label(axes["a"], "a", x=-0.14, y=1.06)
 
     plot_ecfp4(axes["b"], tables["dude_ecfp4"], DUDE_METHODS,
-              "Protein ECFP4 recovery", "b", y_max=105)
+              "Protein ECFP4 recovery", None, y_max=105)
     plot_funnel(axes["c"], tables["dude_funnel"], DUDE_METHODS,
               "targets_ge1", "Targets",
-              "Protein target retention", "c", y_max=105)
+              "Protein target retention", None, y_max=105)
 
     # Row 1 — RNA test set
     R.draw_radar(
@@ -588,17 +598,16 @@ def render_master(tables: dict) -> None:
         title="RNA test set", colors=METHOD_COLORS, labels=METHOD_LABELS,
         markers=METHOD_MARKERS, linestyles=METHOD_DASHES,
         legend=False)
-    panel_label(axes["d"], "d", x=-0.14, y=1.06)
 
     plot_ecfp4(axes["e"], tables["smrt_ecfp4"], SMRT_METHODS,
-              "RNA ECFP4 recovery", "e", y_max=28)
+              "RNA ECFP4 recovery", None, y_max=28)
     plot_funnel(axes["f"], tables["smrt_funnel"], SMRT_METHODS,
               "targets_ge1", "Targets",
-              "RNA target retention", "f", y_max=28)
+              "RNA target retention", None, y_max=28)
 
     # Row 2 — Cross-benchmark evidence
-    plot_scaffold_diversity(axes["g"], "g")
-    plot_per_target_coverage(axes["h"], tables["smrt_raw"], SMRT_METHODS, "h")
+    plot_scaffold_diversity(axes["g"], None)
+    plot_per_target_coverage(axes["h"], tables["smrt_raw"], SMRT_METHODS, None)
 
     # Top method legend
     handles = [
