@@ -17,15 +17,39 @@ INK = "#202124"
 MUTED = "#68717A"
 GRID = "#E4E7EA"
 
+# Fig. 2 uses the same convention as Fig. 3: only the protagonist carries a colour and
+# everything it is compared against takes a grey ramp. The palette below was sampled
+# from the published figure, together with the marker and dash that separate the three
+# greys (two of which are the same shape, so the dash does the disambiguating).
 METHOD_COLORS = {
-    "RNA2smol":                       "#009E73",  # Wong bluish green (protagonist)
-    "RNA2smol (Only General Feat)":   "#009E73",  # alias for full model
-    "RNA2smol (Baseline)":            "#555555",  # neutral dark grey (clearly distinct from ED2Mol)
-    "MolCRAFT":                       "#D55E00",  # Wong vermillion
-    "MolCRAFT (Original)":            "#E69F00",  # Wong orange (lighter variant for the Original control)
-    "Pocket2Mol":                     "#CC79A7",  # Wong reddish purple
-    "ED2Mol":                         "#0072B2",  # Wong blue (clearly distinct from baseline grey)
-    "ed2mol":                         "#0072B2",
+    "RNA2smol":                       "#246B70",  # protagonist teal, shared with Fig. 3
+    "RNA2smol (Only General Feat)":   "#246B70",  # alias for the full model
+    "RNA2smol (Baseline)":            "#505050",  # dark grey
+    "MolCRAFT":                       "#A5A5A5",  # light grey
+    "MolCRAFT (Original)":            "#A5A5A5",
+    "Pocket2Mol":                     "#808080",  # mid grey
+    "ED2Mol":                         "#505050",  # dark grey
+    "ed2mol":                         "#505050",
+}
+METHOD_MARKERS = {
+    "RNA2smol":                       "o",
+    "RNA2smol (Only General Feat)":   "o",
+    "RNA2smol (Baseline)":            "o",
+    "MolCRAFT":                       "o",
+    "MolCRAFT (Original)":            "o",
+    "Pocket2Mol":                     "s",
+    "ED2Mol":                         "^",
+    "ed2mol":                         "^",
+}
+METHOD_DASHES = {
+    "RNA2smol":                       "solid",
+    "RNA2smol (Only General Feat)":   "solid",
+    "RNA2smol (Baseline)":            "solid",
+    "MolCRAFT":                       "solid",
+    "MolCRAFT (Original)":            "solid",
+    "Pocket2Mol":                     (0, (4, 1.8)),    # dashed
+    "ED2Mol":                         (0, (1, 1.2)),    # dotted
+    "ed2mol":                         (0, (1, 1.2)),
 }
 
 # Fig. 3 follows the same convention as Fig. 2: only the protagonist (the full model)

@@ -15,6 +15,8 @@ from style import (
     FUNNEL_STEPS,
     INK,
     METHOD_COLORS,
+    METHOD_MARKERS,
+    METHOD_DASHES,
     METHOD_LABELS,
     detect_text_overlaps,
     group_metrics_by_direction,
@@ -94,6 +96,14 @@ def color_for(method: str) -> str:
     return METHOD_COLORS.get(method, "#606060")
 
 
+def marker_for(method: str) -> str:
+    return METHOD_MARKERS.get(method, "o")
+
+
+def dash_for(method: str):
+    return METHOD_DASHES.get(method, "solid")
+
+
 def label_for(method: str) -> str:
     return METHOD_LABELS.get(method, method)
 
@@ -140,7 +150,8 @@ def plot_ecfp4(
         ax.plot(
             sub["tau"],
             sub["successful_targets_ge1_molecule"],
-            marker="o",
+            marker=marker_for(method),
+            linestyle=dash_for(method),
             markersize=2.8,
             linewidth=1.05,
             color=color_for(method),
@@ -198,7 +209,8 @@ def plot_funnel(
         ax.plot(
             x,
             yvals,
-            marker="o",
+            marker=marker_for(method),
+            linestyle=dash_for(method),
             markersize=2.8,
             linewidth=1.05,
             color=color_for(method),
@@ -470,7 +482,8 @@ def render_panels(tables: dict, panels_dir: Path) -> dict:
     # a — DUD-E radar (paper order: DUD-E is panel a, the RNA test set is panel d)
     _one("a", lambda ax: R.draw_radar(
         ax, radar_scores(tables["dude_radar"], DUDE_METHODS), title="",
-        colors=METHOD_COLORS, labels=METHOD_LABELS),
+        colors=METHOD_COLORS, labels=METHOD_LABELS,
+        markers=METHOD_MARKERS, linestyles=METHOD_DASHES),
         (2.48, 2.08), [0.13, 0.16, 0.82, 0.62], polar=True)
 
     # b — Protein ECFP4 recovery (row 0 is the DUD-E control, as in the manuscript)
@@ -485,7 +498,8 @@ def render_panels(tables: dict, panels_dir: Path) -> dict:
     # d — DUD-E profile table
     _one("d", lambda ax: R.draw_radar(
         ax, radar_scores(tables["smrt_radar"], SMRT_METHODS), title="",
-        colors=METHOD_COLORS, labels=METHOD_LABELS),
+        colors=METHOD_COLORS, labels=METHOD_LABELS,
+        markers=METHOD_MARKERS, linestyles=METHOD_DASHES),
         (2.48, 1.84), [0.13, 0.16, 0.82, 0.62], polar=True)
 
     # e — RNA ECFP4 recovery (row 1 is the RNA test set)
@@ -514,12 +528,17 @@ def render_master(tables: dict) -> None:
 
     # Wide-format layout: 11 × 8.0 in.
     # b=c width (ECFP4 = funnel), row heights shortened.
-    fig = plt.figure(figsize=(11.0, 8.0))
+    # Physical size chosen to match the manuscript slot (~7.1 x 6.4 in of content):
+    # the panel geometry below is fractional, so this keeps the same layout while
+    # putting the text at the size it is printed at.
+    fig = plt.figure(figsize=(7.3, 6.6))
 
     # Column positions — b and c get equal width
-    C0_L, C0_R = 0.045, 0.270      # col 0: tables (2.5 in)
-    C1_L, C1_R = 0.315, 0.618      # col 1: ECFP4 (3.33 in)
-    C2_L, C2_R = 0.663, 0.965      # col 2: funnels (3.33 in, = col 1)
+    # Gutters are sized for the 'Targets' y-axis labels of columns 1 and 2, which would
+    # otherwise run into the radar of column 0 at the printed width.
+    C0_L, C0_R = 0.045, 0.258      # col 0: radars
+    C1_L, C1_R = 0.352, 0.622      # col 1: ECFP4
+    C2_L, C2_R = 0.672, 0.965      # col 2: funnels
     CW0, CW1, CW2 = C0_R - C0_L, C1_R - C1_L, C2_R - C2_L
 
     # Row positions — shorter rows, generous 0.09 inter-row gap
@@ -529,14 +548,23 @@ def render_master(tables: dict) -> None:
     RH0, RH1, RH2 = R0_T - R0_B, R1_T - R1_B, R2_T - R2_B
 
     axes = {}
-    axes["a"] = fig.add_axes([C0_L, R0_B, CW0, RH0], projection="polar")
+    # The radars are inset within their cell: the polar axes inscribes a circle, so at
+    # full cell width its own "SA" tick label would meet column 1's "Targets" ylabel.
+    AX, AY, AW, AH = 0.055, 0.055, 0.89, 0.89
+    axes["a"] = fig.add_axes([C0_L + CW0 * AX, R0_B + RH0 * AY,
+                              CW0 * AW, RH0 * AH], projection="polar")
     axes["b"] = fig.add_axes([C1_L, R0_B, CW1, RH0])
     axes["c"] = fig.add_axes([C2_L, R0_B, CW2, RH0])
-    axes["d"] = fig.add_axes([C0_L, R1_B, CW0, RH1], projection="polar")
+    axes["d"] = fig.add_axes([C0_L + CW0 * AX, R1_B + RH1 * AY,
+                              CW0 * AW, RH1 * AH], projection="polar")
     axes["e"] = fig.add_axes([C1_L, R1_B, CW1, RH1])
     axes["f"] = fig.add_axes([C2_L, R1_B, CW2, RH1])
-    axes["g"] = fig.add_axes([C0_L, R2_B, CW0, RH2])
-    axes["h"] = fig.add_axes([C1_L, R2_B, C2_R - C1_L, RH2])  # spans col 1+2
+    # Row 2 is not tied to the radar column: the scaffold-diversity panel needs more
+    # width than a radar does, or its rotated category labels collide at print size.
+    G_R = 0.330
+    H_L = 0.384
+    axes["g"] = fig.add_axes([C0_L, R2_B, G_R - C0_L, RH2])
+    axes["h"] = fig.add_axes([H_L, R2_B, C2_R - H_L, RH2])  # spans what is left
 
     lower_better = {"affinity", "rmsd", "sa_score", "strain"}
 
@@ -544,6 +572,7 @@ def render_master(tables: dict) -> None:
     R.draw_radar(
         axes["a"], radar_scores(tables["dude_radar"], DUDE_METHODS),
         title="DUD-E protein", colors=METHOD_COLORS, labels=METHOD_LABELS,
+        markers=METHOD_MARKERS, linestyles=METHOD_DASHES,
         legend=False)
     panel_label(axes["a"], "a", x=-0.14, y=1.06)
 
@@ -557,6 +586,7 @@ def render_master(tables: dict) -> None:
     R.draw_radar(
         axes["d"], radar_scores(tables["smrt_radar"], SMRT_METHODS),
         title="RNA test set", colors=METHOD_COLORS, labels=METHOD_LABELS,
+        markers=METHOD_MARKERS, linestyles=METHOD_DASHES,
         legend=False)
     panel_label(axes["d"], "d", x=-0.14, y=1.06)
 
@@ -574,7 +604,8 @@ def render_master(tables: dict) -> None:
     handles = [
         Line2D(
             [0], [0],
-            color=color_for(method), marker="o",
+            color=color_for(method), marker=marker_for(method),
+            linestyle=dash_for(method),
             linewidth=1.05, markersize=3.1,
             label=label_for(method),
         )
