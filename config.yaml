@@ -1,0 +1,30 @@
+# rna2smol model config — canonical network configuration.
+# MUST match the released checkpoints (verified 2026-08-27: n_heads=16 is
+# required; n_heads=1 silently drops 20 attention value-projection layers via
+# strict=False loading and degrades cold-start reconstruction from ~90% to 0%).
+
+train:
+  batch_size: 1
+  lr: 0.0001
+
+dynamics:
+  net_config:
+    name: unio2net
+    hidden_dim: 128
+    num_blocks: 1
+    num_layers: 9
+    n_heads: 16
+    knn: 32
+    num_r_gaussian: 20
+    edge_feat_dim: 4
+    num_node_types: 8
+    act_fn: relu
+    norm: true
+    ew_net_type: global
+    num_init_x2h: 1
+    num_init_h2x: 0
+    num_x2h: 1
+    num_h2x: 1
+    r_max: 10.0
+    x2h_out_fc: false
+    sync_twoup: false

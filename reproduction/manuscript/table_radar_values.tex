@@ -1,0 +1,30 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\textbf{Method} & \textbf{Dock.} & \textbf{RMSD} & \textbf{QED} & \textbf{SA} & \textbf{SEI} & \textbf{Strain} & \textbf{ECFP4 rec.} \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{Fig. 2a — DUD-E protein}} \\
+NA2smol & \underline{$-8.19$} & \underline{0.87} & \underline{0.647} & 3.14 & \underline{0.114} & \underline{129} & \textbf{0.656} \\
+MolCRAFT & \textbf{$-9.86$} & \textbf{0.38} & 0.527 & 4.11 & 0.106 & 258 & 0.331 \\
+Pocket2Mol & $-5.89$ & 1.47 & 0.565 & \textbf{3.00} & 0.092 & 215 & 0.417 \\
+ED2Mol & $-6.06$ & 1.87 & \textbf{0.736} & \underline{3.04} & \textbf{0.128} & \textbf{25} & \underline{0.482} \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{Fig. 2d — RNA test set}} \\
+NA2smol & \textbf{$-7.27$} & \underline{1.12} & \underline{0.641} & 3.53 & \underline{0.103} & 218 & \textbf{0.218} \\
+MolCRAFT & \underline{$-6.91$} & \textbf{0.39} & 0.421 & 3.84 & 0.062 & \underline{125} & 0.059 \\
+Pocket2Mol & $-5.86$ & 1.32 & 0.554 & \underline{2.94} & 0.070 & 275 & \underline{0.080} \\
+ED2Mol & $-5.16$ & 1.62 & \textbf{0.699} & \textbf{2.85} & \textbf{0.116} & \textbf{23} & 0.077 \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{Fig. 3a — RNA test set, four configurations}} \\
+Baseline & $-6.03$ & \textbf{1.09} & 0.484 & \underline{3.86} & 0.078 & 376 & \underline{0.141} \\
+Pretrain Only & $-7.19$ & 1.32 & 0.509 & 5.11 & 0.096 & $1.4\times10^{4}$ & 0.035 \\
+Pretrain+Constrain & \underline{$-7.21$} & 1.26 & \underline{0.619} & 4.35 & \textbf{0.104} & \underline{285} & 0.132 \\
+NA2smol & \textbf{$-7.27$} & \underline{1.12} & \textbf{0.641} & \textbf{3.53} & \underline{0.103} & \textbf{218} & \textbf{0.218} \\
+\bottomrule
+\end{tabular}
+\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the configuration comparison (Fig.~3a). Dock., smina docking score (kcal mol$^{-1}$); RMSD (\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, surface efficiency index ($-$docking score / TPSA); Strain, conformational strain energy (kcal mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., the observed recovery on the ECFP4-Tanimoto axis. Values are pooled medians over all of a method's molecules. \textbf{Bold} marks the best value in each benchmark group and \underline{underline} the second best; better is lower for Dock., RMSD, SA and Strain and higher for QED, SEI and ECFP4 rec. These are the single-number summaries of the distributions whose normalised retention-curve integrals are drawn in the radars; the normalised scores themselves are in Supplementary Table~12.}
+\label{radar_values_tab}
+\end{table}

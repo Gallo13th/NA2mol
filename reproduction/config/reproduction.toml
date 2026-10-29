@@ -1,0 +1,8 @@
+# Canonical paper-facing paths, relative to the repository root.
+[paths]
+pretraining_lmdb = "data/pretraining_lmdb"
+paper_data = "paperdata"
+benchmark_tables = "reproduction/results"
+figures = "reproduction/figures"
+case_study = "case_study/kras_g4"
+checkpoints = "ckpt"

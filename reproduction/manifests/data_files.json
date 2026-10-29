@@ -1,0 +1,68 @@
+{
+  "note": "Bulk inputs excluded from git; deposit these with the release.",
+  "excluded_by_design": [
+    "pretraining LMDB (author to upload separately)"
+  ],
+  "files": [
+    {
+      "path": "data/benchmark/dude_stat_all.csv",
+      "present": true,
+      "bytes": 126480896,
+      "sha256": "2ef9c87481f66057528deb5117e01611f90fb54dce53b302535c0f20112a98ca"
+    },
+    {
+      "path": "data/benchmark/smrtnet_stat_all.csv",
+      "present": true,
+      "bytes": 50457839,
+      "sha256": "434220d8a5063df60d9dc3c60fa042d60dba0995bc8e3bb8e520044582dedd0d"
+    },
+    {
+      "path": "data/benchmark/DUDE_active_compounds.csv",
+      "present": true,
+      "bytes": 58081747,
+      "sha256": "bd1f80abb6e8d10f455430699dea8dd86cd409af7e8cfaa5d686397b03e21d34"
+    },
+    {
+      "path": "data/benchmark/output/smrtbench_combined_results.csv",
+      "present": true,
+      "bytes": 126093507,
+      "sha256": "06c1c4c1dd36659fd93cab7f91038357931e17bc368da281614d60c17fd93c8a"
+    },
+    {
+      "path": "training_ligands_leakage_table.csv",
+      "present": true,
+      "bytes": 39965906,
+      "sha256": "8ca26f07a36d1721cb427f29c02e6375a7b96a5afd24debbac32c4231fd08c00"
+    },
+    {
+      "path": "pretrain_smiles.txt.gz",
+      "present": true,
+      "bytes": 38705034,
+      "sha256": "6abe269fccd50a3a6051a104606177d7e5d5c99a1abec2ee072ea64be911c98b"
+    },
+    {
+      "path": "paperdata/smrtbench.tar.gz",
+      "present": true,
+      "bytes": 632613,
+      "sha256": "0ffc016bce5a19000bae8cec5bc524579c967c9458163045662d85308fe7552c"
+    },
+    {
+      "path": "paperdata/smrtnet_ablation_rna2smol.tar.gz",
+      "present": true,
+      "bytes": 80288089,
+      "sha256": "aa0c89ec9f299ada83f41a4064764d63b3a4317d5621d69573b2a0f5a5b71391"
+    },
+    {
+      "path": "paperdata/dudue_onlygeneral_0506.tar.gz",
+      "present": true,
+      "bytes": 46433253,
+      "sha256": "f3b72859f22b499ea9deffb442edf2663f9e0a3f201259c9c325dd3dd4eb09a5"
+    },
+    {
+      "path": "case_study/kras_g4/ber102_gen10k/valid_mols.sdf",
+      "present": true,
+      "bytes": 22449973,
+      "sha256": "c74887227474f4310aeac1f9cee5ad327292ef1bf5f0837c4965a1b2794afe54"
+    }
+  ]
+}

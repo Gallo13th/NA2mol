@@ -1,0 +1,1040 @@
+top03_CID17851501
+     RDKit          3D
+
+ 21 24  0  0  0  0  0  0  0  0999 V2000
+   34.4468   22.3718   32.2507 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.9445   23.4803   29.6864 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.0993   22.4334   31.8927 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.5967   23.0869   30.0760 C   0  0  0  0  0  0  0  0  0  0  0  0
+   31.2022   23.1277   29.7707 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.4146   22.6556   31.3496 C   0  0  0  0  0  0  0  0  0  0  0  0
+   31.0133   22.7068   31.0535 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.7383   22.6994   31.8442 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.4601   23.3711   29.2825 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.9579   23.1994   30.5807 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.2916   25.0407   24.5935 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.8392   25.4621   23.3520 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.4586   24.8045   25.3373 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.1264   25.5733   23.1751 C   0  0  0  0  0  0  0  0  0  0  0  0
+   37.0346   25.1756   24.1749 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.6067   24.3726   26.8660 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.8450   24.9438   24.7487 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.2067   24.4107   26.9681 N   0  0  0  0  0  0  0  0  0  0  0  0
+   35.1500   24.7116   25.7164 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.3390   24.6234   25.9403 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.3316   23.9092   28.1670 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  6  2  0
+  1  8  1  0
+  2  4  2  0
+  2 10  1  0
+  3  6  1  0
+  3  7  2  0
+  4  6  1  0
+  4  9  1  0
+  5  7  1  0
+  5  9  2  0
+  8 10  2  0
+ 11 12  2  0
+ 11 17  1  0
+ 11 19  1  0
+ 12 14  1  0
+ 13 15  1  0
+ 13 19  2  0
+ 14 15  2  0
+ 16 18  2  0
+ 16 19  1  0
+ 17 20  2  0
+ 18 20  1  0
+  2 21  1  0
+ 16 21  1  0
+M  END
+>  <CHROM.0>  (1) 
+57.97367510
+
+>  <CHROM.1>  (1) 
+17.98419813,-2.47519235,34.14573953,23.91429347,27.93556683,-1.82647784,-0.03467341
+-1.24323990
+
+>  <Name>  (1) 
+final_0050
+
+>  <Rbt.Current_Directory>  (1) 
+casestudy/kras_g4/ber102_rdock
+
+>  <Rbt.Executable>  (1) 
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>  (1) 
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>  (1) 
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
+
+>  <Rbt.Receptor>  (1) 
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+
+>  <SCORE>  (1) 
+-35.24
+
+>  <SCORE.INTER>  (1) 
+-33.4655
+
+>  <SCORE.INTER.CONST>  (1) 
+1
+
+>  <SCORE.INTER.POLAR>  (1) 
+0
+
+>  <SCORE.INTER.REPUL>  (1) 
+0.0448217
+
+>  <SCORE.INTER.ROT>  (1) 
+2
+
+>  <SCORE.INTER.VDW>  (1) 
+-41.0896
+
+>  <SCORE.INTER.norm>  (1) 
+-1.5936
+
+>  <SCORE.INTRA>  (1) 
+-0.0421656
+
+>  <SCORE.INTRA.DIHEDRAL>  (1) 
+0.0610344
+
+>  <SCORE.INTRA.DIHEDRAL.0>  (1) 
+1.5761
+
+>  <SCORE.INTRA.POLAR>  (1) 
+0
+
+>  <SCORE.INTRA.POLAR.0>  (1) 
+0
+
+>  <SCORE.INTRA.REPUL>  (1) 
+0
+
+>  <SCORE.INTRA.REPUL.0>  (1) 
+0
+
+>  <SCORE.INTRA.VDW>  (1) 
+-0.0726828
+
+>  <SCORE.INTRA.VDW.0>  (1) 
+9.23677
+
+>  <SCORE.INTRA.norm>  (1) 
+-0.00200789
+
+>  <SCORE.RESTR>  (1) 
+
+
+>  <SCORE.RESTR.norm>  (1) 
+0
+
+>  <SCORE.SYSTEM>  (1) 
+-1.73232
+
+>  <SCORE.SYSTEM.CONST>  (1) 
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>  (1) 
+0.169111
+
+>  <SCORE.SYSTEM.POLAR>  (1) 
+-0.598665
+
+>  <SCORE.SYSTEM.VDW>  (1) 
+0.218582
+
+>  <SCORE.SYSTEM.norm>  (1) 
+-0.0824916
+
+>  <SCORE.heavy>  (1) 
+21
+
+>  <SCORE.norm>  (1) 
+-1.6781
+
+>  <sum_rdock>  (1) 
+-21.63
+
+>  <smiles>  (1) 
+c1ccc2c(Cc3nccc4ccccc34)cccc2c1
+
+>  <ms_INTER>  (1) 
+-33.47
+
+>  <purchasable>  (1) 
+True
+
+>  <IUPACName>  (1) 
+1-(naphthalen-1-ylmethyl)isoquinoline
+
+$$$$
+top04_CID4984937
+     RDKit          3D
+
+ 19 22  0  0  0  0  0  0  0  0999 V2000
+   32.8982   24.2024   24.6143 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.3495   23.7677   26.5767 N   0  0  0  0  0  0  0  0  0  0  0  0
+   34.3287   24.6221   24.3474 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.9873   25.0586   23.2871 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.3730   25.4207   23.2821 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.9713   23.7815   26.0308 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.0648   24.4484   25.5631 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.4615   24.8391   25.5867 C   0  0  0  0  0  0  0  0  0  0  0  0
+   37.0704   25.3348   24.4210 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.9338   21.5529   31.2779 O   0  0  0  0  0  0  0  0  0  0  0  0
+   36.3269   23.0575   31.3966 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.3109   23.2278   29.1948 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.3737   23.4640   30.0305 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.2342   21.6159   30.0326 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.2449   22.5400   29.6592 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.0659   22.0320   28.9880 O   0  0  0  0  0  0  0  0  0  0  0  0
+   35.2243   22.3700   31.8570 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.1806   22.1126   30.9807 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.0549   23.4797   27.8628 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  3  1  0
+  1  6  1  0
+  2  6  1  0
+  2  7  1  0
+  3  4  2  0
+  3  7  1  0
+  4  5  1  0
+  5  9  2  0
+  7  8  2  0
+  8  9  1  0
+ 10 14  1  0
+ 10 18  1  0
+ 11 13  2  0
+ 11 17  1  0
+ 12 13  1  0
+ 12 15  2  0
+ 14 16  1  0
+ 15 16  1  0
+ 15 18  1  0
+ 17 18  2  0
+  2 19  1  0
+ 12 19  1  0
+M  END
+>  <CHROM.0>  (2) 
+58.73649950
+
+>  <CHROM.1>  (2) 
+-12.50944942,-151.11858201,34.64667161,23.48397721,27.67176206,1.41103861
+-0.33891826,-1.23712440
+
+>  <Name>  (2) 
+final_0790
+
+>  <Rbt.Current_Directory>  (2) 
+casestudy/kras_g4/ber102_rdock
+
+>  <Rbt.Executable>  (2) 
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>  (2) 
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>  (2) 
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
+
+>  <Rbt.Receptor>  (2) 
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+
+>  <SCORE>  (2) 
+-40.8884
+
+>  <SCORE.INTER>  (2) 
+-29.2011
+
+>  <SCORE.INTER.CONST>  (2) 
+1
+
+>  <SCORE.INTER.POLAR>  (2) 
+-0.762935
+
+>  <SCORE.INTER.REPUL>  (2) 
+0
+
+>  <SCORE.INTER.ROT>  (2) 
+2
+
+>  <SCORE.INTER.VDW>  (2) 
+-34.0071
+
+>  <SCORE.INTER.norm>  (2) 
+-1.5369
+
+>  <SCORE.INTRA>  (2) 
+-9.95751
+
+>  <SCORE.INTRA.DIHEDRAL>  (2) 
+-0.506724
+
+>  <SCORE.INTRA.DIHEDRAL.0>  (2) 
+3.48769
+
+>  <SCORE.INTRA.POLAR>  (2) 
+0
+
+>  <SCORE.INTRA.POLAR.0>  (2) 
+0
+
+>  <SCORE.INTRA.REPUL>  (2) 
+0
+
+>  <SCORE.INTRA.REPUL.0>  (2) 
+0
+
+>  <SCORE.INTRA.VDW>  (2) 
+-9.70415
+
+>  <SCORE.INTRA.VDW.0>  (2) 
+9.13452
+
+>  <SCORE.INTRA.norm>  (2) 
+-0.524079
+
+>  <SCORE.RESTR>  (2) 
+
+
+>  <SCORE.RESTR.norm>  (2) 
+0
+
+>  <SCORE.SYSTEM>  (2) 
+-1.72981
+
+>  <SCORE.SYSTEM.CONST>  (2) 
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>  (2) 
+0.157258
+
+>  <SCORE.SYSTEM.POLAR>  (2) 
+-0.598665
+
+>  <SCORE.SYSTEM.VDW>  (2) 
+0.227021
+
+>  <SCORE.SYSTEM.norm>  (2) 
+-0.0910427
+
+>  <SCORE.heavy>  (2) 
+19
+
+>  <SCORE.norm>  (2) 
+-2.15202
+
+>  <sum_rdock>  (2) 
+-17.97
+
+>  <smiles>  (2) 
+c1ccc2c(c1)CCN2Cc1cccc2c1OCO2
+
+>  <ms_INTER>  (2) 
+-29.20
+
+>  <purchasable>  (2) 
+False
+
+>  <IUPACName>  (2) 
+1-(1,3-benzodioxol-4-ylmethyl)-2,3-dihydroindole
+
+$$$$
+top05_CID3685999
+     RDKit          3D
+
+ 20 23  0  0  0  0  0  0  0  0999 V2000
+   32.6483   22.0021   31.2882 O   0  0  0  0  0  0  0  0  0  0  0  0
+   33.8003   22.5519   30.7764 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.5514   21.7172   32.6618 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.2323   23.5545   29.7711 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.0670   23.5715   29.0134 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.8844   21.2103   33.1879 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.9758   22.6047   31.5826 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.1636   23.0750   31.1054 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.8493   22.1542   32.8746 O   0  0  0  0  0  0  0  0  0  0  0  0
+   33.8294   23.0466   29.5073 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.0959   24.3321   23.9781 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.2465   24.1098   26.1629 N   0  0  0  0  0  0  0  0  0  0  0  0
+   34.5659   24.6790   23.8663 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.3807   24.9627   22.8643 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.7683   25.2863   23.0104 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.9574   24.0900   25.4311 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.1214   24.6401   25.1854 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.5172   24.9954   25.3578 C   0  0  0  0  0  0  0  0  0  0  0  0
+   37.2996   25.3260   24.2380 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.7710   23.9467   27.6250 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  2  7  2  0
+  2 10  1  0
+  3  6  1  0
+  4  5  1  0
+  4  8  2  0
+  5 10  2  0
+  6  9  1  0
+  7  8  1  0
+  7  9  1  0
+ 11 13  1  0
+ 11 16  1  0
+ 12 16  1  0
+ 12 17  1  0
+ 13 14  2  0
+ 13 17  1  0
+ 14 15  1  0
+ 15 19  2  0
+ 17 18  2  0
+ 18 19  1  0
+  5 20  1  0
+ 12 20  1  0
+M  END
+>  <CHROM.0>  (3) 
+58.50119827
+
+>  <CHROM.1>  (3) 
+144.90100065,41.87639953,34.68867422,23.54948121,28.06744931,1.72954234,0.23714279
+1.86242893
+
+>  <Name>  (3) 
+final_1138
+
+>  <Rbt.Current_Directory>  (3) 
+casestudy/kras_g4/ber102_rdock
+
+>  <Rbt.Executable>  (3) 
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>  (3) 
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>  (3) 
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
+
+>  <Rbt.Receptor>  (3) 
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+
+>  <SCORE>  (3) 
+-34.6957
+
+>  <SCORE.INTER>  (3) 
+-27.0597
+
+>  <SCORE.INTER.CONST>  (3) 
+1
+
+>  <SCORE.INTER.POLAR>  (3) 
+0
+
+>  <SCORE.INTER.REPUL>  (3) 
+0
+
+>  <SCORE.INTER.ROT>  (3) 
+2
+
+>  <SCORE.INTER.VDW>  (3) 
+-34.4597
+
+>  <SCORE.INTER.norm>  (3) 
+-1.35299
+
+>  <SCORE.INTRA>  (3) 
+-5.905
+
+>  <SCORE.INTRA.DIHEDRAL>  (3) 
+0.271516
+
+>  <SCORE.INTRA.DIHEDRAL.0>  (3) 
+3.12546
+
+>  <SCORE.INTRA.POLAR>  (3) 
+0
+
+>  <SCORE.INTRA.POLAR.0>  (3) 
+0
+
+>  <SCORE.INTRA.REPUL>  (3) 
+0
+
+>  <SCORE.INTRA.REPUL.0>  (3) 
+0
+
+>  <SCORE.INTRA.VDW>  (3) 
+-6.04075
+
+>  <SCORE.INTRA.VDW.0>  (3) 
+5.23408
+
+>  <SCORE.INTRA.norm>  (3) 
+-0.29525
+
+>  <SCORE.RESTR>  (3) 
+
+
+>  <SCORE.RESTR.norm>  (3) 
+0
+
+>  <SCORE.SYSTEM>  (3) 
+-1.73101
+
+>  <SCORE.SYSTEM.CONST>  (3) 
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>  (3) 
+0.160329
+
+>  <SCORE.SYSTEM.POLAR>  (3) 
+-0.598665
+
+>  <SCORE.SYSTEM.VDW>  (3) 
+0.224283
+
+>  <SCORE.SYSTEM.norm>  (3) 
+-0.0865507
+
+>  <SCORE.heavy>  (3) 
+20
+
+>  <SCORE.norm>  (3) 
+-1.73479
+
+>  <sum_rdock>  (3) 
+-16.98
+
+>  <smiles>  (3) 
+c1ccc2c(c1)CCN2Cc1ccc2c(c1)OCCO2
+
+>  <ms_INTER>  (3) 
+-27.06
+
+>  <purchasable>  (3) 
+False
+
+>  <IUPACName>  (3) 
+1-(2,3-dihydro-1,4-benzodioxin-6-ylmethyl)-2,3-dihydroindole
+
+$$$$
+top08_CID16567642
+     RDKit          3D
+
+ 20 23  0  0  0  0  0  0  0  0999 V2000
+   32.7313   22.4481   31.7347 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.7212   23.3401   29.6065 C   0  0  0  0  0  0  0  0  0  0  0  0
+   31.4191   22.6305   31.1414 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.8562   22.8356   30.9552 C   0  0  0  0  0  0  0  0  0  0  0  0
+   31.3182   23.0576   29.8522 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.1745   23.1713   30.8697 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.3680   23.3411   29.0387 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.7402   23.7269   28.7956 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.1201   23.6977   29.4409 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.1440   22.8148   31.5499 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.9697   24.1337   24.1944 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.1403   23.9936   26.3753 N   0  0  0  0  0  0  0  0  0  0  0  0
+   34.4283   24.5199   24.0644 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.2281   24.8043   23.0505 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.6068   25.1705   23.1795 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.8476   23.9205   25.6533 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.9933   24.5266   25.3800 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.3793   24.9255   25.5344 C   0  0  0  0  0  0  0  0  0  0  0  0
+   37.1447   25.2530   24.4020 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.5105   23.9392   27.5743 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  3  2  0
+  1  4  1  0
+  2  4  2  0
+  2  7  1  0
+  2  8  1  0
+  3  5  1  0
+  4 10  1  0
+  5  7  2  0
+  6  9  1  0
+  6 10  2  0
+  8  9  2  0
+ 11 13  1  0
+ 11 16  1  0
+ 12 16  1  0
+ 12 17  1  0
+ 13 14  2  0
+ 13 17  1  0
+ 14 15  1  0
+ 15 19  2  0
+ 17 18  2  0
+ 18 19  1  0
+  8 20  1  0
+ 12 20  1  0
+M  END
+>  <CHROM.0>  (4) 
+58.54878730
+
+>  <CHROM.1>  (4) 
+-34.10359593,41.73992396,34.33019133,23.81555678,27.59064428,1.85411175,0.15888414
+1.79731800
+
+>  <Name>  (4) 
+final_0074
+
+>  <Rbt.Current_Directory>  (4) 
+casestudy/kras_g4/ber102_rdock
+
+>  <Rbt.Executable>  (4) 
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>  (4) 
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>  (4) 
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
+
+>  <Rbt.Receptor>  (4) 
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+
+>  <SCORE>  (4) 
+-45.6241
+
+>  <SCORE.INTER>  (4) 
+-32.5705
+
+>  <SCORE.INTER.CONST>  (4) 
+1
+
+>  <SCORE.INTER.POLAR>  (4) 
+0
+
+>  <SCORE.INTER.REPUL>  (4) 
+0
+
+>  <SCORE.INTER.ROT>  (4) 
+2
+
+>  <SCORE.INTER.VDW>  (4) 
+-39.9705
+
+>  <SCORE.INTER.norm>  (4) 
+-1.62853
+
+>  <SCORE.INTRA>  (4) 
+-11.3227
+
+>  <SCORE.INTRA.DIHEDRAL>  (4) 
+0.334357
+
+>  <SCORE.INTRA.DIHEDRAL.0>  (4) 
+3.10255
+
+>  <SCORE.INTRA.POLAR>  (4) 
+0
+
+>  <SCORE.INTRA.POLAR.0>  (4) 
+0
+
+>  <SCORE.INTRA.REPUL>  (4) 
+0
+
+>  <SCORE.INTRA.REPUL.0>  (4) 
+0
+
+>  <SCORE.INTRA.VDW>  (4) 
+-11.4899
+
+>  <SCORE.INTRA.VDW.0>  (4) 
+14.6279
+
+>  <SCORE.INTRA.norm>  (4) 
+-0.566137
+
+>  <SCORE.RESTR>  (4) 
+
+
+>  <SCORE.RESTR.norm>  (4) 
+0
+
+>  <SCORE.SYSTEM>  (4) 
+-1.7308
+
+>  <SCORE.SYSTEM.CONST>  (4) 
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>  (4) 
+0.159666
+
+>  <SCORE.SYSTEM.POLAR>  (4) 
+-0.598665
+
+>  <SCORE.SYSTEM.VDW>  (4) 
+0.224827
+
+>  <SCORE.SYSTEM.norm>  (4) 
+-0.0865401
+
+>  <SCORE.heavy>  (4) 
+20
+
+>  <SCORE.norm>  (4) 
+-2.2812
+
+>  <sum_rdock>  (4) 
+-21.16
+
+>  <smiles>  (4) 
+c1ccc2c(c1)CCN2Cc1cccc2ccccc12
+
+>  <ms_INTER>  (4) 
+-32.57
+
+>  <purchasable>  (4) 
+True
+
+>  <IUPACName>  (4) 
+1-(naphthalen-1-ylmethyl)-2,3-dihydroindole
+
+$$$$
+top17_CID123695931
+     RDKit          3D
+
+ 20 23  0  0  0  0  0  0  0  0999 V2000
+   34.9299   22.1156   32.6204 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.4695   22.4755   31.2216 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.7990   21.8204   33.2754 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.9914   23.5468   29.3449 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.0356   23.1000   30.6410 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.5244   22.1663   32.5956 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.5644   22.7607   30.6657 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.7336   23.5737   28.6438 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.8902   22.7241   31.3400 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.5780   23.1282   29.3968 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.1626   24.3995   23.9455 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.2895   24.0913   26.1321 N   0  0  0  0  0  0  0  0  0  0  0  0
+   34.6346   24.7461   23.8623 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.4606   25.0652   22.8803 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.8474   25.3789   23.0530 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.0081   24.1030   25.3867 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.1760   24.6557   25.1846 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.5708   25.0001   25.3849 C   0  0  0  0  0  0  0  0  0  0  0  0
+   37.3658   25.3705   24.2867 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.5295   23.8374   27.4048 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  3  2  0
+  1  9  1  0
+  2  6  2  0
+  2  7  1  0
+  3  6  1  0
+  4  5  1  0
+  4  8  2  0
+  5  9  2  0
+  7  9  1  0
+  7 10  2  0
+  8 10  1  0
+ 11 13  1  0
+ 11 16  1  0
+ 12 16  1  0
+ 12 17  1  0
+ 13 14  2  0
+ 13 17  1  0
+ 14 15  1  0
+ 15 19  2  0
+ 17 18  2  0
+ 18 19  1  0
+  8 20  1  0
+ 12 20  1  0
+M  END
+>  <CHROM.0>  (5) 
+58.34663812
+
+>  <CHROM.1>  (5) 
+157.51225984,21.84065023,34.66661569,23.70937561,27.82742261,-1.75454159
+-0.17393665,-1.29369422
+
+>  <Name>  (5) 
+final_0514
+
+>  <Rbt.Current_Directory>  (5) 
+casestudy/kras_g4/ber102_rdock
+
+>  <Rbt.Executable>  (5) 
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>  (5) 
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>  (5) 
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
+
+>  <Rbt.Receptor>  (5) 
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+
+>  <SCORE>  (5) 
+-54.2143
+
+>  <SCORE.INTER>  (5) 
+-29.5155
+
+>  <SCORE.INTER.CONST>  (5) 
+1
+
+>  <SCORE.INTER.POLAR>  (5) 
+0
+
+>  <SCORE.INTER.REPUL>  (5) 
+0
+
+>  <SCORE.INTER.ROT>  (5) 
+2
+
+>  <SCORE.INTER.VDW>  (5) 
+-36.9155
+
+>  <SCORE.INTER.norm>  (5) 
+-1.47577
+
+>  <SCORE.INTRA>  (5) 
+-22.9672
+
+>  <SCORE.INTRA.DIHEDRAL>  (5) 
+0.544237
+
+>  <SCORE.INTRA.DIHEDRAL.0>  (5) 
+2.68092
+
+>  <SCORE.INTRA.POLAR>  (5) 
+0
+
+>  <SCORE.INTRA.POLAR.0>  (5) 
+0
+
+>  <SCORE.INTRA.REPUL>  (5) 
+0
+
+>  <SCORE.INTRA.REPUL.0>  (5) 
+0
+
+>  <SCORE.INTRA.VDW>  (5) 
+-23.2393
+
+>  <SCORE.INTRA.VDW.0>  (5) 
+23.5819
+
+>  <SCORE.INTRA.norm>  (5) 
+-1.14836
+
+>  <SCORE.RESTR>  (5) 
+
+
+>  <SCORE.RESTR.norm>  (5) 
+0
+
+>  <SCORE.SYSTEM>  (5) 
+-1.7316
+
+>  <SCORE.SYSTEM.CONST>  (5) 
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>  (5) 
+0.162631
+
+>  <SCORE.SYSTEM.POLAR>  (5) 
+-0.598665
+
+>  <SCORE.SYSTEM.VDW>  (5) 
+0.222549
+
+>  <SCORE.SYSTEM.norm>  (5) 
+-0.0865798
+
+>  <SCORE.heavy>  (5) 
+20
+
+>  <SCORE.norm>  (5) 
+-2.71071
+
+>  <sum_rdock>  (5) 
+-18.74
+
+>  <smiles>  (5) 
+c1ccc2c(c1)CCN2Cc1ccc2ccccc2c1
+
+>  <ms_INTER>  (5) 
+-29.52
+
+>  <purchasable>  (5) 
+True
+
+>  <IUPACName>  (5) 
+1-(naphthalen-2-ylmethyl)-2,3-dihydroindole
+
+$$$$
+top20_CID141274090
+     RDKit          3D
+
+ 21 24  0  0  0  0  0  0  0  0999 V2000
+   34.9830   21.1422   30.9207 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.9137   21.5534   31.7001 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.4348   23.1145   29.3319 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.6567   22.7036   31.4203 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.4238   19.8561   31.1060 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.5140   19.2435   32.3218 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.2098   20.8754   32.9326 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.6771   21.9250   29.6507 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.4885   23.4431   30.1992 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.8798   19.3647   33.0633 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.3304   24.5700   25.7936 C   0  0  0  0  0  0  0  0  0  0  0  0
+   32.4643   24.2757   26.3669 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.8839   24.0696   27.1002 N   0  0  0  0  0  0  0  0  0  0  0  0
+   32.8241   24.2155   24.9741 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.6821   24.9455   25.5674 C   0  0  0  0  0  0  0  0  0  0  0  0
+   36.0823   25.4596   23.3320 C   0  0  0  0  0  0  0  0  0  0  0  0
+   37.0546   25.4020   24.2997 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.7282   25.0507   23.4865 C   0  0  0  0  0  0  0  0  0  0  0  0
+   33.4425   23.6934   27.2909 C   0  0  0  0  0  0  0  0  0  0  0  0
+   34.3206   24.6444   24.7268 C   0  0  0  0  0  0  0  0  0  0  0  0
+   35.5676   23.9187   28.1838 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  5  1  0
+  1  8  2  0
+  2  4  2  0
+  2  7  1  0
+  3  8  1  0
+  3  9  2  0
+  4  9  1  0
+  5  6  1  0
+  6 10  1  0
+  7 10  1  0
+ 11 13  1  0
+ 11 15  2  0
+ 11 20  1  0
+ 12 14  1  0
+ 12 19  1  0
+ 13 19  1  0
+ 14 20  1  0
+ 15 17  1  0
+ 16 17  2  0
+ 16 18  1  0
+ 18 20  2  0
+  3 21  1  0
+ 13 21  1  0
+M  END
+>  <CHROM.0>  (6) 
+58.10567346
+
+>  <CHROM.1>  (6) 
+17.12796956,-156.47773446,35.14764286,22.99328462,28.30269728,1.50920124
+0.34470701,2.12453484
+
+>  <Name>  (6) 
+final_1562
+
+>  <Rbt.Current_Directory>  (6) 
+casestudy/kras_g4/ber102_rdock
+
+>  <Rbt.Executable>  (6) 
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>  (6) 
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>  (6) 
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
+
+>  <Rbt.Receptor>  (6) 
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+
+>  <SCORE>  (6) 
+-35.5686
+
+>  <SCORE.INTER>  (6) 
+-28.3296
+
+>  <SCORE.INTER.CONST>  (6) 
+1
+
+>  <SCORE.INTER.POLAR>  (6) 
+0
+
+>  <SCORE.INTER.REPUL>  (6) 
+0
+
+>  <SCORE.INTER.ROT>  (6) 
+2
+
+>  <SCORE.INTER.VDW>  (6) 
+-35.7296
+
+>  <SCORE.INTER.norm>  (6) 
+-1.34903
+
+>  <SCORE.INTRA>  (6) 
+-5.50679
+
+>  <SCORE.INTRA.DIHEDRAL>  (6) 
+0.137348
+
+>  <SCORE.INTRA.DIHEDRAL.0>  (6) 
+3.24834
+
+>  <SCORE.INTRA.POLAR>  (6) 
+0
+
+>  <SCORE.INTRA.POLAR.0>  (6) 
+0
+
+>  <SCORE.INTRA.REPUL>  (6) 
+0
+
+>  <SCORE.INTRA.REPUL.0>  (6) 
+0
+
+>  <SCORE.INTRA.VDW>  (6) 
+-5.57547
+
+>  <SCORE.INTRA.VDW.0>  (6) 
+10.4541
+
+>  <SCORE.INTRA.norm>  (6) 
+-0.262228
+
+>  <SCORE.RESTR>  (6) 
+
+
+>  <SCORE.RESTR.norm>  (6) 
+0
+
+>  <SCORE.SYSTEM>  (6) 
+-1.73218
+
+>  <SCORE.SYSTEM.CONST>  (6) 
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>  (6) 
+0.166668
+
+>  <SCORE.SYSTEM.POLAR>  (6) 
+-0.598665
+
+>  <SCORE.SYSTEM.VDW>  (6) 
+0.219951
+
+>  <SCORE.SYSTEM.norm>  (6) 
+-0.0824846
+
+>  <SCORE.heavy>  (6) 
+21
+
+>  <SCORE.norm>  (6) 
+-1.69374
+
+>  <sum_rdock>  (6) 
+-14.93
+
+>  <smiles>  (6) 
+c1ccc2c(c1)CCCN2Cc1ccc2c(c1)CCCC2
+
+>  <ms_INTER>  (6) 
+-28.33
+
+>  <purchasable>  (6) 
+False
+
+>  <IUPACName>  (6) 
+1-(5,6,7,8-tetrahydronaphthalen-2-ylmethyl)-3,4-dihydro-2H-quinoline
+
+$$$$

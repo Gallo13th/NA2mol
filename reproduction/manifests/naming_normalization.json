@@ -1,0 +1,63 @@
+{
+  "benchmark_map": {
+    "SMRT-Net": "RNA test set",
+    "SMRTnet": "RNA test set",
+    "SMRTNet": "RNA test set",
+    "DUD-E": "DUD-E"
+  },
+  "model_map": {
+    "RNA2smol": "NA2smol",
+    "RNA2smol (Only General Feat)": "NA2smol (full)",
+    "RNA2smol (Baseline)": "NA2smol (baseline)",
+    "ablation:RNA2smol (Baseline)": "NA2smol (baseline)",
+    "ablation:RNA2smol (Only General Feat)": "NA2smol (full)",
+    "ablation:Pretrain Only": "NA2smol (Pretrain Only)",
+    "ablation:Pretrain+Constrain": "NA2smol (Pretrain+Constrain)",
+    "MolCRAFT": "MolCRAFT",
+    "MolCRAFT (Original)": "MolCRAFT (original residue mapping)",
+    "Pocket2Mol": "Pocket2Mol",
+    "ED2Mol": "ED2Mol",
+    "ed2mol": "ED2Mol"
+  },
+  "setting_map": {
+    "ft_exact": "fine-tuning exact match",
+    "ft_T0.5": "fine-tuning Tanimoto >= 0.5",
+    "ft_T0.6": "fine-tuning Tanimoto >= 0.6",
+    "ft_T0.7": "fine-tuning Tanimoto >= 0.7",
+    "pretrain_exact": "pretraining exact match",
+    "pretrain_T0.5": "pretraining Tanimoto >= 0.5"
+  },
+  "applied": [
+    {
+      "file": "leakage/recovery_manuscript_authoritative.csv",
+      "column": "benchmark",
+      "canonical_column": "benchmark_canonical",
+      "distinct_values": 2
+    },
+    {
+      "file": "leakage/recovery_manuscript_authoritative.csv",
+      "column": "method",
+      "canonical_column": "method_canonical",
+      "distinct_values": 7
+    },
+    {
+      "file": "leakage/recovery_manuscript_authoritative.csv",
+      "column": "filter",
+      "canonical_column": "filter_canonical",
+      "distinct_values": 6
+    },
+    {
+      "file": "benchmark_tables/dude/d2_ecfp4_target_success_by_threshold.csv",
+      "column": "method",
+      "canonical_column": "method_canonical",
+      "distinct_values": 5
+    },
+    {
+      "file": "benchmark_tables/dude/d7_virtual_screening_funnel.csv",
+      "column": "method",
+      "canonical_column": "method_canonical",
+      "distinct_values": 5
+    }
+  ],
+  "unresolved_values": []
+}

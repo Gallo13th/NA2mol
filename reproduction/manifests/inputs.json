@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "excluded_by_design": [
+    "pretraining LMDB (author will upload separately)"
+  ],
+  "inputs": [
+    {
+      "id": "rna_combined",
+      "path": "data/benchmark/output/smrtbench_combined_results.csv",
+      "items": [
+        "fig2",
+        "fig3",
+        "sfig1",
+        "sfig3"
+      ],
+      "required_columns": [
+        "mode",
+        "pdb_id",
+        "SMILES",
+        "affinity",
+        "qed",
+        "sa_score",
+        "tpsa",
+        "rmsd",
+        "strain",
+        "max_ecfp4_tanimoto"
+      ],
+      "required_methods": [
+        "RNA2smol (Only General Feat)",
+        "RNA2smol (Baseline)",
+        "Pretrain Only",
+        "Pretrain+Constrain",
+        "MolCRAFT",
+        "Pocket2Mol",
+        "ED2Mol"
+      ]
+    },
+    {
+      "id": "dude_metrics",
+      "path": "data/benchmark/dude_stat_all.csv",
+      "items": [
+        "fig2",
+        "sfig2",
+        "sfig3"
+      ],
+      "required_columns": [
+        "mode",
+        "pdb_id",
+        "SMILES",
+        "affinity",
+        "qed",
+        "sa_score",
+        "tpsa",
+        "rmsd",
+        "strain",
+        "max_ecfp4_tanimoto"
+      ],
+      "required_methods": [
+        "RNA2smol",
+        "MolCRAFT",
+        "MolCRAFT (Original)",
+        "Pocket2Mol",
+        "ed2mol"
+      ]
+    },
+    {
+      "id": "bindingdb_rna_smiles",
+      "path": "data/benchmark/output/cache_chemspace/smiles_bkg_na.npy",
+      "items": [
+        "sfig1"
+      ]
+    },
+    {
+      "id": "bindingdb_protein_smiles",
+      "path": "data/benchmark/output/cache_chemspace/smiles_bkg_protein.npy",
+      "items": [
+        "sfig1"
+      ]
+    },
+    {
+      "id": "bindingdb_rna_fingerprints",
+      "path": "data/benchmark/output/cache_chemspace/bkg_na_fps.npy",
+      "items": [
+        "sfig1"
+      ]
+    },
+    {
+      "id": "bindingdb_protein_fingerprints",
+      "path": "data/benchmark/output/cache_chemspace/bkg_protein_fps.npy",
+      "items": [
+        "sfig1"
+      ]
+    },
+    {
+      "id": "dude_actives",
+      "path": "data/benchmark/DUDE_active_compounds.csv",
+      "items": [
+        "sfig1"
+      ]
+    },
+    {
+      "id": "rna_pockets",
+      "path": "paperdata/smrtbench.tar.gz",
+      "items": [
+        "generation"
+      ]
+    },
+    {
+      "id": "dude_pockets",
+      "path": "paperdata/DUDE_proteins.zip",
+      "items": [
+        "generation"
+      ]
+    },
+    {
+      "id": "fine_tuning_ligands",
+      "path": "training_ligands_leakage_table.csv",
+      "items": [
+        "overlap"
+      ]
+    },
+    {
+      "id": "pretraining_smiles",
+      "path": "pretrain_smiles.txt.gz",
+      "items": [
+        "overlap"
+      ]
+    },
+    {
+      "id": "recovery_authoritative",
+      "path": "audit/tables/recovery_manuscript_authoritative.csv",
+      "items": [
+        "tables"
+      ]
+    },
+    {
+      "id": "kras_library",
+      "path": "case_study/kras_g4/ber102_gen10k/valid_mols.sdf",
+      "items": [
+        "kras_pipeline"
+      ]
+    },
+    {
+      "id": "kras_funnel",
+      "path": "case_study/kras_g4/denovo2/paper_funnel.json",
+      "items": [
+        "fig4",
+        "sfig4"
+      ]
+    },
+    {
+      "id": "kras_candidates",
+      "path": "case_study/kras_g4/denovo2/g4_tier1_order_table.csv",
+      "items": [
+        "fig4"
+      ]
+    },
+    {
+      "id": "kras_assembly",
+      "path": "case_study/kras_g4/polish_figure4.py",
+      "items": [
+        "fig4"
+      ]
+    },
+    {
+      "id": "kras_si_assembly",
+      "path": "case_study/kras_g4/assemble_extended_data_fig_kras.py",
+      "items": [
+        "sfig4"
+      ]
+    },
+    {
+      "id": "tht_origin_kras",
+      "path": "reproduction/data/tht/KRAS-THT-Compatative.opj",
+      "items": [
+        "fig4",
+        "assay"
+      ],
+      "note": "Authoritative ThT data are the two Origin projects in reproduction/data/tht/. 荧光数据汇总.csv is NOT used."
+    },
+    {
+      "id": "workflow_figure",
+      "path": "reproduction/assets/main_workflow_rev2.pdf",
+      "items": [
+        "fig1"
+      ]
+    },
+    {
+      "id": "tht_origin_tht",
+      "path": "reproduction/data/tht/THT-Compatative.opju",
+      "items": [
+        "fig4",
+        "assay"
+      ],
+      "note": "Second Origin project (KRAS 1 uM + ThT 1 uM series)."
+    },
+    {
+      "id": "tht_export",
+      "path": "reproduction/data/tht/export",
+      "items": [
+        "fig4",
+        "assay"
+      ],
+      "note": "Per-sheet Origin export consumed by analysis/fig4g_tht_panel.py; validate with reproduction/scripts/check_tht_origin.py"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+== 1. Prerequisite inputs ==
+FAIL rna_combined: notebooks/output/smrtbench_combined_results.csv
+     missing file
+PASS dude_metrics: notebooks/dude_stat_all.csv
+FAIL bindingdb_rna_smiles: notebooks/output/cache_chemspace/smiles_bkg_na.npy
+     missing file
+FAIL bindingdb_protein_smiles: notebooks/output/cache_chemspace/smiles_bkg_protein.npy
+     missing file
+FAIL bindingdb_rna_fingerprints: notebooks/output/cache_chemspace/bkg_na_fps.npy
+     missing file
+FAIL bindingdb_protein_fingerprints: notebooks/output/cache_chemspace/bkg_protein_fps.npy
+     missing file
+PASS dude_actives: notebooks/DUDE_active_compounds.csv
+PASS rna_pockets: paperdata/smrtbench.tar.gz
+PASS dude_pockets: paperdata/DUDE_proteins.zip
+PASS fine_tuning_ligands: training_ligands_leakage_table.csv
+PASS pretraining_smiles: pretrain_smiles.txt.gz
+PASS recovery_authoritative: leakage_audit/tables/recovery_manuscript_authoritative.csv
+PASS kras_library: casestudy/kras_g4/ber102_gen10k/valid_mols.sdf
+PASS kras_funnel: casestudy/kras_g4/denovo2/paper_funnel.json
+PASS kras_candidates: casestudy/kras_g4/denovo2/g4_tier1_order_table.csv
+FAIL kras_assembly: casestudy/kras_g4/polish_figure4.py
+     missing file
+FAIL kras_si_assembly: casestudy/kras_g4/assemble_extended_data_fig_kras.py
+     missing file
+FAIL tht_raw: experimental_data/荧光数据汇总.csv
+     missing file
+FAIL workflow_figure: reproduction/assets/main_workflow_rev2.pdf
+     missing file
+
+10/19 prerequisites pass; pretraining LMDB excluded.
+
+== 2. Figure-script data paths ==
+
+notebooks/assemble_ablation_figure.py
+  NEW  output OUT_DIR                  notebooks.output.smrtbench
+  OK   output PAPER_DIR                reproduction.figures
+  MISS input  CSV_PATH                 notebooks.output.smrtbench_combined_results.csv
+
+notebooks/assemble_cross_benchmark_figure.py
+  MISS input  SMRT_TABLE_DIR           notebooks.output.tables.smrtbench
+  MISS input  DUDE_TABLE_DIR           notebooks.output.tables.dude
+  NEW  output OUT_DIR                  notebooks.output.cross_benchmark
+  OK   output PAPER_DIR                reproduction.figures
+  MISS input  SMRT_RAW                 notebooks.output.smrtbench_combined_results.csv
+  OK   input  DUDE_RAW                 notebooks.dude_stat_all.csv
+  MISS input  SCAFFOLD_CSV             notebooks.output.chemspace_targeted.scaffold_breadth_table.csv
+
+notebooks/assemble_dude_paper_figure.py
+  MISS input  TABLE_DIR                notebooks.output.tables.dude
+  NEW  output OUT_DIR                  notebooks.output.dude
+  OK   output PAPER_DIR                reproduction.figures
+
+notebooks/assemble_fine_grained_ablation.py
+  NEW  output OUT_DIR                  notebooks.output.smrtbench
+  OK   output PAPER_DIR                reproduction.figures
+  MISS input  CSV_PATH                 notebooks.output.smrtbench_combined_results.csv
+
+notebooks/assemble_molcraft_mapping_control.py
+  MISS input  TABLE_DIR                notebooks.output.tables.dude
+  OK   input  RAW_DATA                 notebooks.dude_stat_all.csv
+  NEW  output OUT_DIR                  notebooks.output.molcraft_mapping_control
+  OK   output PAPER_DIR                reproduction.figures
+
+notebooks/assemble_smrtnet_paper_figure.py
+  MISS input  TABLE_DIR                notebooks.output.tables.smrtbench
+  NEW  output OUT_DIR                  notebooks.output.smrtbench
+  OK   output PAPER_DIR                reproduction.figures
+
+notebooks/chemical_space_targeted_analysis.py
+  OK   input  NB                       notebooks
+
+notebooks/plot_chemical_space_audit.py
+  MISS input  DATA_DIR                 notebooks.output.chemspace_targeted
+  OK   output PAPER_FIG_DIR            reproduction.figures
+
+notebooks/plot_property_landscape_audit.py
+  MISS input  SMRT_RAW                 notebooks.output.smrtbench_combined_results.csv
+  OK   input  DUDE_RAW                 notebooks.dude_stat_all.csv
+  NEW  output OUT_DIR                  notebooks.output.property_landscape
+  OK   output PAPER_DIR                reproduction.figures
+
+notebooks/prepare_pipeline_figure.py
+  OK   output FIG_DIR                  reproduction.figures
+
+g4tasks/audit_v2/09_panel_kras_inhib.py
+  MISS input  FLUOR                    reproduction.data.荧光数据汇总.csv
+
+====================================================================
+12 missing INPUT(S):
+  notebooks/output/smrtbench_combined_results.csv
+      declared in notebooks/assemble_ablation_figure.py as CSV_PATH
+  notebooks/output/tables/smrtbench
+      declared in notebooks/assemble_cross_benchmark_figure.py as SMRT_TABLE_DIR
+  notebooks/output/tables/dude
+      declared in notebooks/assemble_cross_benchmark_figure.py as DUDE_TABLE_DIR
+  notebooks/output/smrtbench_combined_results.csv
+      declared in notebooks/assemble_cross_benchmark_figure.py as SMRT_RAW
+  notebooks/output/chemspace_targeted/scaffold_breadth_table.csv
+      declared in notebooks/assemble_cross_benchmark_figure.py as SCAFFOLD_CSV
+  notebooks/output/tables/dude
+      declared in notebooks/assemble_dude_paper_figure.py as TABLE_DIR
+  notebooks/output/smrtbench_combined_results.csv
+      declared in notebooks/assemble_fine_grained_ablation.py as CSV_PATH
+  notebooks/output/tables/dude
+      declared in notebooks/assemble_molcraft_mapping_control.py as TABLE_DIR
+  notebooks/output/tables/smrtbench
+      declared in notebooks/assemble_smrtnet_paper_figure.py as TABLE_DIR
+  notebooks/output/chemspace_targeted
+      declared in notebooks/plot_chemical_space_audit.py as DATA_DIR
+  notebooks/output/smrtbench_combined_results.csv
+      declared in notebooks/plot_property_landscape_audit.py as SMRT_RAW
+  reproduction/data/荧光数据汇总.csv
+      declared in g4tasks/audit_v2/09_panel_kras_inhib.py as FLUOR
+(NEW = output directory created at runtime)
+
+== 3. Script syntax ==
+  all scripts compile
+
+==================================================
+prerequisites rc=2   figure-paths rc=1   syntax rc=0
+RESULT: reproduction inputs INCOMPLETE — see reproduction/manifests/READINESS.md

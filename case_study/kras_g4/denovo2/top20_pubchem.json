@@ -1,0 +1,142 @@
+[
+ {
+  "rank": 1,
+  "smiles": "c1ccc2c(Nc3ccc4c5c(ccc4c3)CCC5)ccnc2c1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 2,
+  "smiles": "c1ccc2cc(Cc3cccc4c3CCN4)cc-2cc1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 3,
+  "smiles": "c1ccc2c(Cc3nccc4ccccc34)cccc2c1",
+  "cid": 17851501,
+  "name": "1-(naphthalen-1-ylmethyl)isoquinoline",
+  "has_vendors": true
+ },
+ {
+  "rank": 4,
+  "smiles": "c1ccc2c(c1)CCN2Cc1cccc2c1OCO2",
+  "cid": 4984937,
+  "name": "1-(1,3-benzodioxol-4-ylmethyl)-2,3-dihydroindole",
+  "has_vendors": false
+ },
+ {
+  "rank": 5,
+  "smiles": "c1ccc2c(c1)CCN2Cc1ccc2c(c1)OCCO2",
+  "cid": 3685999,
+  "name": "1-(2,3-dihydro-1,4-benzodioxin-6-ylmethyl)-2,3-dihydroindole",
+  "has_vendors": false
+ },
+ {
+  "rank": 6,
+  "smiles": "c1ccc2c(c1)CCN2Cc1cccc2c1OCCO2",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 7,
+  "smiles": "c1ccc2c(Cc3ncnc4ccccc34)cccc2c1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 8,
+  "smiles": "c1ccc2c(c1)CCN2Cc1cccc2ccccc12",
+  "cid": 16567642,
+  "name": "1-(naphthalen-1-ylmethyl)-2,3-dihydroindole",
+  "has_vendors": true
+ },
+ {
+  "rank": 9,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)NCC4)cccc2c1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 10,
+  "smiles": "c1cc(Cc2ccc3ccccc3c2)c2c(c1)NCC2",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 11,
+  "smiles": "c1ccc2c(Nc3ccc4c(c3)CCN4)cccc2c1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 12,
+  "smiles": "c1ccc2c(Cc3ccc4c(c3)CCN4)cccc2c1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 13,
+  "smiles": "c1ccc2cc(Cc3ccc4c(c3)CCN4)ccc2c1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 14,
+  "smiles": "c1ccc2cc(Cc3cccc4ccccc34)ncc2c1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 15,
+  "smiles": "c1ccc2nnc(Cc3cccc4ccccc34)c-2cc1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 16,
+  "smiles": "c1ccc2c(c1)CCCN2Cc1ccc2ccccc2c1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 17,
+  "smiles": "c1ccc2c(c1)CCN2Cc1ccc2ccccc2c1",
+  "cid": 123695931,
+  "name": "1-(naphthalen-2-ylmethyl)-2,3-dihydroindole",
+  "has_vendors": true
+ },
+ {
+  "rank": 18,
+  "smiles": "c1ccc2ccc(CN3CCc4ccccc43)c-2cc1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 19,
+  "smiles": "c1ccc2cc(CN3CCc4ccccc43)cc-2cc1",
+  "cid": null,
+  "name": null,
+  "has_vendors": false
+ },
+ {
+  "rank": 20,
+  "smiles": "c1ccc2c(c1)CCCN2Cc1ccc2c(c1)CCCC2",
+  "cid": 141274090,
+  "name": "1-(5,6,7,8-tetrahydronaphthalen-2-ylmethyl)-3,4-dihydro-2H-quinoline",
+  "has_vendors": false
+ }
+]

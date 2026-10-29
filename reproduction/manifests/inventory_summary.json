@@ -1,0 +1,36 @@
+{
+  "head": "4f1bff4eaa11295368b464244a2250b9fa1c6071",
+  "note": "Pre-cleanup snapshot. Full per-file list is gitignored (inventory_before.json).",
+  "total_files": 72534,
+  "total_bytes": 3375872703,
+  "by_top_level": {
+    "notebooks": {
+      "files": 33388,
+      "bytes": 1690961088
+    },
+    "case_study": {
+      "files": 39074,
+      "bytes": 1201815693
+    },
+    "paperdata": {
+      "files": 9,
+      "bytes": 268828213
+    },
+    "audit": {
+      "files": 41,
+      "bytes": 213790254
+    },
+    "g4tasks": {
+      "files": 8,
+      "bytes": 239524
+    },
+    "train_scripts": {
+      "files": 8,
+      "bytes": 222317
+    },
+    "scripts": {
+      "files": 6,
+      "bytes": 15614
+    }
+  }
+}

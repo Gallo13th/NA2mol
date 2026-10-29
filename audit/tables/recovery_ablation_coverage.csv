@@ -1,0 +1,6 @@
+config,targets_covered
+ablation:RNA2smol (Baseline),27
+ablation:Pretrain Only,27
+ablation:Pretrain+Constrain,27
+RNA2smol,27
+COMMON,27

@@ -1,0 +1,14 @@
+RBT_PARAMETER_FILE_V1.00
+RECEPTOR_FILE casestudy/kras_g4/ber102_rdock/ber102_full_r6_receptor.mol2
+RECEPTOR_FLEX 3.0
+
+SECTION MAPPER
+    SITE_MAPPER RbtLigandSiteMapper
+    REF_MOL casestudy/kras_g4/ber102_rdock/ber102_ref.sdf
+    RADIUS 6.0
+    SMALL_SPHERE 1.0
+    MIN_VOLUME 100
+    MAX_CAVITIES 1
+    VOL_INCR 0.0
+    GRIDSTEP 0.5
+END_SECTION

@@ -1,0 +1,34 @@
+\section*{Supplementary Table 12 | Normalised radar scores behind the radar panels of Figs.~2 and 3}
+Values underlying the radar panels of Figs.~2a, 2d and 3a. The radar axes are normalised scores $s_m$ drawn at $r_m = 1 + 2s_m$, so the raw metric values are not recoverable from the figure and are given here. Property values are pooled medians over all of the method's molecules, the same molecule pool used by the retention-curve integrals; the radar axes for docking, RMSD, QED, SA, SEI and strain are the normalised integral of the retention curve (log$_{10}$ scale for strain), so a median is a summary and not the plotted quantity. Dock. is in kcal mol$^{-1}$, RMSD in \AA, and strain in kcal mol$^{-1}$; strain values above 10$^3$ are written in scientific notation. ECFP4 rec. is the observed recovery (fraction of targets with at least one molecule reaching ECFP4-TS $\geq\tau$, averaged over $\tau \in [0.25,0.50]$). Panel~B gives the seven normalised scores actually plotted: on the six property axes $s=0.5$ is the mid-ring, and on the ECFP4 axis $s=0$ is the shuffled-label baseline and $s=1$ the best method. NA2smol appears under both Fig.~2d and Fig.~3a because the full model is the same output set in both.
+
+\bigskip
+
+\noindent\begin{minipage}{\textwidth}
+\textbf{Normalised radar scores $s_m$}
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}llccccccc@{}}
+\toprule
+\textbf{Method} & \textbf{$n$} & \textbf{QED} & \textbf{Strain} & \textbf{SA} & \textbf{RMSD} & \textbf{Dock.} & \textbf{ECFP4} & \textbf{SEI} \\
+\midrule
+\multicolumn{9}{@{}l}{\textit{Fig. 2a — DUD-E protein}} \\
+NA2smol & 104,980 & 0.627 & 0.678 & 0.627 & 0.658 & 0.641 & 1.000 & 0.444 \\
+MolCRAFT & 98,257 & 0.523 & 0.604 & 0.484 & 0.827 & 0.801 & 0.000 & 0.416 \\
+Pocket2Mol & 65,662 & 0.559 & 0.653 & 0.658 & 0.468 & 0.386 & 0.000 & 0.375 \\
+ED2Mol & 93,293 & 0.736 & 0.862 & 0.517 & 0.375 & 0.389 & 0.000 & 0.495 \\
+\midrule
+\multicolumn{9}{@{}l}{\textit{Fig. 2d — RNA test set}} \\
+NA2smol & 35,358 & 0.617 & 0.616 & 0.572 & 0.546 & 0.512 & 1.000 & 0.392 \\
+MolCRAFT & 34,925 & 0.434 & 0.695 & 0.534 & 0.827 & 0.503 & 0.000 & 0.229 \\
+Pocket2Mol & 34,097 & 0.540 & 0.451 & 0.657 & 0.486 & 0.377 & 0.000 & 0.273 \\
+ED2Mol & 29,932 & 0.700 & 0.871 & 0.564 & 0.441 & 0.272 & 0.118 & 0.448 \\
+\midrule
+\multicolumn{9}{@{}l}{\textit{Fig. 3a — RNA test set, four configurations}} \\
+Baseline & 36,209 & 0.494 & 0.560 & 0.507 & 0.532 & 0.406 & 0.110 & 0.345 \\
+Pretrain Only & 32,782 & 0.501 & 0.286 & 0.319 & 0.504 & 0.536 & 0.044 & 0.380 \\
+Pretrain+Constrain & 35,640 & 0.597 & 0.549 & 0.443 & 0.514 & 0.523 & 0.257 & 0.403 \\
+NA2smol & 35,358 & 0.617 & 0.616 & 0.572 & 0.546 & 0.512 & 1.000 & 0.392 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}

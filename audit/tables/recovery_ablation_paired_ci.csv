@@ -1,0 +1,43 @@
+filter,comparison,kind,n_eligible,estimate,ci_lo,ci_hi
+original,ablation:RNA2smol (Baseline),delta_A,27,0.0,0.0,0.0
+original,ablation:Pretrain Only,delta_A,27,0.0,0.0,0.0
+original,ablation:Pretrain+Constrain,delta_A,27,0.0,0.0,0.0
+original,RNA2smol,delta_A,27,0.0,0.0,0.0
+original,full-minus-nopretrain,delta_delta_A,27,0.0,0.0,0.0
+original,full-minus-nopretrain,filtered_contrast,27,0.0769,0.0193,0.1445
+ft_exact,ablation:RNA2smol (Baseline),delta_A,24,-0.0025,-0.0075,0.0
+ft_exact,ablation:Pretrain Only,delta_A,24,0.0,0.0,0.0
+ft_exact,ablation:Pretrain+Constrain,delta_A,24,-0.0025,-0.0075,0.0
+ft_exact,RNA2smol,delta_A,24,0.0,0.0,0.0
+ft_exact,full-minus-nopretrain,delta_delta_A,24,0.0025,0.0,0.0075
+ft_exact,full-minus-nopretrain,filtered_contrast,24,0.0891,0.0212,0.1642
+ft_T0.5,ablation:RNA2smol (Baseline),delta_A,18,-0.0768,-0.1779,-0.0089
+ft_T0.5,ablation:Pretrain Only,delta_A,18,-0.0174,-0.0392,0.0
+ft_T0.5,ablation:Pretrain+Constrain,delta_A,18,-0.0156,-0.0333,-0.0022
+ft_T0.5,RNA2smol,delta_A,18,-0.0768,-0.1475,-0.0172
+ft_T0.5,full-minus-nopretrain,delta_delta_A,18,-0.0,-0.0479,0.0472
+ft_T0.5,full-minus-nopretrain,filtered_contrast,18,0.1154,0.0319,0.2024
+ft_T0.6,ablation:RNA2smol (Baseline),delta_A,19,-0.0422,-0.1236,0.0
+ft_T0.6,ablation:Pretrain Only,delta_A,19,-0.0084,-0.0253,0.0
+ft_T0.6,ablation:Pretrain+Constrain,delta_A,19,-0.0066,-0.0197,0.0
+ft_T0.6,RNA2smol,delta_A,19,-0.0261,-0.0782,0.0
+ft_T0.6,full-minus-nopretrain,delta_delta_A,19,0.0162,0.0,0.0422
+ft_T0.6,full-minus-nopretrain,filtered_contrast,19,0.1255,0.0489,0.2057
+ft_T0.7,ablation:RNA2smol (Baseline),delta_A,19,-0.0032,-0.0095,0.0
+ft_T0.7,ablation:Pretrain Only,delta_A,19,0.0,0.0,0.0
+ft_T0.7,ablation:Pretrain+Constrain,delta_A,19,-0.0032,-0.0095,0.0
+ft_T0.7,RNA2smol,delta_A,19,0.0,0.0,0.0
+ft_T0.7,full-minus-nopretrain,delta_delta_A,19,0.0032,0.0,0.0095
+ft_T0.7,full-minus-nopretrain,filtered_contrast,19,0.1125,0.0279,0.1986
+pretrain_exact,ablation:RNA2smol (Baseline),delta_A,26,0.0,0.0,0.0
+pretrain_exact,ablation:Pretrain Only,delta_A,26,0.0,0.0,0.0
+pretrain_exact,ablation:Pretrain+Constrain,delta_A,26,0.0,0.0,0.0
+pretrain_exact,RNA2smol,delta_A,26,0.0,0.0,0.0
+pretrain_exact,full-minus-nopretrain,delta_delta_A,26,0.0,0.0,0.0
+pretrain_exact,full-minus-nopretrain,filtered_contrast,26,0.0799,0.0166,0.1451
+pretrain_T0.5,ablation:RNA2smol (Baseline),delta_A,14,-0.077,-0.1502,-0.015
+pretrain_T0.5,ablation:Pretrain Only,delta_A,14,-0.0143,-0.0298,0.0
+pretrain_T0.5,ablation:Pretrain+Constrain,delta_A,14,-0.0991,-0.1959,-0.0227
+pretrain_T0.5,RNA2smol,delta_A,14,-0.1982,-0.3514,-0.0714
+pretrain_T0.5,full-minus-nopretrain,delta_delta_A,14,-0.1213,-0.2688,0.0029
+pretrain_T0.5,full-minus-nopretrain,filtered_contrast,14,-0.062,-0.2274,0.0632

@@ -1,0 +1,136 @@
+# ── Python ──────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+
+# ── OS / editors ─────────────────────────────────────────────────────────
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# ── Large datasets & model weights (re-obtainable, see README) ──────────
+data/
+ckpt/
+paperdata/
+clean_dataset_onlycrossdock/
+clean_dataset_onlyrna/
+clean_exped_dataset/
+output/
+logs/
+*.log
+
+# ── Local raw-data and manuscript working files (not part of release) ───
+sn-article*.pdf
+pretrain_smiles.txt.gz
+training_ligands_leakage_table*
+finetuning_ligands_table.tar.gz
+genbypkt_keep.py
+
+# ── FMN dir: keep only RNAsmol code + scoring wrappers ─────────────────
+case_study/fmn/*
+!case_study/fmn/RNAsmol/
+case_study/fmn/RNAsmol/datasets/
+case_study/fmn/RNAsmol/saved_model/
+case_study/fmn/RNAsmol/_plot/
+!case_study/fmn/rnasmol_score.py
+!case_study/fmn/rnasmol_score_gpu.py
+
+# ── rDock artifacts (regenerable via rdock_protocol/make_cavity.sh) ─────
+*.as
+*.gs
+case_study/**/dock_*.sd
+case_study/kras_g4/rdock_r4/*
+!case_study/kras_g4/rdock_r4/score_only.prm
+!case_study/kras_g4/rdock_r4/solv_score_only.prm
+case_study/kras_g4/ber102_rdock/_attempts_radius10/
+case_study/kras_g4/ber102_rdock/redock_ber102_r6.sd
+
+# ── Pre-paper-era case-study trees (kept on disk, excluded from release) ─
+case_study/sp1/
+case_study/kras_mrna/
+case_study/8hzk/
+case_study/_dude_test/
+case_study/figures/
+fluor_util_2/
+fragment_library/
+case_study/kras_g4/denovo_g4/
+case_study/kras_g4/t2_denovo/
+case_study/kras_g4/t2_repro/
+case_study/kras_g4/kpt102_rdock/
+case_study/kras_g4/ber102_gen2k/
+case_study/kras_g4/_archive_ber101_era/
+
+# ── Bulk generation products (regenerable; reports/JSON evidence kept) ──
+case_study/kras_g4/ber102_gen10k/valid_mols.sdf
+case_study/kras_g4/library_10k.sdf
+case_study/kras_g4/gen_*/valid_mols.sdf
+
+# ── Case-study intermediates (large / regenerable by run_chain_ber102.py)
+case_study/kras_g4/denovo2/paper_stage3_portpairs.json
+case_study/kras_g4/denovo2/frag_dedup*.sdf
+case_study/kras_g4/denovo2/frag_dedup*stats.json
+case_study/kras_g4/denovo2/frag_pool*.json
+case_study/kras_g4/denovo2/variant_pool*.json
+case_study/kras_g4/denovo2/chain_frag_dedup.sdf
+case_study/kras_g4/denovo2/chain_products.sdf
+case_study/kras_g4/denovo2/port_*.json
+case_study/kras_g4/denovo2/port_*.sdf
+case_study/kras_g4/denovo2/final_rnasmol6.json
+
+# ── Misc generated artifacts ─────────────────────────────────────────────
+*.tar.gz
+*.pth
+nohup.out
+package.json
+package-lock.json
+
+# ── Benchmark bulk data (load-bearing; documented + checksummed in ------------
+#    reproduction/manifests/data_files.json; deposit with the release, do not
+#    commit to git)
+data/benchmark/*.csv
+data/benchmark/*.ipynb
+data/benchmark/*.tsv
+data/benchmark/output/
+data/benchmark/outputs/
+data/benchmark/eval_fixed_rings/
+data/benchmark/molcraft_random_mapping_dude/
+data/benchmark/zqf_res_pocket_new_epoch113_smina/
+data/benchmark/DUDE_complex/
+data/benchmark/RNALigBench/
+data/benchmark/cache_*/
+
+# ── Reproduction layer runtime state ────────────────────────────────────────
+reproduction/cache/
+reproduction/**/__pycache__/
+
+# ── Quarantined / archived historical material ──────────────────────────────
+archive/
+
+# ── Leakage audit bulk outputs (summaries are tracked; see README) ──────────
+audit/tables/generated_long.csv
+audit/tables/generated_overlap_molecules.csv
+audit/tables/generated_overlap_pretrain_sample.csv
+audit/tables/reference_active_overlap.csv
+audit/tables/reference_actives.csv
+audit/cache/
+# ── Generated snapshot (compact summary is tracked) ─────────────────────────
+reproduction/manifests/inventory_before.json
+
+# ── Re-include the paper's authoritative experimental data ──────────────────
+# The root `data/` rule above excludes the (regenerable, huge) LMDB corpora.
+# The Origin ThT projects are small, irreplaceable raw measurements and must be
+# versioned, so un-ignore this specific subtree.
+!reproduction/data/
+!reproduction/data/**
+# ── Non-regenerable figure art (small, authoritative) ──────────────────────
+!reproduction/assets/
+!reproduction/assets/**
+
+# large figure exports (>20 MB) are not distributed; regenerate with the scripts in
+# reproduction/scripts from the archived assets
+reproduction/figures/property_landscape_audit.tiff
+reproduction/figures/molcraft_mapping_control.tiff
+reproduction/figures/chemical_space_audit.tiff
+reproduction/figures/property_landscape_audit.eps
+*.tiff

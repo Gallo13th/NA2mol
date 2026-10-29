@@ -1,0 +1,104 @@
+{
+  "cmd": [
+    "rbdock",
+    "-i",
+    "case_study/kras_g4/ber102_rdock/ber102_ref.sdf",
+    "-o",
+    "case_study/kras_g4/ber102_rdock/redock_ber102_r6",
+    "-r",
+    "case_study/kras_g4/ber102_rdock/ber102_full_r6_system.prm",
+    "-p",
+    "$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/dock_solv.prm",
+    "-n",
+    "10",
+    "-s",
+    "42"
+  ],
+  "tag": "ber102_r6",
+  "protocol": "$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/dock_solv.prm",
+  "n_runs": 10,
+  "scores": [
+    {
+      "run": 7,
+      "SCORE.INTER": -44.9949,
+      "SCORE.INTRA": 0.295629,
+      "SCORE.RESTR": NaN,
+      "SCORE": -47.878
+    },
+    {
+      "run": 6,
+      "SCORE.INTER": -33.6564,
+      "SCORE.INTRA": 0.668347,
+      "SCORE.RESTR": NaN,
+      "SCORE": -35.5708
+    },
+    {
+      "run": 8,
+      "SCORE.INTER": -14.523,
+      "SCORE.INTRA": 0.025595,
+      "SCORE.RESTR": NaN,
+      "SCORE": -17.6588
+    },
+    {
+      "run": 1,
+      "SCORE.INTER": -13.7602,
+      "SCORE.INTRA": -0.0841172,
+      "SCORE.RESTR": NaN,
+      "SCORE": -16.4226
+    },
+    {
+      "run": 9,
+      "SCORE.INTER": -13.5118,
+      "SCORE.INTRA": -0.0838317,
+      "SCORE.RESTR": NaN,
+      "SCORE": -16.7786
+    },
+    {
+      "run": 3,
+      "SCORE.INTER": -10.9274,
+      "SCORE.INTRA": -0.0580206,
+      "SCORE.RESTR": NaN,
+      "SCORE": -14.1667
+    },
+    {
+      "run": 5,
+      "SCORE.INTER": -10.4533,
+      "SCORE.INTRA": 0.0126891,
+      "SCORE.RESTR": NaN,
+      "SCORE": -13.0219
+    },
+    {
+      "run": 4,
+      "SCORE.INTER": -4.69083,
+      "SCORE.INTRA": -0.0969387,
+      "SCORE.RESTR": NaN,
+      "SCORE": -7.97002
+    },
+    {
+      "run": 10,
+      "SCORE.INTER": -3.24983,
+      "SCORE.INTRA": 0.0248385,
+      "SCORE.RESTR": NaN,
+      "SCORE": -6.40714
+    },
+    {
+      "run": 2,
+      "SCORE.INTER": 0.564691,
+      "SCORE.INTRA": -0.102753,
+      "SCORE.RESTR": NaN,
+      "SCORE": -2.72099
+    }
+  ],
+  "best": {
+    "run": 7,
+    "SCORE.INTER": -44.9949,
+    "rmsd_inplace": 1.2302122376240612,
+    "rmsd_aligned": 0.551552914145449
+  },
+  "cutoffs": {
+    "rmsd": 2.5,
+    "score_inter": -10.0
+  },
+  "verdict": "PASS",
+  "best_pose_sdf": "case_study/kras_g4/ber102_rdock/redock_ber102_r6_best.sdf"
+}

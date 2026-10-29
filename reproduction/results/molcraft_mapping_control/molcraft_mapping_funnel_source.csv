@@ -1,0 +1,11 @@
+method,filter_step,mols_retained,targets_ge1,targets_ge5
+MolCRAFT,All,98257,100,100
+MolCRAFT,"aff<-8,QED>0.5,SA<5",36410,98,97
+MolCRAFT,+SEI>0.1,28938,96,96
+MolCRAFT,"aff<-9,QED>0.5,SA<5,SEI>0.15",13287,87,84
+MolCRAFT,"aff<-9,QED>0.6,SA<4,SEI>0.2,strain<200",2361,64,58
+MolCRAFT (Original),All,76351,100,100
+MolCRAFT (Original),"aff<-8,QED>0.5,SA<5",29639,95,95
+MolCRAFT (Original),+SEI>0.1,24377,92,91
+MolCRAFT (Original),"aff<-9,QED>0.5,SA<5,SEI>0.15",11667,79,75
+MolCRAFT (Original),"aff<-9,QED>0.6,SA<4,SEI>0.2,strain<200",2471,61,49

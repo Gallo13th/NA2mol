@@ -1,0 +1,13 @@
+method,tau,successful_targets_ge1_molecule,successful_targets_ge5_molecules,total_evaluable_targets,hit_mols_total
+MolCRAFT,0.2,100,100,100,29304
+MolCRAFT,0.25,99,96,100,7181
+MolCRAFT,0.3,76,50,100,1457
+MolCRAFT,0.35,36,19,100,358
+MolCRAFT,0.4,14,9,100,129
+MolCRAFT,0.5,2,1,100,15
+MolCRAFT (Original),0.2,100,100,100,26713
+MolCRAFT (Original),0.25,94,87,100,8110
+MolCRAFT (Original),0.3,67,53,100,2155
+MolCRAFT (Original),0.35,32,24,100,573
+MolCRAFT (Original),0.4,11,8,100,170
+MolCRAFT (Original),0.5,3,2,100,39

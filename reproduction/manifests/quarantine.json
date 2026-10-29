@@ -1,0 +1,68 @@
+[
+  {
+    "source": "case_study/8hzk",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/case_study/8hzk",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  },
+  {
+    "source": "case_study/sp1",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/case_study/sp1",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  },
+  {
+    "source": "case_study/kras_mrna",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/case_study/kras_mrna",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  },
+  {
+    "source": "case_study/kras_g4/_archive_ber101_era",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/case_study/kras_g4/_archive_ber101_era",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  },
+  {
+    "source": "case_study/kras_g4/t2_denovo",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/case_study/kras_g4/t2_denovo",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  },
+  {
+    "source": "case_study/kras_g4/t2_repro",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/case_study/kras_g4/t2_repro",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  },
+  {
+    "source": "case_study/kras_g4/kpt102_rdock",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/case_study/kras_g4/kpt102_rdock",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  },
+  {
+    "source": "fluor_util_2",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/fluor_util_2",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  },
+  {
+    "source": "package.json",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/package.json",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  },
+  {
+    "source": "package-lock.json",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/package-lock.json",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  },
+  {
+    "source": "sn-article-review-v1.pdf",
+    "backup": "rna2smol_cleanup_backup_20261015/quarantine/sn-article-review-v1.pdf",
+    "reason": "historical non-paper case study or unrelated root artifact",
+    "status": "quarantined"
+  }
+]

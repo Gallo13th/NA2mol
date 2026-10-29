@@ -1,0 +1,74 @@
+[
+  {
+    "source": "audit/tables/recovery_manuscript_authoritative.csv",
+    "output": "reproduction/results/leakage/recovery_manuscript_authoritative.csv",
+    "sha256": "05d24f4c3fab316505effedbbbcef3148e78cb4b771709752d83b2a17ea19ba2",
+    "bytes": 6387
+  },
+  {
+    "source": "audit/tables/recovery_fixed_target_sensitivity.csv",
+    "output": "reproduction/results/leakage/recovery_fixed_target_sensitivity.csv",
+    "sha256": "140eabf68d0696c2397641b98a5162340bd0cc73ada196035ee4928e43af3659",
+    "bytes": 3845
+  },
+  {
+    "source": "audit/tables/recovery_ablation_ladder.csv",
+    "output": "reproduction/results/leakage/recovery_ablation_ladder.csv",
+    "sha256": "c20f546ddca224eaaef0504396f2505a0211ad0542c054f89d77c25c7b3930dc",
+    "bytes": 2042
+  },
+  {
+    "source": "audit/tables/recovery_ablation_paired_ci.csv",
+    "output": "reproduction/results/leakage/recovery_ablation_paired_ci.csv",
+    "sha256": "c48924b5b08ac8d2efd3c959e43026b9312f1a2220c9df4a068fea32656e1dc3",
+    "bytes": 2741
+  },
+  {
+    "source": "audit/tables/reference_overlap_summary.csv",
+    "output": "reproduction/results/leakage/reference_overlap_summary.csv",
+    "sha256": "df6df19c04f03993ef68d0d0ded4807035626d3355ae5171859c34846869f148",
+    "bytes": 8935
+  },
+  {
+    "source": "audit/tables/generated_overlap_summary.csv",
+    "output": "reproduction/results/leakage/generated_overlap_summary.csv",
+    "sha256": "bd04cf1d1b3a77933ea130d9c4d099ed72ad809e2d265fbd8cf3cb2547a94ccb",
+    "bytes": 4295
+  },
+  {
+    "source": "case_study/kras_g4/denovo2/paper_funnel.json",
+    "output": "reproduction/results/kras_g4/paper_funnel.json",
+    "sha256": "60303af00f6732288a160e730bbb116823af0bbfb6539179a281c2b4dab43d4b",
+    "bytes": 495
+  },
+  {
+    "source": "case_study/kras_g4/denovo2/paper_stage1_fragments.json",
+    "output": "reproduction/results/kras_g4/paper_stage1_fragments.json",
+    "sha256": "b039e4357fcf2aa2b26a2a432a9fc029f47729c7dd94bfda315c39395034b356",
+    "bytes": 1870206
+  },
+  {
+    "source": "case_study/kras_g4/denovo2/paper_stage2_variants.json",
+    "output": "reproduction/results/kras_g4/paper_stage2_variants.json",
+    "sha256": "ec4aa8f9e426905d5c85ae95eddbe3059457a392d65ee37b0d2da8969145250a",
+    "bytes": 274051
+  },
+  {
+    "source": "case_study/kras_g4/denovo2/paper_stage4_products.json",
+    "output": "reproduction/results/kras_g4/paper_stage4_products.json",
+    "sha256": "f06c3825d0a08f0155235013b1d42b6870d122cbb2cde080b0d8d411113ce406",
+    "bytes": 381105
+  },
+  {
+    "source": "case_study/kras_g4/denovo2/chain_tiers.json",
+    "output": "reproduction/results/kras_g4/chain_tiers.json",
+    "sha256": "1bb696db1bf18b5bf122db4a94d2cbe608f3ae3c1381654b78059df026c50c74",
+    "bytes": 298966
+  },
+  {
+    "source": "case_study/kras_g4/denovo2/g4_tier1_order_table.csv",
+    "output": "reproduction/results/kras_g4/g4_tier1_order_table.csv",
+    "sha256": "d83e1f4318b096d8b4097349ffb497bd0ee91522966347ceffb4ea50d8f3e7b9",
+    "bytes": 2245
+  }
+]

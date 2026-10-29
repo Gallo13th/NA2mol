@@ -1,0 +1,11 @@
+{
+  "note": "All figure-script paths resolve to correct repository-relative locations. These are genuinely absent data files, not path errors.",
+  "distinct_missing_inputs": {
+    "notebooks/output/smrtbench_combined_results.csv": "Merged RNA benchmark table (Fig. 2, Fig. 3, SI Fig. 1, SI Fig. 3). Legacy notebooks/smrtnet_stat_all.csv has only 4 methods and no ablation configurations.",
+    "notebooks/output/tables/smrtbench": "Per-target metric tables derived from the merged RNA table (export_tables.py output).",
+    "notebooks/output/tables/dude": "Per-target DUD-E tables. Reproducible now via reproduction/scripts/export_dude_tables.py into reproduction/results/benchmark_tables/dude.",
+    "notebooks/output/chemspace_targeted": "Chemical-space audit outputs; require notebooks/output/cache_chemspace/*.npy (SI Fig. 1).",
+    "reproduction/data/\u8367\u5149\u6570\u636e\u6c47\u603b.csv": "ThT raw assay data for the case-study panel; not in this repository."
+  },
+  "reduces_to": "4 distinct data gaps"
+}

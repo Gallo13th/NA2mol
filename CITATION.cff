@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the accompanying manuscript."
+title: "NA2smol: pocket-conditioned 3D molecular generation for nucleic-acid targets"
+abstract: >-
+  Code and data layout for reproducing NA2smol, a Bayesian Flow Network that generates
+  small molecules inside nucleic-acid binding pockets using shared physicochemical pocket
+  descriptors, ligand-only electron-density pretraining and a teacher-student alignment loss.
+type: software
+license: MIT
+repository-code: "https://github.com/Yuhan-Fei/rna2smol"
+keywords:
+  - molecular generation
+  - nucleic acid
+  - Bayesian Flow Network
+  - electron density
+  - drug design
+authors:
+  - name: "NA2smol authors"
+preferred-citation:
+  type: article
+  title: "NA2smol"
+  # Fill in on acceptance: journal, volume, pages, DOI and the full author list.

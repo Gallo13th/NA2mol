@@ -1,0 +1,3 @@
+benchmark,n_targets_with_actives,RNA2smol_covered,MolCRAFT_covered,Pocket2Mol_covered,ED2Mol_covered,common_full
+SMRT-Net,27,27,27,27,27,27
+DUD-E,101,101,100,86,97,84

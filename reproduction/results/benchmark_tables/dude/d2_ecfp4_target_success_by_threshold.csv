@@ -1,0 +1,31 @@
+method,tau,successful_targets_ge1_molecule,successful_targets_ge5_molecules,total_evaluable_targets,hit_mols_total
+MolCRAFT,0.2,100,100,100,29304
+MolCRAFT,0.25,99,96,100,7181
+MolCRAFT,0.3,76,50,100,1457
+MolCRAFT,0.35,36,19,100,358
+MolCRAFT,0.4,14,9,100,129
+MolCRAFT,0.5,2,1,100,15
+MolCRAFT (Original),0.2,100,100,100,26713
+MolCRAFT (Original),0.25,94,87,100,8110
+MolCRAFT (Original),0.3,67,53,100,2155
+MolCRAFT (Original),0.35,32,24,100,573
+MolCRAFT (Original),0.4,11,8,100,170
+MolCRAFT (Original),0.5,3,2,100,39
+Pocket2Mol,0.2,85,84,86,18073
+Pocket2Mol,0.25,84,73,86,5106
+Pocket2Mol,0.3,73,50,86,1230
+Pocket2Mol,0.35,50,21,86,355
+Pocket2Mol,0.4,31,7,86,117
+Pocket2Mol,0.5,11,0,86,18
+RNA2smol,0.2,101,100,102,40556
+RNA2smol,0.25,100,99,102,13982
+RNA2smol,0.3,98,86,102,3996
+RNA2smol,0.35,81,51,102,1176
+RNA2smol,0.4,60,22,102,361
+RNA2smol,0.5,20,2,102,53
+ed2mol,0.2,97,97,97,26130
+ed2mol,0.25,97,95,97,6816
+ed2mol,0.3,91,74,97,1479
+ed2mol,0.35,67,22,97,298
+ed2mol,0.4,31,2,97,64
+ed2mol,0.5,4,0,97,5

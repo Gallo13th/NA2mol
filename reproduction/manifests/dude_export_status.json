@@ -1,0 +1,14 @@
+{
+  "stage": "export-dude",
+  "complete": true,
+  "input": "notebooks/dude_stat_all.csv",
+  "rows": 438543,
+  "methods": [
+    "MolCRAFT",
+    "MolCRAFT (Original)",
+    "Pocket2Mol",
+    "RNA2smol",
+    "ed2mol"
+  ],
+  "scope": "observed-output target counts only; fixed 101-target reference universe not assumed"
+}
