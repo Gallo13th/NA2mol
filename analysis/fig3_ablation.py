@@ -7,7 +7,7 @@ Panels directly mirror test_on_smrtnet.png style for consistency:
   c — Per-target docking score                  (boxplot + strip)
   d — Per-target strain energy                  (boxplot + strip)
   e — QED-SA × docking heatmap                  (2×2 small multiples)
-  f — Component contribution waterfall          (incremental gain)
+  f — Final-tier retention waterfall by configuration
 
 Style: matches the RNA benchmark figure via style.py.
 """
@@ -437,7 +437,7 @@ def plot_component_waterfall(ax, df, panel_lbl="f"):
     ax.set_xticks(x)
     ax.set_xticklabels(labels, fontsize=6.0)
     ax.set_ylabel("Retained molecules")
-    ax.set_title("Component contribution", loc="left", pad=4)
+    ax.set_title("Final-tier retention by configuration", loc="left", pad=4)
     style_axis(ax, grid_axis="y")
     panel_label(ax, panel_lbl, x=-0.08)
 
