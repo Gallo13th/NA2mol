@@ -228,8 +228,14 @@ def main():
     assay_ax.axvline(22.387, color=MUTED, ls="--", lw=0.7)
     assay_ax.set(xscale="log", xlabel="Concentration (µM)", ylabel="Normalised ThT fluorescence", ylim=(-0.05, 1.08))
     assay_ax.set_title("Apparent reduction in\nnormalised ThT signal", loc="left", fontsize=6.4)
-    assay_ax.text(0.97, 0.96, "DC$_{50}$ = 22.4 µM\nMean ± SD; 3 independent measurements", transform=assay_ax.transAxes,
+    # The two annotations used to be one right-aligned block. The second line was long enough
+    # to run left across the plateau and collide with the points and the fitted curve, so
+    # DC50 stays beside the dashed line and the replicate note moves to the empty lower-left,
+    # shortened to what the panel needs to say.
+    assay_ax.text(0.96, 0.95, "DC$_{50}$ = 22.4 µM", transform=assay_ax.transAxes,
                   ha="right", va="top", fontsize=6)
+    assay_ax.text(0.03, 0.06, "Mean ± SD; n = 3", transform=assay_ax.transAxes,
+                  ha="left", va="bottom", fontsize=5.8, color=MUTED)
     label(assay_ax, "g")
     registered = [record for record in json.loads((DATA / "tier1_pubchem.json").read_text()) if record.get("cid")]
     metrics = {record["smiles"]: record for record in tiers.to_dict("records")}
