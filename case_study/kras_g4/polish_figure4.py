@@ -227,8 +227,8 @@ def main():
                       ecolor=MUTED, elinewidth=0.65, capsize=1.5)
     assay_ax.axvline(22.387, color=MUTED, ls="--", lw=0.7)
     assay_ax.set(xscale="log", xlabel="Concentration (µM)", ylabel="Normalised ThT fluorescence", ylim=(-0.05, 1.08))
-    assay_ax.set_title("ThT displacement", loc="left", fontsize=6.8)
-    assay_ax.text(0.97, 0.96, "DC$_{50}$ = 22.4 µM\nMean ± SD; 3 wells", transform=assay_ax.transAxes,
+    assay_ax.set_title("Apparent reduction in\nnormalised ThT signal", loc="left", fontsize=6.4)
+    assay_ax.text(0.97, 0.96, "DC$_{50}$ = 22.4 µM\nMean ± SD; 3 independent measurements", transform=assay_ax.transAxes,
                   ha="right", va="top", fontsize=6)
     label(assay_ax, "g")
     registered = [record for record in json.loads((DATA / "tier1_pubchem.json").read_text()) if record.get("cid")]
