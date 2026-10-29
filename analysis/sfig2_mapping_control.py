@@ -206,7 +206,7 @@ def write_source_tables(tables: dict[str, pd.DataFrame], effects: pd.DataFrame) 
 
 def plot_target_medians(fig: plt.Figure, spec, target_medians: pd.DataFrame) -> None:
     subgs = spec.subgridspec(2, 4, wspace=0.42, hspace=0.72)
-    point_color = lighten(SI_COLORS["MolCRAFT"], 0.30)
+    point_color = lighten(SI_COLORS["MolCRAFT"], 0.12)
     for idx, (metric, label) in enumerate(RAW_METRICS):
         ax = fig.add_subplot(subgs[idx // 4, idx % 4])
         sub = target_medians[target_medians["metric"] == metric]
@@ -226,8 +226,9 @@ def plot_target_medians(fig: plt.Figure, spec, target_medians: pd.DataFrame) -> 
             y,
             s=8,
             color=point_color,
+            alpha=0.85,
             edgecolor="white",
-            linewidth=0.25,
+            linewidth=0.2,
             zorder=2,
         )
         ax.set_xlim(limits)
@@ -235,12 +236,21 @@ def plot_target_medians(fig: plt.Figure, spec, target_medians: pd.DataFrame) -> 
         ax.set_title(label, loc="left", pad=2)
         ax.locator_params(axis="both", nbins=3)
         ax.tick_params(labelsize=5.0, pad=1.5)
-        ax.set_ylabel("Random mapping" if idx % 4 == 0 else "", fontsize=5.6)
-        ax.set_xlabel("Original" if idx >= 4 else "", fontsize=5.6)
+        ax.set_ylabel("Random mapping" if idx % 4 == 0 else "", fontsize=5.4)
+        ax.set_xlabel("Original mapping" if idx >= 4 else "", fontsize=5.4)
         style_axis(ax, grid_axis=None)
         if idx == 0:
             panel_label(ax, "a", x=-0.60, y=1.25)
 
+    # panel a is a paired scatter, so the two legend entries (which describe the line panels)
+    # do not cover it; state what a point is and what the diagonal means
+    # panel a is a paired scatter, so the two legend entries (which describe the line
+    # panels) do not cover it. State what a point is and what the diagonal means, in the
+    # first sub-panel where the lower-right corner is empty.
+    key_ax = fig.axes[-8]
+    key_ax.text(0.97, 0.03, "one point per pocket\n\u2013 \u2013 identity",
+                transform=key_ax.transAxes, ha="right", va="bottom",
+                fontsize=4.6, color=MUTED, linespacing=1.3)
 
 
 def plot_ecfp4(ax: plt.Axes, ecfp4: pd.DataFrame) -> None:
