@@ -16,6 +16,7 @@ from style import (
     METHOD_COLORS,
     SI_COLORS,
     METHOD_LABELS,
+    INK,
     MUTED,
     lighten,
     panel_label,
@@ -236,9 +237,23 @@ def plot_target_medians(fig: plt.Figure, spec, target_medians: pd.DataFrame) -> 
         ax.set_title(label, loc="left", pad=2)
         ax.locator_params(axis="both", nbins=3)
         ax.tick_params(labelsize=5.0, pad=1.5)
-        ax.set_ylabel("Random mapping" if idx % 4 == 0 else "", fontsize=5.4)
-        ax.set_xlabel("Original mapping" if idx >= 4 else "", fontsize=5.4)
+        ax.set_ylabel("Random mapping" if idx % 4 == 0 else "", fontsize=5.4,
+                      color=SI_COLORS["MolCRAFT"] if idx % 4 == 0 else INK)
+        ax.set_xlabel("Original mapping" if idx >= 4 else "", fontsize=5.4,
+                      color=SI_COLORS["MolCRAFT (Original)"] if idx >= 4 else INK)
         style_axis(ax, grid_axis=None)
+        # Tie each axis to its legend colour, on every sub-panel rather than only the ones
+        # that carry a shared label: y is MolCRAFT with random mapping, x is MolCRAFT with
+        # the original residue channels. Without this the panel reads as "all MolCRAFT".
+        ax.spines["left"].set_color(SI_COLORS["MolCRAFT"])
+        ax.tick_params(axis="y", colors=SI_COLORS["MolCRAFT"])
+        ax.spines["bottom"].set_color(SI_COLORS["MolCRAFT (Original)"])
+        ax.tick_params(axis="x", colors=SI_COLORS["MolCRAFT (Original)"])
+        # style_axis above resets label colours, so set them last
+        if idx % 4 == 0:
+            ax.yaxis.label.set_color(SI_COLORS["MolCRAFT"])
+        if idx >= 4:
+            ax.xaxis.label.set_color(SI_COLORS["MolCRAFT (Original)"])
         if idx == 0:
             panel_label(ax, "a", x=-0.60, y=1.25)
 
