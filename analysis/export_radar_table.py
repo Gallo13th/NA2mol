@@ -208,11 +208,15 @@ LOWER_IS_BETTER = {
     'median_sa': True, 'median_sei': False, 'median_strain': True,
     'recovery_observed': False,
 }
+# the arrow states the direction that counts as better for each metric
 MAIN_COLS = [
-    ('median_docking', 'Dock.', '%.2f'), ('median_rmsd', 'RMSD', '%.2f'),
-    ('median_qed', 'QED', '%.3f'), ('median_sa', 'SA', '%.2f'),
-    ('median_sei', 'SEI', '%.3f'), ('median_strain', 'Strain', _fmt_strain),
-    ('recovery_observed', 'ECFP4 rec.', '%.3f'),
+    ('median_docking', 'Dock. $\\downarrow$', '%.2f'),
+    ('median_rmsd', 'RMSD $\\downarrow$', '%.2f'),
+    ('median_qed', 'QED $\\uparrow$', '%.3f'),
+    ('median_sa', 'SA $\\downarrow$', '%.2f'),
+    ('median_sei', 'SEI $\\uparrow$', '%.3f'),
+    ('median_strain', 'Strain $\\downarrow$', _fmt_strain),
+    ('recovery_observed', 'ECFP4 rec. $\\uparrow$', '%.3f'),
 ]
 MAIN_GROUPS = [('Fig. 2a', 'DUD-E protein'), ('Fig. 2d', 'RNA test set'),
                ('Fig. 3a', 'RNA test set, four configurations')]
@@ -254,7 +258,9 @@ def write_main_table(df: pd.DataFrame) -> None:
                     txt = f'${txt}$'
                 rank = marks.get((i, key))
                 if rank == 0:
-                    txt = f'\\textbf{{{txt}}}'
+                    # \\textbf does nothing inside $...$: use \\mathbf for math values
+                    txt = (f'$\\mathbf{{{txt[1:-1]}}}$' if txt.startswith('$')
+                           else f'\\textbf{{{txt}}}')
                 elif rank == 1:
                     txt = f'\\underline{{{txt}}}'
                 cells.append(txt)
