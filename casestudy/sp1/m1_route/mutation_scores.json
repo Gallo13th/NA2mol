@@ -1,0 +1,93 @@
+{
+  "mut_seed_sat": {
+    "per_model": {
+      "pdb_mol": 0.8575,
+      "pdb_net": 0.5109,
+      "pdb_rna": 0.9243,
+      "rob_mol": 0.9878,
+      "rob_net": 1.0,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.7134,
+    "gate": 5,
+    "rdock_INTER": -35.49
+  },
+  "mut_ox": {
+    "per_model": {
+      "pdb_mol": 0.6869,
+      "pdb_net": 0.3069,
+      "pdb_rna": 0.9206,
+      "rob_mol": 0.9746,
+      "rob_net": 0.9999,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6482,
+    "gate": 4,
+    "rdock_INTER": -37.2
+  },
+  "mut_ox_dehyd": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.964,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -36.55
+  },
+  "mut_ox_dehyd_3OH": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.964,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -38.68
+  },
+  "mut_m1": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.964,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -42.97
+  },
+  "mut_m2": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.964,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -47.81
+  },
+  "mut_m3": {
+    "per_model": {
+      "pdb_mol": 0.5015,
+      "pdb_net": 0.5156,
+      "pdb_rna": 0.9338,
+      "rob_mol": 0.964,
+      "rob_net": 0.9984,
+      "rob_rna": 0.0
+    },
+    "ensemble_P": 0.6522,
+    "gate": 5,
+    "rdock_INTER": -43.0
+  }
+}

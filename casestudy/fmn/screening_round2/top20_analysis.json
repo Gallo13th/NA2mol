@@ -1,0 +1,2186 @@
+{
+  "pocket_residues": [
+    "G1.A",
+    "A8.A",
+    "G9.A",
+    "G10.A",
+    "A11.A",
+    "U12.A",
+    "A13.A",
+    "U14.A",
+    "A23.A",
+    "G24.A",
+    "A25.A",
+    "A26.A",
+    "G27.A",
+    "G28.A",
+    "A29.A"
+  ],
+  "ligands": [
+    {
+      "rank": 1,
+      "pose_id": "T01",
+      "gen_idx": 221,
+      "combined_rank": 1,
+      "combined_score": 0.5951,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 17.625063,
+      "rdock_INTER": -18.1221,
+      "rdock_SCORE": -59.4131,
+      "smiles": "COCCCCC1=CC=C([C@H](CS)C(=O)N[C@@H]2CC[C@@H](N)N2)C=CC1",
+      "smiles_sanitized": "COCCCCC1=CC=C([C@H](CS)C(=O)N[C@@H]2CC[C@@H](N)N2)C=CC1",
+      "interactions": [
+        {
+          "residue": "A8.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "Hydrophobic"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A26.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 7,
+        "by_type": {
+          "VdWContact": 6,
+          "Hydrophobic": 1
+        },
+        "by_residue": {
+          "A8.A": [
+            "VdWContact"
+          ],
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ],
+          "A26.A": [
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "U12.A": [
+            "Hydrophobic"
+          ]
+        },
+        "n_residues": 7,
+        "n_residues_no_vdw": 1
+      },
+      "druglikeness": {
+        "MW": 365.54,
+        "QED": 0.373,
+        "SA": 4.67,
+        "heavy_atoms": 25,
+        "HBD": 4,
+        "HBA": 5,
+        "rotatable": 9,
+        "rings": 2,
+        "aromatic_rings": 0,
+        "TPSA": 76.4,
+        "cLogP": 2.27,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "U12.A"
+      ],
+      "extra_residues_no_vdw": [],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.5
+    },
+    {
+      "rank": 2,
+      "pose_id": "T02",
+      "gen_idx": 1897,
+      "combined_rank": 2,
+      "combined_score": 0.5842,
+      "rnasmol_p_binder": 0.999999,
+      "rnasmol_logit": 14.210152,
+      "rdock_INTER": -19.1155,
+      "rdock_SCORE": -64.9458,
+      "smiles": "CC1C=CC(N2CCC(OC(=O)O)CC2)=C2C=C(NC(=O)CCCN)N=C21",
+      "smiles_sanitized": "CC1C=CC(N2CC[C@@H](OC(=O)O)CC2)=C2C=C(NC(=O)CCCN)N=C21",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G28.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 7,
+        "by_type": {
+          "VdWContact": 6,
+          "HBDonor": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ],
+          "G28.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 6,
+        "n_residues_no_vdw": 1
+      },
+      "druglikeness": {
+        "MW": 374.44,
+        "QED": 0.61,
+        "SA": 3.97,
+        "heavy_atoms": 27,
+        "HBD": 3,
+        "HBA": 6,
+        "rotatable": 6,
+        "rings": 3,
+        "aromatic_rings": 0,
+        "TPSA": 117.2,
+        "cLogP": 1.76,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G28.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [],
+      "extra_residues_no_vdw": [
+        "G10.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 0,
+      "residue_jaccard_no_vdw": 0.0
+    },
+    {
+      "rank": 3,
+      "pose_id": "T03",
+      "gen_idx": 1627,
+      "combined_rank": 3,
+      "combined_score": 0.5617,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 35.090025,
+      "rdock_INTER": -19.5129,
+      "rdock_SCORE": -22.5147,
+      "smiles": "NC[C@@H](O)[C@H]1O[C@@H]([C@H]2O[C@@H](O)[C@H](N)[C@@H](O)CC2=O)[C@H](O)[C@@H](O)[C@@H]1O",
+      "smiles_sanitized": "NC[C@@H](O)[C@H]1O[C@@H]([C@H]2O[C@@H](O)[C@H](N)[C@@H](O)CC2=O)[C@H](O)[C@@H](O)[C@@H]1O",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A26.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "HBAcceptor"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 8,
+        "by_type": {
+          "VdWContact": 6,
+          "HBDonor": 1,
+          "HBAcceptor": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "VdWContact"
+          ],
+          "U12.A": [
+            "VdWContact"
+          ],
+          "A25.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "A26.A": [
+            "VdWContact"
+          ],
+          "G27.A": [
+            "HBAcceptor",
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "A25.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "G27.A": [
+            "HBAcceptor",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 6,
+        "n_residues_no_vdw": 2
+      },
+      "druglikeness": {
+        "MW": 352.34,
+        "QED": 0.24,
+        "SA": 5.07,
+        "heavy_atoms": 24,
+        "HBD": 8,
+        "HBA": 11,
+        "rotatable": 3,
+        "rings": 2,
+        "aromatic_rings": 0,
+        "TPSA": 209.0,
+        "cLogP": -5.48,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [],
+      "extra_residues_no_vdw": [
+        "A25.A",
+        "G27.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 0,
+      "residue_jaccard_no_vdw": 0.0
+    },
+    {
+      "rank": 4,
+      "pose_id": "T04",
+      "gen_idx": 3498,
+      "combined_rank": 4,
+      "combined_score": 0.5225,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 29.797552,
+      "rdock_INTER": -23.4219,
+      "rdock_SCORE": -28.9261,
+      "smiles": "NC1=CC2=NC3=CC(OC[C@H](O)C(=O)O)C(O)=C(O)C(O)=C3C=CC2=CC=C1",
+      "smiles_sanitized": "NC1=CC2=NC3=CC(OC[C@H](O)C(=O)O)C(O)=C(O)C(O)=C3C=CC2=CC=C1",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "Hydrophobic"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 7,
+        "by_type": {
+          "VdWContact": 4,
+          "HBDonor": 2,
+          "Hydrophobic": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic"
+          ],
+          "A25.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic"
+          ],
+          "A25.A": [
+            "HBDonor",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 5,
+        "n_residues_no_vdw": 3
+      },
+      "druglikeness": {
+        "MW": 386.36,
+        "QED": 0.419,
+        "SA": 4.9,
+        "heavy_atoms": 28,
+        "HBD": 6,
+        "HBA": 8,
+        "rotatable": 4,
+        "rings": 3,
+        "aromatic_rings": 0,
+        "TPSA": 165.8,
+        "cLogP": 1.2,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "U12.A"
+      ],
+      "extra_residues_no_vdw": [
+        "A25.A",
+        "G10.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.25
+    },
+    {
+      "rank": 5,
+      "pose_id": "T05",
+      "gen_idx": 4053,
+      "combined_rank": 5,
+      "combined_score": 0.5007,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 30.065593,
+      "rdock_INTER": -17.0944,
+      "rdock_SCORE": -26.2993,
+      "smiles": "NC(=O)CCNC(=O)C1=NC(C/C=C/CO)=CC=C(O)C1N",
+      "smiles_sanitized": "NC(=O)CCNC(=O)C1=NC(C/C=C/CO)=CC=C(O)C1N",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A26.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 7,
+        "by_type": {
+          "VdWContact": 6,
+          "HBDonor": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ],
+          "A26.A": [
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 6,
+        "n_residues_no_vdw": 1
+      },
+      "druglikeness": {
+        "MW": 308.34,
+        "QED": 0.383,
+        "SA": 4.13,
+        "heavy_atoms": 22,
+        "HBD": 5,
+        "HBA": 6,
+        "rotatable": 7,
+        "rings": 1,
+        "aromatic_rings": 0,
+        "TPSA": 151.0,
+        "cLogP": -0.98,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [],
+      "extra_residues_no_vdw": [
+        "G10.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 0,
+      "residue_jaccard_no_vdw": 0.0
+    },
+    {
+      "rank": 6,
+      "pose_id": "T06",
+      "gen_idx": 70,
+      "combined_rank": 6,
+      "combined_score": 0.4808,
+      "rnasmol_p_binder": 0.999979,
+      "rnasmol_logit": 10.792723,
+      "rdock_INTER": -19.5291,
+      "rdock_SCORE": -61.4374,
+      "smiles": "CSCCC1=NC(N2CCN(C(=O)O)CC2)=C(O)C2C(C)=CC=C12",
+      "smiles_sanitized": "CSCCC1=NC(N2CCN(C(=O)O)CC2)=C(O)C2C(C)=CC=C12",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "Hydrophobic"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 4,
+        "by_type": {
+          "VdWContact": 3,
+          "Hydrophobic": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "U12.A": [
+            "Hydrophobic"
+          ]
+        },
+        "n_residues": 4,
+        "n_residues_no_vdw": 1
+      },
+      "druglikeness": {
+        "MW": 349.46,
+        "QED": 0.816,
+        "SA": 3.96,
+        "heavy_atoms": 24,
+        "HBD": 2,
+        "HBA": 5,
+        "rotatable": 4,
+        "rings": 3,
+        "aromatic_rings": 0,
+        "TPSA": 76.4,
+        "cLogP": 2.72,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "U12.A"
+      ],
+      "extra_residues_no_vdw": [],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.5
+    },
+    {
+      "rank": 7,
+      "pose_id": "T07",
+      "gen_idx": 3189,
+      "combined_rank": 7,
+      "combined_score": 0.4786,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 33.498968,
+      "rdock_INTER": -16.6528,
+      "rdock_SCORE": -17.5379,
+      "smiles": "[H]/N=C(/C)CCCOC1=CC=C(C(=O)NCC[C@@H](O)C=O)C(N)C=C1C",
+      "smiles_sanitized": "[H]/N=C(/C)CCCOC1=CC=C(C(=O)NCC[C@@H](O)C=O)C(N)C=C1C",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "Hydrophobic"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A26.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 7,
+        "by_type": {
+          "VdWContact": 6,
+          "Hydrophobic": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic",
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ],
+          "A26.A": [
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "U12.A": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 6,
+        "n_residues_no_vdw": 1
+      },
+      "druglikeness": {
+        "MW": 349.43,
+        "QED": 0.266,
+        "SA": 4.79,
+        "heavy_atoms": 25,
+        "HBD": 4,
+        "HBA": 6,
+        "rotatable": 10,
+        "rings": 1,
+        "aromatic_rings": 0,
+        "TPSA": 125.5,
+        "cLogP": 0.99,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "U12.A"
+      ],
+      "extra_residues_no_vdw": [],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.5
+    },
+    {
+      "rank": 8,
+      "pose_id": "T08",
+      "gen_idx": 3112,
+      "combined_rank": 8,
+      "combined_score": 0.4595,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 15.493177,
+      "rdock_INTER": -11.7508,
+      "rdock_SCORE": -50.4016,
+      "smiles": "CC(NCc1ccc(N)cc1)C(C)C1=C(S)CN(CCCCC(=O)O)CC1",
+      "smiles_sanitized": "CC(NCc1ccc(N)cc1)C(C)C1=C(S)CN(CCCCC(=O)O)CC1",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A26.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "A26.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 6,
+        "by_type": {
+          "VdWContact": 5,
+          "HBDonor": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ],
+          "A26.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "A26.A": [
+            "HBDonor",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 5,
+        "n_residues_no_vdw": 1
+      },
+      "druglikeness": {
+        "MW": 391.58,
+        "QED": 0.279,
+        "SA": 3.6,
+        "heavy_atoms": 27,
+        "HBD": 4,
+        "HBA": 5,
+        "rotatable": 10,
+        "rings": 2,
+        "aromatic_rings": 1,
+        "TPSA": 78.6,
+        "cLogP": 3.53,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [],
+      "extra_residues_no_vdw": [
+        "A26.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 0,
+      "residue_jaccard_no_vdw": 0.0
+    },
+    {
+      "rank": 9,
+      "pose_id": "T09",
+      "gen_idx": 1596,
+      "combined_rank": 9,
+      "combined_score": 0.4343,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 22.145975,
+      "rdock_INTER": -18.1238,
+      "rdock_SCORE": -33.2235,
+      "smiles": "CC(C1=CCC=C1)C1=CC(C(=O)CC[C@H](N)C(=O)O)=CC(O)=C(O)C1",
+      "smiles_sanitized": "CC(C1=CCC=C1)C1=CC(C(=O)CC[C@H](N)C(=O)O)=CC(O)=C(O)C1",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "Hydrophobic"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 7,
+        "by_type": {
+          "VdWContact": 5,
+          "HBDonor": 1,
+          "Hydrophobic": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic",
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 5,
+        "n_residues_no_vdw": 2
+      },
+      "druglikeness": {
+        "MW": 345.4,
+        "QED": 0.563,
+        "SA": 4.61,
+        "heavy_atoms": 25,
+        "HBD": 4,
+        "HBA": 5,
+        "rotatable": 7,
+        "rings": 2,
+        "aromatic_rings": 0,
+        "TPSA": 120.9,
+        "cLogP": 2.85,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "U12.A"
+      ],
+      "extra_residues_no_vdw": [
+        "G10.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.333
+    },
+    {
+      "rank": 10,
+      "pose_id": "T10",
+      "gen_idx": 467,
+      "combined_rank": 10,
+      "combined_score": 0.4312,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 26.502831,
+      "rdock_INTER": -22.2538,
+      "rdock_SCORE": -26.4419,
+      "smiles": "[H]/N=C(\\N)c1ccc(NC(=O)C2=C3C=C(C)C(O)C=C3N=C2)cc1",
+      "smiles_sanitized": "[H]/N=C(\\N)c1ccc(NC(=O)C2=C3C=C(C)C(O)C=C3N=C2)cc1",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "PiStacking"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "Hydrophobic"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 7,
+        "by_type": {
+          "VdWContact": 4,
+          "HBDonor": 1,
+          "PiStacking": 1,
+          "Hydrophobic": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "PiStacking",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic",
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G10.A": [
+            "HBDonor",
+            "PiStacking",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 4,
+        "n_residues_no_vdw": 2
+      },
+      "druglikeness": {
+        "MW": 308.34,
+        "QED": 0.501,
+        "SA": 4.18,
+        "heavy_atoms": 23,
+        "HBD": 4,
+        "HBA": 4,
+        "rotatable": 3,
+        "rings": 3,
+        "aromatic_rings": 1,
+        "TPSA": 111.6,
+        "cLogP": 1.49,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "U12.A"
+      ],
+      "extra_residues_no_vdw": [
+        "G10.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.333
+    },
+    {
+      "rank": 11,
+      "pose_id": "T11",
+      "gen_idx": 632,
+      "combined_rank": 11,
+      "combined_score": 0.4254,
+      "rnasmol_p_binder": 0.999957,
+      "rnasmol_logit": 10.054965,
+      "rdock_INTER": -16.1883,
+      "rdock_SCORE": -57.583,
+      "smiles": "CCN(C[C@@H]1CCN(C)C(=O)C1)C1=C(O)C=CC2C=C(N(C)C)C=C12",
+      "smiles_sanitized": "CCN(C[C@@H]1CCN(C)C(=O)C1)C1=C(O)C=CC2C=C(N(C)C)C=C12",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G24.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 4,
+        "by_type": {
+          "VdWContact": 4
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "VdWContact"
+          ],
+          "G24.A": [
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {},
+        "n_residues": 4,
+        "n_residues_no_vdw": 0
+      },
+      "druglikeness": {
+        "MW": 343.47,
+        "QED": 0.833,
+        "SA": 4.43,
+        "heavy_atoms": 25,
+        "HBD": 1,
+        "HBA": 4,
+        "rotatable": 5,
+        "rings": 3,
+        "aromatic_rings": 0,
+        "TPSA": 47.0,
+        "cLogP": 2.52,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G24.A",
+        "G9.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [],
+      "extra_residues_no_vdw": [],
+      "fmn_shared_residues_no_vdw_count": 0,
+      "residue_jaccard_no_vdw": 0.0
+    },
+    {
+      "rank": 12,
+      "pose_id": "T12",
+      "gen_idx": 2681,
+      "combined_rank": 12,
+      "combined_score": 0.4197,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 27.772386,
+      "rdock_INTER": -23.4907,
+      "rdock_SCORE": -22.8735,
+      "smiles": "Cc1cc([C@H]2C[C@H](N)[C@H](O)[C@H](O)O2)nc(C2=NC(C)N=N2)c1C",
+      "smiles_sanitized": "Cc1cc([C@H]2C[C@H](N)[C@H](O)[C@H](O)O2)nc(C2=NC(C)N=N2)c1C",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "PiStacking"
+        },
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "PiStacking"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A26.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 8,
+        "by_type": {
+          "PiStacking": 2,
+          "VdWContact": 6
+        },
+        "by_residue": {
+          "G9.A": [
+            "PiStacking",
+            "VdWContact"
+          ],
+          "G10.A": [
+            "PiStacking",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ],
+          "A26.A": [
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G9.A": [
+            "PiStacking",
+            "VdWContact"
+          ],
+          "G10.A": [
+            "PiStacking",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 6,
+        "n_residues_no_vdw": 2
+      },
+      "druglikeness": {
+        "MW": 319.37,
+        "QED": 0.74,
+        "SA": 5.08,
+        "heavy_atoms": 23,
+        "HBD": 3,
+        "HBA": 8,
+        "rotatable": 2,
+        "rings": 3,
+        "aromatic_rings": 1,
+        "TPSA": 125.7,
+        "cLogP": 0.72,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "G9.A"
+      ],
+      "extra_residues_no_vdw": [
+        "G10.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.333
+    },
+    {
+      "rank": 13,
+      "pose_id": "T13",
+      "gen_idx": 1628,
+      "combined_rank": 13,
+      "combined_score": 0.4044,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 27.284263,
+      "rdock_INTER": -21.7612,
+      "rdock_SCORE": -22.1367,
+      "smiles": "NCCNC(=O)C1=CC2=C3C=CC=C3C(O)=C(O)C2C=C1",
+      "smiles_sanitized": "NCCNC(=O)C1=CC2=C3C=CC=C3C(O)=C(O)C2C=C1",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "Hydrophobic"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 5,
+        "by_type": {
+          "VdWContact": 4,
+          "Hydrophobic": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic",
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "U12.A": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 4,
+        "n_residues_no_vdw": 1
+      },
+      "druglikeness": {
+        "MW": 284.31,
+        "QED": 0.628,
+        "SA": 4.14,
+        "heavy_atoms": 21,
+        "HBD": 4,
+        "HBA": 4,
+        "rotatable": 3,
+        "rings": 3,
+        "aromatic_rings": 0,
+        "TPSA": 95.6,
+        "cLogP": 1.31,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "U12.A"
+      ],
+      "extra_residues_no_vdw": [],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.5
+    },
+    {
+      "rank": 14,
+      "pose_id": "T14",
+      "gen_idx": 1414,
+      "combined_rank": 14,
+      "combined_score": 0.3949,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 27.360386,
+      "rdock_INTER": -21.1237,
+      "rdock_SCORE": -21.1156,
+      "smiles": "CC(N)c1ccc(-c2nnc(N)nc2-c2ccc(O)cc2)cc1",
+      "smiles_sanitized": "CC(N)c1ccc(-c2nnc(N)nc2-c2ccc(O)cc2)cc1",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "PiStacking"
+        },
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "PiStacking"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "Hydrophobic"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 8,
+        "by_type": {
+          "PiStacking": 2,
+          "VdWContact": 4,
+          "HBDonor": 1,
+          "Hydrophobic": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "PiStacking",
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "PiStacking",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G9.A": [
+            "PiStacking",
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "PiStacking",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic"
+          ]
+        },
+        "n_residues": 5,
+        "n_residues_no_vdw": 3
+      },
+      "druglikeness": {
+        "MW": 307.36,
+        "QED": 0.685,
+        "SA": 2.68,
+        "heavy_atoms": 23,
+        "HBD": 3,
+        "HBA": 6,
+        "rotatable": 3,
+        "rings": 3,
+        "aromatic_rings": 3,
+        "TPSA": 110.9,
+        "cLogP": 2.51,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "G9.A",
+        "U12.A"
+      ],
+      "extra_residues_no_vdw": [
+        "G10.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 2,
+      "residue_jaccard_no_vdw": 0.667
+    },
+    {
+      "rank": 15,
+      "pose_id": "T15",
+      "gen_idx": 2249,
+      "combined_rank": 15,
+      "combined_score": 0.3827,
+      "rnasmol_p_binder": 0.999997,
+      "rnasmol_logit": 12.673784,
+      "rdock_INTER": -18.4644,
+      "rdock_SCORE": -48.4014,
+      "smiles": "Cc1cc2nc(O)c(O)cc2cc1[C@H](S)NNC1=CC2C(N)=CC=CC2=N1",
+      "smiles_sanitized": "Cc1cc2nc(O)c(O)cc2cc1[C@H](S)NNC1=CC2C(N)=CC=CC2=N1",
+      "interactions": [
+        {
+          "residue": "A8.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G9.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 7,
+        "by_type": {
+          "VdWContact": 5,
+          "HBDonor": 2
+        },
+        "by_residue": {
+          "A8.A": [
+            "VdWContact"
+          ],
+          "G9.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G9.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 5,
+        "n_residues_no_vdw": 2
+      },
+      "druglikeness": {
+        "MW": 381.46,
+        "QED": 0.275,
+        "SA": 4.86,
+        "heavy_atoms": 27,
+        "HBD": 6,
+        "HBA": 8,
+        "rotatable": 4,
+        "rings": 4,
+        "aromatic_rings": 2,
+        "TPSA": 115.8,
+        "cLogP": 2.3,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "G9.A"
+      ],
+      "extra_residues_no_vdw": [
+        "G10.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.333
+    },
+    {
+      "rank": 16,
+      "pose_id": "T16",
+      "gen_idx": 1729,
+      "combined_rank": 16,
+      "combined_score": 0.3781,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 21.835523,
+      "rdock_INTER": -21.1252,
+      "rdock_SCORE": -30.2972,
+      "smiles": "NC(O)C1=CC=c2nc3c(nc2C1)=C(OCc1ccc(O)cc1)C=CC=C3",
+      "smiles_sanitized": "NC(O)C1=CC=c2nc3c(nc2C1)=C(OCc1ccc(O)cc1)C=CC=C3",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "Hydrophobic"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 6,
+        "by_type": {
+          "VdWContact": 4,
+          "HBDonor": 1,
+          "Hydrophobic": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic",
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 4,
+        "n_residues_no_vdw": 2
+      },
+      "druglikeness": {
+        "MW": 361.4,
+        "QED": 0.691,
+        "SA": 4.27,
+        "heavy_atoms": 27,
+        "HBD": 3,
+        "HBA": 6,
+        "rotatable": 4,
+        "rings": 4,
+        "aromatic_rings": 2,
+        "TPSA": 101.5,
+        "cLogP": 0.63,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "U12.A"
+      ],
+      "extra_residues_no_vdw": [
+        "G10.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.333
+    },
+    {
+      "rank": 17,
+      "pose_id": "T17",
+      "gen_idx": 1221,
+      "combined_rank": 17,
+      "combined_score": 0.3738,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 22.267994,
+      "rdock_INTER": -28.6257,
+      "rdock_SCORE": -29.0419,
+      "smiles": "[H]/N=C(/O)C1=CC=C2C(=NC3C(c4ccc(N)cc4)=CC=CC3=C2O)C=C1",
+      "smiles_sanitized": "[H]/N=C(/O)C1=CC=C2C(=NC3C(c4ccc(N)cc4)=CC=CC3=C2O)C=C1",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "Hydrophobic"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "PiStacking"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 7,
+        "by_type": {
+          "VdWContact": 4,
+          "HBDonor": 1,
+          "Hydrophobic": 1,
+          "PiStacking": 1
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic",
+            "PiStacking",
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G10.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "U12.A": [
+            "Hydrophobic",
+            "PiStacking",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 4,
+        "n_residues_no_vdw": 2
+      },
+      "druglikeness": {
+        "MW": 343.39,
+        "QED": 0.373,
+        "SA": 4.62,
+        "heavy_atoms": 26,
+        "HBD": 4,
+        "HBA": 4,
+        "rotatable": 2,
+        "rings": 4,
+        "aromatic_rings": 1,
+        "TPSA": 102.7,
+        "cLogP": 3.82,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "U12.A"
+      ],
+      "extra_residues_no_vdw": [
+        "G10.A"
+      ],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.333
+    },
+    {
+      "rank": 18,
+      "pose_id": "T18",
+      "gen_idx": 2340,
+      "combined_rank": 18,
+      "combined_score": 0.3671,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 21.792287,
+      "rdock_INTER": -19.1216,
+      "rdock_SCORE": -28.9102,
+      "smiles": "COC1=CC2C(C)=CC(OC)=C(/C=C/C[C@H](N)C(=O)N(C)C)C2=C1",
+      "smiles_sanitized": "COC1=CC2C(C)=CC(OC)=C(/C=C/C[C@H](N)C(=O)N(C)C)C2=C1",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 5,
+        "by_type": {
+          "VdWContact": 5
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "VdWContact"
+          ],
+          "U12.A": [
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {},
+        "n_residues": 5,
+        "n_residues_no_vdw": 0
+      },
+      "druglikeness": {
+        "MW": 330.43,
+        "QED": 0.811,
+        "SA": 4.54,
+        "heavy_atoms": 24,
+        "HBD": 1,
+        "HBA": 4,
+        "rotatable": 6,
+        "rings": 2,
+        "aromatic_rings": 0,
+        "TPSA": 64.8,
+        "cLogP": 2.3,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [],
+      "extra_residues_no_vdw": [],
+      "fmn_shared_residues_no_vdw_count": 0,
+      "residue_jaccard_no_vdw": 0.0
+    },
+    {
+      "rank": 19,
+      "pose_id": "T19",
+      "gen_idx": 2598,
+      "combined_rank": 19,
+      "combined_score": 0.3641,
+      "rnasmol_p_binder": 1.0,
+      "rnasmol_logit": 19.395796,
+      "rdock_INTER": -23.5021,
+      "rdock_SCORE": -33.6406,
+      "smiles": "OO[C@@H]1CC2OCC(C3=C(O)N=C4C=CC=CC=C4N3)=CC2CC[C@H]1O",
+      "smiles_sanitized": "OO[C@@H]1CC2OCC(C3=C(O)N=C4C=CC=CC=C4N3)=CC2CC[C@H]1O",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "HBDonor"
+        },
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 5,
+        "by_type": {
+          "HBDonor": 1,
+          "VdWContact": 4
+        },
+        "by_residue": {
+          "G9.A": [
+            "HBDonor",
+            "VdWContact"
+          ],
+          "G10.A": [
+            "VdWContact"
+          ],
+          "U12.A": [
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {
+          "G9.A": [
+            "HBDonor",
+            "VdWContact"
+          ]
+        },
+        "n_residues": 4,
+        "n_residues_no_vdw": 1
+      },
+      "druglikeness": {
+        "MW": 358.39,
+        "QED": 0.445,
+        "SA": 5.18,
+        "heavy_atoms": 26,
+        "HBD": 4,
+        "HBA": 7,
+        "rotatable": 2,
+        "rings": 4,
+        "aromatic_rings": 0,
+        "TPSA": 103.5,
+        "cLogP": 2.11,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [
+        "G9.A"
+      ],
+      "extra_residues_no_vdw": [],
+      "fmn_shared_residues_no_vdw_count": 1,
+      "residue_jaccard_no_vdw": 0.5
+    },
+    {
+      "rank": 20,
+      "pose_id": "T20",
+      "gen_idx": 759,
+      "combined_rank": 20,
+      "combined_score": 0.3434,
+      "rnasmol_p_binder": 0.999982,
+      "rnasmol_logit": 10.900364,
+      "rdock_INTER": -21.1029,
+      "rdock_SCORE": -48.0188,
+      "smiles": "CC1=NC2N=C(N3CCN(C(=O)O)CC3)C=C(O)C(O)=C2C(O)=N1",
+      "smiles_sanitized": "CC1=NC2N=C(N3CCN(C(=O)O)CC3)C=C(O)C(O)=C2C(O)=N1",
+      "interactions": [
+        {
+          "residue": "G9.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G10.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "U12.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A25.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "A26.A",
+          "interaction": "VdWContact"
+        },
+        {
+          "residue": "G27.A",
+          "interaction": "VdWContact"
+        }
+      ],
+      "interaction_summary": {
+        "total": 6,
+        "by_type": {
+          "VdWContact": 6
+        },
+        "by_residue": {
+          "G9.A": [
+            "VdWContact"
+          ],
+          "G10.A": [
+            "VdWContact"
+          ],
+          "U12.A": [
+            "VdWContact"
+          ],
+          "A25.A": [
+            "VdWContact"
+          ],
+          "A26.A": [
+            "VdWContact"
+          ],
+          "G27.A": [
+            "VdWContact"
+          ]
+        },
+        "key_residues_no_vdw": {},
+        "n_residues": 6,
+        "n_residues_no_vdw": 0
+      },
+      "druglikeness": {
+        "MW": 335.32,
+        "QED": 0.512,
+        "SA": 4.13,
+        "heavy_atoms": 24,
+        "HBD": 4,
+        "HBA": 7,
+        "rotatable": 0,
+        "rings": 3,
+        "aromatic_rings": 0,
+        "TPSA": 141.6,
+        "cLogP": 0.66,
+        "formal_charge": 0
+      },
+      "fmn_overlap_residues": [
+        "A25.A",
+        "G10.A",
+        "G27.A",
+        "G9.A",
+        "U12.A"
+      ],
+      "fmn_overlap_residues_no_vdw": [],
+      "extra_residues_no_vdw": [],
+      "fmn_shared_residues_no_vdw_count": 0,
+      "residue_jaccard_no_vdw": 0.0
+    }
+  ],
+  "fmn_reference": {
+    "source": "FMN_ligand.sdf (crystal pose, PDB 1FMN chain A ligand)",
+    "smiles": "Cc1cc2nc3c(=O)[nH]c(=O)nc-3n(C[C@H](O)[C@H](O)[C@H](O)COP(=O)(O)O)c2cc1C",
+    "rdock_INTER_redock_bestSCOREpose": -16.7872,
+    "rdock_SCORE_redock": -17.1568,
+    "interactions": [
+      {
+        "residue": "G9.A",
+        "interaction": "HBAcceptor"
+      },
+      {
+        "residue": "G9.A",
+        "interaction": "VdWContact"
+      },
+      {
+        "residue": "G10.A",
+        "interaction": "VdWContact"
+      },
+      {
+        "residue": "U12.A",
+        "interaction": "Hydrophobic"
+      },
+      {
+        "residue": "U12.A",
+        "interaction": "VdWContact"
+      },
+      {
+        "residue": "G24.A",
+        "interaction": "VdWContact"
+      },
+      {
+        "residue": "A25.A",
+        "interaction": "VdWContact"
+      },
+      {
+        "residue": "G27.A",
+        "interaction": "VdWContact"
+      },
+      {
+        "residue": "G28.A",
+        "interaction": "VdWContact"
+      }
+    ],
+    "interaction_summary": {
+      "total": 9,
+      "by_type": {
+        "HBAcceptor": 1,
+        "VdWContact": 7,
+        "Hydrophobic": 1
+      },
+      "by_residue": {
+        "G9.A": [
+          "HBAcceptor",
+          "VdWContact"
+        ],
+        "G10.A": [
+          "VdWContact"
+        ],
+        "U12.A": [
+          "Hydrophobic",
+          "VdWContact"
+        ],
+        "G24.A": [
+          "VdWContact"
+        ],
+        "A25.A": [
+          "VdWContact"
+        ],
+        "G27.A": [
+          "VdWContact"
+        ],
+        "G28.A": [
+          "VdWContact"
+        ]
+      },
+      "key_residues_no_vdw": {
+        "G9.A": [
+          "HBAcceptor",
+          "VdWContact"
+        ],
+        "U12.A": [
+          "Hydrophobic",
+          "VdWContact"
+        ]
+      },
+      "n_residues": 7,
+      "n_residues_no_vdw": 2
+    },
+    "druglikeness": {
+      "MW": 456.35,
+      "QED": 0.176,
+      "SA": 4.03,
+      "heavy_atoms": 31,
+      "HBD": 6,
+      "HBA": 10,
+      "rotatable": 7,
+      "rings": 3,
+      "aromatic_rings": 1,
+      "TPSA": 208.1,
+      "cLogP": -1.61,
+      "formal_charge": 0
+    }
+  }
+}

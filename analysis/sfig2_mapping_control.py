@@ -14,6 +14,7 @@ from scipy.stats import wilcoxon
 
 from style import (
     METHOD_COLORS,
+    SI_COLORS,
     METHOD_LABELS,
     MUTED,
     lighten,
@@ -61,7 +62,7 @@ FUNNEL_STEPS = [
 
 
 def color_for(method: str) -> str:
-    return METHOD_COLORS.get(method, "#606060")
+    return SI_COLORS.get(method, "#606060")
 
 
 def label_for(method: str) -> str:
@@ -205,7 +206,7 @@ def write_source_tables(tables: dict[str, pd.DataFrame], effects: pd.DataFrame) 
 
 def plot_target_medians(fig: plt.Figure, spec, target_medians: pd.DataFrame) -> None:
     subgs = spec.subgridspec(2, 4, wspace=0.42, hspace=0.72)
-    point_color = lighten(METHOD_COLORS["MolCRAFT"], 0.30)
+    point_color = lighten(SI_COLORS["MolCRAFT"], 0.30)
     for idx, (metric, label) in enumerate(RAW_METRICS):
         ax = fig.add_subplot(subgs[idx // 4, idx % 4])
         sub = target_medians[target_medians["metric"] == metric]

@@ -1,0 +1,5 @@
+SMILES,ID
+c1ccc(N)cc1,mol_001
+c1ccccc1O,mol_002
+c1ccccc1C#N,mol_003
+c1ccc2c(c1)ccc3c2ccc4c3cccc4,mol_004

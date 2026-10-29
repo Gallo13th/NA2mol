@@ -31,6 +31,21 @@ METHOD_COLORS = {
     "ED2Mol":                         "#505050",  # dark grey
     "ed2mol":                         "#505050",
 }
+# Supplementary figures compare methods among themselves, or contrast a method with its
+# own control, rather than against the protagonist. The protagonist-only greyscale used in
+# the main figures would leave e.g. MolCRAFT and its original variant the same grey, so the
+# SI palette gives every series a colour. NA2smol keeps its teal so the two agree.
+SI_COLORS = {
+    "RNA2smol":                       "#246B70",
+    "RNA2smol (Only General Feat)":   "#246B70",
+    "RNA2smol (Baseline)":            "#3F3F3F",
+    "MolCRAFT":                       "#0072B2",   # Wong blue
+    "MolCRAFT (Original)":            "#E69F00",   # Wong orange
+    "Pocket2Mol":                     "#CC79A7",   # Wong reddish purple
+    "ED2Mol":                         "#D55E00",   # Wong vermillion
+    "ed2mol":                         "#D55E00",
+}
+
 METHOD_MARKERS = {
     "RNA2smol":                       "o",
     "RNA2smol (Only General Feat)":   "o",
@@ -112,10 +127,12 @@ ENDPOINT_GATES = [
     ("strain", "Strain", lambda d: d["strain"] < 200),
 ]
 
+# Display names only -- the keys are the data values. The model is called NA2smol in the
+# manuscript, so figure legends must not print the legacy "RNA2smol".
 METHOD_LABELS = {
-    "RNA2smol": "RNA2smol",
-    "RNA2smol (Only General Feat)": "RNA2smol",
-    "RNA2smol (Baseline)": "RNA2smol-base",
+    "RNA2smol": "NA2smol",
+    "RNA2smol (Only General Feat)": "NA2smol",
+    "RNA2smol (Baseline)": "NA2smol-base",
     "MolCRAFT": "MolCRAFT",
     "MolCRAFT (Original)": "MolCRAFT orig.",
     "Pocket2Mol": "Pocket2Mol",

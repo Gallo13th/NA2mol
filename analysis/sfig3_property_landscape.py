@@ -16,6 +16,7 @@ from style import (
     GRID,
     INK,
     METHOD_COLORS,
+    SI_COLORS,
     METHOD_LABELS,
     panel_label,
     save_all,
@@ -41,7 +42,7 @@ DUDE_METHODS = ["RNA2smol", "MolCRAFT", "Pocket2Mol", "ed2mol"]
 
 
 def color_for(method: str) -> str:
-    return METHOD_COLORS.get(method, "#606060")
+    return SI_COLORS.get(method, "#606060")
 
 
 def label_for(method: str) -> str:
@@ -187,7 +188,7 @@ def main() -> None:
         hspace=0.72,
     )
 
-    plot_heatmap_row(fig, gs[0, :], smrt, SMRT_METHODS, "SMRT-Net RNA benchmark", "a")
+    plot_heatmap_row(fig, gs[0, :], smrt, SMRT_METHODS, "RNA test set", "a")
     plot_heatmap_row(fig, gs[1, :], dude, DUDE_METHODS, "DUD-E protein benchmark", "b")
     plot_tradeoff(fig.add_subplot(gs[2, 0]), smrt, SMRT_METHODS, "RNA docking-strain landscape", "c")
     plot_tradeoff(fig.add_subplot(gs[2, 1]), dude, DUDE_METHODS, "Protein docking-strain landscape", "d")

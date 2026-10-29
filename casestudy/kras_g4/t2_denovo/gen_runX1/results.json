@@ -1,0 +1,6881 @@
+{
+  "results": [
+    {
+      "name": "denovoX1_r00_i000_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i001_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i003_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i004_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i006_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i007_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i009_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i010_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i012_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i015_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i016_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i018_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i019_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i022_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i024_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i025_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i027_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i028_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i030_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i031_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i032_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i033_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i034_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i036_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i037_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i039_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i040_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i042_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i043_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i045_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i046_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i048_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i049_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i051_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i052_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i054_s7100",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i055_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i056_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i057_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i058_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i060_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i061_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i063_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i066_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i067_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i069_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i070_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i072_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i073_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i075_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i078_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i079_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i081_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i082_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i084_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i085_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i088_s7100",
+      "smiles": "c1ccc2[nH]c(Sc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i090_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i091_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i093_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i094_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i095_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i096_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i097_s7100",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r00_i099_s7100",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i000_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i001_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i004_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i006_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i007_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i009_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i010_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i012_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i013_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i015_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i016_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i018_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i019_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i021_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i022_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i024_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i025_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i027_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i028_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i030_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i031_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i033_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i034_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i036_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i039_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i040_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i042_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i043_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i045_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i046_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i048_s7101",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i049_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i051_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i052_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i054_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i055_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i057_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i058_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i060_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i061_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i063_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i064_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i066_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i067_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i069_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i070_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i072_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i073_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i075_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i076_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i078_s7101",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i079_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i081_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i082_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i084_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i085_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i087_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i088_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i090_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i091_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i094_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i096_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i097_s7101",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r01_i099_s7101",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i000_s7102",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i001_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i003_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i004_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i006_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i007_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i009_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i010_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i012_s7102",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i013_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i015_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i016_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i018_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i019_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i021_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i022_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i024_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i025_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i027_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i028_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i030_s7102",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i031_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i033_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i034_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i036_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i037_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i039_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i040_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i042_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i043_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i045_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i046_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i047_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i048_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i049_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i052_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i054_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i055_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i057_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i058_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i060_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i063_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i064_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i066_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i067_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i069_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i070_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i072_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i073_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i074_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i075_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i076_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i079_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i081_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i082_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i084_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i085_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i087_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i088_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i090_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i091_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i092_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i093_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i094_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i097_s7102",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r02_i099_s7102",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i000_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i001_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i003_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i004_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i006_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i007_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i009_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i010_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i015_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i018_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i019_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i020_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i021_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i024_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i025_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i028_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i030_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i031_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i033_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i034_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i036_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i037_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i039_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i040_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i042_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i043_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i045_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i048_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i049_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i051_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i054_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i055_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i057_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i058_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i060_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i061_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i064_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i066_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i067_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i069_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i070_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i071_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i072_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i073_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i075_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i076_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i078_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i079_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i081_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i082_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i084_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i085_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i087_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i088_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i089_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i090_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i091_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i094_s7103",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i096_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i097_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r03_i099_s7103",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i000_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i004_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i006_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i007_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i009_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i010_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i012_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i013_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i015_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i016_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i018_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i022_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i024_s7104",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i025_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i027_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i028_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i030_s7104",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i031_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i033_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i034_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i036_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i037_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i039_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i041_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i042_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i045_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i046_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i048_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i049_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i051_s7104",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i052_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i055_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i057_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i058_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i060_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i061_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i063_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i064_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i066_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i067_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i068_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i069_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i070_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i072_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i073_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i075_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i076_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i078_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i081_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i082_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i084_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i085_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i087_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i088_s7104",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i090_s7104",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i093_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i094_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i096_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r04_i099_s7104",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i000_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i001_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i003_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i004_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i006_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i007_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i010_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i012_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i015_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i016_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i018_s7105",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i019_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i021_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i022_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i023_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i024_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i025_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i027_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i029_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i030_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i031_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i034_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i036_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i037_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i039_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i040_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i042_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i043_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i045_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i047_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i048_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i049_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i051_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i052_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i054_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i055_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i057_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i058_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i059_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i060_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i061_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i063_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i064_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i066_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i067_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i069_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i070_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i076_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i078_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i081_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i082_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i084_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i085_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i087_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i088_s7105",
+      "smiles": "c1ccc2[nH]c(Sc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i090_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i091_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i093_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i094_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i096_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i097_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i098_s7105",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r05_i099_s7105",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i000_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i001_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i003_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i004_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i006_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i007_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i009_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i010_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i013_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i015_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i016_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i018_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i019_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i021_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i022_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i024_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i025_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i027_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i028_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i030_s7106",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i031_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i033_s7106",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i034_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i036_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i037_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i039_s7106",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i040_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i042_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i043_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i045_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i048_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i049_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i051_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i052_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i054_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i055_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i057_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i058_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i060_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i061_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i063_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i066_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i069_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i070_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i072_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i073_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i075_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i076_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i079_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i081_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i082_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i084_s7106",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i085_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i087_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i088_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i090_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i091_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i093_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i094_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i096_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i097_s7106",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r06_i099_s7106",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i000_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i002_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i003_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i004_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i006_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i007_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i008_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i009_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i010_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i012_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i013_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i015_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i016_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i018_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i019_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i020_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i022_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i024_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i027_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i028_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i030_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i031_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i033_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i034_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i035_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i036_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i037_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i039_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i040_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i042_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i043_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i045_s7107",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i046_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i048_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i049_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i051_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i052_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i054_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i055_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i058_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i060_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i061_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i063_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i064_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i066_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i067_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i069_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i070_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i072_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i073_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i075_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i076_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i078_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i079_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i081_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i082_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i085_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i087_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i088_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i090_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i091_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i093_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i094_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i096_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i097_s7107",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r07_i099_s7107",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i000_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i001_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i003_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i004_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i006_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i007_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i010_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i012_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i013_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i015_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i016_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i018_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i019_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i021_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i022_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i024_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i025_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i027_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i028_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i030_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i031_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i033_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i036_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i037_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i040_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i042_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i043_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i045_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i046_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i048_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i049_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i051_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i052_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i054_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i055_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i057_s7108",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i060_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i063_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i064_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i066_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i067_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i069_s7108",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i070_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i072_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i073_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i076_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i078_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i079_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i081_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i082_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i084_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i085_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i091_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i093_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i094_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i096_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i097_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i098_s7108",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r08_i099_s7108",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i000_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i001_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i003_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i004_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i006_s7109",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i007_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i009_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i012_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i013_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i015_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i016_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i018_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i019_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i021_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i022_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i023_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i024_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i025_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i027_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i028_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i030_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i031_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i033_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i036_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i037_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i039_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i040_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i042_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i043_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i045_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i046_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i048_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i049_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i051_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i052_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i054_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i055_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i057_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i058_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i060_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i061_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i063_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i064_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i066_s7109",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i070_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i072_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i073_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i075_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i076_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i078_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i079_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i081_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i082_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i084_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i085_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i087_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i088_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i090_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i091_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i093_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i094_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i096_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i097_s7109",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r09_i099_s7109",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i000_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i001_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i003_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i004_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i005_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i006_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i007_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i009_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i010_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i012_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i013_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i015_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i016_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i018_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i019_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i021_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i022_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i023_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i024_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i025_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i027_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i028_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i030_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i033_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i034_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i036_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i037_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i039_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i040_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i042_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i045_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i046_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i048_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i049_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i051_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i054_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i055_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i057_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i058_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i061_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i063_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i064_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i065_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i066_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i067_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i069_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i070_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i071_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i072_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i073_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i075_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i076_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i078_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i079_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i081_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i082_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i084_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i085_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i087_s7110",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i088_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i089_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i090_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i091_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i093_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i094_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i096_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i097_s7110",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r10_i099_s7110",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i000_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i001_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i003_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i004_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i006_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i007_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i009_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i010_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i012_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i013_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i015_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i016_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i021_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i022_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i023_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i024_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i025_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i027_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i028_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i030_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i031_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i033_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i034_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i036_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i037_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i039_s7111",
+      "smiles": "c1ccc2[nH]c(Sc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 1,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2571,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i040_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i042_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i043_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i045_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i046_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i048_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i049_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i051_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i052_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i055_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i057_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i058_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i060_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i061_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i062_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_65x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i063_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i064_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i066_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i067_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i069_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i070_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i072_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i073_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i075_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i076_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i078_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i079_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i081_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i082_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i084_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i085_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i087_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i088_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i090_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i091_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i094_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2558,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i096_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i097_s7111",
+      "smiles": "c1ccc2[nH]c(Nc3[nH]c4ccccc4[nH+]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.2045,
+      "seed": "seed_xfrag_423x473.sdf"
+    },
+    {
+      "name": "denovoX1_r11_i099_s7111",
+      "smiles": "c1ccc2[nH]c(Cc3nc4ccccc4[nH]3)nc2c1",
+      "nS": 0,
+      "ringS": 0,
+      "natoms": 19,
+      "tani_t2": 0.3333,
+      "seed": "seed_xfrag_1271x473.sdf"
+    }
+  ],
+  "fail_total": {
+    "disconnected": 438
+  },
+  "per_seed_valid": {
+    "seed_xfrag_1271x473.sdf": 375,
+    "seed_xfrag_423x473.sdf": 358,
+    "seed_xfrag_65x473.sdf": 29
+  },
+  "config": {
+    "run": "X1",
+    "rounds": 12,
+    "batch": 100,
+    "natom": 19,
+    "seed0": 7100,
+    "seeds_glob": "casestudy/kras_g4/t2_denovo/xfrag_seeds/seed_xfrag_*.sdf",
+    "dist_tol": 0.4,
+    "free_extra": 0
+  },
+  "n_exact_t2": 0
+}

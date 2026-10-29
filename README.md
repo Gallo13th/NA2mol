@@ -1,83 +1,84 @@
-# NA2smol
+# rna2smol
 
-Code and data layout for the NA2smol manuscript.
+Bayesian Flow Network (BFN) pocket-conditioned ligand generation for RNA and
+protein binding sites, with editor-molecule (seed inpainting) support and a
+validated dual-scoring evaluation pipeline (rDock + RNAsmol ensemble).
 
-**NA2smol** is a pocket-conditioned 3D molecular generator built on a Bayesian Flow Network. It combines
-ligand-only electron-density pretraining with a teacher–student alignment objective and a shared
-physicochemical pocket encoder to generate small molecules inside nucleic-acid binding sites. The model
-name in the manuscript is **NA2smol**; the repository keeps its historical name `rna2smol`.
+The model generates 3D molecular graphs conditioned on a pocket structure
+(`model.sample`, cold start) or completes a partially specified seed scaffold
+(`model.sample_by_seed`, inpainting). Generated trajectories are reconstructed
+into valid molecules with a neutralization-aware pipeline
+(`util/mol_utils.py`), minimized in-pocket with smina, and scored with rDock
+and a 6-version RNAsmol ensemble.
 
-> **Reproducing the paper?** Start with **[REPRODUCIBILITY.md](REPRODUCIBILITY.md)**. It maps every
-> figure and table to the data it needs and the command that regenerates it.
+## Repository layout
 
----
+```
+rna2smol/
+├── genbypkt.py              # generation entry point (cold start & seed inpainting)
+├── config.yaml              # model/network configuration (single canonical config)
+├── model/
+│   └── bfn4edmol.py         # BFN score model + samplers (knn edge construction)
+├── dataloader/              # pocket/ligand featurization, datasets, atom-count tables
+├── util/                    # molecule reconstruction, refinement, scoring utilities
+├── train_scripts/           # pre-training / fine-tuning entry points
+├── scripts/                 # shell launchers for training runs
+├── ckpt/                    # released checkpoints
+├── data/                    # LMDB datasets (crossdock, expdb, RNA ligands)
+├── casestudy/               # reproduced case studies (see table below)
+└── output/                  # generation outputs (one subdirectory per run)
+```
 
-## Quick start
+## Setup
 
 ```bash
-bash setup_env.sh          # creates the `rna2smol` conda env from environment.yml
-conda activate rna2smol    # REQUIRED: the system Python lacks torch_scatter and openbabel
-
-# 1. check that the inputs this checkout needs are present
-python3 reproduction/scripts/validate_inputs.py
-
-# 2. confirm every figure script's data paths resolve
-python3 reproduction/scripts/check_figure_paths.py
-
-# 3. run all checks at once (fails loudly on any gap)
-bash reproduction/scripts/smoke_test.sh
+bash setup_env.sh            # or: conda env create -f environment (see script)
+conda activate rna2smol
+# optional, for rDock scoring:
+export RBT_ROOT=$CONDA_PREFIX/share/rdock-2013.1-1
+export RBT_HOME=$HOME        # both are required (see casestudy/*/rdock_protocol/PROTOCOL.md)
 ```
 
-## Layout
+## Usage
 
-```
-model/          BFN score model and samplers
-dataloader/     featurisation, datasets, atom-count tables
-util/           molecule reconstruction, refinement, scoring
+Command line (cold start):
 
-training/       pretraining, fine-tuning, baseline and ablation entry points
-generation/     library generation from a pocket
-
-analysis/       evaluation metrics, table export, every figure script
-audit/          ligand-leakage and recovery audit
-case_study/     KRAS promoter G-quadruplex (BER102) case study
-reproduction/   validators, manifests and canonical entry points
+```bash
+python genbypkt.py \
+    --ckpt ckpt/onlypkt_ftwithrna_oncrossdocked_onlygeneralfeat_train_best_val_loss_step_111429.pth \
+    --pocket casestudy/sp1/sp1_recp_pocket.pdb \
+    --ligand casestudy/sp1/dummy_ligand.sdf \
+    --output_prefix my_run --total_target 1000
 ```
 
-See [REPRODUCIBILITY.md §2](REPRODUCIBILITY.md) for the annotated tree.
+Library API (seed inpainting):
 
-## The four training configurations
+```python
+import genbypkt
+genbypkt.model, genbypkt.accelerator = model, accelerator   # inject once
+genbypkt.generate((seed_sdf, pocket_pdb), output_prefix='run',
+                  seed_used=True, total_target=200)
+```
 
-| Configuration | Entry point | Objective |
-|---|---|---|
-| Baseline | `training/baseline_scratch.py` | coordinate + type loss only, from scratch |
-| Pretrain Only | `training/ablation_pretrain_only.py` | pretrained weights, no teacher |
-| Pretrain+Constrain | `training/ablation_pretrain_constrain.py` | pretrained weights + teacher–student alignment |
-| Full model | `training/finetune_full.py` | both paths, plus the temporal contrastive term |
+Batch inpainting drivers are provided per case study, e.g.
+`casestudy/sp1/stepF_inpaint_gen.py`; the full reproduction workflow is
+documented in `casestudy/REPRODUCTION.md`.
 
-`analysis/fig3_ablation.py` renders the comparison.
+## Case studies
 
-## Data
+| case | target class | pocket | headline result |
+|---|---|---|---|
+| `casestudy/sp1` | flavone (m1–m3) | sp1 RNA aptamer site, 20 nt `AGGUGAGCUUAGGGGAAUAA` | **m1 reproduced exactly 159×** by seed inpainting (951 valid molecules); m2 16×; RNAsmol P=0.654; rDock SCORE.INTER −29.8 |
+| `casestudy/kras_g4` | bis-benzothiazole (T2) | KRAS G4 7X8M (BER102) | T2 reproduced exactly via the staged de-novo route (scaffold retrieval → ring conversion → bridge inpainting → bridge-element probe); rDock INTER −42.9, RNAsmol P=0.692 |
+| `casestudy/fmn` | FMN-mimetics | 1FMN aptamer | ~62k generated, dual-tool screening, top-20 combined binders (`top20_report.md`) |
+| `casestudy/8hzk` | fluorescent ligands | 8HZK | benzothiophene scaffold of mol2 reproduced by isoelectronic element substitution (`MOL2_REPRODUCTION_PIPELINE.md`) |
 
-Bulk inputs (benchmark result tables, training LMDBs, checkpoints) are **not** in git; see
-`reproduction/manifests/data_files.json`. The ligand-only pretraining archive (`data/pretrain.tar.gz`, 5.5 GB) is fetched from the authors' AutoDL storage and unpacked into `data/pretrain/merged/` with `reproduction/scripts/finalize_pretrain.sh`.
+A step-by-step guide for reproducing the target molecules is provided in
+`casestudy/REPRODUCTION.md`.
 
-The only experimental data versioned here are the ThT assay Origin projects in `data/tht/`; see
-`data/tht/README.md` for the export step the plotting code requires.
+## Training
 
-## Terminology
-
-`SMRTnet` is the method that supplied the source evaluation set; the evaluation data is called the
-**RNA test set** throughout. `NA2smol` is the model. See
-[REPRODUCIBILITY.md §9](REPRODUCIBILITY.md) for the full convention.
-
-## Known limitations
-
-* **OpenBabel** is required for molecule reconstruction and is missing from the live environment.
-- The ThT Origin export must be produced in Origin before `analysis/fig4g_tht_panel.py` can run.
-- Live status and blockers: `reproduction/manifests/READINESS.md`.
-
-## License
-
-MIT — see [LICENSE](LICENSE). The bundled RNAsmol scoring package keeps its upstream license
-(`case_study/fmn/RNAsmol/LICENSE`).
+Training entry points (pre-training on CrossDocked/ExpDB, fine-tuning on RNA
+ligands) live in `train_scripts/` with shell launchers in `scripts/`.
+Dataset split definitions are in `pocket_split.csv`,
+`pocket_grouping_strict_no_smrt.csv`, and `clean_dataset_*/`.

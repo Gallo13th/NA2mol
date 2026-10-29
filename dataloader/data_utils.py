@@ -97,8 +97,8 @@ def ed_pdb_read(ed_pdb_path):
 if __name__ == '__main__':
     file_list = []
     for i in range(99,100):
-        p = f'code/Lingo3DMol-main/datasets/pretrain_10w_ed/ed_mol_chunk{i}.pkl'
-        convert_to_file(p, "code/Lingo3DMol-main/datasets/valset", max_rows=-1, file_list=file_list)
+        p = f'/home/jiahao_chen/code/Lingo3DMol-main/datasets/pretrain_10w_ed/ed_mol_chunk{i}.pkl'
+        convert_to_file(p, "/home/jiahao_chen/code/Lingo3DMol-main/datasets/valset", max_rows=-1, file_list=file_list)
     # with open('/data00/jiahao/Lingo3DMol-main/datasets/smiles_id.txt', 'w') as f:
     #     f.writelines(file_list)
     # ed_pdb_read("/data00/jiahao/Lingo3DMol-main/datasets/read_pickle_output/Cc1cc(C)c(NS(C)(=O)=O)c(C)c1NC(=O)C1Cc2ccccc2CN1C(=O)C(C)(C)C_res1.5.pdb")

@@ -1,0 +1,885 @@
+v112
+  rDOCK(R)          3D
+libRbt.so/2013.1/901 2013/11/27
+ 19 21  0  0  0  0  0  0  0  0999 V2000
+   67.5902  -16.9270  -48.7595 C   0  0  0  0  0  0
+   66.7832  -17.3187  -46.0617 O   0  0  0  0  0  0
+   64.9118  -14.3147  -48.3012 C   0  0  0  0  0  0
+   66.5083  -16.0929  -48.1848 C   0  0  0  0  0  0
+   68.7014  -17.0152  -47.6598 C   0  0  0  0  0  0
+   65.1965  -15.4622  -46.2469 C   0  0  0  0  0  0
+   64.5520  -14.4389  -46.9654 C   0  0  0  0  0  0
+   65.8383  -15.1022  -48.9161 C   0  0  0  0  0  0
+   66.1321  -16.3347  -46.7873 C   0  0  0  0  0  0
+   68.0834  -17.7831  -46.3802 C   0  0  0  0  0  0
+   68.9674  -20.1860  -46.2310 C   0  0  0  0  0  0
+   68.0928  -19.0112  -44.1530 C   0  0  0  0  0  0
+   68.4238  -18.9817  -45.5816 C   0  0  0  0  0  0
+   69.0810  -21.3465  -44.0308 C   0  0  0  0  0  0
+   69.3179  -21.3116  -45.4368 C   0  0  0  0  0  0
+   68.4418  -20.2138  -43.3920 C   0  0  0  0  0  0
+   68.1930  -20.2289  -42.0786 O   0  0  0  0  0  0
+   67.4118  -16.6180  -49.9261 O   0  0  0  0  0  0
+   69.6407  -17.9996  -47.8194 O   0  0  0  0  0  0
+  1  4  1  0  0  0
+  1  5  1  0  0  0
+  2  9  1  0  0  0
+  2 10  1  0  0  0
+  3  7  2  0  0  0
+  3  8  1  0  0  0
+  4  8  2  0  0  0
+  4  9  1  0  0  0
+  6  7  1  0  0  0
+  6  9  2  0  0  0
+ 11 13  1  0  0  0
+ 11 15  2  0  0  0
+ 12 13  2  0  0  0
+ 12 16  1  0  0  0
+ 14 15  1  0  0  0
+ 14 16  2  0  0  0
+ 16 17  1  0  0  0
+ 10 11  1  0  0  0
+  1 18  2  0  0  0
+ 10  5  2  0  0  0
+  5 19  1  0  0  0
+M  END
+>  <CHROM.0>
+31.21673897,61.05435391,-175.64950089,-66.04648164,-175.69577681,60.86181555
+-57.66717788,-76.06629154,-42.52028629,-58.05421202,-60.48497412,-60.17461607
+-61.16079969,-58.75287510,-61.24694834,-34.12089269,-173.02872904,-163.89401425
+
+>  <CHROM.1>
+-63.36519206,67.48362705,-17.73349568,-46.46074198,-2.15131406,-0.75349500
+2.03110871
+
+>  <Name>
+v112
+
+>  <RI>
+9.27207e+06
+
+>  <Rbt.Current_Directory>
+/home/data/users/gaoletian/rna2smol
+
+>  <Rbt.Executable>
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>
+/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/dock_solv.prm
+
+>  <Rbt.Receptor>
+casestudy/sp1/rdock/sp1_system.prm
+
+>  <SCORE>
+-87.892
+
+>  <SCORE.INTER>
+-37.5331
+
+>  <SCORE.INTER.CONST>
+1
+
+>  <SCORE.INTER.POLAR>
+-0.675075
+
+>  <SCORE.INTER.ROT>
+1
+
+>  <SCORE.INTER.SOLV>
+5.35277
+
+>  <SCORE.INTER.VDW>
+-28.8228
+
+>  <SCORE.INTER.norm>
+-1.97543
+
+>  <SCORE.INTRA>
+-7.53101
+
+>  <SCORE.INTRA.DIHEDRAL>
+-1.72924
+
+>  <SCORE.INTRA.DIHEDRAL.0>
+4.22193
+
+>  <SCORE.INTRA.POLAR>
+0
+
+>  <SCORE.INTRA.POLAR.0>
+0
+
+>  <SCORE.INTRA.REPUL>
+0
+
+>  <SCORE.INTRA.REPUL.0>
+0
+
+>  <SCORE.INTRA.SOLV>
+0.27044
+
+>  <SCORE.INTRA.SOLV.lig_0>
+-0.205256
+
+>  <SCORE.INTRA.VDW>
+-6.80161
+
+>  <SCORE.INTRA.VDW.0>
+11.4182
+
+>  <SCORE.INTRA.norm>
+-0.396369
+
+>  <SCORE.RESTR>
+
+>  <SCORE.RESTR.norm>
+0
+
+>  <SCORE.SYSTEM>
+-42.8278
+
+>  <SCORE.SYSTEM.CONST>
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>
+13.7019
+
+>  <SCORE.SYSTEM.POLAR>
+-7.88592
+
+>  <SCORE.SYSTEM.SOLV>
+0.901089
+
+>  <SCORE.SYSTEM.VDW>
+-7.13315
+
+>  <SCORE.SYSTEM.norm>
+-2.2541
+
+>  <SCORE.heavy>
+19
+
+>  <SCORE.norm>
+-4.62589
+
+>  <_SMILES>
+O=c1c(O)c(-c2ccc(O)cc2)oc2ccccc12
+
+>  <_srcBring>
+sp1 cold-start gen[13388] independent phenol
+
+>  <_srcCore>
+sp1 cold-start gen[17757] independent chroman
+
+$$$$
+v112
+  rDOCK(R)          3D
+libRbt.so/2013.1/901 2013/11/27
+ 19 21  0  0  0  0  0  0  0  0999 V2000
+   66.0288  -14.1116  -48.4510 C   0  0  0  0  0  0
+   68.4215  -15.3833  -49.3114 O   0  0  0  0  0  0
+   67.4053  -11.6785  -50.9795 C   0  0  0  0  0  0
+   66.8989  -13.4474  -49.4501 C   0  0  0  0  0  0
+   65.9565  -15.6182  -48.8713 C   0  0  0  0  0  0
+   68.8532  -13.5524  -50.8798 C   0  0  0  0  0  0
+   68.5398  -12.3137  -51.4680 C   0  0  0  0  0  0
+   66.6059  -12.1931  -50.0034 C   0  0  0  0  0  0
+   68.1208  -14.1481  -49.8613 C   0  0  0  0  0  0
+   67.4411  -16.2442  -48.7585 C   0  0  0  0  0  0
+   67.6584  -17.7351  -46.6831 C   0  0  0  0  0  0
+   69.3488  -17.9161  -48.5733 C   0  0  0  0  0  0
+   68.1228  -17.3308  -48.0204 C   0  0  0  0  0  0
+   69.4597  -19.4495  -46.5531 C   0  0  0  0  0  0
+   68.3095  -18.8045  -46.0099 C   0  0  0  0  0  0
+   69.9996  -18.9888  -47.8164 C   0  0  0  0  0  0
+   71.0870  -19.5651  -48.3384 O   0  0  0  0  0  0
+   65.3258  -13.1463  -48.2016 O   0  0  0  0  0  0
+   65.4958  -16.4942  -47.9242 O   0  0  0  0  0  0
+  1  4  1  0  0  0
+  1  5  1  0  0  0
+  2  9  1  0  0  0
+  2 10  1  0  0  0
+  3  7  2  0  0  0
+  3  8  1  0  0  0
+  4  8  2  0  0  0
+  4  9  1  0  0  0
+  6  7  1  0  0  0
+  6  9  2  0  0  0
+ 11 13  1  0  0  0
+ 11 15  2  0  0  0
+ 12 13  2  0  0  0
+ 12 16  1  0  0  0
+ 14 15  1  0  0  0
+ 14 16  2  0  0  0
+ 16 17  1  0  0  0
+ 10 11  1  0  0  0
+  1 18  2  0  0  0
+ 10  5  2  0  0  0
+  5 19  1  0  0  0
+M  END
+>  <CHROM.0>
+30.35423036,61.58437494,-175.54293373,-65.01149615,-61.10140207,-175.55473964
+-174.65941366,-76.57443566,-46.51698294,61.26562651,41.30588537,61.34674660
+-176.06461792,-58.44930209,-61.85671702,-54.29402322,57.93790164,-75.79444426
+
+>  <CHROM.1>
+-57.77763517,67.84508788,-15.71032618,-48.73604439,1.94383388,0.46750281
+-0.59261917
+
+>  <Name>
+v112
+
+>  <RI>
+9.27207e+06
+
+>  <Rbt.Current_Directory>
+/home/data/users/gaoletian/rna2smol
+
+>  <Rbt.Executable>
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>
+/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/dock_solv.prm
+
+>  <Rbt.Receptor>
+casestudy/sp1/rdock/sp1_system.prm
+
+>  <SCORE>
+-82.2524
+
+>  <SCORE.INTER>
+-35.3689
+
+>  <SCORE.INTER.CONST>
+1
+
+>  <SCORE.INTER.POLAR>
+0
+
+>  <SCORE.INTER.ROT>
+1
+
+>  <SCORE.INTER.SOLV>
+5.84669
+
+>  <SCORE.INTER.VDW>
+-29.7948
+
+>  <SCORE.INTER.norm>
+-1.86152
+
+>  <SCORE.INTRA>
+-6.89807
+
+>  <SCORE.INTRA.DIHEDRAL>
+-2.10318
+
+>  <SCORE.INTRA.DIHEDRAL.0>
+4.22193
+
+>  <SCORE.INTRA.POLAR>
+0
+
+>  <SCORE.INTRA.POLAR.0>
+0
+
+>  <SCORE.INTRA.REPUL>
+0
+
+>  <SCORE.INTRA.REPUL.0>
+0
+
+>  <SCORE.INTRA.SOLV>
+0.288656
+
+>  <SCORE.INTRA.SOLV.lig_0>
+-0.205256
+
+>  <SCORE.INTRA.VDW>
+-5.99081
+
+>  <SCORE.INTRA.VDW.0>
+11.4182
+
+>  <SCORE.INTRA.norm>
+-0.363056
+
+>  <SCORE.RESTR>
+
+>  <SCORE.RESTR.norm>
+0
+
+>  <SCORE.SYSTEM>
+-39.9854
+
+>  <SCORE.SYSTEM.CONST>
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>
+12.3093
+
+>  <SCORE.SYSTEM.POLAR>
+-7.68398
+
+>  <SCORE.SYSTEM.SOLV>
+0.875472
+
+>  <SCORE.SYSTEM.VDW>
+-5.43862
+
+>  <SCORE.SYSTEM.norm>
+-2.1045
+
+>  <SCORE.heavy>
+19
+
+>  <SCORE.norm>
+-4.32907
+
+>  <_SMILES>
+O=c1c(O)c(-c2ccc(O)cc2)oc2ccccc12
+
+>  <_srcBring>
+sp1 cold-start gen[13388] independent phenol
+
+>  <_srcCore>
+sp1 cold-start gen[17757] independent chroman
+
+$$$$
+v112
+  rDOCK(R)          3D
+libRbt.so/2013.1/901 2013/11/27
+ 19 21  0  0  0  0  0  0  0  0999 V2000
+   69.8925  -18.8318  -47.4058 C   0  0  0  0  0  0
+   67.6236  -17.7273  -46.0962 O   0  0  0  0  0  0
+   69.6506  -20.9022  -44.2652 C   0  0  0  0  0  0
+   69.4686  -19.3649  -46.0895 C   0  0  0  0  0  0
+   68.5806  -18.6350  -48.2376 C   0  0  0  0  0  0
+   67.8531  -19.3574  -44.2827 C   0  0  0  0  0  0
+   68.5034  -20.4277  -43.6423 C   0  0  0  0  0  0
+   70.1439  -20.4035  -45.4334 C   0  0  0  0  0  0
+   68.2899  -18.7606  -45.4582 C   0  0  0  0  0  0
+   67.6774  -17.5196  -47.4969 C   0  0  0  0  0  0
+   67.7691  -15.2809  -48.7447 C   0  0  0  0  0  0
+   65.5996  -16.0637  -47.6754 C   0  0  0  0  0  0
+   67.0064  -16.3054  -48.0125 C   0  0  0  0  0  0
+   65.7077  -13.9104  -49.0159 C   0  0  0  0  0  0
+   67.0942  -14.1404  -49.2590 C   0  0  0  0  0  0
+   64.9662  -14.8512  -48.2006 C   0  0  0  0  0  0
+   63.6699  -14.6493  -47.9436 O   0  0  0  0  0  0
+   70.9835  -19.3766  -47.4419 O   0  0  0  0  0  0
+   68.6775  -17.8429  -49.3511 O   0  0  0  0  0  0
+  1  4  1  0  0  0
+  1  5  1  0  0  0
+  2  9  1  0  0  0
+  2 10  1  0  0  0
+  3  7  2  0  0  0
+  3  8  1  0  0  0
+  4  8  2  0  0  0
+  4  9  1  0  0  0
+  6  7  1  0  0  0
+  6  9  2  0  0  0
+ 11 13  1  0  0  0
+ 11 15  2  0  0  0
+ 12 13  2  0  0  0
+ 12 16  1  0  0  0
+ 14 15  1  0  0  0
+ 14 16  2  0  0  0
+ 16 17  1  0  0  0
+ 10 11  1  0  0  0
+  1 18  2  0  0  0
+ 10  5  2  0  0  0
+  5 19  1  0  0  0
+M  END
+>  <CHROM.0>
+81.31261088,58.64900076,-171.21805223,-63.95629664,-62.25927256,-173.47934294
+-56.90943599,-73.72318957,161.49471672,59.80514333,-60.91354554,62.61383763
+-175.10137253,-59.54557139,-65.08725715,-55.36491024,55.70976160,80.06651463
+
+>  <CHROM.1>
+-77.73084617,67.83836468,-17.58778605,-47.07727964,-0.89248240,0.54496217
+-0.94831574
+
+>  <Name>
+v112
+
+>  <RI>
+9.27207e+06
+
+>  <Rbt.Current_Directory>
+/home/data/users/gaoletian/rna2smol
+
+>  <Rbt.Executable>
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>
+/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/dock_solv.prm
+
+>  <Rbt.Receptor>
+casestudy/sp1/rdock/sp1_system.prm
+
+>  <SCORE>
+-75.061
+
+>  <SCORE.INTER>
+-36.4001
+
+>  <SCORE.INTER.CONST>
+1
+
+>  <SCORE.INTER.POLAR>
+-0.571213
+
+>  <SCORE.INTER.ROT>
+1
+
+>  <SCORE.INTER.SOLV>
+7.04624
+
+>  <SCORE.INTER.VDW>
+-28.9781
+
+>  <SCORE.INTER.norm>
+-1.9158
+
+>  <SCORE.INTRA>
+-8.25938
+
+>  <SCORE.INTRA.DIHEDRAL>
+-0.817525
+
+>  <SCORE.INTRA.DIHEDRAL.0>
+4.22193
+
+>  <SCORE.INTRA.POLAR>
+0
+
+>  <SCORE.INTRA.POLAR.0>
+0
+
+>  <SCORE.INTRA.REPUL>
+0
+
+>  <SCORE.INTRA.REPUL.0>
+0
+
+>  <SCORE.INTRA.SOLV>
+0.215662
+
+>  <SCORE.INTRA.SOLV.lig_0>
+-0.205256
+
+>  <SCORE.INTRA.VDW>
+-7.95844
+
+>  <SCORE.INTRA.VDW.0>
+11.4182
+
+>  <SCORE.INTRA.norm>
+-0.434704
+
+>  <SCORE.RESTR>
+
+>  <SCORE.RESTR.norm>
+0
+
+>  <SCORE.SYSTEM>
+-30.4015
+
+>  <SCORE.SYSTEM.CONST>
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>
+10.7057
+
+>  <SCORE.SYSTEM.POLAR>
+-7.48847
+
+>  <SCORE.SYSTEM.SOLV>
+0.939168
+
+>  <SCORE.SYSTEM.VDW>
+0.81226
+
+>  <SCORE.SYSTEM.norm>
+-1.60008
+
+>  <SCORE.heavy>
+19
+
+>  <SCORE.norm>
+-3.95058
+
+>  <_SMILES>
+O=c1c(O)c(-c2ccc(O)cc2)oc2ccccc12
+
+>  <_srcBring>
+sp1 cold-start gen[13388] independent phenol
+
+>  <_srcCore>
+sp1 cold-start gen[17757] independent chroman
+
+$$$$
+v112
+  rDOCK(R)          3D
+libRbt.so/2013.1/901 2013/11/27
+ 19 21  0  0  0  0  0  0  0  0999 V2000
+   66.3387  -18.5335  -45.6235 C   0  0  0  0  0  0
+   68.7388  -18.3079  -47.1306 O   0  0  0  0  0  0
+   68.5617  -21.1388  -44.0490 C   0  0  0  0  0  0
+   67.4827  -19.4277  -45.3268 C   0  0  0  0  0  0
+   66.9470  -17.1066  -45.8377 C   0  0  0  0  0  0
+   69.7879  -20.0417  -45.7551 C   0  0  0  0  0  0
+   69.7679  -20.9971  -44.7229 C   0  0  0  0  0  0
+   67.4453  -20.4081  -44.3254 C   0  0  0  0  0  0
+   68.6983  -19.2679  -46.1329 C   0  0  0  0  0  0
+   67.9094  -17.1590  -47.1337 C   0  0  0  0  0  0
+   66.7978  -16.0366  -49.1542 C   0  0  0  0  0  0
+   69.2689  -16.6307  -49.2174 C   0  0  0  0  0  0
+   67.9984  -16.5671  -48.4872 C   0  0  0  0  0  0
+   68.1540  -15.4176  -51.1488 C   0  0  0  0  0  0
+   66.9166  -15.4425  -50.4401 C   0  0  0  0  0  0
+   69.3223  -16.0366  -50.5558 C   0  0  0  0  0  0
+   70.4897  -16.0420  -51.2071 O   0  0  0  0  0  0
+   65.5051  -19.1369  -44.9683 O   0  0  0  0  0  0
+   66.1400  -16.1855  -46.4519 O   0  0  0  0  0  0
+  1  4  1  0  0  0
+  1  5  1  0  0  0
+  2  9  1  0  0  0
+  2 10  1  0  0  0
+  3  7  2  0  0  0
+  3  8  1  0  0  0
+  4  8  2  0  0  0
+  4  9  1  0  0  0
+  6  7  1  0  0  0
+  6  9  2  0  0  0
+ 11 13  1  0  0  0
+ 11 15  2  0  0  0
+ 12 13  2  0  0  0
+ 12 16  1  0  0  0
+ 14 15  1  0  0  0
+ 14 16  2  0  0  0
+ 16 17  1  0  0  0
+ 10 11  1  0  0  0
+  1 18  2  0  0  0
+ 10  5  2  0  0  0
+  5 19  1  0  0  0
+M  END
+>  <CHROM.0>
+-77.68908016,-58.97678558,-58.07209491,-65.80823262,46.75420667,-66.09064687
+178.23364471,-75.83544206,-165.06523776,57.79941300,-59.05857066,60.21903625
+-64.74727553,-63.32640047,-63.68848619,-58.74345387,52.32742203,-166.87531933
+
+>  <CHROM.1>
+-52.26918466,68.01066750,-17.87298270,-47.25868300,1.67608049,-0.44517226
+2.26441076
+
+>  <Name>
+v112
+
+>  <RI>
+9.27207e+06
+
+>  <Rbt.Current_Directory>
+/home/data/users/gaoletian/rna2smol
+
+>  <Rbt.Executable>
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>
+/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/dock_solv.prm
+
+>  <Rbt.Receptor>
+casestudy/sp1/rdock/sp1_system.prm
+
+>  <SCORE>
+-75.1684
+
+>  <SCORE.INTER>
+-30.0752
+
+>  <SCORE.INTER.CONST>
+1
+
+>  <SCORE.INTER.POLAR>
+-0.0817329
+
+>  <SCORE.INTER.ROT>
+1
+
+>  <SCORE.INTER.SOLV>
+6.80152
+
+>  <SCORE.INTER.VDW>
+-26.3115
+
+>  <SCORE.INTER.norm>
+-1.58291
+
+>  <SCORE.INTRA>
+-6.0719
+
+>  <SCORE.INTRA.DIHEDRAL>
+-2.46145
+
+>  <SCORE.INTRA.DIHEDRAL.0>
+4.22193
+
+>  <SCORE.INTRA.POLAR>
+0
+
+>  <SCORE.INTRA.POLAR.0>
+0
+
+>  <SCORE.INTRA.REPUL>
+0
+
+>  <SCORE.INTRA.REPUL.0>
+0
+
+>  <SCORE.INTRA.SOLV>
+0.304981
+
+>  <SCORE.INTRA.SOLV.lig_0>
+-0.205256
+
+>  <SCORE.INTRA.VDW>
+-4.99366
+
+>  <SCORE.INTRA.VDW.0>
+11.4182
+
+>  <SCORE.INTRA.norm>
+-0.319573
+
+>  <SCORE.RESTR>
+
+>  <SCORE.RESTR.norm>
+0
+
+>  <SCORE.SYSTEM>
+-39.0213
+
+>  <SCORE.SYSTEM.CONST>
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>
+9.47506
+
+>  <SCORE.SYSTEM.POLAR>
+-6.79771
+
+>  <SCORE.SYSTEM.SOLV>
+1.03384
+
+>  <SCORE.SYSTEM.VDW>
+-6.85813
+
+>  <SCORE.SYSTEM.norm>
+-2.05375
+
+>  <SCORE.heavy>
+19
+
+>  <SCORE.norm>
+-3.95623
+
+>  <_SMILES>
+O=c1c(O)c(-c2ccc(O)cc2)oc2ccccc12
+
+>  <_srcBring>
+sp1 cold-start gen[13388] independent phenol
+
+>  <_srcCore>
+sp1 cold-start gen[17757] independent chroman
+
+$$$$
+v112
+  rDOCK(R)          3D
+libRbt.so/2013.1/901 2013/11/27
+ 19 21  0  0  0  0  0  0  0  0999 V2000
+   69.4772  -20.3278  -44.7356 C   0  0  0  0  0  0
+   69.4551  -20.6896  -47.5554 O   0  0  0  0  0  0
+   71.0001  -23.7508  -45.1505 C   0  0  0  0  0  0
+   69.9814  -21.5926  -45.3209 C   0  0  0  0  0  0
+   70.0438  -19.1773  -45.6340 C   0  0  0  0  0  0
+   70.5325  -22.8745  -47.3026 C   0  0  0  0  0  0
+   71.0665  -23.9199  -46.5275 C   0  0  0  0  0  0
+   70.4739  -22.6502  -44.5435 C   0  0  0  0  0  0
+   69.9495  -21.7267  -46.7817 C   0  0  0  0  0  0
+   69.4223  -19.3430  -47.1156 C   0  0  0  0  0  0
+   67.5921  -17.5993  -47.5485 C   0  0  0  0  0  0
+   69.6656  -17.6722  -49.0177 C   0  0  0  0  0  0
+   68.9097  -18.1746  -47.8655 C   0  0  0  0  0  0
+   67.8834  -15.8928  -49.3384 C   0  0  0  0  0  0
+   67.1380  -16.4561  -48.2609 C   0  0  0  0  0  0
+   69.1293  -16.5150  -49.7390 C   0  0  0  0  0  0
+   69.8381  -16.0167  -50.7571 O   0  0  0  0  0  0
+   69.4264  -20.7100  -43.5782 O   0  0  0  0  0  0
+   69.4482  -17.9507  -45.5019 O   0  0  0  0  0  0
+  1  4  1  0  0  0
+  1  5  1  0  0  0
+  2  9  1  0  0  0
+  2 10  1  0  0  0
+  3  7  2  0  0  0
+  3  8  1  0  0  0
+  4  8  2  0  0  0
+  4  9  1  0  0  0
+  6  7  1  0  0  0
+  6  9  2  0  0  0
+ 11 13  1  0  0  0
+ 11 15  2  0  0  0
+ 12 13  2  0  0  0
+ 12 16  1  0  0  0
+ 14 15  1  0  0  0
+ 14 16  2  0  0  0
+ 16 17  1  0  0  0
+ 10 11  1  0  0  0
+  1 18  2  0  0  0
+ 10  5  2  0  0  0
+  5 19  1  0  0  0
+M  END
+>  <CHROM.0>
+33.28944908,-60.59561883,-171.74021007,-64.20214171,-56.65925993,63.78167222
+-59.32855883,-75.76887817,-45.64361546,61.84232640,43.86137442,-59.76460880
+-177.83843882,-59.28188064,-176.18477038,-60.53841121,53.95286987,-162.95511281
+
+>  <CHROM.1>
+-100.36654274,69.50214438,-19.60084116,-46.96385517,0.96197448,-1.14184865
+2.00886016
+
+>  <Name>
+v112
+
+>  <RI>
+9.27207e+06
+
+>  <Rbt.Current_Directory>
+/home/data/users/gaoletian/rna2smol
+
+>  <Rbt.Executable>
+rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>
+libRbt.so (2013.1, Build901 2013/11/27)
+
+>  <Rbt.Parameter_File>
+/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/dock_solv.prm
+
+>  <Rbt.Receptor>
+casestudy/sp1/rdock/sp1_system.prm
+
+>  <SCORE>
+-68.5355
+
+>  <SCORE.INTER>
+-23.0706
+
+>  <SCORE.INTER.CONST>
+1
+
+>  <SCORE.INTER.POLAR>
+0
+
+>  <SCORE.INTER.ROT>
+1
+
+>  <SCORE.INTER.SOLV>
+9.87645
+
+>  <SCORE.INTER.VDW>
+-22.9392
+
+>  <SCORE.INTER.norm>
+-1.21424
+
+>  <SCORE.INTRA>
+-6.37978
+
+>  <SCORE.INTRA.DIHEDRAL>
+0.0496186
+
+>  <SCORE.INTRA.DIHEDRAL.0>
+4.22193
+
+>  <SCORE.INTRA.POLAR>
+0
+
+>  <SCORE.INTRA.POLAR.0>
+0
+
+>  <SCORE.INTRA.REPUL>
+0
+
+>  <SCORE.INTRA.REPUL.0>
+0
+
+>  <SCORE.INTRA.SOLV>
+0.119803
+
+>  <SCORE.INTRA.SOLV.lig_0>
+-0.205256
+
+>  <SCORE.INTRA.VDW>
+-6.46449
+
+>  <SCORE.INTRA.VDW.0>
+11.4182
+
+>  <SCORE.INTRA.norm>
+-0.335778
+
+>  <SCORE.RESTR>
+
+>  <SCORE.RESTR.norm>
+0
+
+>  <SCORE.SYSTEM>
+-39.0852
+
+>  <SCORE.SYSTEM.CONST>
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>
+11.6545
+
+>  <SCORE.SYSTEM.POLAR>
+-7.18175
+
+>  <SCORE.SYSTEM.SOLV>
+0.883358
+
+>  <SCORE.SYSTEM.VDW>
+-6.2969
+
+>  <SCORE.SYSTEM.norm>
+-2.05711
+
+>  <SCORE.heavy>
+19
+
+>  <SCORE.norm>
+-3.60713
+
+>  <_SMILES>
+O=c1c(O)c(-c2ccc(O)cc2)oc2ccccc12
+
+>  <_srcBring>
+sp1 cold-start gen[13388] independent phenol
+
+>  <_srcCore>
+sp1 cold-start gen[17757] independent chroman
+
+$$$$

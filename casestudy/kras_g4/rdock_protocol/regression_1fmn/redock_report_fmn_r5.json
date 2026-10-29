@@ -1,0 +1,209 @@
+{
+  "cmd": [
+    "rbdock",
+    "-i",
+    "/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/rdock_protocol/regression_1fmn/fmn_ref.sdf",
+    "-o",
+    "/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/rdock_protocol/regression_1fmn/redock_fmn_r5",
+    "-r",
+    "/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/rdock_protocol/regression_1fmn/fmn_r5_system.prm",
+    "-p",
+    "/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/dock_solv.prm",
+    "-n",
+    "25",
+    "-s",
+    "7"
+  ],
+  "tag": "fmn_r5",
+  "protocol": "/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/dock_solv.prm",
+  "n_runs": 25,
+  "scores": [
+    {
+      "run": 13,
+      "SCORE.INTER": -58.9764,
+      "SCORE.INTRA": -5.3607,
+      "SCORE.RESTR": NaN,
+      "SCORE": -73.2619
+    },
+    {
+      "run": 8,
+      "SCORE.INTER": -58.1589,
+      "SCORE.INTRA": -9.9747,
+      "SCORE.RESTR": NaN,
+      "SCORE": -77.9499
+    },
+    {
+      "run": 1,
+      "SCORE.INTER": -51.7631,
+      "SCORE.INTRA": -6.32464,
+      "SCORE.RESTR": NaN,
+      "SCORE": -61.4219
+    },
+    {
+      "run": 6,
+      "SCORE.INTER": -41.0928,
+      "SCORE.INTRA": -3.89075,
+      "SCORE.RESTR": NaN,
+      "SCORE": -51.0568
+    },
+    {
+      "run": 19,
+      "SCORE.INTER": -38.7133,
+      "SCORE.INTRA": -4.14255,
+      "SCORE.RESTR": NaN,
+      "SCORE": -51.9713
+    },
+    {
+      "run": 9,
+      "SCORE.INTER": -35.9418,
+      "SCORE.INTRA": -9.38774,
+      "SCORE.RESTR": NaN,
+      "SCORE": -55.1536
+    },
+    {
+      "run": 15,
+      "SCORE.INTER": -33.7453,
+      "SCORE.INTRA": -6.66544,
+      "SCORE.RESTR": NaN,
+      "SCORE": -49.8465
+    },
+    {
+      "run": 18,
+      "SCORE.INTER": -33.4505,
+      "SCORE.INTRA": -0.372243,
+      "SCORE.RESTR": NaN,
+      "SCORE": -40.001
+    },
+    {
+      "run": 23,
+      "SCORE.INTER": -29.4333,
+      "SCORE.INTRA": -9.12688,
+      "SCORE.RESTR": NaN,
+      "SCORE": -48.0543
+    },
+    {
+      "run": 17,
+      "SCORE.INTER": -25.5824,
+      "SCORE.INTRA": -7.43581,
+      "SCORE.RESTR": NaN,
+      "SCORE": -42.0558
+    },
+    {
+      "run": 2,
+      "SCORE.INTER": -22.4717,
+      "SCORE.INTRA": -9.71351,
+      "SCORE.RESTR": NaN,
+      "SCORE": -40.7163
+    },
+    {
+      "run": 25,
+      "SCORE.INTER": -15.6184,
+      "SCORE.INTRA": -8.76014,
+      "SCORE.RESTR": NaN,
+      "SCORE": -34.1811
+    },
+    {
+      "run": 22,
+      "SCORE.INTER": -14.1726,
+      "SCORE.INTRA": -6.88887,
+      "SCORE.RESTR": NaN,
+      "SCORE": -31.0158
+    },
+    {
+      "run": 12,
+      "SCORE.INTER": -6.72482,
+      "SCORE.INTRA": -6.7464,
+      "SCORE.RESTR": NaN,
+      "SCORE": -23.0853
+    },
+    {
+      "run": 24,
+      "SCORE.INTER": -2.81709,
+      "SCORE.INTRA": -9.29079,
+      "SCORE.RESTR": NaN,
+      "SCORE": -21.9011
+    },
+    {
+      "run": 7,
+      "SCORE.INTER": -1.87749,
+      "SCORE.INTRA": -9.18981,
+      "SCORE.RESTR": NaN,
+      "SCORE": -21.21
+    },
+    {
+      "run": 3,
+      "SCORE.INTER": -0.422602,
+      "SCORE.INTRA": -9.81093,
+      "SCORE.RESTR": NaN,
+      "SCORE": -20.0066
+    },
+    {
+      "run": 4,
+      "SCORE.INTER": 12.4,
+      "SCORE.INTRA": -11.9393,
+      "SCORE.RESTR": NaN,
+      "SCORE": -9.49902
+    },
+    {
+      "run": 5,
+      "SCORE.INTER": 12.4,
+      "SCORE.INTRA": -11.2282,
+      "SCORE.RESTR": NaN,
+      "SCORE": -9.00131
+    },
+    {
+      "run": 10,
+      "SCORE.INTER": 12.4,
+      "SCORE.INTRA": -12.385,
+      "SCORE.RESTR": NaN,
+      "SCORE": -9.48986
+    },
+    {
+      "run": 11,
+      "SCORE.INTER": 12.4,
+      "SCORE.INTRA": -12.2896,
+      "SCORE.RESTR": NaN,
+      "SCORE": -9.49556
+    },
+    {
+      "run": 14,
+      "SCORE.INTER": 12.4,
+      "SCORE.INTRA": -10.3362,
+      "SCORE.RESTR": NaN,
+      "SCORE": -8.10897
+    },
+    {
+      "run": 16,
+      "SCORE.INTER": 12.4,
+      "SCORE.INTRA": -10.9875,
+      "SCORE.RESTR": NaN,
+      "SCORE": -8.40692
+    },
+    {
+      "run": 20,
+      "SCORE.INTER": 12.4,
+      "SCORE.INTRA": -14.1937,
+      "SCORE.RESTR": NaN,
+      "SCORE": -11.7056
+    },
+    {
+      "run": 21,
+      "SCORE.INTER": 12.4,
+      "SCORE.INTRA": -9.73468,
+      "SCORE.RESTR": NaN,
+      "SCORE": -7.50736
+    }
+  ],
+  "best": {
+    "run": 13,
+    "SCORE.INTER": -58.9764,
+    "rmsd_inplace": 2.009031499696855,
+    "rmsd_aligned": 2.3865505586066003
+  },
+  "cutoffs": {
+    "rmsd": 2.5,
+    "score_inter": -10.0
+  },
+  "verdict": "PASS",
+  "best_pose_sdf": "/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/rdock_protocol/regression_1fmn/redock_fmn_r5_best.sdf"
+}

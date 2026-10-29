@@ -1,0 +1,96 @@
+# 1FMN round-3 top-20 deep evaluation summary (all neutral, 1w pool)
+# pocket residues: ['G1.A', 'A8.A', 'G9.A', 'G10.A', 'A11.A', 'U12.A', 'A13.A', 'U14.A', 'A23.A', 'G24.A', 'A25.A', 'A26.A', 'G27.A', 'G28.A', 'A29.A']
+
+== FMN reference ==
+  rdock SCORE (best) = -17.157  INTER (best-SCORE pose) = -16.787
+  drug-likeness: {'MW': 456.35, 'QED': 0.176, 'SA': 4.03, 'heavy_atoms': 31, 'HBD': 6, 'HBA': 10, 'rotatable': 7, 'rings': 3, 'aromatic_rings': 1, 'TPSA': 208.1, 'cLogP': -1.61, 'formal_charge': 0}
+  interactions by type: {'HBAcceptor': 1, 'VdWContact': 7, 'Hydrophobic': 1}
+  key residues (no VdW): ['G9.A', 'U12.A']
+
+== Top-20 (sorted by combined score) ==
+[T01] gen=1128 rank=1 P=1.000 logit=+33.50 INTER=-20.76 SCORE=-27.39 MW=333.44 QED=0.505 SA=5.13
+    total_int=3 by_type={'VdWContact': 3}
+    key_res(no_vdw)=[]
+    fmn_shared(no_vdw)=0 jaccard=0.0 extra=[]
+[T02] gen=8127 rank=2 P=1.000 logit=+15.35 INTER=-13.85 SCORE=-71.57 MW=417.49 QED=0.134 SA=5.66
+    total_int=8 by_type={'VdWContact': 6, 'HBDonor': 2}
+    key_res(no_vdw)=['G10.A', 'G27.A']
+    fmn_shared(no_vdw)=0 jaccard=0.0 extra=['G10.A', 'G27.A']
+[T03] gen=2454 rank=3 P=1.000 logit=+30.16 INTER=-16.11 SCORE=-27.19 MW=312.28 QED=0.286 SA=4.5
+    total_int=7 by_type={'VdWContact': 4, 'PiStacking': 2, 'HBDonor': 1}
+    key_res(no_vdw)=['G10.A', 'G9.A']
+    fmn_shared(no_vdw)=1 jaccard=0.333 extra=['G10.A']
+[T04] gen=1581 rank=4 P=1.000 logit=+32.60 INTER=-17.52 SCORE=-18.33 MW=282.3 QED=0.219 SA=5.73
+    total_int=9 by_type={'VdWContact': 6, 'HBDonor': 2, 'HBAcceptor': 1}
+    key_res(no_vdw)=['A26.A', 'G10.A']
+    fmn_shared(no_vdw)=0 jaccard=0.0 extra=['A26.A', 'G10.A']
+[T05] gen=1259 rank=5 P=1.000 logit=+30.91 INTER=-21.16 SCORE=-22.06 MW=285.39 QED=0.811 SA=4.93
+    total_int=6 by_type={'VdWContact': 5, 'Hydrophobic': 1}
+    key_res(no_vdw)=['U12.A']
+    fmn_shared(no_vdw)=1 jaccard=0.5 extra=[]
+[T06] gen=390 rank=6 P=1.000 logit=+14.63 INTER=-23.89 SCORE=-62.78 MW=317.34 QED=0.807 SA=4.77
+    total_int=6 by_type={'VdWContact': 5, 'Hydrophobic': 1}
+    key_res(no_vdw)=['U12.A']
+    fmn_shared(no_vdw)=1 jaccard=0.5 extra=[]
+[T07] gen=3158 rank=7 P=1.000 logit=+28.47 INTER=-19.81 SCORE=-25.37 MW=289.29 QED=0.546 SA=5.0
+    total_int=8 by_type={'VdWContact': 5, 'HBDonor': 2, 'PiStacking': 1}
+    key_res(no_vdw)=['G10.A', 'U12.A']
+    fmn_shared(no_vdw)=1 jaccard=0.333 extra=['G10.A']
+[T08] gen=1382 rank=8 P=1.000 logit=+20.00 INTER=-22.05 SCORE=-45.51 MW=380.45 QED=0.602 SA=4.63
+    total_int=6 by_type={'VdWContact': 6}
+    key_res(no_vdw)=[]
+    fmn_shared(no_vdw)=0 jaccard=0.0 extra=[]
+[T09] gen=5394 rank=9 P=1.000 logit=+29.43 INTER=-15.88 SCORE=-21.44 MW=371.44 QED=0.289 SA=4.5
+    total_int=7 by_type={'VdWContact': 5, 'HBDonor': 1, 'Hydrophobic': 1}
+    key_res(no_vdw)=['G9.A', 'U12.A']
+    fmn_shared(no_vdw)=2 jaccard=1.0 extra=[]
+[T10] gen=7078 rank=10 P=1.000 logit=+28.32 INTER=-25.32 SCORE=-22.89 MW=384.43 QED=0.396 SA=4.54
+    total_int=7 by_type={'VdWContact': 5, 'HBDonor': 1, 'Hydrophobic': 1}
+    key_res(no_vdw)=['G9.A', 'U12.A']
+    fmn_shared(no_vdw)=2 jaccard=1.0 extra=[]
+[T11] gen=9491 rank=11 P=1.000 logit=+23.53 INTER=-28.06 SCORE=-34.12 MW=378.54 QED=0.61 SA=4.09
+    total_int=6 by_type={'VdWContact': 4, 'PiStacking': 1, 'Hydrophobic': 1}
+    key_res(no_vdw)=['G9.A', 'U12.A']
+    fmn_shared(no_vdw)=2 jaccard=1.0 extra=[]
+[T12] gen=4607 rank=12 P=1.000 logit=+28.37 INTER=-22.37 SCORE=-20.43 MW=341.37 QED=0.726 SA=4.41
+    total_int=7 by_type={'PiStacking': 2, 'VdWContact': 4, 'HBDonor': 1}
+    key_res(no_vdw)=['G10.A', 'G9.A']
+    fmn_shared(no_vdw)=1 jaccard=0.333 extra=['G10.A']
+[T13] gen=3292 rank=13 P=1.000 logit=+29.44 INTER=-7.09 SCORE=-11.47 MW=392.45 QED=0.128 SA=3.75
+    total_int=6 by_type={'HBDonor': 2, 'VdWContact': 3, 'Hydrophobic': 1}
+    key_res(no_vdw)=['G10.A', 'G9.A', 'U12.A']
+    fmn_shared(no_vdw)=2 jaccard=0.667 extra=['G10.A']
+[T14] gen=7053 rank=14 P=1.000 logit=+13.15 INTER=-18.97 SCORE=-58.50 MW=312.37 QED=0.665 SA=5.29
+    total_int=3 by_type={'VdWContact': 3}
+    key_res(no_vdw)=[]
+    fmn_shared(no_vdw)=0 jaccard=0.0 extra=[]
+[T15] gen=5074 rank=15 P=1.000 logit=+25.89 INTER=-22.09 SCORE=-25.81 MW=362.43 QED=0.549 SA=5.19
+    total_int=7 by_type={'VdWContact': 6, 'HBDonor': 1}
+    key_res(no_vdw)=['G10.A']
+    fmn_shared(no_vdw)=0 jaccard=0.0 extra=['G10.A']
+[T16] gen=814 rank=16 P=1.000 logit=+13.94 INTER=-12.66 SCORE=-54.28 MW=340.47 QED=0.278 SA=3.82
+    total_int=7 by_type={'HBDonor': 1, 'PiStacking': 1, 'VdWContact': 4, 'Hydrophobic': 1}
+    key_res(no_vdw)=['G9.A', 'U12.A']
+    fmn_shared(no_vdw)=2 jaccard=1.0 extra=[]
+[T17] gen=5570 rank=17 P=1.000 logit=+24.93 INTER=-18.84 SCORE=-27.53 MW=349.39 QED=0.811 SA=3.54
+    total_int=4 by_type={'PiStacking': 1, 'VdWContact': 3}
+    key_res(no_vdw)=['G9.A']
+    fmn_shared(no_vdw)=1 jaccard=0.5 extra=[]
+[T18] gen=7333 rank=18 P=1.000 logit=+27.43 INTER=-19.90 SCORE=-20.71 MW=335.4 QED=0.457 SA=5.36
+    total_int=5 by_type={'VdWContact': 3, 'HBDonor': 1, 'Hydrophobic': 1}
+    key_res(no_vdw)=['G10.A', 'U12.A']
+    fmn_shared(no_vdw)=1 jaccard=0.333 extra=['G10.A']
+[T19] gen=1271 rank=19 P=1.000 logit=+28.62 INTER=-5.46 SCORE=-15.96 MW=371.39 QED=0.152 SA=3.53
+    total_int=9 by_type={'PiStacking': 2, 'VdWContact': 6, 'HBDonor': 1}
+    key_res(no_vdw)=['A26.A', 'G10.A', 'G9.A']
+    fmn_shared(no_vdw)=1 jaccard=0.25 extra=['A26.A', 'G10.A']
+[T20] gen=7561 rank=20 P=1.000 logit=+26.04 INTER=-22.60 SCORE=-22.04 MW=345.32 QED=0.395 SA=5.46
+    total_int=8 by_type={'VdWContact': 6, 'Hydrophobic': 1, 'HBDonor': 1}
+    key_res(no_vdw)=['A26.A', 'U12.A']
+    fmn_shared(no_vdw)=1 jaccard=0.333 extra=['A26.A']
+
+== Top-20 aggregate ==
+  QED: min=0.128 max=0.811 mean=0.468
+  SA : min=3.53 max=5.73 mean=4.69
+  MW : min=282.3 max=417.49 mean=345.1
+  INTER: min=-28.06 max=-5.46 mean=-18.72

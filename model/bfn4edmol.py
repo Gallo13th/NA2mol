@@ -1596,31 +1596,31 @@ class BFN4SBDDScoreModel(BFNBase):
         batch_ed,
         ligand_pos,
         ligand_v,
+        # ligand_e=None,
+        # ligand_ei=None,
         batch_ligand=None,
+        # batch_ligand_ei=None
     ):
-        """Primary Bayesian-flow losses plus self-supervised contrastive learning.
-
-        The two views are the same molecule at the flow time t and at a perturbed
-        time t_aug, so no teacher model is required.
-        """
         K = self.num_classes
-        device = ligand_v.device
 
-        assert ligand_v.max().item() < K, f"Error: ligand_v.max().item() >= {K}"
-        ligand_v_onehot = F.one_hot(ligand_v, K).float()  # [N, K]
-        logit_scale = 5
-
-        # ========== 1. Bayesian Flow: sample theta_t = (mu_pos_t, theta_h_t) ==========
+        assert ligand_v.max().item() < K, f"Error: {ligand_v.max().item()} >= {K}"
+        ligand_v = F.one_hot(ligand_v, K).float()  # [N, K]
+        
+        # 1. Bayesian Flow p_F(θ|x;t), obtain input parameters θ
+        # continuous ~ N(μ | γ(t)x, γ(t)(1 − γ(t))I)
         mu_coord, gamma_coord = self.continuous_var_bayesian_update(
             t, sigma1=self.sigma1_coord, x=ligand_pos
         )  # [N, 3], [N, 1]
 
+        # discrete ~ N(y | β(t)(Ke_x−1), β(t)KI)
         theta = self.discrete_var_bayesian_update(
-            t, beta1=self.beta1, x=ligand_v_onehot, K=K
+            t, beta1=self.beta1, x=ligand_v, K=K
         )  # [N, K]
 
-        # ========== 2. Forward pass ==========
-        coord_pred, p0_h, _, final_ligand_h, *_ = self.interdependency_modeling(
+        # 2. Compute output distribution parameters for p_O (x' | θ; t) (x_hat or k^(d) logits)
+        # continuous x ~ δ(x − x_hat(θ, t))
+        # discrete k^(d) ~ softmax(Ψ^(d)(θ, t))_k
+        coord_pred, p0_h, k_hat, e, ei = self.interdependency_modeling(
             time=t,
             pocket_pos=pocket_pos,
             pocket_v=pocket_v,
@@ -1632,10 +1632,14 @@ class BFN4SBDDScoreModel(BFNBase):
             mu_pos_t=mu_coord,
             batch_ligand=batch_ligand,
             gamma_coord=gamma_coord,
-            return_logits=True
-        )
+        )  # [N, 3], [N, K], [?]
+        # print('ei:', ei.shape)
+        # print('gt_ei', ligand_ei.shape)
 
-        # ========== 3. Primary diffusion losses (continuous + discrete) ==========
+        # e_gt, e_batch = build_e_gt(ligand_e, ligand_ei, ei, batch_ligand)
+        # print('e_gt:', e_gt.shape, e_gt)
+        # print('e_gt_batch:', e_batch.shape)
+        # 3. Compute reweighted loss (previous [N,] now [B,])
         if not self.use_discrete_t:
             closs = self.ctime4continuous_loss(
                 t=t,
@@ -1647,13 +1651,43 @@ class BFN4SBDDScoreModel(BFNBase):
             dloss = self.ctime4discrete_loss(
                 t=t,
                 beta1=self.beta1,
-                one_hot_x=ligand_v_onehot,
+                one_hot_x=ligand_v,
                 p_0=p0_h,
                 K=K,
                 segment_ids=batch_ligand,
             )  # [B,]
+            # print(dloss.shape)
+            # assert False, "Stop Here"
+            # dloss = dloss * (ligand_v.argmax(-1) == 0)
+            
+            # src, _ = ei
+            # edge_t = t[src]
+            
+            # # # 高效实现（无需循环）：
+            # from torch_scatter import scatter_min
+
+            # # # 构造一个辅助索引：原子序号
+            # atom_indices = torch.arange(batch_ligand.size(0), device=batch_ligand.device)
+            # # # 找到每个分子中最小的原子索引（即第一个出现的原子）
+            # _, first_atom_idx = scatter_min(atom_indices, batch_ligand, dim=0, dim_size=batch_ligand.max().item() + 1)
+            # # # first_atom_idx shape: [BATCHSIZE]
+
+            # # # 用这些索引从 t 中取出原始随机值
+            # original_t = t[first_atom_idx]  # shape: [BATCHSIZE, 1]
+            # eloss = self.ctime4discrete_loss(
+            #     t=edge_t,
+            #     beta1=self.beta1,
+            #     one_hot_x=F.one_hot(e_gt, 5).float(),
+            #     p_0=e,
+            #     K=5,
+            #     segment_ids=e_batch
+            # )
+            # eloss = eloss * (original_t > 0.5)
+
+            eloss = torch.zeros_like(closs)
+        
         else:
-            i = (t * self.discrete_steps).int() + 1
+            i = (t * self.discrete_steps).int() + 1  # discrete interval [1,N]
             closs = self.dtime4continuous_loss(
                 i=i,
                 N=self.discrete_steps,
@@ -1662,216 +1696,31 @@ class BFN4SBDDScoreModel(BFNBase):
                 x=ligand_pos,
                 segment_ids=batch_ligand,
             )
+
             dloss = self.dtime4discrete_loss_prob(
                 i=i,
                 N=self.discrete_steps,
                 beta1=self.beta1,
-                one_hot_x=ligand_v_onehot,
+                one_hot_x=ligand_v,
                 p_0=p0_h,
                 K=K,
                 segment_ids=batch_ligand,
             )
-
-        # ========== 4. Self-supervised contrastive loss ==========
-
-        # 4.1 molecule-level representation via attention pooling
-        att_scores = self.global_pool_att(final_ligand_h)  # [N_ligand, 1]
-        att_weights = scatter_softmax(att_scores, batch_ligand, dim=0)  # [N_ligand, 1]
-        mol_rep = scatter_sum(final_ligand_h * att_weights, batch_ligand, dim=0)  # [Batch, hidden]
-        mol_rep_proj = self.projection_head(mol_rep)
-        mol_rep_proj = F.normalize(mol_rep_proj, p=2, dim=-1)
-
-        # 4.2 positive pairs: the same molecule under a small time perturbation
-        with torch.no_grad():
-            t_aug = t + torch.randn_like(t) * 0.1
-            t_aug = torch.clamp(t_aug, min=self.t_min, max=1.0)
-
-            mu_coord_aug, gamma_coord_aug = self.continuous_var_bayesian_update(
-                t_aug, sigma1=self.sigma1_coord, x=ligand_pos
-            )
-            theta_aug = self.discrete_var_bayesian_update(
-                t_aug, beta1=self.beta1, x=ligand_v_onehot, K=K
-            )
-
-            _, _, _, final_ligand_h_aug, *_ = self.interdependency_modeling(
-                time=t_aug,
-                pocket_pos=pocket_pos,
-                pocket_v=pocket_v,
-                batch_pocket=batch_pocket,
-                ed_pos=ed_pos,
-                ed_v=ed_v,
-                batch_ed=batch_ed,
-                theta_h_t=theta_aug,
-                mu_pos_t=mu_coord_aug,
-                batch_ligand=batch_ligand,
-                gamma_coord=gamma_coord_aug,
-                return_logits=True
-            )
-
-            att_scores_aug = self.global_pool_att(final_ligand_h_aug)
-            att_weights_aug = scatter_softmax(att_scores_aug, batch_ligand, dim=0)
-            mol_rep_aug = scatter_sum(final_ligand_h_aug * att_weights_aug, batch_ligand, dim=0)
-            mol_rep_aug_proj = self.projection_head(mol_rep_aug)
-            mol_rep_aug_proj = F.normalize(mol_rep_aug_proj, p=2, dim=-1)
-
-        # 4.5 InfoNCE over the two views
-        if self.use_contrastive_queue:
-            contrastive_loss = self.contrastive_loss_with_queue(mol_rep_proj, mol_rep_aug_proj)
-        else:
-            sim_matrix = torch.matmul(mol_rep_proj, mol_rep_aug_proj.T) * torch.exp(self.logit_scale)
-            labels = torch.arange(mol_rep_proj.size(0), device=device).long()
-            loss_s2t = F.cross_entropy(sim_matrix, labels)
-            loss_t2s = F.cross_entropy(sim_matrix.T, labels)
-            contrastive_loss = (loss_s2t + loss_t2s) / 2.0
-
-        eloss = torch.zeros_like(closs)
-        discretized_loss = torch.zeros_like(closs)
-
-        return (
-            closs,              # [B] continuous coordinate loss
-            dloss,              # [B] discrete type loss
-            eloss,              # [B] reserved
-            discretized_loss,   # [B] reserved
-            contrastive_loss,   # scalar self-supervised contrastive loss
-        )
-    def baseline_loss_one_step(
-        self,
-        t,  # [N_ligand, 1]
-        pocket_pos,
-        pocket_v,
-        batch_pocket,
-        ed_pos,
-        ed_v,
-        batch_ed,
-        ligand_pos,
-        ligand_v,
-        batch_ligand=None,
-    ):
-        """Primary Bayesian-flow losses only.
-
-        Used by the two configurations that apply no auxiliary objective: the
-        no-pretraining baseline and Pretrain Only. The two differ solely in their
-        starting checkpoint, so they share this function.
-
-        Returns (continuous, discrete, reserved, reserved), which is the 4-tuple
-        baseline_scratch.py unpacks.
-        """
-        K = self.num_classes
-        device = ligand_v.device
-
-        assert ligand_v.max().item() < K, f"Error: ligand_v.max().item() >= {K}"
-        ligand_v_onehot = F.one_hot(ligand_v, K).float()  # [N, K]
-
-        # --- Bayesian Flow: sample theta_t = (mu_pos_t, theta_h_t) ---
-        mu_coord, gamma_coord = self.continuous_var_bayesian_update(
-            t, sigma1=self.sigma1_coord, x=ligand_pos
-        )  # [N, 3], [N, 1]
-        theta = self.discrete_var_bayesian_update(
-            t, beta1=self.beta1, x=ligand_v_onehot, K=K
-        )  # [N, K]
-
-        # --- Forward pass ---
-        coord_pred, p0_h, _, _final_h, *_ = self.interdependency_modeling(
-            time=t,
-            pocket_pos=pocket_pos,
-            pocket_v=pocket_v,
-            batch_pocket=batch_pocket,
-            ed_pos=ed_pos,
-            ed_v=ed_v,
-            batch_ed=batch_ed,
-            theta_h_t=theta,
-            mu_pos_t=mu_coord,
-            batch_ligand=batch_ligand,
-            gamma_coord=gamma_coord,
-            return_logits=True
-        )
-
-        # --- Primary diffusion losses (continuous + discrete) ---
-        if not self.use_discrete_t:
-            closs = self.ctime4continuous_loss(
-                t=t,
-                sigma1=self.sigma1_coord,
-                x_pred=coord_pred,
-                x=ligand_pos,
-                segment_ids=batch_ligand,
-            )  # [B,]
-            dloss = self.ctime4discrete_loss(
-                t=t,
-                beta1=self.beta1,
-                one_hot_x=ligand_v_onehot,
-                p_0=p0_h,
-                K=K,
-                segment_ids=batch_ligand,
-            )  # [B,]
-        else:
-            i = (t * self.discrete_steps).int() + 1
-            closs = self.dtime4continuous_loss(
-                i=i,
-                N=self.discrete_steps,
-                sigma1=self.sigma1_coord,
-                x_pred=coord_pred,
-                x=ligand_pos,
-                segment_ids=batch_ligand,
-            )
-            dloss = self.dtime4discrete_loss_prob(
+            
+            eloss = self.dtime4discrete_loss_prob(
                 i=i,
                 N=self.discrete_steps,
                 beta1=self.beta1,
-                one_hot_x=ligand_v_onehot,
-                p_0=p0_h,
-                K=K,
-                segment_ids=batch_ligand,
+                one_hot_x=ligand_e,
+                p_0=e,
+                K=5,
+                segment_ids=batch_ligand_ei       
             )
 
-        eloss = torch.zeros_like(closs)
+
         discretized_loss = torch.zeros_like(closs)
 
-        return (
-            closs,              # [B] continuous coordinate loss
-            dloss,              # [B] discrete type loss
-            eloss,              # [B] reserved
-            discretized_loss,   # [B] reserved
-        )
-
-    def contrastive_loss_with_queue(self, z_a, z_b):
-        """InfoNCE with a FIFO memory bank of past representations.
-
-        Positive pairs are (z_a[i], z_b[i]); negatives are the other views in the
-        batch plus the queued representations from previous steps. z_b is enqueued
-        (detached) after the loss is computed. Selected by `use_contrastive_queue`;
-        the plain in-batch path is used otherwise.
-        """
-        z_a = F.normalize(z_a, p=2, dim=-1)
-        z_b = F.normalize(z_b, p=2, dim=-1)
-        queue = self.rep_queue.t().detach()          # [queue_size, dim]
-        scale = torch.exp(self.logit_scale)
-
-        def _nce(anchor, positive):
-            negatives = torch.cat([positive, queue], dim=0)   # [B + queue_size, dim]
-            logits = anchor @ negatives.t() * scale
-            labels = torch.arange(anchor.size(0), device=anchor.device)
-            return F.cross_entropy(logits, labels)
-
-        loss = 0.5 * (_nce(z_a, z_b) + _nce(z_b, z_a))
-
-        with torch.no_grad():
-            n = z_b.size(0)
-            ptr = int(self.queue_ptr)
-            if n >= self.queue_size:
-                self.rep_queue.copy_(z_b[-self.queue_size:].t())
-                ptr = 0
-            else:
-                end = ptr + n
-                if end <= self.queue_size:
-                    self.rep_queue[:, ptr:end] = z_b.t()
-                else:
-                    head = self.queue_size - ptr
-                    self.rep_queue[:, ptr:] = z_b[:head].t()
-                    self.rep_queue[:, :end - self.queue_size] = z_b[head:].t()
-                ptr = end % self.queue_size
-            self.queue_ptr[0] = ptr
-        return loss
-
+        return closs, dloss, eloss, discretized_loss
     def constrain_loss_one_step(
         self,
         rep_model,
@@ -1890,27 +1739,25 @@ class BFN4SBDDScoreModel(BFNBase):
         pocket_ele=None,
         onlygeneral=False
     ):
-        from torch_scatter import scatter_mean
-
         K = self.num_classes
         device = ligand_v.device
-
+    
         # --- 0. Preprocess ligand atom types ---
         assert ligand_v.max().item() < K, f"Error: ligand_v.max() = {ligand_v.max().item()} >= num_classes {K}"
         ligand_v_onehot = F.one_hot(ligand_v, K).float()  # [N, K]
-        logit_scale = 5
-        # --- 1. Bayesian Flow: Sample theta_t = (mu_pos_t, theta_h_t) from p_F(theta|x; t) ---
+    
+        # --- 1. Bayesian Flow: Sample θ_t = (μ_pos_t, θ_h_t) from p_F(θ|x; t) ---
         mu_coord, gamma_coord = self.continuous_var_bayesian_update(
             t, sigma1=self.sigma1_coord, x=ligand_pos
         )  # [N, 3], [N, 1]
         theta = self.discrete_var_bayesian_update(
             t, beta1=self.beta1, x=ligand_v_onehot, K=K
         )  # [N, K]
-
+    
         # --- 2. Forward passes (teacher models in no_grad) ---
         with torch.no_grad():
             # ED-conditioned teacher
-            coord_pred_ed, p0_h_ed, logits_ed, h_ed, *_ = rep_model.interdependency_modeling(
+            coord_pred_ed, p0_h_ed, logits_ed, *_ = rep_model.interdependency_modeling(
                 time=t,
                 pocket_pos=torch.empty((0, 3), device=device),
                 pocket_v=torch.empty((0, 11), device=device),
@@ -1928,10 +1775,10 @@ class BFN4SBDDScoreModel(BFNBase):
                 pocket_ele=None,
                 onlygeneral=True
             )
-
+    
             # Optional Pocket-conditioned teacher
             if pkt_model is not None:
-                coord_pred_pkt, p0_h_pkt, logits_pkt, h_pkt, *_ = pkt_model.interdependency_modeling(
+                coord_pred_pkt, p0_h_pkt, logits_pkt, *_ = pkt_model.interdependency_modeling(
                     time=t,
                     pocket_pos=pocket_pos,
                     pocket_v=pocket_v,
@@ -1946,14 +1793,13 @@ class BFN4SBDDScoreModel(BFNBase):
                     fix_x=False,
                     return_logits=True,
                     pocket_res=pocket_res,
-                    pocket_ele=pocket_ele,
-                    onlygeneral=True
+                    pocket_ele=pocket_ele
                 )
             else:
                 coord_pred_pkt = p0_h_pkt = logits_pkt = None
-
+    
         # Student forward (current model, Pocket-conditioned)
-        coord_pred, p0_h, logits_self, h_self, *_ = self.interdependency_modeling(
+        coord_pred, p0_h, logits_self, *_ = self.interdependency_modeling(
             time=t,
             pocket_pos=pocket_pos,
             pocket_v=pocket_v,
@@ -1971,12 +1817,10 @@ class BFN4SBDDScoreModel(BFNBase):
             pocket_ele=pocket_ele,
             onlygeneral=onlygeneral
         )
-
-        # --- 3. Alignment losses: ED -> Student (output space) ---
-        # Coordinates and atom-type distributions are what the two paths predict;
-        # this is the "d(z_ED, z_lig)" of the Fig. 1c schematic.
+    
+        # --- 3. Alignment losses: ED → Student ---
         coord_align_loss = torch.mean(torch.sum((coord_pred_ed - coord_pred) ** 2, dim=-1))
-
+        
         p_ed = p0_h_ed + 1e-8
         p_self = p0_h + 1e-8
         log_p_ed = torch.log(p_ed)
@@ -1984,43 +1828,54 @@ class BFN4SBDDScoreModel(BFNBase):
         KL_ed2self = (p_ed * (log_p_ed - log_p_self)).sum(dim=-1)
         KL_self2ed = (p_self * (log_p_self - log_p_ed)).sum(dim=-1)
         type_align_loss = 0.5 * (KL_ed2self + KL_self2ed).mean()
-
-        # --- 4. Alignment losses: PKT -> Student (if pkt_model provided) ---
-        coord_align_pkt_loss = torch.tensor(0.0, device=device)
-        type_align_pkt_loss = torch.tensor(0.0, device=device)
-
-        # --- 5. Time-dependent weighting: focus on mid-training (t ~ 0.5) ---
+    
+        # --- 4. Alignment losses: PKT → Student (if pkt_model provided) ---
+        if pkt_model is not None:
+            coord_align_pkt_loss = torch.mean(torch.sum((coord_pred_pkt - coord_pred) ** 2, dim=-1))
+    
+            p_pkt = p0_h_pkt + 1e-8
+            KL_self2pkt = (p_self * (log_p_self - torch.log(p_pkt))).sum(dim=-1)
+            KL_pkt2self = (p_pkt * (torch.log(p_pkt) - log_p_self)).sum(dim=-1)
+            type_align_pkt_loss = 0.5 * (KL_self2pkt + KL_pkt2self).mean()
+        else:
+            coord_align_pkt_loss = torch.tensor(0.0, device=device)
+            type_align_pkt_loss = torch.tensor(0.0, device=device)
+    
+        # --- 5. Time-dependent weighting: focus on mid-training (t ≈ 0.5) ---
         weight_t = torch.sigmoid(10 * (t - 0.5))  # [N, 1] or scalar if t is scalar
-
+    
         coord_align_loss = coord_align_loss * weight_t
         type_align_loss = type_align_loss * weight_t
-
-        # --- 6. Contrastive learning: cross-view InfoNCE, ED teacher vs student ---
-        from torch_scatter import scatter_softmax, scatter_sum
-        att_scores = self.global_pool_att(h_self)  # [N_total, 1]
-        att_weights = scatter_softmax(att_scores, batch_ligand, dim=0)  # [N_total, 1]
-
-        global_rep = scatter_sum(h_self * att_weights, batch_ligand, dim=0)  # [Batch, Hidden]
-        mol_rep = self.projection_head(global_rep)  # [Batch, Hidden]
-        mol_rep = F.normalize(mol_rep, p=2, dim=-1)
-
-        with torch.no_grad():
-            t_att_scores = self.global_pool_att(h_ed)
-            t_att_weights = scatter_softmax(t_att_scores, batch_ligand, dim=0)
-            t_global_rep = scatter_sum(h_ed * t_att_weights, batch_ligand, dim=0)
-            t_mol_rep = self.projection_head(t_global_rep)
-            t_mol_rep = F.normalize(t_mol_rep, p=2, dim=-1)
-
-        # Cross-view Contrastive Loss (supports Memory Bank + All-Gather)
-        if self.use_contrastive_queue:
-            contrastive_loss = self.contrastive_loss_with_queue(mol_rep, t_mol_rep)
+        coord_align_pkt_loss = coord_align_pkt_loss * weight_t
+        type_align_pkt_loss = type_align_pkt_loss * weight_t
+    
+        # --- 6. Contrastive loss on logits (symmetric triplet: self ~ pkt, self ⊥ ed) ---
+        if pkt_model is not None:
+            # L2-normalize logits for stable cosine similarity
+            def normalize(x): return F.normalize(x, p=2, dim=-1)
+    
+            z_self = normalize(logits_self)   # [N, K]
+            z_pkt = normalize(logits_pkt)
+            z_ed = normalize(logits_ed)
+    
+            # Positive: self–pkt; Negatives: self–ed, pkt–ed
+            pos_sim = (z_self * z_pkt).sum(dim=-1)           # [N]
+            neg_sim_self_ed = (z_self * z_ed).sum(dim=-1)    # [N]
+            neg_sim_pkt_ed = (z_pkt * z_ed).sum(dim=-1)      # [N]
+    
+            tau = getattr(self, 'contrast_temp', 0.1)  # fallback to 0.1 if not set
+            logits_contrast = torch.stack([
+                pos_sim,
+                neg_sim_self_ed,
+                neg_sim_pkt_ed
+            ], dim=1) / tau  # [N, 3]
+    
+            labels = torch.zeros(logits_contrast.size(0), dtype=torch.long, device=device)
+            contrastive_loss = F.cross_entropy(logits_contrast, labels)
+            contrastive_loss = contrastive_loss * weight_t.mean()  # scalar weight
         else:
-            sim_matrix_st = torch.matmul(mol_rep, t_mol_rep.T) * torch.exp(self.logit_scale)
-            labels = torch.arange(mol_rep.size(0), device=mol_rep.device).long()
-            loss_s2t = F.cross_entropy(sim_matrix_st, labels)
-            loss_t2s = F.cross_entropy(sim_matrix_st.T, labels)
-            contrastive_loss = (loss_s2t + loss_t2s) / 2.0
-
+            contrastive_loss = torch.tensor(0.0, device=device)
+    
         # --- 7. Primary diffusion losses (continuous + discrete) ---
         if not self.use_discrete_t:
             closs = self.ctime4continuous_loss(
@@ -2047,22 +1902,23 @@ class BFN4SBDDScoreModel(BFNBase):
                 one_hot_x=ligand_v_onehot, p_0=p0_h, K=K,
                 segment_ids=batch_ligand
             )
-
+    
         eloss = torch.zeros_like(closs)
         discretized_loss = torch.zeros_like(closs)
-
+    
         # --- Return all loss components ---
         return (
             closs,                   # [B] main continuous loss
             dloss,                   # [B] main discrete loss
             eloss,                   # [B] (reserved)
             discretized_loss,        # [B] (reserved)
-            coord_align_loss,        # scalar, ED -> self
-            type_align_loss,         # scalar, ED -> self
-            coord_align_pkt_loss,    # scalar, PKT -> self (0 if pkt_model=None)
-            type_align_pkt_loss,     # scalar, PKT -> self (0 if pkt_model=None)
-            contrastive_loss         # scalar, cross-view contrast on molecular reps
+            coord_align_loss,        # scalar, ED → self
+            type_align_loss,         # scalar, ED → self
+            coord_align_pkt_loss,    # scalar, PKT → self (0 if pkt_model=None)
+            type_align_pkt_loss,     # scalar, PKT → self (0 if pkt_model=None)
+            contrastive_loss         # scalar, triplet contrast on logits
         )
+
     def sample(
         self,
         pocket_pos,
@@ -2269,7 +2125,6 @@ class BFN4SBDDScoreModel(BFNBase):
         pocket_ele=None,
         fix_atom_types=True,
         return_traj=False,    # reserved: full trajectory dumps are not implemented
-        given_traj=None,      # (mu_pos [T+1, N, 3], theta_h [T+1, N, K]) from a real run
     ):
         """
         Conditional sampling with fixed (seeded) atoms by constructing pseudo forward trajectories
@@ -2277,12 +2132,6 @@ class BFN4SBDDScoreModel(BFNBase):
         
         When fix_atom_types=False, only coordinates are fixed; atom types of seeded atoms
         are generated freely by the model.
-
-        given_traj supplies the intermediate states of the fixed atoms from an actual free
-        generation run (the trajectory `sample` already accumulates). The default
-        constructs them analytically from the final answer, mu(t) = gamma(t) * x_true,
-        which is a state the network never visits and which pulls the trajectory out of
-        distribution. Passing the real path keeps the conditioning in distribution.
         """
         if return_traj:
             raise NotImplementedError('return_traj=True is not implemented')
@@ -2319,25 +2168,10 @@ class BFN4SBDDScoreModel(BFNBase):
         fixed_atom_indices_full = torch.full((N_ligand_total,), -1, dtype=torch.long, device=device)
         fixed_atom_indices_full[fixed_atom_mask] = fixed_atom_types_indices
     
-        # --- Fixed-atom states over time ---
-        # Either the caller's real trajectory, or an analytic pseudo path from the final
-        # answer. Shape: [sample_steps + 1, N_ligand_total, ...]
-        use_real = given_traj is not None
-        if use_real:
-            gm, gt = given_traj
-            pseudo_mu_pos = gm.to(device).float()
-            pseudo_theta_h = gt.to(device).float()
-            if pseudo_mu_pos.shape[0] != sample_steps + 1:
-                raise ValueError(f'given_traj has {pseudo_mu_pos.shape[0]} frames, '
-                                 f'need {sample_steps + 1}')
-            if pseudo_mu_pos.shape[1] != N_ligand_total:
-                raise ValueError('given_traj atom count does not match the batch')
-            print(f'[sample_by_seed] REAL trajectory for {int(n_fixed)} fixed atoms '
-                  f'({pseudo_mu_pos.shape[0]} frames)', flush=True)
-        else:
-            pseudo_mu_pos = torch.zeros(sample_steps + 1, N_ligand_total, 3, device=device)
-            pseudo_theta_h = torch.ones(sample_steps + 1, N_ligand_total, K,
-                                        device=device) / K
+        # --- Precompute pseudo trajectories for fixed atoms ---
+        # Shape: [sample_steps + 1, N_ligand_total, ...]
+        pseudo_mu_pos = torch.zeros(sample_steps + 1, N_ligand_total, 3, device=device)
+        pseudo_theta_h = torch.ones(sample_steps + 1, N_ligand_total, K, device=device) / K
     
         # Time points: t_i = i / sample_steps for i in 0..sample_steps
         t_all = torch.linspace(0, 1, steps=sample_steps + 1, device=device)  # [T+1]
@@ -2348,8 +2182,6 @@ class BFN4SBDDScoreModel(BFNBase):
             t = t_val.repeat(N_ligand_total, 1)  # [N_ligand, 1]
     
             # Continuous: mu(t) = gamma(t) * x_true, gamma(t) = 1 - sigma1^(2t)
-            if use_real:
-                continue          # keep the harvested trajectory verbatim
             gamma_coord = 1 - torch.pow(self.sigma1_coord, 2 * t)  # [N, 1]
             pseudo_mu_pos[i] = gamma_coord * fixed_atom_pos_full  # [N, 3]
     
@@ -2370,12 +2202,8 @@ class BFN4SBDDScoreModel(BFNBase):
     
         theta_h_t = torch.ones(N_ligand_total, K, device=device) / K  # uniform prior
     
-        # Overwrite initial belief for fixed atoms with the trajectory state at t=0, so the
-        # sampler genuinely starts from that probability rather than from zeros/uniform.
-        if fixed_atom_mask.any():
-            mu_pos_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_mu_pos[0], mu_pos_t)
-            theta_h_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_theta_h[0], theta_h_t)
-
+        # Overwrite initial belief for fixed atoms with pseudo at t=0
+    
         ro_coord = 1.0  # scalar precision accumulator
         sample_traj = []
         theta_traj = []
@@ -2470,13 +2298,6 @@ class BFN4SBDDScoreModel(BFNBase):
     
                 ro_coord = ro_coord + alpha_coord  # scalar update
     
-                # Fixed atoms' belief follows the supplied path exactly; only the free
-                # atoms carry the model's own posterior.
-                if fixed_atom_mask.any():
-                    j = min(i, pseudo_mu_pos.shape[0] - 1)
-                    mu_pos_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_mu_pos[j], mu_pos_t)
-                    theta_h_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_theta_h[j], theta_h_t)
-
                 sample_traj.append((coord_pred, sample_onehot, k_hat))
     
             elif "end_back" in self.sampling_strategy:
@@ -2523,13 +2344,6 @@ class BFN4SBDDScoreModel(BFNBase):
                     theta_h_t = theta_h_t_new
                     mu_pos_t = mu_pos_t_new
     
-                # Fixed atoms' belief follows the supplied path exactly; only the free
-                # atoms carry the model's own posterior.
-                if fixed_atom_mask.any():
-                    j = min(i, pseudo_mu_pos.shape[0] - 1)
-                    mu_pos_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_mu_pos[j], mu_pos_t)
-                    theta_h_t = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_theta_h[j], theta_h_t)
-
                 sample_traj.append((coord_pred, sample_onehot, k_hat))
     
             else:
