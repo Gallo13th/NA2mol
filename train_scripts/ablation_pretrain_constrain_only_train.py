@@ -585,12 +585,12 @@ def main():
                                 pkt_model=pkt_model,
                                 pocket_res=val_batch.pocket_residue,
                                 pocket_ele=val_batch.pocket_element,
-                                onlygeneral=True
+                                onlygeneral=True,
+                                use_contrastive=False
                             )
 
                         loss = torch.mean(c_loss + d_loss +
-                                          0.1 * coord_align_loss + 0.1 * type_align_loss +
-                                          0.1 * contrastive_loss)
+                                          0.1 * coord_align_loss + 0.1 * type_align_loss)
                         bs = val_batch.mol_element_batch.size(0)
                         val_losses_list.append({
                             'loss': loss.item() * bs,
@@ -688,12 +688,12 @@ def main():
                                 pkt_model=pkt_model,
                                 pocket_res=val_batch.pocket_residue,
                                 pocket_ele=val_batch.pocket_element,
-                                onlygeneral=True
+                                onlygeneral=True,
+                                use_contrastive=False
                             )
 
                         loss = torch.mean(c_loss + d_loss +
-                                          0.1 * coord_align_loss + 0.1 * type_align_loss +
-                                          0.1 * contrastive_loss)
+                                          0.1 * coord_align_loss + 0.1 * type_align_loss)
                         bs = val_batch.mol_element_batch.size(0)
                         expdb_val_losses_list.append({
                             'loss': loss.item() * bs,
@@ -757,7 +757,8 @@ def main():
                     pkt_model=pkt_model,
                     pocket_res=batch.pocket_residue,
                     pocket_ele=batch.pocket_element,
-                    onlygeneral=True
+                    onlygeneral=True,
+                    use_contrastive=False
                 )
 
             # RNA 样本加权（如果数据包含 is_rna 标记）
@@ -785,9 +786,7 @@ def main():
 
             loss = torch.mean(
                 (c_loss + d_loss) * weights +
-                0.1 * coord_align_loss + 0.1 * type_align_loss +
-                0.1 * coord_align_pkt_loss + 0.1 * type_align_pkt_loss +
-                0.1 * contrastive_loss
+                0.1 * coord_align_loss + 0.1 * type_align_loss
             )
 
             if torch.isnan(loss) or torch.isinf(loss) or nan_detected:

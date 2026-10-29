@@ -1413,7 +1413,8 @@ class BFN4SBDDScoreModel(BFNBase):
         return_logits=False,
         pocket_res=None,
         pocket_ele=None,
-        onlygeneral=False
+        onlygeneral=False,
+        use_contrastive=False
     ):
         """
         Compute output distribution parameters for p_O (x' | θ; t) (x_hat or k^(d) logits).
@@ -1849,30 +1850,26 @@ class BFN4SBDDScoreModel(BFNBase):
         coord_align_pkt_loss = coord_align_pkt_loss * weight_t
         type_align_pkt_loss = type_align_pkt_loss * weight_t
     
-        # --- 6. Contrastive loss on logits (symmetric triplet: self ~ pkt, self ⊥ ed) ---
-        if pkt_model is not None:
-            # L2-normalize logits for stable cosine similarity
-            def normalize(x): return F.normalize(x, p=2, dim=-1)
-    
-            z_self = normalize(logits_self)   # [N, K]
-            z_pkt = normalize(logits_pkt)
-            z_ed = normalize(logits_ed)
-    
-            # Positive: self–pkt; Negatives: self–ed, pkt–ed
-            pos_sim = (z_self * z_pkt).sum(dim=-1)           # [N]
-            neg_sim_self_ed = (z_self * z_ed).sum(dim=-1)    # [N]
-            neg_sim_pkt_ed = (z_pkt * z_ed).sum(dim=-1)      # [N]
-    
-            tau = getattr(self, 'contrast_temp', 0.1)  # fallback to 0.1 if not set
-            logits_contrast = torch.stack([
-                pos_sim,
-                neg_sim_self_ed,
-                neg_sim_pkt_ed
-            ], dim=1) / tau  # [N, 3]
-    
-            labels = torch.zeros(logits_contrast.size(0), dtype=torch.long, device=device)
-            contrastive_loss = F.cross_entropy(logits_contrast, labels)
-            contrastive_loss = contrastive_loss * weight_t.mean()  # scalar weight
+        # --- 6. Cross-view contrastive loss (student <-> electron-density teacher) ---
+        # The teacher is ED-only. An earlier experimental branch provided a separate
+        # pocket-conditioned teacher and the loss was a triplet over (self, pkt, ed);
+        # that branch is gone, so the contrastive pair is the student's pooled
+        # representation against the ED teacher's for the same molecule. Positives are
+        # the two views of one molecule within the batch, negatives are all the other
+        # molecules. This is the term that distinguishes the full model from
+        # Pretrain+Constrain, so it is switched by use_contrastive rather than inferred
+        # from the presence of a teacher.
+        if use_contrastive and rep_model is not None:
+            z_self = F.normalize(logits_self, p=2, dim=-1)   # [N, K]
+            z_ed = F.normalize(logits_ed, p=2, dim=-1)       # [N, K]
+            tau = getattr(self, 'contrast_temp', 0.1)
+            sim = (z_self @ z_ed.t()) / tau                  # [N, N]
+            labels = torch.arange(sim.size(0), device=device)
+            # symmetric: both view orders contribute
+            contrastive_loss = 0.5 * (
+                F.cross_entropy(sim, labels) + F.cross_entropy(sim.t(), labels)
+            )
+            contrastive_loss = contrastive_loss * weight_t.mean()
         else:
             contrastive_loss = torch.tensor(0.0, device=device)
     

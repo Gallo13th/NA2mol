@@ -591,7 +591,8 @@ def main():
                                 pkt_model=pkt_model,
                                 pocket_res=val_batch.pocket_residue,
                                 pocket_ele=val_batch.pocket_element,
-                                onlygeneral=True
+                                onlygeneral=True,
+                                use_contrastive=False
                             )
                         if not use_teacher:
                             _zero = torch.zeros(())
@@ -699,7 +700,8 @@ def main():
                                 pkt_model=pkt_model,
                                 pocket_res=val_batch.pocket_residue,
                                 pocket_ele=val_batch.pocket_element,
-                                onlygeneral=True
+                                onlygeneral=True,
+                                use_contrastive=False
                             )
                         if not use_teacher:
                             _zero = torch.zeros(())
@@ -773,7 +775,8 @@ def main():
                     pkt_model=pkt_model,
                     pocket_res=batch.pocket_residue,
                     pocket_ele=batch.pocket_element,
-                    onlygeneral=True
+                    onlygeneral=True,
+                    use_contrastive=False
                 )
             if not use_teacher:
                 _zero = torch.zeros(())

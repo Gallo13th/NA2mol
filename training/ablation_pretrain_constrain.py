@@ -591,7 +591,8 @@ def main():
                                 pkt_model=pkt_model,
                                 pocket_res=val_batch.pocket_residue,
                                 pocket_ele=val_batch.pocket_element,
-                                onlygeneral=True
+                                onlygeneral=True,
+                                use_contrastive=False
                             )
                         if not use_teacher:
                             _zero = torch.zeros(())
@@ -702,7 +703,8 @@ def main():
                                 pkt_model=pkt_model,
                                 pocket_res=val_batch.pocket_residue,
                                 pocket_ele=val_batch.pocket_element,
-                                onlygeneral=True
+                                onlygeneral=True,
+                                use_contrastive=False
                             )
                         if not use_teacher:
                             _zero = torch.zeros(())
@@ -779,7 +781,8 @@ def main():
                     pkt_model=pkt_model,
                     pocket_res=batch.pocket_residue,
                     pocket_ele=batch.pocket_element,
-                    onlygeneral=True
+                    onlygeneral=True,
+                    use_contrastive=False
                 )
             if not use_teacher:
                 _zero = torch.zeros(())
@@ -812,9 +815,7 @@ def main():
 
             loss = torch.mean(
                 (c_loss + d_loss) * weights +
-                0.1 * coord_align_loss + 0.1 * type_align_loss +
-                0.1 * coord_align_pkt_loss + 0.1 * type_align_pkt_loss +
-                0.1 * contrastive_loss
+                0.1 * coord_align_loss + 0.1 * type_align_loss
             )
 
             if torch.isnan(loss) or torch.isinf(loss) or nan_detected:

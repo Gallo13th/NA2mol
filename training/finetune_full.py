@@ -553,7 +553,8 @@ def main():
                                 pkt_model=pkt_model,
                                 pocket_res=val_batch.pocket_residue,
                                 pocket_ele=val_batch.pocket_element,
-                                onlygeneral=True
+                                onlygeneral=True,
+                                use_contrastive=True
                             )
 
                         loss = torch.mean(c_loss + d_loss +
@@ -654,7 +655,8 @@ def main():
                                 pkt_model=pkt_model,
                                 pocket_res=val_batch.pocket_residue,
                                 pocket_ele=val_batch.pocket_element,
-                                onlygeneral=True
+                                onlygeneral=True,
+                                use_contrastive=True
                             )
 
                         loss = torch.mean(c_loss + d_loss +
@@ -722,7 +724,8 @@ def main():
                     pkt_model=pkt_model,
                     pocket_res=batch.pocket_residue,
                     pocket_ele=batch.pocket_element,
-                    onlygeneral=True
+                    onlygeneral=True,
+                    use_contrastive=True
                 )
 
             # RNA 样本加权（如果数据包含 is_rna 标记）
