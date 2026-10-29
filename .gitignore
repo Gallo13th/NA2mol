@@ -126,3 +126,11 @@ reproduction/manifests/inventory_before.json
 # ── Non-regenerable figure art (small, authoritative) ──────────────────────
 !reproduction/assets/
 !reproduction/assets/**
+
+# large figure exports (>20 MB) are not distributed; regenerate with the scripts in
+# reproduction/scripts from the archived assets
+reproduction/figures/property_landscape_audit.tiff
+reproduction/figures/molcraft_mapping_control.tiff
+reproduction/figures/chemical_space_audit.tiff
+reproduction/figures/property_landscape_audit.eps
+*.tiff
