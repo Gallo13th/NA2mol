@@ -495,7 +495,7 @@ if __name__ == '__main__':
                     )
                     val_loader = accelerator.prepare(val_loader)
                     for val_batch in val_loader:
-                        c_loss, d_loss, e_loss, discretised_loss = model.loss_one_step(
+                        (c_loss, d_loss, e_loss, discretised_loss, contrastive_loss) = model.loss_one_step(
                             t=torch.rand(BATCHSIZE,1).to('cuda').index_select(0,batch.mol_element_batch),
                             pocket_pos=batch.pocket_pos.to('cuda') / 2,
                             pocket_v=batch.pocket_atom_feature.float().to('cuda'),
@@ -508,7 +508,7 @@ if __name__ == '__main__':
                             batch_ligand=batch.mol_element_batch.to('cuda')
                         )
                         
-                        loss = torch.mean(c_loss + d_loss + discretised_loss)
+                        loss = torch.mean(c_loss + d_loss + discretised_loss) + 0.1 * contrastive_loss
                         val_c_loss += torch.mean(c_loss).item() * len(val_batch.mol_element_batch)
                         val_d_loss += torch.mean(d_loss).item() * len(val_batch.mol_element_batch)
                         val_loss += loss.item() * len(val_batch.mol_element_batch)
@@ -534,7 +534,7 @@ if __name__ == '__main__':
 
 
             global_step += 1
-            c_loss, d_loss, e_loss, discretised_loss = model.loss_one_step(
+            (c_loss, d_loss, e_loss, discretised_loss, contrastive_loss) = model.loss_one_step(
                 t=torch.rand(BATCHSIZE,1).to('cuda').index_select(0,batch.mol_element_batch),
                 pocket_pos=batch.pocket_pos.to('cuda') / 2,
                 pocket_v=batch.pocket_atom_feature.float().to('cuda'),
@@ -547,7 +547,7 @@ if __name__ == '__main__':
                 batch_ligand=batch.mol_element_batch.to('cuda')
             )
             
-            loss = torch.mean(c_loss + d_loss + discretised_loss)
+            loss = torch.mean(c_loss + d_loss + discretised_loss) + 0.1 * contrastive_loss
             accelerator.backward(loss)
             if accelerator.sync_gradients:  # 通常只在累积梯度的最后一步裁剪
                 accelerator.clip_grad_norm_(model.parameters(), max_norm=8.0)

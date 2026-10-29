@@ -520,7 +520,7 @@ from rdkit.Chem.MolStandardize import rdMolStandardize
 
 RDLogger.DisableLog("rdApp.*")
 
-REPO = Path("/home/glt/github_official/DiffEDMol")
+REPO = Path("github_official/DiffEDMol")
 CACHE = Path("/tmp/opencode/leakage/cache")
 AUDIT = REPO / "audit"
 
@@ -2365,8 +2365,8 @@ Sequential driver for Exp III, IIa, IIb, combine, provenance.
 ```bash
 #!/usr/bin/env bash
 set -e
-cd /home/glt/github_official/DiffEDMol/audit
-source /home/glt/miniconda3/etc/profile.d/conda.sh
+cd github_official/DiffEDMol/audit
+source miniconda3/etc/profile.d/conda.sh
 conda activate diffedmol
 python scripts/exp3_recovery_sensitivity.py > logs/exp3.log 2>&1
 python scripts/exp2a_generated_ft_overlap.py > logs/exp2a.log 2>&1
@@ -2387,7 +2387,7 @@ verbatim + full source of every audit script (+ the audit summary prose)."""
 from datetime import date
 from pathlib import Path
 
-ROOT = Path("/home/glt/github_official/DiffEDMol/audit")
+ROOT = Path("github_official/DiffEDMol/audit")
 SCRIPTS = ROOT / "scripts"
 TABLES = ROOT / "tables"
 OUT = ROOT / "ligand_audit_full_document.md"

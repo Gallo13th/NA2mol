@@ -15,7 +15,7 @@ required for RNA targeting). Both conda installs have it.
 
 ```bash
 source $(conda info --base)/etc/profile.d/conda.sh && conda activate rna2smol
-export RBT_ROOT=/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1
+export RBT_ROOT=$CONDA_PREFIX/share/rdock-2013.1-1
 ```
 
 ## Pipeline

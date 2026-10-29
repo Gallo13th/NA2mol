@@ -65,7 +65,7 @@ provenance for the missing tables.
 
 ## Environment notes for reproduction
 
-Matplotlib's font-cache build is extremely slow on the shared `/home/data` mount (observed: minutes of
+Matplotlib's font-cache build is extremely slow on the shared `<data-root>` mount (observed: minutes of
 stalled I/O with `wchan=ertp_qos_handle_new_event`). All rendering entry points therefore pin
 `MPLCONFIGDIR` to local storage (default `/tmp/na2smol_mplconfig`, override with `NA2SMOL_MPLCONFIGDIR`)
 and limit BLAS threads via `OMP_NUM_THREADS`. Render with the environment set, or the first plot of a

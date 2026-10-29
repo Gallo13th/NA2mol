@@ -1,5 +1,0 @@
-mol1	C23H19NO3	357.41	COc1ccc(-c2cc(-c3ccc(O)cc3)nc3ccc(OC)cc23)cc1
-mol2	C23H20N2O2	356.43	COc1ccc(-c2cc(-c3ccc(N)cc3)nc3ccc(OC)cc23)cc1
-mol3	C25H24N2O2	384.48	COc1ccc(-c2cc(-c3ccc(N(C)C)cc3)nc3ccc(OC)cc23)cc1
-mol4	C22H18N2O2	342.40	COc1ccc(-c2cc(-c3ccncc3)nc3ccc(OC)cc23)cc1
-mol5	C23H19NO4	373.41	COc1ccc2c(c1)C(-c1ccc(O)cc1)C=C(-c1cccc(C(=O)O)c1)N2

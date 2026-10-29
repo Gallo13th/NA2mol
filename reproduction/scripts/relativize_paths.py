@@ -2,8 +2,8 @@
 """Rewrite machine-specific paths in analysis scripts to repository-relative paths.
 
 Handles the patterns found in the checkout:
-  /home/glt/github_official/DiffEDMol/<x>   -> ROOT / "<x>"
-  /home/glt/github_official/RNALigBench/<x> -> ROOT / "data" / "benchmark" / "RNALigBench" / "<x>"
+  github_official/DiffEDMol/<x>   -> ROOT / "<x>"
+  github_official/RNALigBench/<x> -> ROOT / "data" / "benchmark" / "RNALigBench" / "<x>"
   /tmp/opencode/<x>                         -> ROOT / "reproduction" / "cache" / "<x>"
   ROOT / "RNA2smol_paper" / "figures"       -> ROOT / "reproduction" / "figures"
 
@@ -15,8 +15,8 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-DiffEDMol = '/home/glt/github_official/DiffEDMol'
-RNALigBench = '/home/glt/github_official/RNALigBench'
+DiffEDMol = 'github_official/DiffEDMol'
+RNALigBench = 'github_official/RNALigBench'
 TmpOpen = '/tmp/opencode'
 
 TARGETS = [

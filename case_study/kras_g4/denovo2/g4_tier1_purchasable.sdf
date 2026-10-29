@@ -59,7 +59,7 @@ M  END
 final_0050
 
 >  <Rbt.Current_Directory>  (1) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (1) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -68,10 +68,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (1) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (1) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (1) 
 -35.24
@@ -229,7 +229,7 @@ M  END
 final_0074
 
 >  <Rbt.Current_Directory>  (2) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (2) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -238,10 +238,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (2) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (2) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (2) 
 -45.6241
@@ -401,7 +401,7 @@ M  END
 final_0103
 
 >  <Rbt.Current_Directory>  (3) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (3) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -410,10 +410,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (3) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (3) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (3) 
 -33.9251
@@ -573,7 +573,7 @@ M  END
 final_0331
 
 >  <Rbt.Current_Directory>  (4) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (4) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -582,10 +582,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (4) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (4) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (4) 
 -34.6183
@@ -743,7 +743,7 @@ M  END
 final_0130
 
 >  <Rbt.Current_Directory>  (5) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (5) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -752,10 +752,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (5) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (5) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (5) 
 -52.252
@@ -913,7 +913,7 @@ M  END
 final_0514
 
 >  <Rbt.Current_Directory>  (6) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (6) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -922,10 +922,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (6) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (6) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (6) 
 -54.2143
@@ -1083,7 +1083,7 @@ M  END
 final_0518
 
 >  <Rbt.Current_Directory>  (7) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (7) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -1092,10 +1092,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (7) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (7) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (7) 
 -38.2101
@@ -1255,7 +1255,7 @@ M  END
 final_0440
 
 >  <Rbt.Current_Directory>  (8) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (8) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -1264,10 +1264,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (8) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (8) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (8) 
 -53.6749
@@ -1427,7 +1427,7 @@ M  END
 final_0223
 
 >  <Rbt.Current_Directory>  (9) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (9) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -1436,10 +1436,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (9) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (9) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (9) 
 -36.1483
@@ -1599,7 +1599,7 @@ M  END
 final_0840
 
 >  <Rbt.Current_Directory>  (10) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (10) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -1608,10 +1608,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (10) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (10) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (10) 
 -36.6361
@@ -1769,7 +1769,7 @@ M  END
 final_0965
 
 >  <Rbt.Current_Directory>  (11) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (11) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -1778,10 +1778,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (11) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (11) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (11) 
 -49.8805
@@ -1937,7 +1937,7 @@ M  END
 final_0402
 
 >  <Rbt.Current_Directory>  (12) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (12) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -1946,10 +1946,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (12) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (12) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (12) 
 -51.4497
@@ -2109,7 +2109,7 @@ M  END
 final_0275
 
 >  <Rbt.Current_Directory>  (13) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (13) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -2118,10 +2118,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (13) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (13) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (13) 
 -36.7594
@@ -2279,7 +2279,7 @@ M  END
 final_1068
 
 >  <Rbt.Current_Directory>  (14) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock
+casestudy/kras_g4/ber102_rdock
 
 >  <Rbt.Executable>  (14) 
 rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
@@ -2288,10 +2288,10 @@ rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
 libRbt.so (2013.1, Build901 2013/11/27)
 
 >  <Rbt.Parameter_File>  (14) 
-/home/data/users/gaoletian/.conda/envs/rna2smol/share/rdock-2013.1-1/data/scripts/minimise.prm
+$CONDA_PREFIX/share/rdock-2013.1-1/data/scripts/minimise.prm
 
 >  <Rbt.Receptor>  (14) 
-/home/data/users/gaoletian/rna2smol/casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
+casestudy/kras_g4/ber102_rdock/ber102_full_r6_system.prm
 
 >  <SCORE>  (14) 
 -49.8931

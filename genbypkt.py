@@ -534,6 +534,13 @@ _FLUOR_GUIDANCE_LIB = 'fragment_library/targeted_fluorophore_focused.pkl'
 _FLUOR_GUIDANCE_MODULE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                       'casestudy', '8hzk', 'fluor_guidance.py')
 
+# When True, every generation iteration is seeded from the original scaffold file and the
+# fragment-library branch is never taken. The seed atoms are placed first and marked fixed
+# in GeomSeedMolOnlyPocket, so the scaffold stays pinned for the whole run. Used for
+# scaffold-constrained sampling; False reproduces the released behaviour.
+PIN_SCAFFOLD = False
+
+
 def generate(task, output_prefix, seed_used=False, total_target=10000,
              batch_size=100, iter_cap=150):
 
@@ -606,7 +613,7 @@ def generate(task, output_prefix, seed_used=False, total_target=10000,
         # 1. 准备 DataLoader (Batch Size = 100)
         current_batch_size = batch_size
        
-        if len(seed_library) == 0 or not seed_used or iteration <= 15:
+        if len(seed_library) == 0 or not seed_used or iteration <= 15 or PIN_SCAFFOLD:
             # --- 模式 A: 初始无种子生成 (Cold Start) ---
             print(">> 进行初始无种子生成...")
             dataset = GeomSeedMolOnlyPocket(pocket=pocket_file, seed=seed_file, mode='general', extra_range=(-8,8))

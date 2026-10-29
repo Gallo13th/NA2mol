@@ -546,7 +546,7 @@ class MolPocketPointCloud(data.Dataset):
     def _preprocess_and_cache(self):
         """流式多进程预处理并写入 LMDB，避免内存爆炸"""
 
-        folder = "/home/jovyan/molecular-share-data/others/zhouwenbiao/gen_pockets_pretrain_108w_with_genpocket/"
+        folder = "molecular-share-data/others/zhouwenbiao/gen_pockets_pretrain_108w_with_genpocket/"
         chunk_files = sorted(os.listdir(folder))  # 确保顺序一致（可选）
 
         # 打开 LMDB 环境（预留足够空间）
