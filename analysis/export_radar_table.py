@@ -277,14 +277,15 @@ def write_main_table(df: pd.DataFrame) -> None:
                 elif rank == 1:
                     txt = f'\\underline{{{txt}}}'
                 cells.append(txt)
+            # plain text, not math: \\underline over $...$ leaves a gap at the slash
             body = f'{top2[i]}/{len(MAIN_COLS)}'
             tr = ranked_top2.index(top2[i])
             if tr == 0:
-                count = f'$\\mathbf{{{body}}}$'
+                count = f'\\textbf{{{body}}}'
             elif tr == 1:
-                count = f'\\underline{{${body}$}}'
+                count = f'\\underline{{{body}}}'
             else:
-                count = f'${body}$'
+                count = body
             cells.append(count)
             out.append(f"{r['method']} & " + ' & '.join(cells) + ' \\\\\\\\')
     out += ['\\bottomrule', '\\end{tabular}',
