@@ -226,8 +226,9 @@ def write_main_table(df: pd.DataFrame) -> None:
     """Best value in each benchmark group in bold, runner-up underlined."""
     out = ['\\begin{table}[!htbp]', '\\centering', '\\footnotesize',
            '\\setlength{\\tabcolsep}{4pt}',
-           f'\\begin{{tabular}}{{@{{}}l{chr(99) * len(MAIN_COLS)}@{{}}}}', '\\toprule',
-           '\\textbf{Method} & ' + ' & '.join(f'\\textbf{{{l}}}' for _, l, _ in MAIN_COLS) + ' \\\\',
+           f'\\begin{{tabular}}{{@{{}}l{chr(99) * (len(MAIN_COLS) + 1)}@{{}}}}', '\\toprule',
+           '\\textbf{Method} & ' + ' & '.join(f'\\textbf{{{l}}}' for _, l, _ in MAIN_COLS)
+           + ' & \\textbf{Top-2 $\\uparrow$} \\\\',
            '\\midrule']
     for gi, (panel, group_label) in enumerate(MAIN_GROUPS):
         sub = df[df['panel'] == panel].reset_index(drop=True)
@@ -248,7 +249,14 @@ def write_main_table(df: pd.DataFrame) -> None:
                         marks.setdefault((i, key), rank)
         if gi:
             out.append('\\midrule')
-        out.append(f'\\multicolumn{{{1 + len(MAIN_COLS)}}}{{@{{}}l}}{{\\textit{{{panel} \u2014 {group_label}}}}} \\\\')
+        out.append(f'\\multicolumn{{{2 + len(MAIN_COLS)}}}{{@{{}}l}}{{\\textit{{{panel} \u2014 {group_label}}}}} \\\\')
+        # how many of the seven metrics the method ranks first or second on inside its
+        # group: a compact statement of breadth, which a single best value cannot give
+        top2 = {}
+        for i in range(len(sub)):
+            top2[i] = sum(1 for key, _, _ in MAIN_COLS if (i, key) in marks)
+        best_top2 = max(top2.values()) if top2 else 0
+
         for i, r in sub.iterrows():
             cells = []
             for key, _, fmt in MAIN_COLS:
@@ -264,6 +272,10 @@ def write_main_table(df: pd.DataFrame) -> None:
                 elif rank == 1:
                     txt = f'\\underline{{{txt}}}'
                 cells.append(txt)
+            count = f'${top2[i]}/{len(MAIN_COLS)}$'
+            if top2[i] == best_top2:
+                count = f'\\textbf{{{count}}}'
+            cells.append(count)
             out.append(f"{r['method']} & " + ' & '.join(cells) + ' \\\\')
     out += ['\\bottomrule', '\\end{tabular}',
             '\\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the '
@@ -274,7 +286,9 @@ def write_main_table(df: pd.DataFrame) -> None:
             'recovery on the ECFP4-Tanimoto axis. Values are pooled medians over all of a '
             "method's molecules. \\textbf{Bold} marks the best value in each benchmark group and "
             '\\underline{underline} the second best; better is lower for Dock., RMSD, SA and '
-            'Strain and higher for QED, SEI and ECFP4 rec. These are the single-number summaries '
+            'Strain and higher for QED, SEI and ECFP4 rec. Top-2 counts, out of the seven '
+            'metrics, how many the method ranks first or second on within its group, with the '
+            'group leader in bold. These are the single-number summaries '
             'of the distributions whose normalised retention-curve integrals are drawn in the '
             'radars; the normalised scores themselves are in Supplementary Table~12.}',
             '\\label{radar_values_tab}', '\\end{table}']
