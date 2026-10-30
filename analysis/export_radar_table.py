@@ -255,9 +255,14 @@ def write_main_table(df: pd.DataFrame) -> None:
         top2 = {}
         for i in range(len(sub)):
             top2[i] = sum(1 for key, _, _ in MAIN_COLS if (i, key) in marks)
-        best_top2 = max(top2.values()) if top2 else 0
+        # Top-2 is ranked like every other column, best in bold and second underlined, and
+        # it orders the rows inside the group, since it is the one summary of overall
+        # placing that the other columns only contribute to one metric at a time.
+        ranked_top2 = sorted(set(top2.values()), reverse=True)
+        order = sorted(range(len(sub)), key=lambda i: (-top2[i], i))
 
-        for i, r in sub.iterrows():
+        for i in order:
+            r = sub.iloc[i]
             cells = []
             for key, _, fmt in MAIN_COLS:
                 v = r[key]
@@ -272,11 +277,16 @@ def write_main_table(df: pd.DataFrame) -> None:
                 elif rank == 1:
                     txt = f'\\underline{{{txt}}}'
                 cells.append(txt)
-            count = f'${top2[i]}/{len(MAIN_COLS)}$'
-            if top2[i] == best_top2:
-                count = f'\\textbf{{{count}}}'
+            body = f'{top2[i]}/{len(MAIN_COLS)}'
+            tr = ranked_top2.index(top2[i])
+            if tr == 0:
+                count = f'$\\mathbf{{{body}}}$'
+            elif tr == 1:
+                count = f'\\underline{{${body}$}}'
+            else:
+                count = f'${body}$'
             cells.append(count)
-            out.append(f"{r['method']} & " + ' & '.join(cells) + ' \\\\')
+            out.append(f"{r['method']} & " + ' & '.join(cells) + ' \\\\\\\\')
     out += ['\\bottomrule', '\\end{tabular}',
             '\\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the '
             'configuration comparison (Fig.~3a). Dock., smina docking score (kcal mol$^{-1}$); '
@@ -287,8 +297,9 @@ def write_main_table(df: pd.DataFrame) -> None:
             "method's molecules. \\textbf{Bold} marks the best value in each benchmark group and "
             '\\underline{underline} the second best; better is lower for Dock., RMSD, SA and '
             'Strain and higher for QED, SEI and ECFP4 rec. Top-2 counts, out of the seven '
-            'metrics, how many the method ranks first or second on within its group, with the '
-            'group leader in bold. These are the single-number summaries '
+            'metrics, how many the method ranks first or second on within its group. This '
+            'column takes the same bold and underline emphasis, and orders the rows within '
+            'each group. These are the single-number summaries '
             'of the distributions whose normalised retention-curve integrals are drawn in the '
             'radars; the normalised scores themselves are in Supplementary Table~12.}',
             '\\label{radar_values_tab}', '\\end{table}']

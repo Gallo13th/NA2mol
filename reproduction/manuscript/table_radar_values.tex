@@ -7,24 +7,24 @@
 \textbf{Method} & \textbf{Dock. $\downarrow$} & \textbf{RMSD $\downarrow$} & \textbf{QED $\uparrow$} & \textbf{SA $\downarrow$} & \textbf{SEI $\uparrow$} & \textbf{Strain $\downarrow$} & \textbf{ECFP4 rec. $\uparrow$} & \textbf{Top-2 $\uparrow$} \\
 \midrule
 \multicolumn{9}{@{}l}{\textit{Fig. 2a — DUD-E protein}} \\
-NA2smol & \underline{$-8.19$} & \underline{0.87} & \underline{0.647} & 3.14 & \underline{0.114} & \underline{129} & \textbf{0.656} & \textbf{$6/7$} \\
-MolCRAFT & $\mathbf{-9.86}$ & \textbf{0.38} & 0.527 & 4.11 & 0.106 & 258 & 0.331 & $2/7$ \\
-Pocket2Mol & $-5.89$ & 1.47 & 0.565 & \textbf{3.00} & 0.092 & 215 & 0.417 & $1/7$ \\
-ED2Mol & $-6.06$ & 1.87 & \textbf{0.736} & \underline{3.04} & \textbf{0.128} & \textbf{25} & \underline{0.482} & $5/7$ \\
+NA2smol & \underline{$-8.19$} & \underline{0.87} & \underline{0.647} & 3.14 & \underline{0.114} & \underline{129} & \textbf{0.656} & $\mathbf{6/7}$ \\\\
+ED2Mol & $-6.06$ & 1.87 & \textbf{0.736} & \underline{3.04} & \textbf{0.128} & \textbf{25} & \underline{0.482} & \underline{$5/7$} \\\\
+MolCRAFT & $\mathbf{-9.86}$ & \textbf{0.38} & 0.527 & 4.11 & 0.106 & 258 & 0.331 & $2/7$ \\\\
+Pocket2Mol & $-5.89$ & 1.47 & 0.565 & \textbf{3.00} & 0.092 & 215 & 0.417 & $1/7$ \\\\
 \midrule
 \multicolumn{9}{@{}l}{\textit{Fig. 2d — RNA test set}} \\
-NA2smol & $\mathbf{-7.27}$ & \underline{1.12} & \underline{0.641} & 3.53 & \underline{0.103} & 218 & \textbf{0.218} & \textbf{$5/7$} \\
-MolCRAFT & \underline{$-6.91$} & \textbf{0.39} & 0.421 & 3.84 & 0.062 & \underline{125} & 0.059 & $3/7$ \\
-Pocket2Mol & $-5.86$ & 1.32 & 0.554 & \underline{2.94} & 0.070 & 275 & \underline{0.080} & $2/7$ \\
-ED2Mol & $-5.16$ & 1.62 & \textbf{0.699} & \textbf{2.85} & \textbf{0.116} & \textbf{23} & 0.077 & $4/7$ \\
+NA2smol & $\mathbf{-7.27}$ & \underline{1.12} & \underline{0.641} & 3.53 & \underline{0.103} & 218 & \textbf{0.218} & $\mathbf{5/7}$ \\\\
+ED2Mol & $-5.16$ & 1.62 & \textbf{0.699} & \textbf{2.85} & \textbf{0.116} & \textbf{23} & 0.077 & \underline{$4/7$} \\\\
+MolCRAFT & \underline{$-6.91$} & \textbf{0.39} & 0.421 & 3.84 & 0.062 & \underline{125} & 0.059 & $3/7$ \\\\
+Pocket2Mol & $-5.86$ & 1.32 & 0.554 & \underline{2.94} & 0.070 & 275 & \underline{0.080} & $2/7$ \\\\
 \midrule
 \multicolumn{9}{@{}l}{\textit{Fig. 3a — RNA test set, four configurations}} \\
-Baseline & $-6.03$ & \textbf{1.09} & 0.484 & \underline{3.86} & 0.078 & 376 & \underline{0.141} & $3/7$ \\
-Pretrain Only & $-7.19$ & 1.32 & 0.509 & 5.11 & 0.096 & $1.4\times10^{4}$ & 0.035 & $0/7$ \\
-Pretrain+Constrain & \underline{$-7.21$} & 1.26 & \underline{0.619} & 4.35 & \textbf{0.104} & \underline{285} & 0.132 & $4/7$ \\
-NA2smol & $\mathbf{-7.27}$ & \underline{1.12} & \textbf{0.641} & \textbf{3.53} & \underline{0.103} & \textbf{218} & \textbf{0.218} & \textbf{$7/7$} \\
+NA2smol & $\mathbf{-7.27}$ & \underline{1.12} & \textbf{0.641} & \textbf{3.53} & \underline{0.103} & \textbf{218} & \textbf{0.218} & $\mathbf{7/7}$ \\\\
+Pretrain+Constrain & \underline{$-7.21$} & 1.26 & \underline{0.619} & 4.35 & \textbf{0.104} & \underline{285} & 0.132 & \underline{$4/7$} \\\\
+Baseline & $-6.03$ & \textbf{1.09} & 0.484 & \underline{3.86} & 0.078 & 376 & \underline{0.141} & $3/7$ \\\\
+Pretrain Only & $-7.19$ & 1.32 & 0.509 & 5.11 & 0.096 & $1.4\times10^{4}$ & 0.035 & $0/7$ \\\\
 \bottomrule
 \end{tabular}
-\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the configuration comparison (Fig.~3a). Dock., smina docking score (kcal mol$^{-1}$); RMSD (\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, surface efficiency index ($-$docking score / TPSA); Strain, conformational strain energy (kcal mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., the observed recovery on the ECFP4-Tanimoto axis. Values are pooled medians over all of a method's molecules. \textbf{Bold} marks the best value in each benchmark group and \underline{underline} the second best; better is lower for Dock., RMSD, SA and Strain and higher for QED, SEI and ECFP4 rec. Top-2 counts, out of the seven metrics, how many the method ranks first or second on within its group, with the group leader in bold. These are the single-number summaries of the distributions whose normalised retention-curve integrals are drawn in the radars; the normalised scores themselves are in Supplementary Table~12.}
+\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the configuration comparison (Fig.~3a). Dock., smina docking score (kcal mol$^{-1}$); RMSD (\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, surface efficiency index ($-$docking score / TPSA); Strain, conformational strain energy (kcal mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., the observed recovery on the ECFP4-Tanimoto axis. Values are pooled medians over all of a method's molecules. \textbf{Bold} marks the best value in each benchmark group and \underline{underline} the second best; better is lower for Dock., RMSD, SA and Strain and higher for QED, SEI and ECFP4 rec. Top-2 counts, out of the seven metrics, how many the method ranks first or second on within its group. This column takes the same bold and underline emphasis, and orders the rows within each group. These are the single-number summaries of the distributions whose normalised retention-curve integrals are drawn in the radars; the normalised scores themselves are in Supplementary Table~12.}
 \label{radar_values_tab}
 \end{table}
