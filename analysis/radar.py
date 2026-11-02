@@ -67,6 +67,17 @@ SEI_LABEL = 'SEI'
 SEI_RANGE = (0.0, 0.3)
 ECFP4_RANGE = (0.25, 0.50)
 
+# The strain axis sweeps a retention curve over log10(strain) in STRAIN_SWEEP. Above
+# the upper bound a pose is no longer meaningfully "retained at a stricter threshold",
+# so values are censored there rather than allowed to run to 1e12 and be clipped by
+# accident. Molecules whose strain could not be computed (PoseCheck returned nothing or
+# exceeded the per-molecule time budget) pass no threshold and score 0, which keeps them
+# in the denominator instead of disappearing from it.
+STRAIN_SWEEP = (1.0, 5.0)                  # log10 kcal/mol, i.e. 10 to 1e5
+STRAIN_CENSOR = 10.0 ** STRAIN_SWEEP[1]
+# Operational cut used for the tabulated pass rate and the final-tier cascade.
+STRAIN_FAIL_CUT = 200.0
+
 # docking score [-11,-3]; RMSD [0,3]; QED [0,1]; SA [1,7]; SEI [0,0.3]; log10 strain [1,5]
 RANGES = {
     'affinity': (-11.0, -3.0),
@@ -145,6 +156,20 @@ def sei(frame):
     return np.where(np.isfinite(out), out, 0.0)
 
 
+def strain_pass_rate(frame, cut: float = STRAIN_FAIL_CUT) -> float:
+    """Fraction of molecules whose computed strain is at or below `cut`.
+
+    A molecule with no strain value --- PoseCheck failed, or the per-molecule time
+    budget was exceeded --- counts as not passing, so it stays in the denominator.
+    This is the tabulated Strain number; the radar axis is the retention-curve
+    integral above, which is a function of the whole distribution.
+    """
+    raw = np.asarray(frame['strain'], dtype=float)
+    if raw.size == 0:
+        return float('nan')
+    return float(np.mean(np.isfinite(raw) & (raw > 0) & (raw <= cut)))
+
+
 def property_scores(frame) -> dict[str, float]:
     """The six property-retention axes for one method, pooling all its molecules."""
     vals = {}
@@ -152,7 +177,10 @@ def property_scores(frame) -> dict[str, float]:
         if ax.column == 'log10_strain':
             raw = np.asarray(frame['strain'], dtype=float)
             valid = np.isfinite(raw) & (raw > 0)
-            v = np.where(valid, np.log10(np.where(valid, raw, 1.0)), np.nan)
+            # censor the extreme tail at the sweep bound instead of relying on the clip
+            # inside retention_score to swallow it
+            censored = np.minimum(np.where(valid, raw, STRAIN_CENSOR), STRAIN_CENSOR)
+            v = np.where(valid, np.log10(censored), np.nan)
             vals[ax.column] = retention_score(v, ax.lo, ax.hi, ax.higher_is_better, valid)
         else:
             v = np.asarray(frame[ax.column], dtype=float)
