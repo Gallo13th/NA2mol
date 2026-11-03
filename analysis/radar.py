@@ -13,7 +13,9 @@ Source: main text, Methods, "Radar-chart normalisation". Verbatim requirements:
   SA score, strain) and ``R(t) = P(value >= t)`` for a higher-is-better metric
   (QED, SEI).  Strain energy is evaluated on a log10 scale.  Threshold ranges:
   docking [-11, -3] kcal/mol; RMSD [0, 3] A; QED [0, 1]; SA [1, 7]; SEI [0, 0.3];
-  log10(strain) [1, 5] kcal/mol.
+  log10(strain) [1, 4] kcal/mol, i.e. 10 to 1e4.  A molecule whose strain exceeds 1e4,
+  or which has no computed strain, contributes R(t) = 0 at every threshold and so stays
+  in the denominator rather than leaving it.
 * The ECFP4 axis **weights targets equally**.  ``s_m`` is a recovery gain relative to
   randomly reassigned target labels::
 
