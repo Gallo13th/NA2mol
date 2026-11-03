@@ -208,13 +208,21 @@ def property_summaries(frame) -> dict[str, float]:
     out['median_sa'] = float(np.nanmedian(np.asarray(frame['sa_score'], dtype=float)))
     out['median_sei'] = float(np.nanmedian(sei(frame)))
     strain = np.asarray(frame['strain'], dtype=float)
-    ok = np.isfinite(strain) & (strain > 0)
+    # success: a strain value was computed and it is below the hard-failure bound. A
+    # molecule that exceeded the budget, or whose strain exceeds 1e4, is a failure and is
+    # counted against the method in all three rates below, since the denominator is the
+    # full molecule pool either way.
+    ok = np.isfinite(strain) & (strain > 0) & (strain <= STRAIN_HARD_FAIL)
     if ok.any():
         out['median_strain'] = float(np.nanmedian(strain[ok]))
         out['median_log10_strain'] = float(np.nanmedian(np.log10(strain[ok])))
     else:
         out['median_strain'] = out['median_log10_strain'] = float('nan')
     out['n_strain_valid'] = int(ok.sum())
+    total = strain.size if strain.size else 1
+    out['strain_success'] = float(ok.sum() / total)
+    out['strain_pass500'] = float(np.sum(ok & (strain <= 500.0)) / total)
+    out['strain_pass200'] = float(np.sum(ok & (strain <= 200.0)) / total)
     return out
 
 

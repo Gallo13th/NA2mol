@@ -45,9 +45,11 @@ BENCH = {
 # (SMRT_METHODS / DUDE_METHODS) and analysis/fig3_ablation.py (ABL_ORDER)
 PANELS = [
     ('Fig. 2a', 'dude', 'DUD-E protein',
-     ['RNA2smol', 'MolCRAFT', 'Pocket2Mol', 'ed2mol']),
+     ['RNA2smol', 'MolCRAFT', 'Pocket2Mol', 'ed2mol',
+      'DiffSBDD', 'GraphBP', 'FLAG']),
     ('Fig. 2d', 'smrtbench', 'RNA test set',
-     ['RNA2smol (Only General Feat)', 'MolCRAFT', 'Pocket2Mol', 'ED2Mol']),
+     ['RNA2smol (Only General Feat)', 'MolCRAFT', 'Pocket2Mol', 'ED2Mol',
+      'DiffSBDD', 'GraphBP', 'FLAG']),
     ('Fig. 3a', 'smrtbench', 'RNA test set',
      ['RNA2smol (Baseline)', 'Pretrain Only', 'Pretrain+Constrain',
       'RNA2smol (Only General Feat)']),
@@ -60,6 +62,9 @@ LABEL = {
     'Pretrain+Constrain': 'Pretrain+Constrain',
     'RNA2smol': 'NA2smol',
     'ed2mol': 'ED2Mol',
+    'DiffSBDD': 'DiffSBDD',
+    'GraphBP': 'GraphBP',
+    'FLAG': 'FLAG',
 }
 
 COLS = ['mode', 'pdb_id', 'SMILES', 'affinity', 'rmsd', 'qed', 'sa_score',
