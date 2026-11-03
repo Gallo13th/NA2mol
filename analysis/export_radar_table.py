@@ -71,15 +71,43 @@ COLS = ['mode', 'pdb_id', 'SMILES', 'affinity', 'rmsd', 'qed', 'sa_score',
         'tpsa', 'strain']
 
 
+# The three SBDD baselines added after the original benchmark are produced by a separate
+# pipeline (sbdd_baselines) and exported into the same schema. They are read from their own
+# file rather than written into the benchmark CSVs, so the published tables stay reproducible
+# from their original inputs and the new rows are visibly additive.
+NEW_BASELINES = Path('/home/data/users/gaoletian/sbdd_baselines/radar_export/'
+                     'new_baselines_molecules.csv')
+
+
 def load(path: Path) -> pd.DataFrame:
-    return pd.read_csv(path, dtype={'pdb_id': str},
-                       usecols=lambda c: c in COLS)
+    df = pd.read_csv(path, dtype={'pdb_id': str},
+                     usecols=lambda c: c in COLS)
+    return df
+
+
+def load_bench(which: str, path: Path) -> pd.DataFrame:
+    """Benchmark rows plus, when available, the exported SBDD-baseline rows."""
+    df = load(path)
+    if not NEW_BASELINES.is_file():
+        return df
+    extra = pd.read_csv(NEW_BASELINES, dtype={'pdb_id': str}, low_memory=False)
+    extra = extra[extra['bench'] == which]
+    keep = [c for c in COLS if c in extra.columns]
+    extra = extra[keep].copy()
+    if 'SEI' in extra.columns:
+        extra['sei'] = extra['SEI']
+    if 'strain' not in extra.columns:
+        return df
+    for c in COLS:
+        if c not in extra.columns:
+            extra[c] = float('nan')
+    return pd.concat([df, extra[COLS]], ignore_index=True)
 
 
 def main() -> int:
     frames, scores = {}, {}
     for key, (path, _, _) in BENCH.items():
-        frames[key] = load(path)
+        frames[key] = load_bench(key, path)
         sf = TABLES / f'radar_scores_{key}.csv'
         if not sf.is_file():
             raise SystemExit(f'missing {sf}; run analysis/radar_profiles.py first')
