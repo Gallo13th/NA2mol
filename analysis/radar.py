@@ -55,7 +55,7 @@ class Axis(NamedTuple):
 
 RADAR_AXES: tuple[Axis, ...] = (
     Axis('qed',      'QED',    0.0, 1.0,  higher_is_better=True),
-    Axis('log10_strain', 'Strain', 1.0, 5.0, higher_is_better=False, log10=True),
+    Axis('log10_strain', 'Strain', 1.0, 4.0, higher_is_better=False, log10=True),
     Axis('sa_score', 'SA',     1.0, 7.0,  higher_is_better=False),
     Axis('rmsd',     'RMSD',   0.0, 3.0,  higher_is_better=False),
     Axis('affinity', 'Dock.', -11.0, -3.0, higher_is_better=False),
@@ -73,8 +73,9 @@ ECFP4_RANGE = (0.25, 0.50)
 # accident. Molecules whose strain could not be computed (PoseCheck returned nothing or
 # exceeded the per-molecule time budget) pass no threshold and score 0, which keeps them
 # in the denominator instead of disappearing from it.
-STRAIN_SWEEP = (1.0, 5.0)                  # log10 kcal/mol, i.e. 10 to 1e5
-STRAIN_CENSOR = 10.0 ** STRAIN_SWEEP[1]
+STRAIN_SWEEP = (1.0, 4.0)                  # log10 kcal/mol, i.e. 10 to 1e4
+STRAIN_CENSOR = 10.0 ** STRAIN_SWEEP[1]    # 1e4: above this a pose is a hard failure
+STRAIN_HARD_FAIL = STRAIN_CENSOR           # strain above this is too large to be meaningful
 # Operational cut used for the tabulated pass rate and the final-tier cascade.
 STRAIN_FAIL_CUT = 200.0
 
@@ -85,7 +86,7 @@ RANGES = {
     'qed': (0.0, 1.0),
     'sa_score': (1.0, 7.0),
     'sei': SEI_RANGE,
-    'log10_strain': (1.0, 5.0),
+    'log10_strain': (1.0, 4.0),
     'ecfp4': ECFP4_RANGE,
 }
 HIGHER_IS_BETTER = {'qed': True, 'sei': True, 'ecfp4': True,
@@ -159,8 +160,9 @@ def sei(frame):
 def strain_pass_rate(frame, cut: float = STRAIN_FAIL_CUT) -> float:
     """Fraction of molecules whose computed strain is at or below `cut`.
 
-    A molecule with no strain value --- PoseCheck failed, or the per-molecule time
-    budget was exceeded --- counts as not passing, so it stays in the denominator.
+    A molecule counts as not passing if it has no strain value --- PoseCheck did not
+    finish within the per-molecule budget --- or if its strain exceeds the hard-failure
+    bound, or simply if it is above `cut`. All of these stay in the denominator.
     This is the tabulated Strain number; the radar axis is the retention-curve
     integral above, which is a function of the whole distribution.
     """
@@ -176,11 +178,10 @@ def property_scores(frame) -> dict[str, float]:
     for ax in RADAR_AXES:
         if ax.column == 'log10_strain':
             raw = np.asarray(frame['strain'], dtype=float)
-            valid = np.isfinite(raw) & (raw > 0)
-            # censor the extreme tail at the sweep bound instead of relying on the clip
-            # inside retention_score to swallow it
-            censored = np.minimum(np.where(valid, raw, STRAIN_CENSOR), STRAIN_CENSOR)
-            v = np.where(valid, np.log10(censored), np.nan)
+            # a pose above the hard-failure bound is not a very strained pose, it is a failed
+            # one: it passes no threshold and stays in the denominator
+            valid = np.isfinite(raw) & (raw > 0) & (raw <= STRAIN_HARD_FAIL)
+            v = np.where(valid, np.log10(np.where(valid, raw, 10.0)), np.nan)
             vals[ax.column] = retention_score(v, ax.lo, ax.hi, ax.higher_is_better, valid)
         else:
             v = np.asarray(frame[ax.column], dtype=float)
