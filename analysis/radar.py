@@ -298,7 +298,8 @@ def draw_radar(ax, scores_by_method: dict[str, dict], title: str = '',
                colors: dict | None = None, labels: dict | None = None,
                legend: bool = False, fontsize: float = 7.0,
                title_pad: float = 24.0, markers: dict | None = None,
-               linestyles: dict | None = None):
+               linestyles: dict | None = None, emphasis: str | None = None,
+               fill_alpha: float = 0.08, emphasis_fill_alpha: float = 0.22):
     """Draw the manuscript's seven-axis radar on ``ax`` (a polar axes).
 
     ``scores_by_method[method]`` maps axis key -> s_m in [0, 1]; the radius drawn is
@@ -335,16 +336,37 @@ def draw_radar(ax, scores_by_method: dict[str, dict], title: str = '',
     markers = markers or {}
     linestyles = linestyles or {}
     closed = closed_theta
-    for method, sc in scores_by_method.items():
+    # Fills first, all of them, then the lines: a later series' fill would otherwise
+    # wash out an earlier series' line. The emphasis method is drawn last in both passes so
+    # its outline and its shadow sit above the others.
+    order = [m for m in scores_by_method if m != emphasis]
+    if emphasis in scores_by_method:
+        order.append(emphasis)
+
+    def _polygon(method):
+        sc = scores_by_method[method]
         s = np.array([sc.get(a, 0.0) for a in AXIS_ORDER], dtype=float)
         r = np.asarray(radial(np.nan_to_num(s, nan=0.0)))
-        r = np.append(r, r[0])
+        return np.append(r, r[0])
+
+    for method in order:
+        r = _polygon(method)
         colour = colors.get(method, '#606060')
-        ax.plot(closed, r, color=colour, linewidth=1.15,
-                marker=markers.get(method, 'o'), markersize=2.6,
+        alpha = emphasis_fill_alpha if method == emphasis else fill_alpha
+        ax.fill(closed, r, color=colour, alpha=alpha,
+                linewidth=0.0, zorder=2 if method == emphasis else 1)
+
+    for method in order:
+        r = _polygon(method)
+        colour = colors.get(method, '#606060')
+        hero = method == emphasis
+        ax.plot(closed, r, color=colour,
+                linewidth=1.95 if hero else 1.15,
+                marker=markers.get(method, 'o'),
+                markersize=3.8 if hero else 2.6,
                 linestyle=linestyles.get(method, 'solid'),
-                label=labels.get(method, method))
-        ax.fill(closed, r, color=colour, alpha=0.06)
+                label=labels.get(method, method),
+                zorder=6 if hero else 3)
     if title:
         # pad clears the topmost axis label, which sits above the circle
         ax.set_title(title, fontsize=fontsize * 1.15, pad=title_pad)

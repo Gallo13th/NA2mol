@@ -46,6 +46,41 @@ SI_COLORS = {
     "ed2mol":                         "#D55E00",
 }
 
+# Seven-method palette for the main figures. One hero colour plus six muted companions:
+# NA2smol keeps the saturated teal used throughout, and every external generator takes a
+# low-chroma hue of matched lightness. Matching lightness matters, because a lightness
+# ladder would let some baselines compete; matching chroma and lightness and separating the
+# companions in hue alone keeps them distinguishable from each other while none of them
+# draws the eye before NA2smol. Markers and line styles carry identity in greyscale print.
+RADAR_HERO = "#246B70"
+RADAR_COMPANION_HUES = (20, 45, 130, 200, 265, 320)   # degrees
+RADAR_COMPANION_LIGHTNESS = 0.58
+RADAR_COMPANION_CHROMA = 0.22
+
+METHOD_COLORS = {
+    "NA2smol":                       RADAR_HERO,
+    "RNA2smol":                      RADAR_HERO,
+    "RNA2smol (Only General Feat)":  RADAR_HERO,
+    "MolCRAFT":                      "#A68979",
+    "Pocket2Mol":                    "#A69879",
+    "ED2Mol":                        "#79A685",
+    "ed2mol":                        "#79A685",
+    "DiffSBDD":                      "#7998A6",
+    "GraphBP":                       "#8979A6",
+    "FLAG":                          "#A67998",
+}
+_RADAR_MARKERS = {
+    "NA2smol": "o", "RNA2smol": "o", "RNA2smol (Only General Feat)": "o",
+    "MolCRAFT": "s", "Pocket2Mol": "^", "ED2Mol": "v", "ed2mol": "v",
+    "DiffSBDD": "D", "GraphBP": "P", "FLAG": "X",
+}
+_RADAR_DASHES = {
+    "NA2smol": "solid", "RNA2smol": "solid", "RNA2smol (Only General Feat)": "solid",
+    "MolCRAFT": (0, (4, 2)), "Pocket2Mol": (0, (1, 1.4)),
+    "ED2Mol": (0, (6, 2, 1.5, 2)), "ed2mol": (0, (6, 2, 1.5, 2)),
+    "DiffSBDD": (0, (3, 1.5, 1, 1.5)), "GraphBP": (0, (8, 3)), "FLAG": (0, (2, 2)),
+}
+
 METHOD_MARKERS = {
     "RNA2smol":                       "o",
     "RNA2smol (Only General Feat)":   "o",
@@ -654,3 +689,9 @@ def place_panel_labels_from_rects(fig, rects: dict, dx: float = 0.030,
     for letter, (x0, y0, w, h) in rects.items():
         fig.text(x0 - dx, y0 + h + dy, letter, ha="left", va="bottom",
                  fontsize=fontsize, fontweight="bold", color=INK)
+
+
+# The seven-method radar identities are applied last so they override the older
+# protagonist-only entries above, which were tuned for a figure with one coloured method.
+METHOD_MARKERS.update(_RADAR_MARKERS)
+METHOD_DASHES.update(_RADAR_DASHES)
