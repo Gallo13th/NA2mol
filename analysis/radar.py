@@ -63,11 +63,15 @@ RADAR_AXES: tuple[Axis, ...] = (
     Axis('affinity', 'Dock.', -11.0, -3.0, higher_is_better=False),
 )
 # ECFP4 and SEI complete the seven; drawn clockwise from the top in this order.
-AXIS_ORDER = ('qed', 'log10_strain', 'sa_score', 'rmsd', 'affinity', 'ecfp4', 'sei')
+AXIS_ORDER = ('qed', 'log10_strain', 'sa_score', 'rmsd', 'affinity', 'ecfp4',
+              'ecfp4_specificity', 'sei')
 ECFP4_LABEL = 'ECFP4'
 SEI_LABEL = 'SEI'
 SEI_RANGE = (0.0, 0.3)
 ECFP4_RANGE = (0.25, 0.50)
+# Target specificity of the ECFP4 recovery: observed minus the permutation null, so 0 is
+# "no better than a random target assignment". Symmetric range with 0 at mid-ring.
+ECFP4_SPEC_RANGE = (-0.15, 0.15)
 
 # The strain axis sweeps a retention curve over log10(strain) in STRAIN_SWEEP. Above
 # the upper bound a pose is no longer meaningfully "retained at a stricter threshold",
@@ -90,13 +94,15 @@ RANGES = {
     'sei': SEI_RANGE,
     'log10_strain': (1.0, 4.0),
     'ecfp4': ECFP4_RANGE,
+    'ecfp4_specificity': ECFP4_SPEC_RANGE,
 }
-HIGHER_IS_BETTER = {'qed': True, 'sei': True, 'ecfp4': True,
+HIGHER_IS_BETTER = {'qed': True, 'sei': True, 'ecfp4': True, 'ecfp4_specificity': True,
                     'affinity': False, 'rmsd': False, 'sa_score': False,
                     'log10_strain': False}
 # 'Strain' is one label but the manuscript counts SEI and ECFP4 among the seven.
 SEVEN_LABELS = {'qed': 'QED', 'log10_strain': 'Strain', 'sa_score': 'SA', 'rmsd': 'RMSD',
-                'affinity': 'Dock.', 'ecfp4': 'ECFP4', 'sei': 'SEI'}
+                'affinity': 'Dock.', 'ecfp4': 'ECFP4',
+                'ecfp4_specificity': 'ECFP4 spec.', 'sei': 'SEI'}
 
 
 def radial(s: np.ndarray | float) -> np.ndarray | float:
@@ -227,6 +233,16 @@ def property_summaries(frame) -> dict[str, float]:
 
 
 # ── ECFP4 recovery gain ─────────────────────────────────────────────────────
+def ecfp4_specificity_score(specificity: float) -> float:
+    """Map observed-minus-null recovery onto [0, 1] over ECFP4_SPEC_RANGE.
+
+    s = 0.5 means the method recovers its own targets no better than randomly assigned
+    ones; s = 1 means it beats the null by the top of the range.
+    """
+    lo, hi = ECFP4_SPEC_RANGE
+    return float(np.clip((float(specificity) - lo) / (hi - lo), 0.0, 1.0))
+
+
 def recovery_from_maxima(maxima: np.ndarray) -> float:
     """Mean over targets of the recovery curve over tau in [0.25, 0.50].
 
@@ -326,8 +342,10 @@ def draw_radar(ax, scores_by_method: dict[str, dict], title: str = '',
     ring_theta = np.linspace(0.0, 2 * np.pi, 361)
     ax.plot(ring_theta, np.full(ring_theta.shape, 2.0),
             color=RING_LIGHT, linewidth=0.6, zorder=0)
+    # the r=1 ring marks s=0 but sits inside the filled polygons, where a heavy stroke reads
+    # as a hole in the shading; drawn light, it stays readable without that
     ax.plot(ring_theta, np.full(ring_theta.shape, 1.0),
-            color=RING_DARK, linewidth=1.8, zorder=1)
+            color=RING_LIGHT, linewidth=0.6, zorder=1)
     ax.spines['polar'].set_color(RING_DARK)
     ax.spines['polar'].set_linewidth(1.8)
 

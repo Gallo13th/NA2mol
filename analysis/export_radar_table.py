@@ -133,6 +133,8 @@ def main() -> int:
             row.update(R.property_summaries(sub))
             row['recovery_observed'] = float(s_row['recovery_observed'])
             row['recovery_random'] = float(s_row['recovery_random'])
+            # raw specificity for the table; the normalised s_ version is added below
+            row['ecfp4_specificity'] = float(s_row['ecfp4_specificity'])
             for a in R.AXIS_ORDER:
                 row[f's_{a}'] = float(s_row[a])
             rows.append(row)
@@ -239,17 +241,34 @@ def write_latex(df: pd.DataFrame) -> None:
 LOWER_IS_BETTER = {
     'median_docking': True, 'median_rmsd': True, 'median_qed': False,
     'median_sa': True, 'median_sei': False, 'median_strain': True,
-    'recovery_observed': False,
+    'recovery_observed': False, 'ecfp4_specificity': False,
+    'strain_success': False, 'strain_pass500': False, 'strain_pass200': False,
 }
+
+
+def _pct(v) -> str:
+    return '--' if v != v else f'{100.0 * v:.1f}\\%'
+
+
+def _signed(v) -> str:
+    return '--' if v != v else f'{v:+.3f}'
 # the arrow states the direction that counts as better for each metric
 MAIN_COLS = [
-    ('median_docking', 'Dock. $\\downarrow$', '%.2f'),
-    ('median_rmsd', 'RMSD $\\downarrow$', '%.2f'),
-    ('median_qed', 'QED $\\uparrow$', '%.3f'),
-    ('median_sa', 'SA $\\downarrow$', '%.2f'),
-    ('median_sei', 'SEI $\\uparrow$', '%.3f'),
-    ('median_strain', 'Strain $\\downarrow$', _fmt_strain),
-    ('recovery_observed', 'ECFP4 rec. $\\uparrow$', '%.3f'),
+    ('median_docking', 'Dock.', '%.2f'),
+    ('median_rmsd', 'RMSD', '%.2f'),
+    ('median_qed', 'QED', '%.3f'),
+    ('median_sa', 'SA', '%.2f'),
+    ('median_sei', 'SEI', '%.3f'),
+    # Strain is reported as three rates rather than a median: every method has a heavy
+    # tail, so a median hides the difference between "a few unusable poses" and "most of
+    # them". A molecule counts as failed, and stays in the denominator, if its strain could
+    # not be computed within the budget or exceeds 1e4 kcal/mol.
+    ('strain_success', 'Succ.', _pct),
+    ('strain_pass500', 'p@500', _pct),
+    ('strain_pass200', 'p@200', _pct),
+    ('recovery_observed', 'Rec.', '%.3f'),
+    # the part of ECFP4 recovery not explained by a random target assignment
+    ('ecfp4_specificity', 'Spec.', _signed),
 ]
 MAIN_GROUPS = [('Fig. 2a', 'DUD-E protein'), ('Fig. 2d', 'RNA test set'),
                ('Fig. 3a', 'RNA test set, four configurations')]
@@ -257,8 +276,11 @@ MAIN_GROUPS = [('Fig. 2a', 'DUD-E protein'), ('Fig. 2d', 'RNA test set'),
 
 def write_main_table(df: pd.DataFrame) -> None:
     """Best value in each benchmark group in bold, runner-up underlined."""
-    out = ['\\begin{table}[!htbp]', '\\centering', '\\footnotesize',
-           '\\setlength{\\tabcolsep}{4pt}',
+    # Eleven columns do not fit the text width at a readable size, so the table is scaled
+    # to it; at \scriptsize the factor is about 0.9, keeping cells near 6.3 pt rather than
+    # the 5 pt \tiny would give.
+    out = ['\\begin{table}[!htbp]', '\\centering', '\\scriptsize',
+           '\\setlength{\\tabcolsep}{1.2pt}', '\\resizebox{\\textwidth}{!}{%',
            f'\\begin{{tabular}}{{@{{}}l{chr(99) * (len(MAIN_COLS) + 1)}@{{}}}}', '\\toprule',
            '\\textbf{Method} & ' + ' & '.join(f'\\textbf{{{l}}}' for _, l, _ in MAIN_COLS)
            + ' & \\textbf{Top-2 $\\uparrow$} \\\\',
@@ -321,7 +343,7 @@ def write_main_table(df: pd.DataFrame) -> None:
                 count = body
             cells.append(count)
             out.append(f"{r['method']} & " + ' & '.join(cells) + ' \\\\\\\\')
-    out += ['\\bottomrule', '\\end{tabular}',
+    out += ['\\bottomrule', '\\end{tabular}}',
             '\\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the '
             'configuration comparison (Fig.~3a). Dock., smina docking score (kcal mol$^{-1}$); '
             'RMSD (\\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, '
@@ -329,11 +351,11 @@ def write_main_table(df: pd.DataFrame) -> None:
             'energy (kcal mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., the observed '
             'recovery on the ECFP4-Tanimoto axis. Values are pooled medians over all of a '
             "method's molecules. \\textbf{Bold} marks the best value in each benchmark group and "
-            '\\underline{underline} the second best; better is lower for Dock., RMSD, SA and '
-            'Strain and higher for QED, SEI and ECFP4 rec. Top-2 counts, out of the seven '
-            'metrics, how many the method ranks first or second on within its group. This '
-            'column takes the same bold and underline emphasis, and orders the rows within '
-            'each group. These are the single-number summaries '
+            '\\underline{underline} the second best. Lower is better for Dock., RMSD and SA; '
+            'higher is better for QED, SEI, Succ., p@500, p@200, Rec. and Spec. '
+            'Top-2 counts, out of the ten metrics, how many the method ranks first or second '
+            'on within its group; it takes the same emphasis and orders the rows. These are '
+            'the single-number summaries '
             'of the distributions whose normalised retention-curve integrals are drawn in the '
             'radars; the normalised scores themselves are in Supplementary Table~12.}',
             '\\label{radar_values_tab}', '\\end{table}']

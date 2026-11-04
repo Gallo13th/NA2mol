@@ -190,10 +190,18 @@ def score_benchmark(key: str, permutations: int) -> tuple[pd.DataFrame, pd.DataF
                           'recovery_random_sd': ec['recovery_random_sd']})
 
     tbl = pd.DataFrame(rows).set_index('method')
-    # s_m = (obs - rand) / (best - rand), clipped to [0,1]
-    tbl['ecfp4'] = pd.Series(
-        R.normalise_ecfp4(tbl['recovery_observed'].to_dict(),
-                          tbl['recovery_random'].to_dict()))
+    # The ECFP4 axis is the raw recovery itself: it is already the area under the
+    # per-target retention curve, so it lies in [0, 1] and needs no cross-method
+    # normalisation. Normalising it against each method's own permutation null mixed that
+    # method's molecule count and target mix into the score; normalising against a common
+    # external library worked on DUD-E but not on RNA, where a generic ligand pool exceeds
+    # every method at every tau. Raw values keep the axis method-independent and honest.
+    tbl['ecfp4'] = tbl['recovery_observed'].clip(0.0, 1.0)
+    # Target specificity: how much better the method recovers the targets it was pointed at
+    # than targets assigned at random. This is the part of recovery that is not explained by
+    # generic similarity to actives, and it is reported as its own axis and table column.
+    tbl['ecfp4_specificity'] = (tbl['recovery_observed']
+                                - tbl['recovery_random']).astype(float)
     tbl['n_targets_universe'] = len(targets)
     tbl = tbl.reset_index()
     print(f'  total {time.time()-t0:.0f}s', flush=True)
