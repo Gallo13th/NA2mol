@@ -42,19 +42,25 @@ DUDE_RAW = ROOT / "data" / "benchmark" / "dude_stat_all.csv"
 SCAFFOLD_CSV = ROOT / "data" / "benchmark" / "output" / "chemspace_targeted" / "scaffold_breadth_table.csv"
 RADAR_DIR = ROOT / "data" / "benchmark" / "output" / "tables" / "radar"
 
+# The three SBDD baselines added for this revision, in the order they are drawn.
+NEW_METHODS = ["DiffSBDD", "GraphBP", "FLAG"]
 SMRT_METHODS = [
     "RNA2smol (Only General Feat)",
     "MolCRAFT",
     "Pocket2Mol",
     "ED2Mol",
-]
-DUDE_METHODS = ["RNA2smol", "MolCRAFT", "Pocket2Mol", "ed2mol"]
+] + NEW_METHODS
+DUDE_METHODS = ["RNA2smol", "MolCRAFT", "Pocket2Mol", "ed2mol"] + NEW_METHODS
 LEGEND_METHODS = [
     "RNA2smol",
     "MolCRAFT",
     "Pocket2Mol",
     "ED2Mol",
-]
+] + NEW_METHODS
+
+# Molecule-level rows for the new baselines, in the same schema as the benchmark tables.
+NEW_BASELINES_MOL = (Path("/home/data/users/gaoletian/sbdd_baselines/radar_export")
+                     / "new_baselines_molecules.csv")
 PROFILE_METRICS = [
     ("affinity", "Dock."),
     ("rmsd", "RMSD"),
@@ -119,6 +125,15 @@ def read_tables() -> dict[str, pd.DataFrame]:
         usecols=["mode", "qed", "sa_score", "affinity", "tpsa", "strain"],
     )
     dude_raw["SEI"] = -dude_raw["affinity"] / dude_raw["tpsa"].replace(0, np.nan)
+    if NEW_BASELINES_MOL.is_file():
+        extra = pd.read_csv(NEW_BASELINES_MOL, low_memory=False)
+        # the export does not carry SEI; it is derived the same way as for the others
+        extra["SEI"] = -extra["affinity"] / extra["tpsa"].replace(0, np.nan)
+        smrt_raw = pd.concat([smrt_raw, extra[extra["bench"] == "smrtbench"][smrt_raw.columns]],
+                             ignore_index=True)
+        dude_cols = [c for c in dude_raw.columns]
+        dude_raw = pd.concat([dude_raw, extra[extra["bench"] == "dude"][dude_cols]],
+                             ignore_index=True)
     return {
         # Radar panels a/d use the manuscript's seven-axis scores (Methods,
         # "Radar-chart normalisation"), produced by analysis/radar_profiles.py.
@@ -256,29 +271,26 @@ def plot_scaffold_diversity(ax: plt.Axes, label: str) -> None:
     from matplotlib.patches import Patch
 
     df = pd.read_csv(SCAFFOLD_CSV)
-    methods = ["RNA2smol", "MolCRAFT", "Pocket2Mol", "ED2Mol"]
+    wanted = ["RNA2smol", "MolCRAFT", "Pocket2Mol", "ED2Mol"] + NEW_METHODS
+    methods = [m for m in wanted if m in set(df["method"])]
     df = df.set_index("method").reindex(methods)
 
-    # Percentages within each benchmark (generated-molecule counts differ
-    # between SMRT-Net and DUD-E, so raw scaffold counts are not comparable
-    # across datasets).
-    smrt_pct = df["smrt_bm_scaffolds"] / df["smrt_bm_scaffolds"].sum() * 100
-    dude_pct = df["dude_bm_scaffolds"] / df["dude_bm_scaffolds"].sum() * 100
+    # Internal diversity: unique Bemis-Murcko scaffolds as a fraction of the method's own
+    # distinct molecules. A share-of-pooled-total percentage stops working once methods
+    # differ widely in how many molecules they generate, because the most prolific method
+    # absorbs the scale and every other bar collapses towards zero. This ratio is
+    # independent of pool size, so the methods remain comparable.
+    smrt_pct = df["smrt_internal_diversity"].astype(float) * 100
+    dude_pct = df["dude_internal_diversity"].astype(float) * 100
 
-    bar_methods = [
-        "RNA2smol (Only General Feat)",
-        "MolCRAFT",
-        "Pocket2Mol",
-        "ED2Mol",
-    ]
-    method_colors_list = [color_for(m) for m in bar_methods]
+    method_colors_list = [color_for(m) for m in df.index]
 
     x = np.arange(len(methods))
-    width = 0.35
+    width = 0.36
     bars1 = ax.bar(
         x - width / 2, smrt_pct, width,
         color=method_colors_list, edgecolor="white", linewidth=0.4,
-        hatch="",  # solid = SMRT-Net
+        hatch="",  # solid = RNA test set
     )
     bars2 = ax.bar(
         x + width / 2, dude_pct, width,
@@ -286,10 +298,12 @@ def plot_scaffold_diversity(ax: plt.Axes, label: str) -> None:
         hatch="//",  # diagonal hatch = DUD-E
     )
 
-    ax.set_yscale("log")
+    ax.set_ylim(0, 126)
     ax.set_xticks(x)
-    ax.set_xticklabels(methods, rotation=15, ha="right")
-    ax.set_ylabel("Unique scaffolds (%)")
+    ax.set_xticklabels([m.replace(" (Only General Feat)", "").replace("RNA2smol", "NA2smol")
+                        for m in df.index],
+                       rotation=32, ha="right", fontsize=4.9)
+    ax.set_ylabel("Internal diversity (%)")
     ax.set_title("Scaffold diversity", loc="left", pad=4)
 
     # Legend: neutral grey swatches explain the hatch convention.
@@ -297,20 +311,17 @@ def plot_scaffold_diversity(ax: plt.Axes, label: str) -> None:
         Patch(facecolor="#888888", edgecolor="#888888", label="RNA test set"),
         Patch(facecolor="#888888", edgecolor="#aaaaaa", hatch="////", label="DUD-E protein"),
     ]
-    ax.legend(handles=legend_handles, fontsize=5.2, loc="upper right", frameon=False)
+    ax.legend(handles=legend_handles, fontsize=4.7, loc="upper right", frameon=False,
+              handlelength=1.0, labelspacing=0.3, borderpad=0.1)
     style_axis(ax, grid_axis="y")
-    # Panel letter at the TOP-LEFT (just outside the axes). Measured against the
-    # y-axis label window (x∈[-11,3]px) and the h-panel letter (x∈[254,262]px):
-    # x=-0.16 → letter bbox x∈[10,19]px — clear of both.
     panel_label(ax, label, x=-0.16, y=1.06)
 
-    # Value labels on top of bars (ONE label per bar: the percentage within
-    # the benchmark — the raw count is readable on the axis; two stacked labels
-    # collided on adjacent bars).
     for bar in list(bars1) + list(bars2):
         h = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width() / 2, h * 1.08, f"{h:.1f}%",
-                ha="center", va="bottom", fontsize=4.8, color=INK)
+        if not np.isfinite(h):
+            continue
+        ax.text(bar.get_x() + bar.get_width() / 2, h + 2.5, f"{h:.0f}",
+                ha="center", va="bottom", fontsize=4.5, color=INK)
 
 
 def plot_per_target_coverage(
@@ -481,11 +492,9 @@ def render_panels(tables: dict, panels_dir: Path) -> dict:
         plt.close(fig)
 
     # a — DUD-E radar (paper order: DUD-E is panel a, the RNA test set is panel d)
-    _one("a", lambda ax: R.draw_radar(
-        ax, radar_scores(tables["dude_radar"], DUDE_METHODS), title="",
-        colors=METHOD_COLORS, labels=METHOD_LABELS,
-        markers=METHOD_MARKERS, linestyles=METHOD_DASHES),
-        (2.48, 2.08), [0.13, 0.16, 0.82, 0.62], polar=True)
+    _one("a", lambda ax: R.draw_bubble_panel(
+        ax, radar_scores(tables["dude_radar"], DUDE_METHODS), labels=METHOD_LABELS),
+        (2.48, 2.08), [0.30, 0.30, 0.64, 0.62])
 
     # b — Protein ECFP4 recovery (row 0 is the DUD-E control, as in the manuscript)
     _one("b", lambda ax: plot_ecfp4(ax, tables["dude_ecfp4"], DUDE_METHODS,
@@ -497,11 +506,9 @@ def render_panels(tables: dict, panels_dir: Path) -> dict:
                                      "Protein target retention", "c", y_max=105), (3.33, 2.08))
 
     # d — DUD-E profile table
-    _one("d", lambda ax: R.draw_radar(
-        ax, radar_scores(tables["smrt_radar"], SMRT_METHODS), title="",
-        colors=METHOD_COLORS, labels=METHOD_LABELS,
-        markers=METHOD_MARKERS, linestyles=METHOD_DASHES),
-        (2.48, 1.84), [0.13, 0.16, 0.82, 0.62], polar=True)
+    _one("d", lambda ax: R.draw_bubble_panel(
+        ax, radar_scores(tables["smrt_radar"], SMRT_METHODS), labels=METHOD_LABELS),
+        (2.48, 1.84), [0.30, 0.28, 0.64, 0.64])
 
     # e — RNA ECFP4 recovery (row 1 is the RNA test set)
     _one("e", lambda ax: plot_ecfp4(ax, tables["smrt_ecfp4"], SMRT_METHODS,
@@ -552,12 +559,13 @@ def render_master(tables: dict) -> None:
     # The radars are inset within their cell: the polar axes inscribes a circle, so at
     # full cell width its own "SA" tick label would meet column 1's "Targets" ylabel.
     AX, AY, AW, AH = 0.055, 0.055, 0.89, 0.89
-    axes["a"] = fig.add_axes([C0_L + CW0 * AX, R0_B + RH0 * AY,
-                              CW0 * AW, RH0 * AH], projection="polar")
+    # a and d are rank grids, not radars: they fill a rectangle rather than inscribing a
+    # circle, so they use the cell almost in full and only the outer margin is trimmed.
+    BX, BY, BW, BH = 0.02, 0.02, 0.96, 0.94
+    axes["a"] = fig.add_axes([C0_L + CW0 * BX, R0_B + RH0 * BY, CW0 * BW, RH0 * BH])
     axes["b"] = fig.add_axes([C1_L, R0_B, CW1, RH0])
     axes["c"] = fig.add_axes([C2_L, R0_B, CW2, RH0])
-    axes["d"] = fig.add_axes([C0_L + CW0 * AX, R1_B + RH1 * AY,
-                              CW0 * AW, RH1 * AH], projection="polar")
+    axes["d"] = fig.add_axes([C0_L + CW0 * BX, R1_B + RH1 * BY, CW0 * BW, RH1 * BH])
     axes["e"] = fig.add_axes([C1_L, R1_B, CW1, RH1])
     axes["f"] = fig.add_axes([C2_L, R1_B, CW2, RH1])
     # Row 2 is not tied to the radar column: the scaffold-diversity panel needs more
@@ -581,11 +589,9 @@ def render_master(tables: dict) -> None:
     lower_better = {"affinity", "rmsd", "sa_score", "strain"}
 
     # Row 0 — DUD-E protein control (manuscript order: a = DUD-E, d = RNA test set)
-    R.draw_radar(
+    R.draw_bubble_panel(
         axes["a"], radar_scores(tables["dude_radar"], DUDE_METHODS),
-        title="DUD-E protein", colors=METHOD_COLORS, labels=METHOD_LABELS,
-        markers=METHOD_MARKERS, linestyles=METHOD_DASHES,
-        legend=False)
+        labels=METHOD_LABELS)
 
     plot_ecfp4(axes["b"], tables["dude_ecfp4"], DUDE_METHODS,
               "Protein ECFP4 recovery", None, y_max=105)
@@ -594,11 +600,9 @@ def render_master(tables: dict) -> None:
               "Protein target retention", None, y_max=105)
 
     # Row 1 — RNA test set
-    R.draw_radar(
+    R.draw_bubble_panel(
         axes["d"], radar_scores(tables["smrt_radar"], SMRT_METHODS),
-        title="RNA test set", colors=METHOD_COLORS, labels=METHOD_LABELS,
-        markers=METHOD_MARKERS, linestyles=METHOD_DASHES,
-        legend=False)
+        labels=METHOD_LABELS)
 
     plot_ecfp4(axes["e"], tables["smrt_ecfp4"], SMRT_METHODS,
               "RNA ECFP4 recovery", None, y_max=28)

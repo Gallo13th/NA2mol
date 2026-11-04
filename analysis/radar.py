@@ -233,6 +233,80 @@ def property_summaries(frame) -> dict[str, float]:
 
 
 # ── ECFP4 recovery gain ─────────────────────────────────────────────────────
+# ── bubble panel: rank grid, used instead of a radar when many methods are compared ──
+# Seven overlapping polygons are unreadable, so the method-by-metric comparison is drawn as
+# a grid: one row per method, one column per axis, bubble area and colour both encoding the
+# method's rank on that axis. The ramp runs from the hero teal at rank 1 to a pale warm grey
+# at the last rank, so "best" is the darkest and largest mark and nothing is brighter than
+# the colour used elsewhere in the figures.
+BUBBLE_CMAP_COLORS = ('#246B70', '#6A8C86', '#A8BCB6', '#D8DFD9', '#F2EFEA')
+
+
+def _bubble_cmap():
+    from matplotlib.colors import LinearSegmentedColormap
+    return LinearSegmentedColormap.from_list('na2_bubble', list(BUBBLE_CMAP_COLORS))
+
+
+def draw_bubble_panel(ax, scores_by_method: dict, order: list | None = None,
+                      labels: dict | None = None, xlabels: list | None = None,
+                      fontsize: float = 4.7, hero: str | None = 'NA2smol',
+                      size_lo: float = 6.0, size_hi: float = 68.0,
+                      format_xlabels: bool = True):
+    """Draw the rank grid on ``ax``.
+
+    ``scores_by_method[method][axis]`` is the same 0-1 score the radar would plot; only its
+    rank among the compared methods on that axis is used, so the panel states relative
+    standing and leaves absolute values to the tables.
+    """
+    names = [m for m in (order or list(scores_by_method)) if m in scores_by_method]
+    M = np.array([[scores_by_method[m].get(a, 0.0) for a in AXIS_ORDER] for m in names],
+                 dtype=float)
+    if order is None:
+        # strongest at the top: sort by mean rank across axes
+        ranks = np.array([[1 + int((M[:, j] > M[i, j]).sum()) for j in range(len(AXIS_ORDER))]
+                          for i in range(len(names))], dtype=float)
+        names = [names[i] for i in np.argsort(ranks.mean(1))]
+        M = np.array([[scores_by_method[m].get(a, 0.0) for a in AXIS_ORDER] for m in names],
+                     dtype=float)
+    n = len(names)
+    xs, ys, sizes, colours = [], [], [], []
+    for i in range(n):
+        for j in range(len(AXIS_ORDER)):
+            rank = 1 + int((M[:, j] > M[i, j]).sum())      # ties share the better rank
+            xs.append(j)
+            ys.append(i)
+            frac = (n - rank) / (n - 1) if n > 1 else 1.0
+            sizes.append(size_lo + (size_hi - size_lo) * frac ** 1.7)
+            colours.append(rank)
+    ax.scatter(xs, ys, s=sizes, c=colours, cmap=_bubble_cmap(), vmin=1, vmax=max(n, 2),
+               edgecolors='white', linewidths=0.45, zorder=3)
+
+    labs = xlabels or [SEVEN_LABELS[a] for a in AXIS_ORDER]
+    if format_xlabels:
+        labs = [l.replace('ECFP4 spec.', 'ECFP4\nspec.') for l in labs]
+    ax.set_xticks(range(len(AXIS_ORDER)))
+    # steeper rotation keeps eight labels apart at the narrow width Fig. 2 gives this panel
+    ax.set_xticklabels(labs, fontsize=fontsize - 0.4, rotation=55, ha='right',
+                       linespacing=0.9)
+    ax.set_yticks(range(n))
+    ax.set_yticklabels([(labels or {}).get(m, m) for m in names], fontsize=fontsize + 0.1)
+    for tick, m in zip(ax.get_yticklabels(), names):
+        if hero is not None and m == hero:
+            tick.set_fontweight('bold')
+            tick.set_color(RING_DARK if False else BUBBLE_CMAP_COLORS[0])
+    ax.set_xlim(-0.55, len(AXIS_ORDER) - 0.45)
+    ax.set_ylim(-0.55, n - 0.45)
+    ax.invert_yaxis()
+    ax.grid(color='#EDEFEF', linewidth=0.4, zorder=0)
+    ax.set_axisbelow(True)
+    for side in ('top', 'right'):
+        ax.spines[side].set_visible(False)
+    for side in ('left', 'bottom'):
+        ax.spines[side].set_linewidth(0.5)
+    ax.tick_params(length=0, pad=1.5)
+    return ax
+
+
 def ecfp4_specificity_score(specificity: float) -> float:
     """Map observed-minus-null recovery onto [0, 1] over ECFP4_SPEC_RANGE.
 
