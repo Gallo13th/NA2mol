@@ -177,7 +177,18 @@ SCORE_COLS = [
     ('s_qed', 'QED', '%.3f'), ('s_log10_strain', 'Strain', '%.3f'),
     ('s_sa_score', 'SA', '%.3f'), ('s_rmsd', 'RMSD', '%.3f'),
     ('s_affinity', 'Dock.', '%.3f'), ('s_ecfp4', 'ECFP4', '%.3f'),
-    ('s_sei', 'SEI', '%.3f'),
+    ('s_ecfp4_specificity', 'ECFP4 spec.', '%.3f'), ('s_sei', 'SEI', '%.3f'),
+]
+# coverage of the strain evaluation, which the main table no longer carries
+def _cover_pct(v: float) -> str:
+    """Strain coverage is stored as a fraction; print it as a percentage."""
+    return '--' if v != v else f'{100.0 * v:.1f}\\%'
+
+
+COVER_COLS = [
+    ('strain_success', 'Strain success', _cover_pct),
+    ('strain_pass500', 'pass@500', _cover_pct),
+    ('strain_pass200', 'pass@200', _cover_pct),
 ]
 
 
@@ -220,9 +231,15 @@ def write_latex(df: pd.DataFrame) -> None:
         'kcal mol$^{-1}$, RMSD in \\AA, and strain in kcal mol$^{-1}$; strain values above '
         '10$^3$ are written in scientific notation. ECFP4 rec. is the observed recovery '
         '(fraction of targets with at least one molecule reaching ECFP4-TS $\\geq\\tau$, '
-        'averaged over $\\tau \\in [0.25,0.50]$). Panel~B gives the seven normalised scores '
-        'actually plotted: on the six property axes $s=0.5$ is the mid-ring, and on the '
-        'ECFP4 axis $s=0$ is the shuffled-label baseline and $s=1$ the best method. '
+        'averaged over $\\tau \\in [0.25,0.50]$). The ECFP4 axis is that raw recovery, not a '
+        'rescaling of it: recovery is already the area under the per-target retention curve '
+        'and lies in [0,1], so no cross-method normalisation is needed. ECFP4 spec. is the '
+        'observed recovery minus the recovery under shuffled molecule-to-target assignment, '
+        'i.e.\\ the part not explained by generic similarity to actives; $s=0.5$ there is '
+        'zero specificity. Panel~B gives the eight normalised scores actually plotted, and '
+        'the final panel gives strain coverage: the percentage of each method molecule pool '
+        'whose strain could be computed within the budget and stayed below '
+        '$10^{4}$~kcal~mol$^{-1}$. Failures are counted in the denominator of pass rates. '
         'NA2smol appears under both Fig.~2d and Fig.~3a because the full model is the same '
         'output set in both.'
     )
@@ -230,6 +247,8 @@ def write_latex(df: pd.DataFrame) -> None:
         '\\section*{Supplementary Table 12 | Normalised radar scores behind the radar panels of Figs.~2 and 3}',
         notes, '', '\\bigskip', '',
         _grouped_table(df, SCORE_COLS, 'Normalised radar scores $s_m$'),
+        '', '\\bigskip', '',
+        _grouped_table(df, COVER_COLS, 'Strain coverage (percent of each method molecule pool)'),
     ]
     OUT_TEX.parent.mkdir(parents=True, exist_ok=True)
     OUT_TEX.write_text('\n'.join(parts) + '\n')

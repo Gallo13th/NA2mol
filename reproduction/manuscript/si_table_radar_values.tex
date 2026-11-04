@@ -1,5 +1,5 @@
 \section*{Supplementary Table 12 | Normalised radar scores behind the radar panels of Figs.~2 and 3}
-Values underlying the radar panels of Figs.~2a, 2d and 3a. The radar axes are normalised scores $s_m$ drawn at $r_m = 1 + 2s_m$, so the raw metric values are not recoverable from the figure and are given here. Property values are pooled medians over all of the method's molecules, the same molecule pool used by the retention-curve integrals; the radar axes for docking, RMSD, QED, SA, SEI and strain are the normalised integral of the retention curve (log$_{10}$ scale for strain), so a median is a summary and not the plotted quantity. Dock. is in kcal mol$^{-1}$, RMSD in \AA, and strain in kcal mol$^{-1}$; strain values above 10$^3$ are written in scientific notation. ECFP4 rec. is the observed recovery (fraction of targets with at least one molecule reaching ECFP4-TS $\geq\tau$, averaged over $\tau \in [0.25,0.50]$). Panel~B gives the seven normalised scores actually plotted: on the six property axes $s=0.5$ is the mid-ring, and on the ECFP4 axis $s=0$ is the shuffled-label baseline and $s=1$ the best method. NA2smol appears under both Fig.~2d and Fig.~3a because the full model is the same output set in both.
+Values underlying the radar panels of Figs.~2a, 2d and 3a. The radar axes are normalised scores $s_m$ drawn at $r_m = 1 + 2s_m$, so the raw metric values are not recoverable from the figure and are given here. Property values are pooled medians over all of the method's molecules, the same molecule pool used by the retention-curve integrals; the radar axes for docking, RMSD, QED, SA, SEI and strain are the normalised integral of the retention curve (log$_{10}$ scale for strain), so a median is a summary and not the plotted quantity. Dock. is in kcal mol$^{-1}$, RMSD in \AA, and strain in kcal mol$^{-1}$; strain values above 10$^3$ are written in scientific notation. ECFP4 rec. is the observed recovery (fraction of targets with at least one molecule reaching ECFP4-TS $\geq\tau$, averaged over $\tau \in [0.25,0.50]$). The ECFP4 axis is that raw recovery, not a rescaling of it: recovery is already the area under the per-target retention curve and lies in [0,1], so no cross-method normalisation is needed. ECFP4 spec. is the observed recovery minus the recovery under shuffled molecule-to-target assignment, i.e.\ the part not explained by generic similarity to actives; $s=0.5$ there is zero specificity. Panel~B gives the eight normalised scores actually plotted, and the final panel gives strain coverage: the percentage of each method molecule pool whose strain could be computed within the budget and stayed below $10^{4}$~kcal~mol$^{-1}$. Failures are counted in the denominator of pass rates. NA2smol appears under both Fig.~2d and Fig.~3a because the full model is the same output set in both.
 
 \bigskip
 
@@ -7,33 +7,71 @@ Values underlying the radar panels of Figs.~2a, 2d and 3a. The radar axes are no
 \textbf{Normalised radar scores $s_m$}
 \begin{center}\footnotesize
 \setlength{\tabcolsep}{3.5pt}
-\begin{tabular}{@{}llccccccc@{}}
+\begin{tabular}{@{}llcccccccc@{}}
 \toprule
-\textbf{Method} & \textbf{$n$} & \textbf{QED} & \textbf{Strain} & \textbf{SA} & \textbf{RMSD} & \textbf{Dock.} & \textbf{ECFP4} & \textbf{SEI} \\
+\textbf{Method} & \textbf{$n$} & \textbf{QED} & \textbf{Strain} & \textbf{SA} & \textbf{RMSD} & \textbf{Dock.} & \textbf{ECFP4} & \textbf{ECFP4 spec.} & \textbf{SEI} \\
 \midrule
-\multicolumn{9}{@{}l}{\textit{Fig. 2a — DUD-E protein}} \\
-NA2smol & 104,980 & 0.627 & 0.678 & 0.627 & 0.658 & 0.641 & 0.656 & 0.444 \\
-MolCRAFT & 98,257 & 0.523 & 0.604 & 0.484 & 0.827 & 0.801 & 0.331 & 0.416 \\
-Pocket2Mol & 65,662 & 0.559 & 0.653 & 0.658 & 0.468 & 0.386 & 0.417 & 0.375 \\
-ED2Mol & 93,293 & 0.736 & 0.862 & 0.517 & 0.375 & 0.389 & 0.482 & 0.495 \\
-DiffSBDD & 102,000 & 0.491 & 0.480 & 0.236 & 0.179 & 0.311 & 0.457 & 0.211 \\
-GraphBP & 73,598 & 0.467 & 0.122 & 0.151 & 0.035 & 0.048 & 0.093 & 0.158 \\
-FLAG & 83,093 & 0.418 & 0.745 & 0.139 & 0.115 & 0.136 & 0.142 & 0.156 \\
+\multicolumn{10}{@{}l}{\textit{Fig. 2a — DUD-E protein}} \\
+NA2smol & 104,980 & 0.627 & 0.678 & 0.627 & 0.658 & 0.641 & 0.656 & 0.019 & 0.444 \\
+MolCRAFT & 98,257 & 0.523 & 0.604 & 0.484 & 0.827 & 0.801 & 0.331 & -0.152 & 0.416 \\
+Pocket2Mol & 65,662 & 0.559 & 0.653 & 0.658 & 0.468 & 0.386 & 0.417 & -0.015 & 0.375 \\
+ED2Mol & 93,293 & 0.736 & 0.862 & 0.517 & 0.375 & 0.389 & 0.482 & -0.019 & 0.495 \\
+DiffSBDD & 102,000 & 0.491 & 0.480 & 0.236 & 0.179 & 0.311 & 0.457 & 0.077 & 0.211 \\
+GraphBP & 73,598 & 0.467 & 0.122 & 0.151 & 0.035 & 0.048 & 0.093 & -0.007 & 0.158 \\
+FLAG & 83,093 & 0.418 & 0.745 & 0.139 & 0.115 & 0.136 & 0.142 & -0.006 & 0.156 \\
 \midrule
-\multicolumn{9}{@{}l}{\textit{Fig. 2d — RNA test set}} \\
-NA2smol & 35,358 & 0.617 & 0.616 & 0.572 & 0.546 & 0.512 & 0.218 & 0.392 \\
-MolCRAFT & 34,925 & 0.434 & 0.695 & 0.534 & 0.827 & 0.503 & 0.059 & 0.229 \\
-Pocket2Mol & 34,097 & 0.540 & 0.451 & 0.657 & 0.486 & 0.377 & 0.080 & 0.273 \\
-ED2Mol & 29,932 & 0.700 & 0.871 & 0.564 & 0.441 & 0.272 & 0.077 & 0.448 \\
-DiffSBDD & 36,999 & 0.464 & 0.698 & 0.258 & 0.070 & 0.116 & 0.080 & 0.131 \\
-GraphBP & 20,571 & 0.451 & 0.153 & 0.145 & 0.042 & 0.053 & 0.004 & 0.202 \\
-FLAG & 27,195 & 0.385 & 0.839 & 0.137 & 0.137 & 0.103 & 0.015 & 0.151 \\
+\multicolumn{10}{@{}l}{\textit{Fig. 2d — RNA test set}} \\
+NA2smol & 35,358 & 0.617 & 0.616 & 0.572 & 0.546 & 0.512 & 0.218 & 0.037 & 0.392 \\
+MolCRAFT & 34,925 & 0.434 & 0.695 & 0.534 & 0.827 & 0.503 & 0.059 & -0.012 & 0.229 \\
+Pocket2Mol & 34,097 & 0.540 & 0.451 & 0.657 & 0.486 & 0.377 & 0.080 & -0.076 & 0.273 \\
+ED2Mol & 29,932 & 0.700 & 0.871 & 0.564 & 0.441 & 0.272 & 0.077 & 0.019 & 0.448 \\
+DiffSBDD & 36,999 & 0.464 & 0.698 & 0.258 & 0.070 & 0.116 & 0.080 & -0.010 & 0.131 \\
+GraphBP & 20,571 & 0.451 & 0.153 & 0.145 & 0.042 & 0.053 & 0.004 & 0.002 & 0.202 \\
+FLAG & 27,195 & 0.385 & 0.839 & 0.137 & 0.137 & 0.103 & 0.015 & -0.000 & 0.151 \\
 \midrule
-\multicolumn{9}{@{}l}{\textit{Fig. 3a — RNA test set, four configurations}} \\
-Baseline & 36,209 & 0.494 & 0.560 & 0.507 & 0.532 & 0.406 & 0.141 & 0.345 \\
-Pretrain Only & 32,782 & 0.501 & 0.286 & 0.319 & 0.504 & 0.536 & 0.035 & 0.380 \\
-Pretrain+Constrain & 35,640 & 0.597 & 0.549 & 0.443 & 0.514 & 0.523 & 0.132 & 0.403 \\
-NA2smol & 35,358 & 0.617 & 0.616 & 0.572 & 0.546 & 0.512 & 0.218 & 0.392 \\
+\multicolumn{10}{@{}l}{\textit{Fig. 3a — RNA test set, four configurations}} \\
+Baseline & 36,209 & 0.494 & 0.560 & 0.507 & 0.532 & 0.406 & 0.141 & 0.010 & 0.345 \\
+Pretrain Only & 32,782 & 0.501 & 0.286 & 0.319 & 0.504 & 0.536 & 0.035 & 0.008 & 0.380 \\
+Pretrain+Constrain & 35,640 & 0.597 & 0.549 & 0.443 & 0.514 & 0.523 & 0.132 & 0.030 & 0.403 \\
+NA2smol & 35,358 & 0.617 & 0.616 & 0.572 & 0.546 & 0.512 & 0.218 & 0.037 & 0.392 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent\begin{minipage}{\textwidth}
+\textbf{Strain coverage (percent of each method molecule pool)}
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+\textbf{Method} & \textbf{$n$} & \textbf{Strain success} & \textbf{pass@500} & \textbf{pass@200} \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Fig. 2a — DUD-E protein}} \\
+NA2smol & 104,980 & 95.1\% & 78.7\% & 63.9\% \\
+MolCRAFT & 98,257 & 93.1\% & 71.1\% & 39.1\% \\
+Pocket2Mol & 65,662 & 97.4\% & 86.2\% & 45.7\% \\
+ED2Mol & 93,293 & 97.2\% & 97.1\% & 93.6\% \\
+DiffSBDD & 102,000 & 81.8\% & 55.6\% & 42.6\% \\
+GraphBP & 73,598 & 29.5\% & 11.6\% & 8.2\% \\
+FLAG & 83,093 & 95.5\% & 84.2\% & 76.7\% \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Fig. 2d — RNA test set}} \\
+NA2smol & 35,358 & 92.0\% & 66.6\% & 47.7\% \\
+MolCRAFT & 34,925 & 96.7\% & 84.5\% & 66.4\% \\
+Pocket2Mol & 34,097 & 70.5\% & 58.9\% & 22.9\% \\
+ED2Mol & 29,932 & 97.7\% & 97.6\% & 94.8\% \\
+DiffSBDD & 36,999 & 93.9\% & 79.5\% & 70.0\% \\
+GraphBP & 20,571 & 35.3\% & 14.9\% & 10.7\% \\
+FLAG & 27,195 & 95.1\% & 90.1\% & 86.7\% \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Fig. 3a — RNA test set, four configurations}} \\
+Baseline & 36,209 & 91.2\% & 58.1\% & 29.2\% \\
+Pretrain Only & 32,782 & 46.3\% & 30.2\% & 13.2\% \\
+Pretrain+Constrain & 35,640 & 83.8\% & 64.4\% & 37.0\% \\
+NA2smol & 35,358 & 92.0\% & 66.6\% & 47.7\% \\
 \bottomrule
 \end{tabular}
 \end{center}
