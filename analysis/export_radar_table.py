@@ -259,13 +259,11 @@ MAIN_COLS = [
     ('median_qed', 'QED', '%.3f'),
     ('median_sa', 'SA', '%.2f'),
     ('median_sei', 'SEI', '%.3f'),
-    # Strain is reported as three rates rather than a median: every method has a heavy
-    # tail, so a median hides the difference between "a few unusable poses" and "most of
-    # them". A molecule counts as failed, and stays in the denominator, if its strain could
-    # not be computed within the budget or exceeds 1e4 kcal/mol.
-    ('strain_success', 'Succ.', _pct),
-    ('strain_pass500', 'p@500', _pct),
-    ('strain_pass200', 'p@200', _pct),
+    # Strain is the median of the values that were actually computed. Molecules that could
+    # not be evaluated within the budget, or whose strain exceeds 1e4 kcal/mol, are excluded
+    # from this median; their effect on coverage is carried by the success and pass rates in
+    # Supplementary Table 12 rather than by extra columns here.
+    ('median_strain', 'Strain', _fmt_strain),
     ('recovery_observed', 'Rec.', '%.3f'),
     # the part of ECFP4 recovery not explained by a random target assignment
     ('ecfp4_specificity', 'Spec.', _signed),
@@ -276,11 +274,8 @@ MAIN_GROUPS = [('Fig. 2a', 'DUD-E protein'), ('Fig. 2d', 'RNA test set'),
 
 def write_main_table(df: pd.DataFrame) -> None:
     """Best value in each benchmark group in bold, runner-up underlined."""
-    # Eleven columns do not fit the text width at a readable size, so the table is scaled
-    # to it; at \scriptsize the factor is about 0.9, keeping cells near 6.3 pt rather than
-    # the 5 pt \tiny would give.
     out = ['\\begin{table}[!htbp]', '\\centering', '\\scriptsize',
-           '\\setlength{\\tabcolsep}{1.2pt}', '\\resizebox{\\textwidth}{!}{%',
+           '\\setlength{\\tabcolsep}{1.6pt}',
            f'\\begin{{tabular}}{{@{{}}l{chr(99) * (len(MAIN_COLS) + 1)}@{{}}}}', '\\toprule',
            '\\textbf{Method} & ' + ' & '.join(f'\\textbf{{{l}}}' for _, l, _ in MAIN_COLS)
            + ' & \\textbf{Top-2 $\\uparrow$} \\\\',
@@ -343,7 +338,7 @@ def write_main_table(df: pd.DataFrame) -> None:
                 count = body
             cells.append(count)
             out.append(f"{r['method']} & " + ' & '.join(cells) + ' \\\\\\\\')
-    out += ['\\bottomrule', '\\end{tabular}}',
+    out += ['\\bottomrule', '\\end{tabular}',
             '\\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the '
             'configuration comparison (Fig.~3a). Dock., smina docking score (kcal mol$^{-1}$); '
             'RMSD (\\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, '
@@ -351,11 +346,12 @@ def write_main_table(df: pd.DataFrame) -> None:
             'energy (kcal mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., the observed '
             'recovery on the ECFP4-Tanimoto axis. Values are pooled medians over all of a '
             "method's molecules. \\textbf{Bold} marks the best value in each benchmark group and "
-            '\\underline{underline} the second best. Lower is better for Dock., RMSD and SA; '
-            'higher is better for QED, SEI, Succ., p@500, p@200, Rec. and Spec. '
-            'Top-2 counts, out of the ten metrics, how many the method ranks first or second '
-            'on within its group; it takes the same emphasis and orders the rows. These are '
-            'the single-number summaries '
+            '\\underline{underline} the second best; better is lower for Dock., RMSD, SA and '
+            'Strain and higher for QED, SEI, Rec. and Spec. Top-2 counts, out of the eight '
+            'metrics, how many the method ranks first or second on within its group; it '
+            'takes the same emphasis and orders the rows. Strain is the median of the values '
+            'that could be computed; success and pass-rate coverage are in Supplementary '
+            'Table~12. These are the single-number summaries '
             'of the distributions whose normalised retention-curve integrals are drawn in the '
             'radars; the normalised scores themselves are in Supplementary Table~12.}',
             '\\label{radar_values_tab}', '\\end{table}']
