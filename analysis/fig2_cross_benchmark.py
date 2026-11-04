@@ -550,9 +550,9 @@ def render_master(tables: dict) -> None:
     CW0, CW1, CW2 = C0_R - C0_L, C1_R - C1_L, C2_R - C2_L
 
     # Row positions — shorter rows, generous 0.09 inter-row gap
-    R0_B, R0_T = 0.62, 0.88        # height 0.26 (~2.1 in)
-    R1_B, R1_T = 0.30, 0.53        # height 0.23 (~1.8 in)
-    R2_B, R2_T = 0.04, 0.21        # height 0.17 (~1.4 in)
+    R0_B, R0_T = 0.635, 0.88       # height 0.245
+    R1_B, R1_T = 0.320, 0.510      # height 0.19
+    R2_B, R2_T = 0.040, 0.195      # height 0.155
     RH0, RH1, RH2 = R0_T - R0_B, R1_T - R1_B, R2_T - R2_B
 
     axes = {}
@@ -591,7 +591,7 @@ def render_master(tables: dict) -> None:
     # Row 0 — DUD-E protein control (manuscript order: a = DUD-E, d = RNA test set)
     R.draw_bubble_panel(
         axes["a"], radar_scores(tables["dude_radar"], DUDE_METHODS),
-        labels=METHOD_LABELS)
+        labels=METHOD_LABELS, rank_legend=True)
 
     plot_ecfp4(axes["b"], tables["dude_ecfp4"], DUDE_METHODS,
               "Protein ECFP4 recovery", None, y_max=105)
@@ -629,7 +629,7 @@ def render_master(tables: dict) -> None:
         handles=handles,
         loc="upper center",
         bbox_to_anchor=(0.53, 0.99),
-        ncol=5,
+        ncol=len(LEGEND_METHODS),
         frameon=False,
         handlelength=1.0,
         handletextpad=0.35,

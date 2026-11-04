@@ -177,7 +177,7 @@ SCORE_COLS = [
     ('s_qed', 'QED', '%.3f'), ('s_log10_strain', 'Strain', '%.3f'),
     ('s_sa_score', 'SA', '%.3f'), ('s_rmsd', 'RMSD', '%.3f'),
     ('s_affinity', 'Dock.', '%.3f'), ('s_ecfp4', 'ECFP4', '%.3f'),
-    ('s_ecfp4_specificity', 'ECFP4 spec.', '%.3f'), ('s_sei', 'SEI', '%.3f'),
+    ('s_sei', 'SEI', '%.3f'),
 ]
 # coverage of the strain evaluation, which the main table no longer carries
 def _cover_pct(v: float) -> str:
@@ -221,7 +221,7 @@ def _grouped_table(df, cols, panel_title):
 
 def write_latex(df: pd.DataFrame) -> None:
     notes = (
-        'Values underlying the radar panels of Figs.~2a, 2d and 3a. The radar axes are '
+        'Values underlying Figs.~2a, 2d and 3a. In the radar of Fig.~3a each axis is '
         'normalised scores $s_m$ drawn at $r_m = 1 + 2s_m$, so the raw metric values are '
         'not recoverable from the figure and are given here. Property values are pooled '
         'medians over all of the method\'s molecules, the same molecule pool used by the '
@@ -233,10 +233,8 @@ def write_latex(df: pd.DataFrame) -> None:
         '(fraction of targets with at least one molecule reaching ECFP4-TS $\\geq\\tau$, '
         'averaged over $\\tau \\in [0.25,0.50]$). The ECFP4 axis is that raw recovery, not a '
         'rescaling of it: recovery is already the area under the per-target retention curve '
-        'and lies in [0,1], so no cross-method normalisation is needed. ECFP4 spec. is the '
-        'observed recovery minus the recovery under shuffled molecule-to-target assignment, '
-        'i.e.\\ the part not explained by generic similarity to actives; $s=0.5$ there is '
-        'zero specificity. Panel~B gives the eight normalised scores actually plotted, and '
+        'and lies in [0,1], so no cross-method normalisation is needed. Panel~B gives the seven '
+        'normalised scores plotted, and '
         'the final panel gives strain coverage: the percentage of each method molecule pool '
         'whose strain could be computed within the budget and stayed below '
         '$10^{4}$~kcal~mol$^{-1}$. Failures are counted in the denominator of pass rates. '
@@ -244,7 +242,7 @@ def write_latex(df: pd.DataFrame) -> None:
         'output set in both.'
     )
     parts = [
-        '\\section*{Supplementary Table 12 | Normalised radar scores behind the radar panels of Figs.~2 and 3}',
+        '\\section*{Supplementary Table 12 | Normalised scores behind the panels of Figs.~2 and 3}',
         notes, '', '\\bigskip', '',
         _grouped_table(df, SCORE_COLS, 'Normalised radar scores $s_m$'),
         '', '\\bigskip', '',
@@ -284,8 +282,6 @@ MAIN_COLS = [
     # Supplementary Table 12 rather than by extra columns here.
     ('median_strain', 'Strain', _fmt_strain),
     ('recovery_observed', 'Rec.', '%.3f'),
-    # the part of ECFP4 recovery not explained by a random target assignment
-    ('ecfp4_specificity', 'Spec.', _signed),
 ]
 MAIN_GROUPS = [('Fig. 2a', 'DUD-E protein'), ('Fig. 2d', 'RNA test set'),
                ('Fig. 3a', 'RNA test set, four configurations')]
@@ -366,7 +362,7 @@ def write_main_table(df: pd.DataFrame) -> None:
             'recovery on the ECFP4-Tanimoto axis. Values are pooled medians over all of a '
             "method's molecules. \\textbf{Bold} marks the best value in each benchmark group and "
             '\\underline{underline} the second best; better is lower for Dock., RMSD, SA and '
-            'Strain and higher for QED, SEI, Rec. and Spec. Top-2 counts, out of the eight '
+            'Strain and higher for QED, SEI and Rec. Top-2 counts, out of the seven '
             'metrics, how many the method ranks first or second on within its group; it '
             'takes the same emphasis and orders the rows. Strain is the median of the values '
             'that could be computed; success and pass-rate coverage are in Supplementary '

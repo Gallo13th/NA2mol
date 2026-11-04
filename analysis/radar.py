@@ -63,8 +63,10 @@ RADAR_AXES: tuple[Axis, ...] = (
     Axis('affinity', 'Dock.', -11.0, -3.0, higher_is_better=False),
 )
 # ECFP4 and SEI complete the seven; drawn clockwise from the top in this order.
-AXIS_ORDER = ('qed', 'log10_strain', 'sa_score', 'rmsd', 'affinity', 'ecfp4',
-              'ecfp4_specificity', 'sei')
+# Target specificity is computed and reported in the supplement, but it is not a drawn
+# axis: the values are small for every method and comparing them properly needs
+# cross-target comparisons that this benchmark does not provide.
+AXIS_ORDER = ('qed', 'log10_strain', 'sa_score', 'rmsd', 'affinity', 'ecfp4', 'sei')
 ECFP4_LABEL = 'ECFP4'
 SEI_LABEL = 'SEI'
 SEI_RANGE = (0.0, 0.3)
@@ -250,8 +252,8 @@ def _bubble_cmap():
 def draw_bubble_panel(ax, scores_by_method: dict, order: list | None = None,
                       labels: dict | None = None, xlabels: list | None = None,
                       fontsize: float = 4.7, hero: str | None = 'NA2smol',
-                      size_lo: float = 6.0, size_hi: float = 68.0,
-                      format_xlabels: bool = True):
+                      size_lo: float = 3.4, size_hi: float = 13.0,
+                      format_xlabels: bool = True, rank_legend: bool = False):
     """Draw the rank grid on ``ax``.
 
     ``scores_by_method[method][axis]`` is the same 0-1 score the radar would plot; only its
@@ -276,7 +278,8 @@ def draw_bubble_panel(ax, scores_by_method: dict, order: list | None = None,
             xs.append(j)
             ys.append(i)
             frac = (n - rank) / (n - 1) if n > 1 else 1.0
-            sizes.append(size_lo + (size_hi - size_lo) * frac ** 1.7)
+            diam = size_lo + (size_hi - size_lo) * frac
+            sizes.append(0.25 * 3.141592653589793 * diam ** 2)
             colours.append(rank)
     ax.scatter(xs, ys, s=sizes, c=colours, cmap=_bubble_cmap(), vmin=1, vmax=max(n, 2),
                edgecolors='white', linewidths=0.45, zorder=3)
@@ -304,6 +307,26 @@ def draw_bubble_panel(ax, scores_by_method: dict, order: list | None = None,
     for side in ('left', 'bottom'):
         ax.spines[side].set_linewidth(0.5)
     ax.tick_params(length=0, pad=1.5)
+
+    if rank_legend and n > 2:
+        # Two aligned rows under the grid: one bubble per rank, with its label beneath, so the
+        # whole scale is visible at once rather than three sampled values.
+        lax = ax.inset_axes([0.10, -0.47, 0.90, 0.20])
+        lax.set_xlim(0.4, n + 0.6)
+        lax.set_ylim(0.0, 1.0)
+        lax.axis('off')
+        cmap = _bubble_cmap()
+        for rank in range(1, n + 1):
+            frac = (n - rank) / (n - 1)
+            diam = size_lo + (size_hi - size_lo) * frac
+            lax.scatter([rank], [0.74],
+                        s=0.25 * 3.141592653589793 * diam ** 2,
+                        c=[cmap((rank - 1) / max(n - 1, 1))],
+                        edgecolors='white', linewidths=0.45, zorder=3)
+            lax.text(rank, 0.18, f'{rank}', ha='center', va='center',
+                     fontsize=fontsize - 0.3, color='#333333')
+        lax.text(0.4, 0.18, 'rank', ha='right', va='center',
+                 fontsize=fontsize - 0.3, color='#333333')
     return ax
 
 

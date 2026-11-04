@@ -1,0 +1,112 @@
+\section*{Supplementary Table 2 | Row-level recovery sensitivity}
+
+\noindent For every method/configuration and reference filter, recovery is recomputed on the common eligible-target subset that survives the filter ($A_{\text{orig}}$, unfiltered references; $A_{\text{filt}}$, filtered references). $\Delta A = A_{\text{filt}}-A_{\text{orig}}$ with the paired 95\% target-bootstrap interval. FT = fine-tuning training partition; PT = ligand-only pretraining library; $\geq$0.5/0.6/0.7 = maximum ECFP4-Tanimoto similarity threshold.
+
+\textbf{Panel A1. SMRT-Net: NA2smol and external generators}
+
+\setlength{\tabcolsep}{3pt}
+\scriptsize
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Filter} & \textbf{n} & \textbf{$A_{\text{orig}}\to A_{\text{filt}}$} & \textbf{$\Delta A$ (95\% CI)} \\
+\midrule
+ED2Mol & exact FT & 24 & $0.087\to 0.087$ & $+0.000$ [$+0.000$, $+0.000$] \\
+MolCRAFT & exact FT & 24 & $0.064\to 0.064$ & $+0.000$ [$+0.000$, $+0.000$] \\
+Pocket2Mol & exact FT & 24 & $0.087\to 0.087$ & $+0.000$ [$+0.000$, $+0.000$] \\
+NA2smol & exact FT & 24 & $0.245\to 0.245$ & $+0.000$ [$+0.000$, $+0.000$] \\
+ED2Mol & FT $\geq$0.5 & 18 & $0.114\to 0.106$ & $-0.009$ [$-0.024$, $+0.000$] \\
+MolCRAFT & FT $\geq$0.5 & 18 & $0.085\to 0.027$ & $-0.059$ [$-0.161$, $+0.000$] \\
+Pocket2Mol & FT $\geq$0.5 & 18 & $0.116\to 0.098$ & $-0.018$ [$-0.053$, $+0.000$] \\
+NA2smol & FT $\geq$0.5 & 18 & $0.326\to 0.249$ & $-0.077$ [$-0.148$, $-0.017$] \\
+ED2Mol & FT $\geq$0.6 & 19 & $0.110\to 0.108$ & $-0.002$ [$-0.005$, $+0.000$] \\
+MolCRAFT & FT $\geq$0.6 & 19 & $0.081\to 0.029$ & $-0.052$ [$-0.142$, $+0.000$] \\
+Pocket2Mol & FT $\geq$0.6 & 19 & $0.110\to 0.109$ & $-0.001$ [$-0.002$, $+0.000$] \\
+NA2smol & FT $\geq$0.6 & 19 & $0.309\to 0.283$ & $-0.026$ [$-0.078$, $+0.000$] \\
+ED2Mol & FT $\geq$0.7 & 19 & $0.110\to 0.110$ & $+0.000$ [$+0.000$, $+0.000$] \\
+MolCRAFT & FT $\geq$0.7 & 19 & $0.081\to 0.029$ & $-0.052$ [$-0.142$, $+0.000$] \\
+Pocket2Mol & FT $\geq$0.7 & 19 & $0.110\to 0.109$ & $-0.001$ [$-0.002$, $+0.000$] \\
+NA2smol & FT $\geq$0.7 & 19 & $0.309\to 0.309$ & $+0.000$ [$+0.000$, $+0.000$] \\
+ED2Mol & exact PT & 26 & $0.081\to 0.081$ & $+0.000$ [$+0.000$, $+0.000$] \\
+MolCRAFT & exact PT & 26 & $0.062\to 0.062$ & $+0.000$ [$+0.000$, $+0.000$] \\
+Pocket2Mol & exact PT & 26 & $0.077\to 0.077$ & $+0.000$ [$+0.000$, $+0.000$] \\
+NA2smol & exact PT & 26 & $0.226\to 0.226$ & $+0.000$ [$+0.000$, $+0.000$] \\
+ED2Mol & PT $\geq$0.5 & 14 & $0.105\to 0.085$ & $-0.020$ [$-0.053$, $-0.001$] \\
+MolCRAFT & PT $\geq$0.5 & 14 & $0.111\to 0.040$ & $-0.071$ [$-0.193$, $+0.000$] \\
+Pocket2Mol & PT $\geq$0.5 & 14 & $0.054\to 0.011$ & $-0.043$ [$-0.105$, $+0.000$] \\
+NA2smol & PT $\geq$0.5 & 14 & $0.251\to 0.052$ & $-0.198$ [$-0.351$, $-0.071$] \\
+\bottomrule
+\end{tabular}
+
+
+\textbf{Panel A2. DUD-E: NA2smol and external generators}
+
+\setlength{\tabcolsep}{3pt}
+\scriptsize
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Filter} & \textbf{n} & \textbf{$A_{\text{orig}}\to A_{\text{filt}}$} & \textbf{$\Delta A$ (95\% CI)} \\
+\midrule
+ED2Mol & exact FT & 84 & $0.514\to 0.507$ & $-0.007$ [$-0.016$, $-0.001$] \\
+MolCRAFT & exact FT & 84 & $0.345\to 0.342$ & $-0.003$ [$-0.007$, $+0.000$] \\
+Pocket2Mol & exact FT & 84 & $0.502\to 0.483$ & $-0.020$ [$-0.037$, $-0.005$] \\
+NA2smol & exact FT & 84 & $0.692\to 0.682$ & $-0.010$ [$-0.023$, $+0.000$] \\
+ED2Mol & FT $\geq$0.5 & 84 & $0.514\to 0.436$ & $-0.078$ [$-0.107$, $-0.052$] \\
+MolCRAFT & FT $\geq$0.5 & 84 & $0.345\to 0.273$ & $-0.072$ [$-0.100$, $-0.048$] \\
+Pocket2Mol & FT $\geq$0.5 & 84 & $0.502\to 0.361$ & $-0.141$ [$-0.179$, $-0.105$] \\
+NA2smol & FT $\geq$0.5 & 84 & $0.692\to 0.578$ & $-0.114$ [$-0.151$, $-0.080$] \\
+ED2Mol & FT $\geq$0.6 & 84 & $0.514\to 0.467$ & $-0.047$ [$-0.071$, $-0.026$] \\
+MolCRAFT & FT $\geq$0.6 & 84 & $0.345\to 0.313$ & $-0.033$ [$-0.048$, $-0.019$] \\
+Pocket2Mol & FT $\geq$0.6 & 84 & $0.502\to 0.427$ & $-0.075$ [$-0.105$, $-0.047$] \\
+NA2smol & FT $\geq$0.6 & 84 & $0.692\to 0.632$ & $-0.060$ [$-0.092$, $-0.034$] \\
+ED2Mol & FT $\geq$0.7 & 84 & $0.514\to 0.495$ & $-0.019$ [$-0.032$, $-0.008$] \\
+MolCRAFT & FT $\geq$0.7 & 84 & $0.345\to 0.330$ & $-0.016$ [$-0.027$, $-0.007$] \\
+Pocket2Mol & FT $\geq$0.7 & 84 & $0.502\to 0.462$ & $-0.040$ [$-0.061$, $-0.020$] \\
+NA2smol & FT $\geq$0.7 & 84 & $0.692\to 0.670$ & $-0.022$ [$-0.040$, $-0.007$] \\
+ED2Mol & exact PT & 84 & $0.514\to 0.499$ & $-0.014$ [$-0.024$, $-0.006$] \\
+MolCRAFT & exact PT & 84 & $0.345\to 0.339$ & $-0.006$ [$-0.016$, $+0.000$] \\
+Pocket2Mol & exact PT & 84 & $0.502\to 0.481$ & $-0.021$ [$-0.037$, $-0.007$] \\
+NA2smol & exact PT & 84 & $0.692\to 0.677$ & $-0.015$ [$-0.030$, $-0.003$] \\
+ED2Mol & PT $\geq$0.5 & 81 & $0.520\to 0.171$ & $-0.349$ [$-0.400$, $-0.301$] \\
+MolCRAFT & PT $\geq$0.5 & 81 & $0.350\to 0.067$ & $-0.283$ [$-0.329$, $-0.238$] \\
+Pocket2Mol & PT $\geq$0.5 & 81 & $0.507\to 0.169$ & $-0.338$ [$-0.391$, $-0.282$] \\
+NA2smol & PT $\geq$0.5 & 81 & $0.695\to 0.238$ & $-0.458$ [$-0.515$, $-0.399$] \\
+\bottomrule
+\end{tabular}
+
+
+\textbf{Panel B. SMRT-Net sequential ablation configurations}
+
+\setlength{\tabcolsep}{3pt}
+\scriptsize
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Filter} & \textbf{n} & \textbf{$A_{\text{orig}}\to A_{\text{filt}}$} & \textbf{$\Delta A$ (95\% CI)} \\
+\midrule
+NA2smol & exact FT & 24 & $0.245\to 0.245$ & $+0.000$ [$+0.000$, $+0.000$] \\
+Pretrain Only & exact FT & 24 & $0.039\to 0.039$ & $+0.000$ [$+0.000$, $+0.000$] \\
+Pretrain+Constrain & exact FT & 24 & $0.148\to 0.146$ & $-0.003$ [$-0.008$, $+0.000$] \\
+no-pretraining baseline & exact FT & 24 & $0.158\to 0.156$ & $-0.003$ [$-0.008$, $+0.000$] \\
+NA2smol & FT $\geq$0.5 & 18 & $0.326\to 0.249$ & $-0.077$ [$-0.148$, $-0.017$] \\
+Pretrain Only & FT $\geq$0.5 & 18 & $0.052\to 0.034$ & $-0.017$ [$-0.039$, $+0.000$] \\
+Pretrain+Constrain & FT $\geq$0.5 & 18 & $0.198\to 0.182$ & $-0.016$ [$-0.033$, $-0.002$] \\
+no-pretraining baseline & FT $\geq$0.5 & 18 & $0.211\to 0.134$ & $-0.077$ [$-0.178$, $-0.009$] \\
+NA2smol & FT $\geq$0.6 & 19 & $0.309\to 0.283$ & $-0.026$ [$-0.078$, $+0.000$] \\
+Pretrain Only & FT $\geq$0.6 & 19 & $0.049\to 0.041$ & $-0.008$ [$-0.025$, $+0.000$] \\
+Pretrain+Constrain & FT $\geq$0.6 & 19 & $0.187\to 0.181$ & $-0.007$ [$-0.020$, $+0.000$] \\
+no-pretraining baseline & FT $\geq$0.6 & 19 & $0.200\to 0.158$ & $-0.042$ [$-0.124$, $+0.000$] \\
+NA2smol & FT $\geq$0.7 & 19 & $0.309\to 0.309$ & $+0.000$ [$+0.000$, $+0.000$] \\
+Pretrain Only & FT $\geq$0.7 & 19 & $0.049\to 0.049$ & $+0.000$ [$+0.000$, $+0.000$] \\
+Pretrain+Constrain & FT $\geq$0.7 & 19 & $0.187\to 0.184$ & $-0.003$ [$-0.010$, $+0.000$] \\
+no-pretraining baseline & FT $\geq$0.7 & 19 & $0.200\to 0.197$ & $-0.003$ [$-0.010$, $+0.000$] \\
+NA2smol & exact PT & 26 & $0.226\to 0.226$ & $+0.000$ [$+0.000$, $+0.000$] \\
+Pretrain Only & exact PT & 26 & $0.036\to 0.036$ & $+0.000$ [$+0.000$, $+0.000$] \\
+Pretrain+Constrain & exact PT & 26 & $0.137\to 0.137$ & $+0.000$ [$+0.000$, $+0.000$] \\
+no-pretraining baseline & exact PT & 26 & $0.146\to 0.146$ & $+0.000$ [$+0.000$, $+0.000$] \\
+NA2smol & PT $\geq$0.5 & 14 & $0.251\to 0.052$ & $-0.198$ [$-0.351$, $-0.071$] \\
+Pretrain Only & PT $\geq$0.5 & 14 & $0.066\to 0.052$ & $-0.014$ [$-0.030$, $+0.000$] \\
+Pretrain+Constrain & PT $\geq$0.5 & 14 & $0.203\to 0.104$ & $-0.099$ [$-0.196$, $-0.023$] \\
+no-pretraining baseline & PT $\geq$0.5 & 14 & $0.191\to 0.114$ & $-0.077$ [$-0.150$, $-0.015$] \\
+\bottomrule
+\end{tabular}
+
+\noindent{\scriptsize All $\Delta A$ values are filtered-minus-original changes on identical eligible targets. $A_{\text{orig}}$ here is the unfiltered-reference recovery on the filter-matched subset, not the all-target value.}
