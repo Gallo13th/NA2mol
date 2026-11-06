@@ -1,0 +1,36 @@
+# Data cleanup manifest
+# Removed because the analyses they feed are no longer in the paper, or because a
+# merged, current file supersedes them and nothing references them.
+
+## Dead script and its data (MolCRAFT random-mapping control, removed from the paper)
+-rw-r--r--. 1 gaoletian gaoletian 15403 Oct 29 12:15 analysis/sfig2_mapping_control.py
+350M	data/benchmark/molcraft_random_mapping_dude
+68M	data/benchmark/output/molcraft_mapping_control
+
+## Superseded per-method result files (0 references in any current script)
+6.1M	data/benchmark/bkg_smiles.csv
+28M	data/benchmark/diffedmol_dude0303_results.csv
+16M	data/benchmark/diffedmol_smrtbench_results_20260309.csv
+16K	data/benchmark/dude_scatffold_stat_by_mw.csv
+8.0K	data/benchmark/dude_scatffold_stat.csv
+4.0K	data/benchmark/dude_scattfold_stat.csv
+16K	data/benchmark/dude_stat.csv
+25M	data/benchmark/ed2mol_dude_results.csv
+7.7M	data/benchmark/ed2mol_smrtbench_results.csv
+30M	data/benchmark/molcraft_dude_results.csv
+24M	data/benchmark/molcraft_orig_dude_results.csv
+9.2M	data/benchmark/molcraft_smrtbench_results.csv
+9.2M	data/benchmark/pkt2mol_smrtbench_results.csv
+18M	data/benchmark/Pocket2Mol_dude_results.csv
+1.4M	data/benchmark/rna2smol_abl_generalfeat_cst_smrtbench_results.csv
+27M	data/benchmark/rna2smol_dude_results_0506.csv
+4.0K	data/benchmark/rna2smol_eval_results_ondude.csv
+4.0K	data/benchmark/rna2smol_eval_results_onsmrtnet.csv
+4.0K	data/benchmark/smrtnet_bm_scatffold_recov_stat.csv
+4.0K	data/benchmark/smrtnet_csk_scatffold_recov_stat.csv
+16K	data/benchmark/smrtnet_scatffold_stat_by_mw.csv
+4.0K	data/benchmark/smrtnet_scatffold_stat.csv
+4.0K	data/benchmark/smrtnet_scatffold_stat_druglike.csv
+49M	data/benchmark/smrtnet_stat_all.csv
+12K	data/benchmark/smrtnet_stat.csv
+4.0K	data/benchmark/test.csv

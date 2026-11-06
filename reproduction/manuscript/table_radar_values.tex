@@ -1,6 +1,7 @@
 \begin{table}[!htbp]
 \centering
 \scriptsize
+\renewcommand{\arraystretch}{0.94}
 \setlength{\tabcolsep}{1.6pt}
 \begin{tabular}{@{}lcccccccc@{}}
 \toprule
@@ -31,6 +32,6 @@ Baseline & $-6.03$ & \textbf{1.09} & 0.484 & \underline{3.86} & 0.078 & 331 & \u
 Pretrain Only & $-7.19$ & 1.32 & 0.509 & 5.11 & 0.096 & 331 & 0.035 & 0/7 \\\\
 \bottomrule
 \end{tabular}
-\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the configuration comparison (Fig.~3a). Dock., smina docking score (kcal mol$^{-1}$); RMSD (\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, surface efficiency index ($-$docking score / TPSA); Strain, conformational strain energy (kcal mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., the observed recovery on the ECFP4-Tanimoto axis. Values are pooled medians over all of a method's molecules. \textbf{Bold} marks the best value in each benchmark group and \underline{underline} the second best; better is lower for Dock., RMSD, SA and Strain and higher for QED, SEI and Rec. Top-2 counts, out of the seven metrics, how many the method ranks first or second on within its group; it takes the same emphasis and orders the rows. Strain is the median of the values that could be computed; success and pass-rate coverage are in Supplementary Table~12. These are the single-number summaries of the distributions whose normalised retention-curve integrals are drawn in the radars; the normalised scores themselves are in Supplementary Table~12.}
+\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the configuration comparison (Fig.~3a). Dock., smina docking score (kcal mol$^{-1}$); RMSD (\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, surface efficiency index ($-$docking score / TPSA); Strain, conformational strain energy (kcal mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., the observed recovery on the ECFP4-Tanimoto axis, on the fixed 101-target DUD-E and 27-target RNA universes, missing output scored as zero; Supplementary Table~10 uses the 84-target DUD-E set. Values are pooled medians over all of a method's molecules. \textbf{Bold} marks the best value in each benchmark group and \underline{underline} the second best; better is lower for Dock., RMSD, SA and Strain and higher for QED, SEI and Rec. Top-2 counts, out of the seven metrics, how many the method ranks first or second on within its group; it takes the same emphasis and orders the rows. Strain is the median of the values that was evaluated at or below $10^{4}$~kcal~mol$^{-1}$; larger and unevaluable geometries are excluded as failures. Unfiltered values are in Supplementary Table~8, per-target medians in Fig.~3d. Success and pass-rate coverage are in Supplementary Table~12.}
 \label{radar_values_tab}
 \end{table}

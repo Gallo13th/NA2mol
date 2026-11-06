@@ -856,7 +856,7 @@ def export_dude():
     df['mw_bin'] = pd.cut(df['mw'], bins=[0, 120, 180, 300, 420, 2000],
                            labels=['0–120', '120-180', '180–300', '300-420', '≥420'])
 
-    METHODS = ['RNA2smol', 'MolCRAFT', 'MolCRAFT (Original)', 'Pocket2Mol', 'ed2mol']
+    METHODS = ['RNA2smol', 'MolCRAFT', 'Pocket2Mol', 'ed2mol']
     d = df[df['mode'].isin(METHODS)]
 
     # ── Table D1: Main comparison — per-metric mean±std across targets ──────

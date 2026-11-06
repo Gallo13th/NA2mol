@@ -186,7 +186,7 @@ def _cover_pct(v: float) -> str:
 
 
 COVER_COLS = [
-    ('strain_success', 'Strain success', _cover_pct),
+    ('strain_success', 'Strain evaluated', _cover_pct),
     ('strain_pass500', 'pass@500', _cover_pct),
     ('strain_pass200', 'pass@200', _cover_pct),
 ]
@@ -227,8 +227,14 @@ def write_latex(df: pd.DataFrame) -> None:
         'medians over all of the method\'s molecules, the same molecule pool used by the '
         'retention-curve integrals; the radar axes for docking, RMSD, QED, SA, SEI and '
         'strain are the normalised integral of the retention curve (log$_{10}$ scale for '
-        'strain), so a median is a summary and not the plotted quantity. Dock. is in '
-        'kcal mol$^{-1}$, RMSD in \\AA, and strain in kcal mol$^{-1}$; strain values above '
+        'strain). Strain is the median over molecules whose strain could be evaluated and lay at '
+        'or below $10^{4}$~kcal~mol$^{-1}$: larger values and geometries whose evaluation did not '
+        'finish are counted as failures and excluded from the median, so this column describes the '
+        'molecules the pipeline would actually screen. The unfiltered distribution, including the '
+        'failed tail, is in Supplementary Table~8, and Fig.~3d instead shows the median of '
+        'per-target medians on the common target set, so the three quantities differ by '
+        'construction. Dock. is in '
+        'kcal mol$^{-1}$, RMSD in \\AA, and strain in kcal mol$^{-1}$; values above '
         '10$^3$ are written in scientific notation. ECFP4 rec. is the observed recovery '
         '(fraction of targets with at least one molecule reaching ECFP4-TS $\\geq\\tau$, '
         'averaged over $\\tau \\in [0.25,0.50]$). The ECFP4 axis is that raw recovery, not a '
@@ -247,6 +253,12 @@ def write_latex(df: pd.DataFrame) -> None:
         _grouped_table(df, SCORE_COLS, 'Normalised radar scores $s_m$'),
         '', '\\bigskip', '',
         _grouped_table(df, COVER_COLS, 'Strain coverage (percent of each method molecule pool)'),
+        '\\noindent{\\footnotesize Strain evaluated counts a molecule as failed when the force-field '
+        'evaluation did not finish inside the budget \\emph{or} its strain exceeded '
+        '$10^{4}$~kcal~mol$^{-1}$; failures stay in the denominator $n$. This is a stricter quantity '
+        'than the PoseCheck success fraction of Supplementary Table~8, which records only whether '
+        'the evaluation finished. pass@500 and pass@200 are percentages of the whole pool, not of '
+        'the evaluated subset.}\\par',
     ]
     OUT_TEX.parent.mkdir(parents=True, exist_ok=True)
     OUT_TEX.write_text('\n'.join(parts) + '\n')
@@ -290,6 +302,7 @@ MAIN_GROUPS = [('Fig. 2a', 'DUD-E protein'), ('Fig. 2d', 'RNA test set'),
 def write_main_table(df: pd.DataFrame) -> None:
     """Best value in each benchmark group in bold, runner-up underlined."""
     out = ['\\begin{table}[!htbp]', '\\centering', '\\scriptsize',
+           '\\renewcommand{\\arraystretch}{0.94}',
            '\\setlength{\\tabcolsep}{1.6pt}',
            f'\\begin{{tabular}}{{@{{}}l{chr(99) * (len(MAIN_COLS) + 1)}@{{}}}}', '\\toprule',
            '\\textbf{Method} & ' + ' & '.join(f'\\textbf{{{l}}}' for _, l, _ in MAIN_COLS)
@@ -359,16 +372,18 @@ def write_main_table(df: pd.DataFrame) -> None:
             'RMSD (\\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, '
             'surface efficiency index ($-$docking score / TPSA); Strain, conformational strain '
             'energy (kcal mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., the observed '
-            'recovery on the ECFP4-Tanimoto axis. Values are pooled medians over all of a '
+            'recovery on the ECFP4-Tanimoto axis, on the fixed 101-target DUD-E and 27-target RNA '
+            'universes, missing output scored as zero; Supplementary Table~10 uses the 84-target '
+            'DUD-E set. Values are pooled medians over all of a '
             "method's molecules. \\textbf{Bold} marks the best value in each benchmark group and "
             '\\underline{underline} the second best; better is lower for Dock., RMSD, SA and '
             'Strain and higher for QED, SEI and Rec. Top-2 counts, out of the seven '
             'metrics, how many the method ranks first or second on within its group; it '
             'takes the same emphasis and orders the rows. Strain is the median of the values '
-            'that could be computed; success and pass-rate coverage are in Supplementary '
-            'Table~12. These are the single-number summaries '
-            'of the distributions whose normalised retention-curve integrals are drawn in the '
-            'radars; the normalised scores themselves are in Supplementary Table~12.}',
+            'that was evaluated at or below $10^{4}$~kcal~mol$^{-1}$; larger and unevaluable '
+            'geometries are excluded as failures. Unfiltered values are in Supplementary Table~8, '
+            'per-target medians in Fig.~3d. Success and pass-rate coverage are in '
+            'Supplementary Table~12.}',
             '\\label{radar_values_tab}', '\\end{table}']
     path = ROOT / 'reproduction' / 'manuscript' / 'table_radar_values.tex'
     path.parent.mkdir(parents=True, exist_ok=True)
