@@ -418,3 +418,20 @@ whole text between rounds.
 - One redundancy introduced by the polish ("complex-free … requiring no pocket–ligand complexes") was
   removed from the Nature Methods closing paragraph.
 - PDFs regenerated from the final .docx for both letters.
+
+## 2026-11-22 — Repository sync
+
+- The whole submission package was copied into the repository at
+  `reproduction/manuscript/` (LaTeX sources, the six figure PDFs actually included, `bst/`,
+  `scripts/`, the three built PDFs, both enquiry letters and the Reporting Summary draft) and
+  committed as `80c2ceb`; the Data and Code availability statement now cites that commit, and the
+  follow-up commit `31ef4a0` carries the rebuilt PDFs.
+- `~/projects/NA2smol_paper` was refreshed from the same package so the mirror is no longer stale.
+- The model, dataloader, inpainting scripts and the case-study scripts are in the same commit, so the
+  released code and the manuscript describe the same thing.
+- Not pushed to GitHub: the analysis host has no SSH key for `Gallo13th/NA2mol`
+  (`git ls-remote origin` → permission denied). The commits exist on the host only.
+- Building on the analysis host is not possible as-is: its TeX Live 2021 install lacks the
+  sn-jnl class dependencies (`cuted`, `stfloats`, `threeparttable`, `appendix`, `lineno`, `natbib`
+  and others), and mixing a current `hyperref` into a user texmf tree raises a version-mismatch
+  error. The PDFs in the repository were therefore built on the Mac and committed.
