@@ -1,0 +1,87 @@
+\noindent This Supplementary Information provides implementation details and audit tables supporting the manuscript. The main benchmark results use unconstrained pocket-conditioned generation. An optional mode generates the unfixed portion of a molecule while retaining specified atom positions and element types.
+
+\section*{Supplementary Note 1 | Generation with fixed atom subsets}
+
+NA2smol includes an optional fixed-subset generation mode that retains specified atom positions and types (Algorithm~\ref{alg:constrained}). Reported benchmarks and the KRAS G-quadruplex case study use generation from the target pocket without fixed ligand fragments (Methods).
+
+For scaffold-based redesign, this mode conditions generation on a subset of atoms with fixed positions and types (the fixed subset). The fixed atoms are made to follow the same forward Bayesian-flow dynamics used during training, whereas the remaining (free) atoms are generated through the standard reverse sampling process. Algorithm~\ref{alg:constrained} gives the corresponding fixed-code procedure.
+
+\begin{algorithm}[H]
+\caption{Seed-constrained inpainting sampling}
+\label{alg:constrained}
+\begin{algorithmic}[1]
+\Require Fixed atom mask $\mathbf{m} \in \{0,1\}^N$, fixed positions $\mathbf{X}_{\text{fixed}}$, fixed types $\mathbf{T}_{\text{fixed}}$ (one-hot), sampling steps $T$, pocket conditioning $\mathcal{P}$
+\Ensure Generated ligand whose seed atoms equal $(\mathbf{X}_{\text{fixed}}, \mathbf{T}_{\text{fixed}})$
+
+\Statex \textbf{Phase 1: Pre-compute forward states for fixed atoms}
+
+\For{$i \gets 0$ to $T$}
+    \State $t_i \gets i / T$
+    \State $\gamma_i \gets 1 - \sigma_1^{2t_i}$
+    \State $\boldsymbol{\mu}_{\text{coord}}^{\text{fixed}}[i, \mathbf{m}] \gets \gamma_i \cdot \mathbf{X}_{\text{fixed}}$
+    \State $\boldsymbol{\theta}_{\text{type}}^{\text{fixed}}[i, \mathbf{m}] \gets \mathbf{T}_{\text{fixed}}$
+\EndFor
+
+\Statex \textbf{Phase 2: Initialise free atoms}
+
+\State $\boldsymbol{\mu}_{\text{coord}}^{(0)}[\neg \mathbf{m}] \gets \mathbf{0}$
+\State $\boldsymbol{\theta}_{\text{type}}^{(0)}[\neg \mathbf{m}] \gets \mathbf{1}/K$
+
+\Statex \textbf{Phase 3: Joint reverse sampling with fixed-atom states}
+
+\For{$i \gets 1$ to $T$}
+    \State $t \gets (i-1) / T$,\quad $t^{+} \gets i / T$
+
+    \State \textbf{Assemble input coordinate and atom-type distributions} (fixed atoms from the precomputed forward states, free atoms from the running state):
+    \State $\boldsymbol{\mu}_{\text{coord}}^{\text{input}} \gets \boldsymbol{\mu}_{\text{coord}}^{\text{fixed}}[i-1, \mathbf{m}]$ on $\mathbf{m}$; $\boldsymbol{\mu}_{\text{coord}}^{(i-1)}[\neg \mathbf{m}]$ elsewhere
+    \State $\boldsymbol{\theta}_{\text{type}}^{\text{input}} \gets \boldsymbol{\theta}_{\text{type}}^{\text{fixed}}[i-1, \mathbf{m}]$ on $\mathbf{m}$; $\boldsymbol{\theta}_{\text{type}}^{(i-1)}[\neg \mathbf{m}]$ elsewhere
+
+    \State \textbf{Model prediction on the full graph} (fixed atoms included):
+    \State $\hat{\mathbf{X}}^{(i)}, \hat{\mathbf{p}}_0^{(i)} \gets \text{NA2smol}(\boldsymbol{\mu}_{\text{coord}}^{\text{input}}, \boldsymbol{\theta}_{\text{type}}^{\text{input}}, t, \mathcal{P})$
+
+    \State \textbf{Sample atom types} for output bookkeeping:
+    \State $k \sim \mathrm{Categorical}(\hat{\mathbf{p}}_0^{(i)})$;\quad $k[\mathbf{m}] \gets$ fixed classes of $\mathbf{T}_{\text{fixed}}$
+
+    \State \textbf{Closed-form Bayesian-flow update of free atoms at $t^{+}$:}
+    \State $\gamma^{+} \gets 1 - \sigma_1^{2t^{+}}$
+    \State $\boldsymbol{\mu}_{\text{coord}}^{(i)}[\neg \mathbf{m}] \gets \gamma^{+} \hat{\mathbf{X}}^{(i)}[\neg \mathbf{m}] + \sqrt{\gamma^{+}(1-\gamma^{+})}\, \boldsymbol{\epsilon}_{\text{coord}},\ \ \boldsymbol{\epsilon}_{\text{coord}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$
+    \State $\boldsymbol{\theta}_{\text{type}}^{(i)}[\neg \mathbf{m}] \gets \mathrm{softmax}\bigl(\beta_1 (t^{+})^2 (K \hat{\mathbf{p}}_0^{(i)}[\neg \mathbf{m}] - \mathbf{1}) + \sqrt{\beta_1 (t^{+})^2 K}\, \boldsymbol{\epsilon}_{\text{type}}\bigr),\ \ \boldsymbol{\epsilon}_{\text{type}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$
+
+    \State \textbf{Fixed-subset update:} fixed atoms are excluded from both updates (their states enter only via the assembled inputs).
+\EndFor
+
+\State \textbf{Final prediction at $t = 1$} with inputs assembled from $\boldsymbol{\mu}^{\text{fixed}}[T, \mathbf{m}]$, $\boldsymbol{\theta}^{\text{fixed}}[T, \mathbf{m}]$ and the final free-atom states:
+\State $\hat{\mathbf{X}}_{\text{final}}, \hat{\mathbf{p}}_{0,\text{final}} \gets \text{NA2smol}(\boldsymbol{\mu}_{\text{coord}}^{\text{input}}, \boldsymbol{\theta}_{\text{type}}^{\text{input}}, 1, \mathcal{P})$
+
+\State \Return $\hat{\mathbf{X}}_{\text{final}}$, $\hat{\mathbf{p}}_{0,\text{final}}$ (seed atoms read out as $\mathbf{X}_{\text{fixed}}$, $\mathbf{T}_{\text{fixed}}$)
+\end{algorithmic}
+\end{algorithm}
+
+Fixed atoms follow precomputed forward trajectories: coordinates follow $\boldsymbol{\mu}(t) = \gamma(t) \cdot \mathbf{X}_{\text{fixed}}$ with $\gamma(t) = 1 - \sigma_1^{2t}$, and atom-type distributions are held at the one-hot fixed-subset types. These states are inserted into the sampler at every step and overwrite any update to the fixed atoms; the sampled class of a fixed atom is likewise overwritten with its seed class. Free atoms are initialised from the prior ($\boldsymbol{\mu} = \mathbf{0}$, $\boldsymbol{\theta} = \mathbf{1}/K$) and are refreshed at each step by the closed-form Bayesian-flow updates applied to the model's own prediction $(\hat{\mathbf{X}}, \hat{\mathbf{p}}_0)$ at $t^{+}$. A variant that instead accumulates message-passing updates with precision $\rho_{\text{coord}}$ (the update style sketched in the main-text sampling algorithm) is also implemented; both variants share Phases 1, 2 and the fixed-atom-state structure above. The model processes the complete graph of fixed and free atoms at every step, allowing the fixed subset to condition the placement and atom types of the generated remainder.
+
+\section*{Supplementary Note 2 | Reproducibility and implementation details}
+
+Code and selected metadata are available in the repository listed in Data availability. Provenance records, reference tables and structure-identifier cross-checks support reproducibility. Large training databases, model checkpoints and benchmark outputs require separate deposition.
+
+\section*{Supplementary Note 3 | Provenance of the fragment-based KRAS G-quadruplex ligand}
+
+The 2,2$'$-methylenebis(benzothiazole) molecule was produced by the fragment-recombination workflow (Fig.~4); the crystallographic berberine ligand was not used as a template. Its benzothiazole ring systems derive from the pooled ring fragments and their heteroatom variants, joined through a matched attachment site (same removed-neighbour element; neighbour-position separation $\leq1.0$~\AA, Methods). The molecule's BER102 pose is the relaxed multi-seed docking pose from this workflow. Because the fragment pool was generated from the BER102 pocket, the assembled pose occupies the same site as the crystallographic ligand.
+
+\input{si_note4_revised}
+
+\clearpage
+
+\input{si_note5_chemical_overlap}
+\section*{Supplementary Note 6 | Target specificity of ECFP4 recovery}
+Recovery can be decomposed into the part explained by generic similarity to reference actives and
+the part that depends on which target a molecule was generated for. We computed the difference
+between the observed recovery and its value under shuffled molecule-to-target assignment (1,000
+permutations), which isolates the second part. On the protein benchmark the largest difference
+was for DiffSBDD (0.077 against a null of 0.380) followed by NA2smol (0.019 against 0.637); on the
+RNA test set NA2smol gave the largest (0.037 against 0.180), with the remaining methods between
+$-0.076$ and $0.019$. These differences are small for every method, and we do not read them as
+evidence of a difference in target selectivity. Separating selectivity from the composition of the
+generated library would require comparing the similarity of molecules generated for different
+targets with that of the reference ligands of those targets, which this benchmark does not provide.
+The quantity is reported here for completeness and is not used as an axis in Figs.~2
+or 3.

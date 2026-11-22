@@ -1365,8 +1365,10 @@ class BFN4SBDDScoreModel(BFNBase):
         self.time_emb_dim = time_emb_dim
         if self.time_emb_dim > 0:
             self.time_emb_layer = TimeEmbedLayer(self.time_emb_mode, self.time_emb_dim)
+        # +2: per-atom inpainting indicators (position given?, type given?). The extra
+        # input columns are zeroed after checkpoint loading, so the pretrained model is intact.
         self.ligand_atom_emb = nn.Linear(
-            ligand_atom_feature_dim + self.time_emb_dim, emb_dim
+            ligand_atom_feature_dim + self.time_emb_dim + 2, emb_dim
         )
 
         self.v_inference = nn.Sequential(
@@ -1408,6 +1410,8 @@ class BFN4SBDDScoreModel(BFNBase):
         mu_pos_t,
         batch_ligand,  # index for ligand
         gamma_coord,
+        pos_mask=None,   # [N_ligand] bool: this atom's position is given (constant belief)
+        type_mask=None,  # [N_ligand] bool: this atom's element type is given (constant belief)
         return_all=False,  # legacy from targetdiff
         fix_x=False,
         return_logits=False,
@@ -1452,6 +1456,13 @@ class BFN4SBDDScoreModel(BFNBase):
             input_ligand_feat = torch.cat([init_ligand_v, time_emb], -1)
         else:
             input_ligand_feat = init_ligand_v
+        n_lig = input_ligand_feat.size(0)
+        if pos_mask is None:
+            pos_mask = torch.zeros(n_lig, dtype=torch.bool, device=input_ligand_feat.device)
+        if type_mask is None:
+            type_mask = torch.zeros(n_lig, dtype=torch.bool, device=input_ligand_feat.device)
+        input_ligand_feat = torch.cat(
+            [input_ligand_feat, pos_mask.float().view(-1, 1), type_mask.float().view(-1, 1)], -1)
 
         w_v_raw   = torch.sigmoid(self.v_scale)
         w_res_raw = torch.sigmoid(self.res_scale) if pocket_res is not None else 0.0
@@ -1600,6 +1611,8 @@ class BFN4SBDDScoreModel(BFNBase):
         # ligand_e=None,
         # ligand_ei=None,
         batch_ligand=None,
+        pos_mask=None,
+        type_mask=None,
         # batch_ligand_ei=None
     ):
         K = self.num_classes
@@ -1617,6 +1630,11 @@ class BFN4SBDDScoreModel(BFNBase):
         theta = self.discrete_var_bayesian_update(
             t, beta1=self.beta1, x=ligand_v, K=K
         )  # [N, K]
+        # fixed attributes enter as constants: no forward noise on what we were given
+        if pos_mask is not None:
+            mu_coord = torch.where(pos_mask.unsqueeze(-1), ligand_pos, mu_coord)
+        if type_mask is not None:
+            theta = torch.where(type_mask.unsqueeze(-1), ligand_v, theta)
 
         # 2. Compute output distribution parameters for p_O (x' | θ; t) (x_hat or k^(d) logits)
         # continuous x ~ δ(x − x_hat(θ, t))
@@ -1633,6 +1651,8 @@ class BFN4SBDDScoreModel(BFNBase):
             mu_pos_t=mu_coord,
             batch_ligand=batch_ligand,
             gamma_coord=gamma_coord,
+            pos_mask=pos_mask,
+            type_mask=type_mask,
         )  # [N, 3], [N, K], [?]
         # print('ei:', ei.shape)
         # print('gt_ei', ligand_ei.shape)
@@ -1640,24 +1660,32 @@ class BFN4SBDDScoreModel(BFNBase):
         # e_gt, e_batch = build_e_gt(ligand_e, ligand_ei, ei, batch_ligand)
         # print('e_gt:', e_gt.shape, e_gt)
         # print('e_gt_batch:', e_batch.shape)
-        # 3. Compute reweighted loss (previous [N,] now [B,])
+        # 3. Compute reweighted loss (previous [N,] now [B,]), restricted to free attributes:
+        # atoms whose attribute was given are pushed into a sentinel segment and dropped after.
+        n_graphs = int(batch_ligand.max().item()) + 1
+        seg_coord = batch_ligand.clone()
+        if pos_mask is not None:
+            seg_coord = torch.where(pos_mask, torch.full_like(batch_ligand, n_graphs), seg_coord)
+        seg_type = batch_ligand.clone()
+        if type_mask is not None:
+            seg_type = torch.where(type_mask, torch.full_like(batch_ligand, n_graphs), seg_type)
+
         if not self.use_discrete_t:
             closs = self.ctime4continuous_loss(
                 t=t,
                 sigma1=self.sigma1_coord,
                 x_pred=coord_pred,
                 x=ligand_pos,
-                segment_ids=batch_ligand,
-            )  # [B,]
+                segment_ids=seg_coord,
+            )[:n_graphs]  # [B,]
             dloss = self.ctime4discrete_loss(
                 t=t,
                 beta1=self.beta1,
                 one_hot_x=ligand_v,
                 p_0=p0_h,
                 K=K,
-                segment_ids=batch_ligand,
-            )  # [B,]
-            # print(dloss.shape)
+                segment_ids=seg_type,
+            )[:n_graphs]  # [B,]
             # assert False, "Stop Here"
             # dloss = dloss * (ligand_v.argmax(-1) == 0)
             
@@ -1695,8 +1723,8 @@ class BFN4SBDDScoreModel(BFNBase):
                 sigma1=self.sigma1_coord,
                 x_pred=coord_pred,
                 x=ligand_pos,
-                segment_ids=batch_ligand,
-            )
+                segment_ids=seg_coord,
+            )[:n_graphs]
 
             dloss = self.dtime4discrete_loss_prob(
                 i=i,
@@ -1705,8 +1733,8 @@ class BFN4SBDDScoreModel(BFNBase):
                 one_hot_x=ligand_v,
                 p_0=p0_h,
                 K=K,
-                segment_ids=batch_ligand,
-            )
+                segment_ids=seg_type,
+            )[:n_graphs]
             
             eloss = self.dtime4discrete_loss_prob(
                 i=i,
@@ -2116,6 +2144,7 @@ class BFN4SBDDScoreModel(BFNBase):
         fixed_atom_pos,   # [N_fixed, 3]
         fixed_atom_types, # [N_fixed] (class indices) or [N_fixed, K] (one-hot)
         sample_steps=1000,
+        type_fixed_mask=None,  # [N_ligand_total], bool (element types fixed)
         desc='',
         ligand_pos=None,  # for debug
         pocket_res=None,
@@ -2143,13 +2172,17 @@ class BFN4SBDDScoreModel(BFNBase):
         n_free = (~fixed_atom_mask).sum().item()
     
         assert fixed_atom_pos.shape[0] == n_fixed, (fixed_atom_pos.shape[0], n_fixed)
+        type_fixed_mask_o2 = (type_fixed_mask if type_fixed_mask is not None
+                              else fixed_atom_mask)
+        n_type_fixed = int(type_fixed_mask_o2.sum().item())
         if fixed_atom_types.dim() == 2:
-            assert fixed_atom_types.shape == (n_fixed, K)
+            assert fixed_atom_types.shape == (n_type_fixed, K), (fixed_atom_types.shape, n_type_fixed)
             fixed_atom_types_indices = fixed_atom_types.argmax(dim=-1)  # for discrete prior
             fixed_atom_types_onehot = fixed_atom_types.float()
         elif fixed_atom_types.dim() == 1:
-            assert fixed_atom_types.shape[0] == n_fixed
-            assert fixed_atom_types.max() < K and fixed_atom_types.min() >= 0
+            assert fixed_atom_types.shape[0] == n_type_fixed
+            if n_type_fixed > 0:      # the type-only task can leave every position free
+                assert fixed_atom_types.max() < K and fixed_atom_types.min() >= 0
             fixed_atom_types_indices = fixed_atom_types.long()
             fixed_atom_types_onehot = F.one_hot(fixed_atom_types_indices, num_classes=K).float()
         else:
@@ -2160,10 +2193,10 @@ class BFN4SBDDScoreModel(BFNBase):
         fixed_atom_pos_full[fixed_atom_mask] = fixed_atom_pos
     
         fixed_atom_types_full = torch.zeros(N_ligand_total, K, device=device)
-        fixed_atom_types_full[fixed_atom_mask] = fixed_atom_types_onehot
+        fixed_atom_types_full[type_fixed_mask_o2] = fixed_atom_types_onehot
     
         fixed_atom_indices_full = torch.full((N_ligand_total,), -1, dtype=torch.long, device=device)
-        fixed_atom_indices_full[fixed_atom_mask] = fixed_atom_types_indices
+        fixed_atom_indices_full[type_fixed_mask_o2] = fixed_atom_types_indices
     
         # --- Precompute pseudo trajectories for fixed atoms ---
         # Shape: [sample_steps + 1, N_ligand_total, ...]
@@ -2206,6 +2239,9 @@ class BFN4SBDDScoreModel(BFNBase):
         theta_traj = []
         y_traj = []
     
+        if type_fixed_mask is None:
+            type_fixed_mask = fixed_atom_mask
+        pos_fixed_mask = fixed_atom_mask
         free_mask = ~fixed_atom_mask  # [N_ligand_total]
     
         for i in trange(1, sample_steps + 1, desc=f'{desc}'):
@@ -2219,9 +2255,11 @@ class BFN4SBDDScoreModel(BFNBase):
     
             # --- Prepare input to model: fixed atoms use pseudo trajectory ---
             if i != 0:
-                mu_pos_input = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_mu_pos[i - 1], mu_pos_t)
+                # fixed attributes are constants, not a noisy trajectory
+                mu_pos_input = torch.where(pos_fixed_mask.unsqueeze(-1), fixed_atom_pos_full, mu_pos_t)
                 if fix_atom_types:
-                    theta_h_input = torch.where(fixed_atom_mask.unsqueeze(-1), pseudo_theta_h[i - 1], theta_h_t)
+                    theta_h_input = torch.where(type_fixed_mask.unsqueeze(-1),
+                                                fixed_atom_types_full, theta_h_t)
                 else:
                     theta_h_input = theta_h_t
             else:
@@ -2236,6 +2274,8 @@ class BFN4SBDDScoreModel(BFNBase):
                 ed_v=ed_v,
                 batch_ed=batch_ed,
                 batch_ligand=batch_ligand,
+                pos_mask=pos_fixed_mask,
+                type_mask=type_fixed_mask,
                 theta_h_t=theta_h_input,
                 mu_pos_t=mu_pos_input,
                 gamma_coord=gamma_coord,
@@ -2253,7 +2293,7 @@ class BFN4SBDDScoreModel(BFNBase):
             p0_h_pred_clamped = torch.clamp(p0_h_pred, min=1e-6)
             sample_indices = torch.distributions.Categorical(p0_h_pred_clamped).sample()  # [N]
             if fix_atom_types:
-                sample_indices[fixed_atom_mask] = fixed_atom_indices_full[fixed_atom_mask]
+                sample_indices[type_fixed_mask_o2] = fixed_atom_indices_full[type_fixed_mask_o2]
             sample_onehot = F.one_hot(sample_indices, num_classes=K).float()
     
             # --- Generate y (sender noise) ---
@@ -2384,7 +2424,7 @@ class BFN4SBDDScoreModel(BFNBase):
         # Final output: enforce fixed atoms
         mu_pos_final = torch.where(fixed_atom_mask.unsqueeze(-1), fixed_atom_pos_full, mu_pos_final)
         if fix_atom_types:
-            p0_h_final = torch.where(fixed_atom_mask.unsqueeze(-1), fixed_atom_types_full, p0_h_final)
+            p0_h_final = torch.where(type_fixed_mask_o2.unsqueeze(-1), fixed_atom_types_full, p0_h_final)
         theta_traj.append((mu_pos_final, p0_h_final, k_hat_final))    
         sample_traj.append((mu_pos_final, p0_h_final, k_hat_final))
     

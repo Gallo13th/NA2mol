@@ -1,0 +1,39 @@
+\section*{Supplementary Table 5 | Chemical overlap of benchmark reference and generated molecules with the training data}
+Exact canonical identity and maximum ECFP4 Tanimoto similarity (TS; Morgan radius 2, 2,048
+bits, no chirality) were measured against the fine-tuning training partition and the ligand-only
+pretraining library. \textbf{A}, reference active ligands. \textbf{B}, NA2smol generated
+molecules. In Panel B, all entries are percentages with 95\% Wilson intervals; the pretraining
+rows are estimated from a stratified sample of generated molecules (Methods), whereas the
+fine-tuning rows use all unique generated molecules. Percentages are over the $n$ given for that
+benchmark. The pretraining library carries no target--pocket labels, so the pretraining rows
+measure similarity to the ligand chemical space rather than exposure to the evaluated
+target--ligand associations; exact identity is a lower bound on chemical familiarity because
+different SMILES can encode equivalent structures.
+
+\textbf{Panel A. Reference active ligands}
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+\textbf{Benchmark} & \textbf{$n$} & \textbf{Training source} & \textbf{Exact match, $n$ (\%)} & \textbf{ECFP4-TS $\geq0.5$, $n$ (\%)} \\
+\midrule
+DUD-E          & 35,237  & Fine-tuning  & 761 (2.2)   & 12,818 (36.4) \\
+               &         & Pretraining  & 3,240 (9.2) & 31,722 (90.0) \\
+RNA test set   & 50      & Fine-tuning  & 9 (18.0)    & 29 (58.0) \\
+               &         & Pretraining  & 2 (4.0)     & 36 (72.0) \\
+\bottomrule
+\end{tabular}\end{center}
+
+\textbf{Panel B. NA2smol generated molecules}
+\begin{center}\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+\textbf{Benchmark} & \textbf{$n$} & \textbf{Training source} & \textbf{Exact match, \%} & \textbf{ECFP4-TS $\geq0.5$, \%} \\
+\midrule
+DUD-E          & 102,471 & Fine-tuning  & 0.08 (0.06--0.10) & 7.3 (7.1--7.4) \\
+               &         & Pretraining  & 0.36 (0.32--0.39) & 26.5 (25.2--27.9) \\
+RNA test set   & 34,834  & Fine-tuning  & 0.16 (0.13--0.21) & 6.0 (5.7--6.2) \\
+               &         & Pretraining  & 0.44 (0.38--0.51) & 16.8 (15.8--17.9) \\
+\bottomrule
+\end{tabular}\end{center}

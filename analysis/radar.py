@@ -229,6 +229,9 @@ def property_summaries(frame) -> dict[str, float]:
     out['n_strain_valid'] = int(ok.sum())
     total = strain.size if strain.size else 1
     out['strain_success'] = float(ok.sum() / total)
+    # Censored median for the main table: a molecule above the hard-failure bound,
+    # or without a finite strain value, is set to the bound rather than dropped.
+    out['median_strain_capped'] = float(np.nanmedian(np.where(ok, strain, STRAIN_HARD_FAIL)))
     out['strain_pass500'] = float(np.sum(ok & (strain <= 500.0)) / total)
     out['strain_pass200'] = float(np.sum(ok & (strain <= 200.0)) / total)
     return out

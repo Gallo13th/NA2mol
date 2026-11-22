@@ -1,0 +1,18 @@
+\section*{Extended Data Table 7 | Sensitivity of RNA test-set recovery to chemically similar reference actives}
+Recovery is defined by Eqs.~(9)--(10) (ECFP4-Tanimoto window $0.25$--$0.50$). Analogue filters remove reference actives with max ECFP4-Tanimoto similarity $\geq0.5$ to the fine-tuning training partition (FT) or ligand-only pretraining library (PT). Each change compares filtered and original references on the identical eligible-target subset. The full model shows the largest reduction under the PT filter ($-0.198$; Pretrain+Constrain: $-0.099$; Pretrain Only: $-0.014$). Filtering removes reference actives only and does not affect the generated molecules.
+
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & Unfiltered & \multicolumn{2}{c}{Change after analogue removal} \\
+\cmidrule(lr){3-4}
+Model configuration & Recovery (27 targets) & FT (18 targets) & PT (14 targets) \\
+\midrule
+No-pretraining baseline & 0.141 & $-0.077$ & --- \\
+Pretrain Only & 0.034 & $-0.017$ & $-0.014$ \\
+Pretrain+Constrain & 0.132 & $-0.016$ & $-0.099$ \\
+\textbf{Full NA2smol} & \textbf{0.218} & $-0.077$ & $-0.198$ \\
+\bottomrule
+\end{tabular}
+\end{center}

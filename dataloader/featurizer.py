@@ -627,6 +627,11 @@ class GeomSeedMolOnlyPocket(Dataset):
         # extra_n = random.randint(self.extra_range[0], self.extra_range[1])
         if self.remain_seed:
             total_n = max(origin_n + 6, sample_atom_num(self.pocket_size))
+            # diagnostic override for inpainting experiments: fix the number of atoms the
+            # model adds on top of the seed (0 = keep the default heuristic)
+            _extra = int(os.environ.get('INPAINT_EXTRA_ATOMS', '0') or 0)
+            if _extra > 0:
+                total_n = origin_n + _extra
         else:
             # SPEC06: limit cold-start atom count to known_mols heavy-atom range (22-27) + margin
             total_n = random.randint(20, 28)

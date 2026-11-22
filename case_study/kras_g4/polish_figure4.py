@@ -122,19 +122,17 @@ def workflow(ax):
         if column < 2:
             ax.annotate("", (left + width + 0.028, 0.52), (left + width, 0.52),
                         arrowprops={"arrowstyle": "->", "lw": 1.1, "color": INK})
-    ax.text(-0.01, 1, "a", fontsize=9, fontweight="bold")
 
 
-FIG4A_SVG = BASE / "assets" / "figure4a.svg"
+FIG4A_PDF = BASE / "assets" / "figure4a.pdf"
 
 
 def place_panel_a(fig, out_pdf: Path, ax_a) -> None:
-    """Put the designed SVG into panel a's slot, keeping it vector.
+    """Put the designed panel a PDF into its slot, keeping it vector.
 
-    Panel a is now the designer's artwork (assets/figure4a.svg) rather than a matplotlib
-    drawing. matplotlib cannot embed an SVG, so the figure is saved with that slot empty
-    and the SVG -- converted to PDF by rsvg-convert -- is placed over the slot with
-    PyMuPDF. Both steps keep the panel as vector, so the result is not a raster inset.
+    Panel a is now the designer's artwork (assets/figure4a.pdf) rather than a matplotlib
+    drawing. The figure is saved with that slot empty and the panel PDF is placed over
+    the slot with PyMuPDF, so the panel stays vector rather than becoming a raster inset.
     """
     import subprocess
 
@@ -147,9 +145,7 @@ def place_panel_a(fig, out_pdf: Path, ax_a) -> None:
     base = out_pdf.with_name(out_pdf.stem + "_base.pdf")
     fig.savefig(base, bbox_inches="tight")
 
-    panel_pdf = out_pdf.with_name(out_pdf.stem + "_panela.pdf")
-    subprocess.run(["rsvg-convert", "-f", "pdf", "-o", str(panel_pdf),
-                    str(FIG4A_SVG)], check=True)
+    panel_pdf = FIG4A_PDF
 
     fw, fh = fig.get_size_inches()
     box = ax_a.get_position()
@@ -163,9 +159,12 @@ def place_panel_a(fig, out_pdf: Path, ax_a) -> None:
     y1 = ((box.y0 + box.height) * fh - bb.y0 + pad) * 72
     rect = fitz.Rect(x0, page.rect.height - y1, x1, page.rect.height - y0)
     page.show_pdf_page(rect, fitz.open(panel_pdf), 0)
+    # Panel labels are added on the composed canvas after all panels are placed, so
+    # every letter sits at the same relative offset and nothing is covered by the inset.
+    page.insert_text((rect.x0 + 1, rect.y0 + 10), "a", fontsize=9, fontname="hebo")
     doc.save(out_pdf, deflate=True)
-    for tmp in (base, panel_pdf):
-        tmp.unlink(missing_ok=True)
+    # panel_pdf is the source asset (assets/figure4a.pdf), not a temporary file
+    base.unlink(missing_ok=True)
 
 
 def main():

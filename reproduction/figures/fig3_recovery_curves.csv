@@ -1,0 +1,25 @@
+mode,tau,targets_recovered
+RNA2smol (Baseline),0.2,19.0
+RNA2smol (Baseline),0.25,11.0
+RNA2smol (Baseline),0.3,8.0
+RNA2smol (Baseline),0.35,4.0
+RNA2smol (Baseline),0.4,1.0
+RNA2smol (Baseline),0.5,1.0
+Pretrain Only,0.2,15.0
+Pretrain Only,0.25,6.0
+Pretrain Only,0.3,1.0
+Pretrain Only,0.35,0.0
+Pretrain Only,0.4,0.0
+Pretrain Only,0.5,0.0
+Pretrain+Constrain,0.2,19.0
+Pretrain+Constrain,0.25,11.0
+Pretrain+Constrain,0.3,8.0
+Pretrain+Constrain,0.35,4.0
+Pretrain+Constrain,0.4,1.0
+Pretrain+Constrain,0.5,0.0
+RNA2smol (Only General Feat),0.2,19.0
+RNA2smol (Only General Feat),0.25,11.0
+RNA2smol (Only General Feat),0.3,10.0
+RNA2smol (Only General Feat),0.35,8.0
+RNA2smol (Only General Feat),0.4,5.0
+RNA2smol (Only General Feat),0.5,0.0

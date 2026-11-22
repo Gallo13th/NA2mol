@@ -153,9 +153,15 @@ def main() -> int:
 
 # ── LaTeX (Supplementary Information style) ───────────────────────────────────
 def _fmt_strain(v: float) -> str:
-    """Plain for <1000 kcal/mol, mathtext scientific above that (14,290 reads badly)."""
+    """Plain for <1000 kcal/mol, mathtext scientific above that (14,290 reads badly).
+
+    A censored median that reaches the 1e4 hard-failure bound is a lower bound: the
+    true median may be higher, so report it as >1e4 rather than as an exact value.
+    """
     if v != v:
         return '--'
+    if v >= 1e4:
+        return r'$>10^{4}$'
     if v < 1000:
         return f'{v:.0f}'
     mant, exp = f'{v:.2e}'.split('e')
@@ -170,7 +176,7 @@ RAW_COLS = [
     ('median_qed', 'QED', '%.3f'),
     ('median_sa', 'SA', '%.2f'),
     ('median_sei', 'SEI', '%.3f'),
-    ('median_strain', 'Strain', _fmt_strain),
+    ('median_strain_capped', 'Strain', _fmt_strain),
     ('recovery_observed', 'ECFP4 rec.', '%.3f'),
 ]
 SCORE_COLS = [
@@ -200,15 +206,15 @@ def _grouped_table(df, cols, panel_title):
            '\\setlength{\\tabcolsep}{3.5pt}',
            f'\\begin{{tabular}}{{@{{}}ll{chr(99) * len(cols)}@{{}}}}', '\\toprule',
            f'\\textbf{{Method}} & \\textbf{{$n$}} & {head} \\\\', '\\midrule']
-    groups = [('Fig. 2a', 'DUD-E protein'), ('Fig. 2d', 'RNA test set'),
-              ('Fig. 3a', 'RNA test set, four configurations')]
+    groups = [('Fig. 2a', 'DUD-E protein benchmark'), ('Fig. 2d', 'RNA test set'),
+              ('Fig. 3a', 'RNA test set, four NA2smol configurations')]
     for gi, (panel, label) in enumerate(groups):
         sub = df[df['panel'] == panel]
         if sub.empty:
             continue
         if gi:
             out.append('\\midrule')
-        out.append(f'\\multicolumn{{{2 + len(cols)}}}{{@{{}}l}}{{\\textit{{{panel} \u2014 {label}}}}} \\\\')
+        out.append(f'\\multicolumn{{{2 + len(cols)}}}{{@{{}}l}}{{\\textit{{{label}}}}} \\\\')
         for _, r in sub.iterrows():
             cells = []
             for key, _, fmt in cols:
@@ -225,15 +231,15 @@ def write_latex(df: pd.DataFrame) -> None:
         'normalised scores $s_m$ drawn at $r_m = 1 + 2s_m$, so the raw metric values are '
         'not recoverable from the figure and are given here. Property values are pooled '
         'medians over all of the method\'s molecules, the same molecule pool used by the '
-        'retention-curve integrals; the radar axes for docking, RMSD, QED, SA, SEI and '
+        'retention-curve integrals; the metric axes for docking, RMSD, QED, SA, SEI and '
         'strain are the normalised integral of the retention curve (log$_{10}$ scale for '
-        'strain). Strain is the median over molecules whose strain could be evaluated and lay at '
-        'or below $10^{4}$~kcal~mol$^{-1}$: larger values and geometries whose evaluation did not '
-        'finish are counted as failures and excluded from the median, so this column describes the '
-        'molecules the pipeline would actually screen. The unfiltered distribution, including the '
-        'failed tail, is in Supplementary Table~8, and Fig.~3d instead shows the median of '
-        'per-target medians on the common target set, so the three quantities differ by '
-        'construction. Dock. is in '
+        'strain). Strain is the median after values above $10^{4}$~kcal~mol$^{-1}$ and '
+        'evaluations that did not finish are set to $10^{4}$~kcal~mol$^{-1}$; the percentage '
+        'of molecules successfully evaluated at or below this bound is given in parentheses, '
+        'so this column describes both screening-stable molecules and the failure burden. '
+        'The uncapped distribution, including the failed tail, is in Supplementary Table~8, '
+        'and Fig.~3d instead shows the median of per-target medians computed from the same '
+        'censored values, so the three summaries differ in aggregation and censoring. Dock. is in '
         'kcal mol$^{-1}$, RMSD in \\AA, and strain in kcal mol$^{-1}$; values above '
         '10$^3$ are written in scientific notation. ECFP4 rec. is the observed recovery '
         '(fraction of targets with at least one molecule reaching ECFP4-TS $\\geq\\tau$, '
@@ -250,7 +256,7 @@ def write_latex(df: pd.DataFrame) -> None:
     parts = [
         '\\section*{Supplementary Table 12 | Normalised scores behind the panels of Figs.~2 and 3}',
         notes, '', '\\bigskip', '',
-        _grouped_table(df, SCORE_COLS, 'Normalised radar scores $s_m$'),
+        _grouped_table(df, SCORE_COLS, 'Normalised scores $s_m$'),
         '', '\\bigskip', '',
         _grouped_table(df, COVER_COLS, 'Strain coverage (percent of each method molecule pool)'),
         '\\noindent{\\footnotesize Strain evaluated counts a molecule as failed when the force-field '
@@ -270,6 +276,7 @@ def write_latex(df: pd.DataFrame) -> None:
 LOWER_IS_BETTER = {
     'median_docking': True, 'median_rmsd': True, 'median_qed': False,
     'median_sa': True, 'median_sei': False, 'median_strain': True,
+    'median_strain_capped': True,
     'recovery_observed': False, 'ecfp4_specificity': False,
     'strain_success': False, 'strain_pass500': False, 'strain_pass200': False,
 }
@@ -288,15 +295,14 @@ MAIN_COLS = [
     ('median_qed', 'QED', '%.3f'),
     ('median_sa', 'SA', '%.2f'),
     ('median_sei', 'SEI', '%.3f'),
-    # Strain is the median of the values that were actually computed. Molecules that could
-    # not be evaluated within the budget, or whose strain exceeds 1e4 kcal/mol, are excluded
-    # from this median; their effect on coverage is carried by the success and pass rates in
-    # Supplementary Table 12 rather than by extra columns here.
-    ('median_strain', 'Strain', _fmt_strain),
+    # Strain is the median of censored values: molecules that could not be evaluated
+    # within the budget, or whose strain exceeds 1e4 kcal/mol, are set to the 1e4 bound.
+    # The success percentage is appended in parentheses in write_main_table().
+    ('median_strain_capped', 'Strain', _fmt_strain),
     ('recovery_observed', 'Rec.', '%.3f'),
 ]
-MAIN_GROUPS = [('Fig. 2a', 'DUD-E protein'), ('Fig. 2d', 'RNA test set'),
-               ('Fig. 3a', 'RNA test set, four configurations')]
+MAIN_GROUPS = [('Fig. 2a', 'DUD-E protein benchmark'), ('Fig. 2d', 'RNA test set'),
+               ('Fig. 3a', 'RNA test set, four NA2smol configurations')]
 
 
 def write_main_table(df: pd.DataFrame) -> None:
@@ -327,7 +333,7 @@ def write_main_table(df: pd.DataFrame) -> None:
                         marks.setdefault((i, key), rank)
         if gi:
             out.append('\\midrule')
-        out.append(f'\\multicolumn{{{2 + len(MAIN_COLS)}}}{{@{{}}l}}{{\\textit{{{panel} \u2014 {group_label}}}}} \\\\')
+        out.append(f'\\multicolumn{{{2 + len(MAIN_COLS)}}}{{@{{}}l}}{{\\textit{{{group_label}}}}} \\\\')
         # how many of the seven metrics the method ranks first or second on inside its
         # group: a compact statement of breadth, which a single best value cannot give
         top2 = {}
@@ -354,6 +360,8 @@ def write_main_table(df: pd.DataFrame) -> None:
                            else f'\\textbf{{{txt}}}')
                 elif rank == 1:
                     txt = f'\\underline{{{txt}}}'
+                if key == 'median_strain_capped':
+                    txt = f'{txt} ({100 * r["strain_success"]:.0f}\\%)'
                 cells.append(txt)
             # plain text, not math: \\underline over $...$ leaves a gap at the slash
             body = f'{top2[i]}/{len(MAIN_COLS)}'
@@ -367,23 +375,7 @@ def write_main_table(df: pd.DataFrame) -> None:
             cells.append(count)
             out.append(f"{r['method']} & " + ' & '.join(cells) + ' \\\\\\\\')
     out += ['\\bottomrule', '\\end{tabular}',
-            '\\caption{Radar-metric values for the benchmark comparison (Fig.~2a,d) and the '
-            'configuration comparison (Fig.~3a). Dock., smina docking score (kcal mol$^{-1}$); '
-            'RMSD (\\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, '
-            'surface efficiency index ($-$docking score / TPSA); Strain, conformational strain '
-            'energy (kcal mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., the observed '
-            'recovery on the ECFP4-Tanimoto axis, on the fixed 101-target DUD-E and 27-target RNA '
-            'universes, missing output scored as zero; Supplementary Table~10 uses the 84-target '
-            'DUD-E set. Values are pooled medians over all of a '
-            "method's molecules. \\textbf{Bold} marks the best value in each benchmark group and "
-            '\\underline{underline} the second best; better is lower for Dock., RMSD, SA and '
-            'Strain and higher for QED, SEI and Rec. Top-2 counts, out of the seven '
-            'metrics, how many the method ranks first or second on within its group; it '
-            'takes the same emphasis and orders the rows. Strain is the median of the values '
-            'that was evaluated at or below $10^{4}$~kcal~mol$^{-1}$; larger and unevaluable '
-            'geometries are excluded as failures. Unfiltered values are in Supplementary Table~8, '
-            'per-target medians in Fig.~3d. Success and pass-rate coverage are in '
-            'Supplementary Table~12.}',
+            "\\caption{Metric values for the DUD-E protein benchmark, the RNA test set and the four NA2smol training configurations. Dock., smina docking score (kcal~mol$^{-1}$); RMSD (\\AA) after pose relaxation; QED; SA, synthetic accessibility score; SEI, surface efficiency index ($-$docking score / TPSA); Strain, conformational strain energy (kcal~mol$^{-1}$, scientific notation above 10$^3$); ECFP4 rec., observed recovery on the ECFP4-Tanimoto axis over the fixed 101-target DUD-E and 27-target RNA universes, with missing output scored as zero (Supplementary Table~10 uses the 84-target DUD-E set). Values are pooled medians over all of a method's molecules. For Strain, values above $10^{4}$~kcal~mol$^{-1}$ and unevaluable geometries are set to $10^{4}$~kcal~mol$^{-1}$ before taking the median; when the censored median reaches this bound it is reported as $>10^{4}$~kcal~mol$^{-1}$ rather than as an exact value. Parenthetical values give the percentage of molecules with a successfully evaluated strain at or below this bound. \\textbf{Bold} marks the best value in each benchmark group and \\underline{underline} the second best; better is lower for Dock., RMSD, SA and Strain, and higher for QED, SEI and Rec. The Top-2 column counts how many of the seven metrics a method ranks first or second on within its group; it uses the same emphasis and orders the rows. Uncapped values are in Supplementary Table~8; success and pass-rate coverage are in Supplementary Table~12.}",
             '\\label{radar_values_tab}', '\\end{table}']
     path = ROOT / 'reproduction' / 'manuscript' / 'table_radar_values.tex'
     path.parent.mkdir(parents=True, exist_ok=True)

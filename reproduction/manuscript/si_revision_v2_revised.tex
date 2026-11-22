@@ -1,0 +1,87 @@
+\section*{Supplementary Table 1 | Scaffold counts at matched library sizes}
+Existing outputs were filtered using docking score $<-8$~kcal~mol$^{-1}$, QED $>0.5$, SA $<5$ and SEI $>0.1$. Unique canonical molecules were pooled by benchmark and method. Each subsample contains the smallest available method-specific number of retained unique molecules for that benchmark. Counts are non-chiral Bemis--Murcko scaffolds; acyclic molecules are included in the sampling denominator, but their empty scaffold is not counted. Intervals are the 2.5th--97.5th percentiles over 1,000 samples without replacement (seed 42), not uncertainty across training runs.
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+\textbf{Benchmark} & \textbf{Method} & \textbf{Matched molecules} & \textbf{Mean scaffolds} & \textbf{Sampling interval} \\
+\midrule
+\multirow{4}{*}{RNA test set}
+  & NA2smol    & \multirow{4}{*}{301} & 292.8 & [286, 298] \\
+  & MolCRAFT   &                      & 287.0 & [287, 287] \\
+  & Pocket2Mol &                      & 216.3 & [202, 229] \\
+  & ED2Mol     &                      & 245.3 & [240, 251] \\
+\midrule
+\multirow{4}{*}{DUD-E}
+  & NA2smol    & \multirow{4}{*}{4,262} & 3,647.5 & [3,604, 3,688] \\
+  & MolCRAFT   &                        & 4,046.6 & [4,023, 4,070] \\
+  & Pocket2Mol &                        & 2,418.9 & [2,396, 2,442] \\
+  & ED2Mol     &                        & 2,795.0 & [2,795, 2,795] \\
+\bottomrule
+\end{tabular}\end{center}
+
+\clearpage
+\section*{Supplementary Table 2 | Structure-identifier exclusion sensitivity}
+The curated complex list was cross-checked against the training and validation partitions. Two of the 27 benchmark identifiers match training records and eleven others match validation records. Recovery was recomputed from the complete generated-output similarities after identifier exclusions, without generation, docking or model updates. The reported values are deterministic summaries of those target-level results.
+\begin{center}\footnotesize
+\begin{tabular}{@{}llcc@{}}
+\toprule
+\textbf{Subset} & \textbf{Method} & \textbf{Targets} & \textbf{Recovery} \\
+\midrule
+\multirow{4}{*}{All}
+  & NA2smol    & \multirow{4}{*}{27} & 0.218 \\
+  & MolCRAFT   &                     & 0.060 \\
+  & Pocket2Mol &                     & 0.081 \\
+  & ED2Mol     &                     & 0.078 \\
+\midrule
+\multirow{4}{*}{Exclude training IDs}
+  & NA2smol    & \multirow{4}{*}{25} & 0.235 \\
+  & MolCRAFT   &                     & 0.061 \\
+  & Pocket2Mol &                     & 0.087 \\
+  & ED2Mol     &                     & 0.084 \\
+\midrule
+\multirow{4}{*}{Exclude training and validation IDs}
+  & NA2smol    & \multirow{4}{*}{14} & 0.131 \\
+  & MolCRAFT   &                     & 0.069 \\
+  & Pocket2Mol &                     & 0.034 \\
+  & ED2Mol     &                     & 0.059 \\
+\bottomrule
+\end{tabular}\end{center}
+
+\section*{Supplementary Table 3 | Training-scaffold overlap of screened molecules}
+Percentages use unique retained molecules as the denominator and indicate whether their non-chiral Bemis--Murcko scaffold occurs in the fine-tuning training partition or ligand-only pretraining library. The comparison is asymmetric and stricter for NA2smol: every method's retained molecules are matched against NA2smol's fine-tuning and pretraining libraries; thus, the NA2smol row measures its own training chemistry while other rows measure overlap with NA2smol's. A baseline scoring lower than NA2smol generates chemistry less represented in NA2smol's training data, rather than chemistry avoiding its own training data. External generators' training sets are not covered.
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+\textbf{Benchmark} & \textbf{Method} & \textbf{Unique retained molecules} & \textbf{FT scaffold match} & \textbf{PT scaffold match} \\
+\midrule
+\multirow{4}{*}{DUD-E}
+  & ED2Mol     & 4,262  & 20.2\% & 41.1\% \\
+  & MolCRAFT   & 9,012  & 4.8\%  & 9.3\% \\
+  & NA2smol    & 32,400 & 13.5\% & 24.5\% \\
+  & Pocket2Mol & 5,039  & 7.7\%  & 14.9\% \\
+\midrule
+\multirow{4}{*}{RNA test set}
+  & ED2Mol     & 343    & 19.5\% & 46.6\% \\
+  & MolCRAFT   & 301    & 8.0\%  & 12.6\% \\
+  & NA2smol    & 6,618  & 7.2\%  & 12.9\% \\
+  & Pocket2Mol & 1,523  & 18.5\% & 30.0\% \\
+\bottomrule
+\end{tabular}\end{center}
+
+\clearpage
+\section*{Supplementary Table 4 | PDB entry modality and verified split counts}
+All 738 valid indices map to 487 unique PDB entries with retrievable RCSB polymer annotations (retrieved 13 October 2026). An entry is labelled hybrid when it contains a hybrid polymer entity or both DNA and RNA polymer entities; otherwise it is RNA or DNA according to its polymer type. Full-entry annotations do not identify the chain surrounding each specific ligand, so the breakdown below is an entry-level annotation. A complementary record-level check of the binding-site residues gives 401 records containing a uridine residue, 226 containing a thymidine residue, none containing both, and 111 containing only A, C or G. The hybrid annotations correspond to entries 2DQQ, 2DQP, 2DQO and 2H0Z (seven ligand records in total).
+\begin{center}\footnotesize
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Split} & \textbf{RNA} & \textbf{DNA} & \textbf{Hybrid} & \textbf{Total} \\
+\midrule
+Training   & 147 & 202 & 7 & 356 \\
+Validation & 310 &  72 & 0 & 382 \\
+\midrule
+Total      & 457 & 274 & 7 & 738 \\
+\bottomrule
+\end{tabular}\end{center}
+The record-level manifest supplies the LMDB index, PDB identifier, ligand identity, preprocessing status and split. The separate RCSB crosswalk supplies the entry-level modality, polymer types, source and retrieval date, with cached API responses and deposited sequences. No record index is shared between the training and validation partitions. The nucleic-acid set has no held-out test partition; model evaluation uses the external RNA test set.

@@ -1,0 +1,20 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{@{}llcc@{}}
+\toprule
+\textbf{Benchmark} & \textbf{$n$} & \textbf{Reference filter} & \textbf{ECFP4 recovery} \\
+\midrule
+DUD-E          & 101 & No filter                       & 0.676 \\
+               & 101 & Excluding FT-similar actives    & 0.566 \\
+               & 98  & Excluding PT-similar actives    & 0.235 \\
+RNA test set   & 27  & No filter                       & 0.218 \\
+               & 18  & Excluding FT-similar actives    & 0.250 \\
+               & 14  & Excluding PT-similar actives    & 0.053 \\
+\bottomrule
+\end{tabular}
+
+\caption{Recovery sensitivity to reference-active overlap. ECFP4 recovery is the mean target-recovery proportion over ECFP4-Tanimoto thresholds 0.25--0.50 for NA2smol. The DUD-E universe contains 101 reference targets (the remaining DUD-E target has no reference active set); the RNA universe contains the 27 shared evaluable targets. Targets with no remaining reference active become ineligible, so $n$ changes.}
+\label{overlap_table}
+\end{table}

@@ -1,0 +1,7 @@
+group,name,mode,pool,evaluated,success,median,p95,over_1e3
+NA2smol configurations,NA2smol (full),RNA2smol (Only General Feat),35358,35235,99.7,218.3,44127.07799999991,24.0
+NA2smol configurations,NA2smol baseline,RNA2smol (Baseline),36209,35959,99.3,375.6,30390.781999999883,26.8
+NA2smol configurations,Pretrain Only,Pretrain Only,32782,31079,94.8,14290.1,1169731156606.1218,57.6
+NA2smol configurations,Pretrain+Constrain,Pretrain+Constrain,35640,35180,98.7,284.6,10045616.700999806,25.2
+External generators,MolCRAFT,MolCRAFT,34925,34893,99.9,125.4,3594.87,9.9
+External generators,ED2Mol,ED2Mol,29932,29237,97.7,22.6,167.57199999999997,0.0

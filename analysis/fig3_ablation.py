@@ -26,6 +26,8 @@ from style import (
     ABL_COLORS,
     ABL_MARKERS,
     ABL_DASHES,
+    METHOD_COLORS,
+    METHOD_MARKERS,
     readable_ink,
     FUNNEL_STEPS,
     INK,
@@ -268,9 +270,12 @@ def plot_affinity_distribution(ax, df, panel_lbl="c"):
 def plot_strain_distribution(ax, df, panel_lbl="d"):
     """Per-target strain energy distribution (boxplot + strip)."""
     per_target = {}
+    strain = df["strain"].astype(float)
+    ok = np.isfinite(strain) & (strain > 0) & (strain <= R.STRAIN_HARD_FAIL)
+    df = df.assign(strain_capped=np.where(ok, strain, R.STRAIN_HARD_FAIL))
     for m in ABL_ORDER:
-        sub = df[(df["mode"] == m) & (df["strain"].notna())]
-        per_target[m] = sub.groupby("pdb_id")["strain"].median()
+        sub = df[df["mode"] == m]
+        per_target[m] = sub.groupby("pdb_id")["strain_capped"].median()
 
     common = sorted(set.intersection(*[set(per_target[m].index) for m in ABL_ORDER]))
     # Log-scale since strain spans orders of magnitude across variants
@@ -298,8 +303,9 @@ def plot_strain_distribution(ax, df, panel_lbl="d"):
     # Annotate medians in real units
     for i, m in enumerate(ABL_ORDER):
         med = np.median(per_target[m].reindex(common).dropna())
+        lab = '>10,000' if med >= R.STRAIN_HARD_FAIL else f'{med:,.0f}'
         ax.text(i + 0.35, np.log10(med) if med > 0 else 0,
-               f'{med:,.0f}', fontsize=5.5, va='center', ha='left', color=INK)
+               lab, fontsize=5.5, va='center', ha='left', color=INK)
 
     ax.set_xticks(x)
     ax.set_xticklabels([label_for(m) for m in ABL_ORDER], rotation=18, ha="right")
@@ -334,8 +340,10 @@ def plot_docking_strain_hexbin(ax, df, panel_lbl="e"):
     for idx, config in enumerate(ABL_ORDER):
         r, c = divmod(idx, 2)
         sub_ax = ax.figure.add_subplot(sub_gs[r, c])
-        sub = df[(df["mode"] == config) & df["affinity"].notna()
-                 & df["strain"].notna() & (df["strain"] > 0)].copy()
+        sub = df[(df["mode"] == config) & df["affinity"].notna()].copy()
+        strain = sub["strain"].astype(float)
+        ok = np.isfinite(strain) & (strain > 0) & (strain <= R.STRAIN_HARD_FAIL)
+        sub["strain_capped"] = np.where(ok, strain, R.STRAIN_HARD_FAIL)
         if len(sub) > 20000:
             sub = sub.sample(20000, random_state=42 + idx)
 
@@ -343,7 +351,7 @@ def plot_docking_strain_hexbin(ax, df, panel_lbl="e"):
         # against; colour is reserved for the full model, as in the reference figure
         cmap = "YlGnBu" if config == ABL_ORDER[-1] else "Greys"
         hb = sub_ax.hexbin(
-            sub["affinity"], np.log10(sub["strain"]),
+            sub["affinity"], np.log10(sub["strain_capped"]),
             gridsize=gridsize, cmap=cmap, mincnt=1,
             extent=(-12, -2, 1, 5),
         )
@@ -500,42 +508,216 @@ def render_panels(df) -> dict:
     return assets
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# Panels (b) and (g) — recovery curve and reference-set sensitivity
+# ═══════════════════════════════════════════════════════════════════════════
+# Both read tables written by analysis/fig3_row3_data.py from the same per-molecule
+# evaluation used by the rest of the figure, so they cannot drift from Extended Data
+# Tables 6 and 7. Panel g holds the value of each metric on the targets that survive
+# each reference-set definition (all actives, fine-tuning-similar actives removed,
+# pretraining-library-similar actives removed); the target set shrinks from 27 to 18
+# and 14, which is what moves the molecule-level medians.
+FIGDATA = ROOT / "reproduction" / "figures"
+DEFS = ["All actives", "FT-similar removed", "PT-similar removed"]
+DEF_LABELS = ["All\n(27)", "$-$FT\n(18)", "$-$PT\n(14)"]
+
+
+def plot_recovery_curve(ax, panel_lbl="b"):
+    """Targets recovered versus the ECFP4-TS threshold, one line per configuration."""
+    d = pd.read_csv(FIGDATA / "fig3_recovery_curves.csv")
+    for m in ABL_ORDER:
+        sub = d[d["mode"] == m].sort_values("tau")
+        if sub.empty:
+            continue
+        ax.plot(sub["tau"], sub["targets_recovered"],
+                color=color_for(m), linestyle=ABL_DASHES.get(m, "solid"),
+                marker=ABL_MARKERS.get(m, "o"), markersize=2.4, linewidth=1.05,
+                label=label_for(m).replace("\n", " "))
+    ax.set_xlabel("ECFP4-TS threshold")
+    ax.set_ylabel("Targets recovered (of 27)")
+    ax.set_xlim(0.19, 0.51)
+    ax.set_xticks([0.20, 0.25, 0.30, 0.35, 0.40, 0.50])
+    ax.set_yticks([0, 5, 10, 15, 20, 25])
+    ax.set_yticks([0, 5, 10, 15, 20, 25])
+    ax.set_title("Reference-ligand recovery", loc="left", pad=3)
+    style_axis(ax, grid_axis="y")
+    panel_label(ax, panel_lbl, x=-0.02, y=1.12)
+
+
+METHODS_PANEL = ["NA2smol", "ED2Mol", "MolCRAFT", "Pocket2Mol", "DiffSBDD", "FLAG", "GraphBP"]
+PANEL_DEFS = ["All actives", "FT-similar removed", "PT-similar removed"]
+PANEL_DEF_LABELS = ["All\n(27)", "$-$FT\n(18)", "$-$PT\n(14)"]
+CURVE_DEFS = {"All actives": ("-", "All actives (27)"),
+              "FT-similar removed": ((0, (4, 1.6)), "$-$FT-similar (18)"),
+              "PT-similar removed": ((0, (1.2, 1.2)), "$-$PT-similar (14)")}
+
+
+def plot_recovery_sensitivity(ax, panel_lbl=None):
+    """Reference-set sensitivity of ECFP4 recovery, four compact panels.
+
+    1  recovery rank of each method across the three definitions (y = rank, methods coloured on
+       the left axis so the axis itself is the colour key);
+    2  NA2smol recovery curves on the three target sets;
+    3  recovery curves of all seven methods on the fine-tuning-similar-removed subset;
+    4  the same on the pretraining-library-similar-removed subset.
+    """
+    from matplotlib.gridspec import GridSpecFromSubplotSpec
+
+    sub_gs = GridSpecFromSubplotSpec(
+        1, 4, subplot_spec=ax.get_subplotspec(), wspace=0.42,
+        width_ratios=[1.22, 0.96, 0.96, 0.96],
+    )
+    ax.set_xticks([])
+    ax.set_yticks([])
+    for sp in ax.spines.values():
+        sp.set_visible(False)
+    x = np.arange(len(PANEL_DEFS))
+
+    # ── 1: rank across definitions
+    a = ax.figure.add_subplot(sub_gs[0, 0])
+    d = pd.read_csv(FIGDATA / "fig3_method_reference_panel.csv")
+    R = np.full((len(METHODS_PANEL), len(PANEL_DEFS)), np.nan)
+    for i, m in enumerate(METHODS_PANEL):
+        for j, name in enumerate(PANEL_DEFS):
+            r = d[(d["method"] == m) & (d["definition"] == name)]
+            if len(r):
+                R[i, j] = float(r["recovery"].iloc[0])
+    Rk = np.full_like(R, np.nan)
+    for j in range(R.shape[1]):
+        colv = R[:, j].copy()
+        ok = np.isfinite(colv)
+        for i in range(len(METHODS_PANEL)):
+            if ok[i]:
+                Rk[i, j] = 1 + int((colv[ok] > colv[i]).sum())
+    order = [int(i) for i in np.argsort(np.nan_to_num(Rk[:, 0], nan=99))]
+    for i in order:
+        m = METHODS_PANEL[i]
+        a.plot(x, Rk[i], color=METHOD_COLORS.get(m, "#606060"),
+               marker=METHOD_MARKERS.get(m, "o"), markersize=2.2,
+               linewidth=1.15 if m == "NA2smol" else 0.75,
+               zorder=4 if m == "NA2smol" else 2, clip_on=False)
+    a.set_xlim(-0.22, 2.22)
+    a.set_ylim(len(METHODS_PANEL) + 0.45, 0.55)
+    a.set_xticks(x)
+    a.set_xticklabels(PANEL_DEF_LABELS, fontsize=4.2, linespacing=0.9)
+    a.set_yticks(range(1, len(METHODS_PANEL) + 1))
+    a.set_yticklabels([METHODS_PANEL[i] for i in order], fontsize=4.7)
+    for tick, i in zip(a.get_yticklabels(), order):
+        tick.set_color(METHOD_COLORS.get(METHODS_PANEL[i], "#202124"))
+        if METHODS_PANEL[i] == "NA2smol":
+            tick.set_fontweight("bold")
+    a.set_title("Recovery rank\n(1 = best)", loc="left", pad=2, fontsize=5.0)
+    a.grid(color="#EDEFEF", linewidth=0.35, zorder=0)
+    a.set_axisbelow(True)
+    for side in ("top", "right"):
+        a.spines[side].set_visible(False)
+    for side in ("left", "bottom"):
+        a.spines[side].set_linewidth(0.5)
+    a.tick_params(length=0, pad=1.0)
+
+    # ── 2: NA2smol curves on the three definitions
+    c = pd.read_csv(FIGDATA / "fig3_recovery_curves_by_def.csv")
+
+    def draw_curves(target, defs, title, with_legend=False):
+        for name, (ls, label) in CURVE_DEFS.items():
+            if name not in defs:
+                continue
+            for m in METHODS_PANEL:
+                if m not in defs[name]:
+                    continue
+                sub = c[(c["method"] == m) & (c["definition"] == name)].sort_values("tau")
+                if sub.empty:
+                    continue
+                target.plot(sub["tau"], 100 * sub["frac_targets"],
+                            color=METHOD_COLORS.get(m, "#606060"),
+                            linestyle=ls, marker=METHOD_MARKERS.get(m, "o"),
+                            markersize=1.6,
+                            linewidth=1.15 if m == "NA2smol" else 0.8,
+                            zorder=4 if m == "NA2smol" else 2,
+                            label=label if with_legend else None)
+        target.set_xlim(0.19, 0.51)
+        target.set_xticks([0.20, 0.30, 0.40, 0.50])
+        target.set_ylim(0, 100)
+        target.set_xlabel("ECFP4-TS threshold", fontsize=4.8, labelpad=1.5)
+        target.set_title(title, loc="left", pad=2, fontsize=5.0)
+        style_axis(target, grid_axis="y")
+        target.tick_params(labelsize=4.3, pad=1)
+
+    b = ax.figure.add_subplot(sub_gs[0, 1])
+    draw_curves(b, {k: {"NA2smol"} for k in CURVE_DEFS}, "NA2smol, by definition", True)
+    b.set_ylabel("Targets recovered (\%)", fontsize=4.8, labelpad=1.5)
+    b.legend(frameon=False, fontsize=3.9, handlelength=1.4, labelspacing=0.12,
+             loc="upper right", borderpad=0.1, handletextpad=0.25)
+
+    for k, (name, title) in enumerate([("FT-similar removed", "$-$FT-similar (18 targets)"),
+                                       ("PT-similar removed", "$-$PT-similar (14 targets)")]):
+        pnl = ax.figure.add_subplot(sub_gs[0, 2 + k])
+        draw_curves(pnl, {name: set(METHODS_PANEL)}, title)
+        if k == 0:
+            pnl.set_ylabel("Targets recovered (\%)", fontsize=4.8, labelpad=1.5)
+        else:
+            pnl.set_ylabel("")
+
+
 def render_master(df) -> None:
-    """Original 3x2 gridspec layout (a/b profile+retention, c/d distributions,
-    e hexagonal 2x2, f waterfall) — matches the archived manuscript rendering."""
-    fig = plt.figure(figsize=(7.2, 7.9), constrained_layout=False)
+    """Three-row layout: profile/recovery/screening, distributions/waterfall, then the
+    reference-set sensitivity strip. Panel letters are placed in figure coordinates."""
+    fig = plt.figure(figsize=(166 / 25.4, 7.05), constrained_layout=False)
     gs = fig.add_gridspec(
-        3, 2,
-        height_ratios=[1.5, 1.0, 0.96],
-        left=0.105, right=0.985, bottom=0.12, top=0.88,
+        3, 3,
+        height_ratios=[1.38, 1.0, 1.02],
+        left=0.085, right=0.992, bottom=0.055, top=0.845,
         wspace=0.42, hspace=0.72,
     )
     ax_a = fig.add_subplot(gs[0, 0], projection="polar")
     ax_b = fig.add_subplot(gs[0, 1])
-    ax_c = fig.add_subplot(gs[1, 0])
-    ax_d = fig.add_subplot(gs[1, 1])
-    ax_e = fig.add_subplot(gs[2, 0])
-    ax_f = fig.add_subplot(gs[2, 1])
+    ax_c = fig.add_subplot(gs[0, 2])
+    ax_d = fig.add_subplot(gs[1, 0])
+    ax_e = fig.add_subplot(gs[1, 1])
+    ax_f = fig.add_subplot(gs[1, 2])
+    ax_g = fig.add_subplot(gs[2, :])
 
-    # Panel letters are suppressed here and placed in figure coordinates below,
-    # once the grid exists. Per-axes offsets cannot align across panel types: the
-    # polar axes is shrunk to a square inside its cell (x0 0.165) while the
-    # rectilinear panels of the same column start at 0.105.
     plot_profile(ax_a, df, title_pad=14, panel_lbl=None)
-    plot_funnel(ax_b, df, "targets_ge1", "Targets with >=1 candidate",
-                "Target retention through strain-aware screening", None)
-    plot_affinity_distribution(ax_c, df, None)
-    plot_strain_distribution(ax_d, df, None)
-    plot_docking_strain_hexbin(ax_e, df, None)
+    plot_recovery_curve(ax_b, "b")
+    plot_funnel(ax_c, df, "targets_ge1", "Targets with >=1 candidate",
+                "Target retention through screening", None)
+    plot_affinity_distribution(ax_d, df, None)
+    plot_strain_distribution(ax_e, df, None)
     plot_component_waterfall(ax_f, df, None)
+    ax_f.set_title("Final-tier retention", loc="left", pad=3)
+    ax_f.set_ylim(0, 300)
+    ax_f.set_xticklabels(["Baseline", "+Pretrain", "+Constrain", "+Contrast.\n(Full)"])
+    ax_f.tick_params(axis="x", labelsize=4.6)
+    for t in ax_f.get_xticklabels():
+        t.set_linespacing(0.9)
+    # rotate the categorical labels of the two distribution panels so they do not collide
+    for ax_ in (ax_d, ax_e):
+        ax_.tick_params(axis="x", labelsize=4.8)
+        for t in ax_.get_xticklabels():
+            t.set_rotation(22)
+            t.set_ha("right")
+            t.set_linespacing(0.9)
+    ax_f.set_title("Final-tier retention", loc="left", pad=3)
+    ax_f.set_ylim(0, 300)
+    ax_f.set_xticklabels(["Baseline", "+Pretrain", "+Constrain", "+Contrast.\n(Full)"])
+    ax_f.tick_params(axis="x", labelsize=4.6)
+    for t in ax_f.get_xticklabels():
+        t.set_linespacing(0.9)
+    # rotate the categorical labels of the two distribution panels so they do not collide
+    for ax_ in (ax_d, ax_e):
+        ax_.tick_params(axis="x", labelsize=4.8)
+        for t in ax_.get_xticklabels():
+            t.set_rotation(22)
+            t.set_ha("right")
+            t.set_linespacing(0.9)
+    plot_recovery_sensitivity(ax_g, None)
 
     place_panel_labels(fig, gs, {
-        "a": (0, 0), "b": (0, 1),
-        "c": (1, 0), "d": (1, 1),
-        "e": (2, 0), "f": (2, 1),
+        "a": (0, 0), "b": (0, 1), "c": (0, 2),
+        "d": (1, 0), "e": (1, 1), "f": (1, 2),
+        "g": (2, 0),
     })
 
-    # Shared legend at top
     handles = [
         Line2D([0], [0], color=color_for(m), marker=ABL_MARKERS.get(m, "o"),
                linestyle=ABL_DASHES.get(m, "solid"), linewidth=1.1,
@@ -545,7 +727,7 @@ def render_master(df) -> None:
     fig.legend(
         handles=handles,
         loc="upper center",
-        bbox_to_anchor=(0.52, 0.995),
+        bbox_to_anchor=(0.52, 0.972),
         ncol=4,
         frameon=False,
         handlelength=1.2,
@@ -553,6 +735,7 @@ def render_master(df) -> None:
         columnspacing=1.0,
         fontsize=6.0,
     )
+
 
     detect_text_overlaps(fig)
 

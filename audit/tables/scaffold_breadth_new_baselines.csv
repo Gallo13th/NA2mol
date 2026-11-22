@@ -1,0 +1,7 @@
+method,benchmark,molecules,scaffolds
+DiffSBDD,RNA,31,31
+DiffSBDD,DUD-E,2886,2832
+GraphBP,RNA,0,0
+GraphBP,DUD-E,2,2
+FLAG,RNA,0,0
+FLAG,DUD-E,55,31

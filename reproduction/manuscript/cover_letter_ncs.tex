@@ -1,0 +1,81 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,top=1.9cm,bottom=1.9cm,left=2.3cm,right=2.3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue!55!black}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.42em}
+\pagestyle{empty}
+\begin{document}
+
+10 November 2026
+
+\vspace{0.2em}
+The Editors\\
+\emph{Nature Computational Science}
+
+\vspace{1.0em}
+\textbf{Re: submission of ``Bridging protein and nucleic-acid pockets via shared physicochemical
+representations for 3D molecular generation with NA2smol''}
+
+\vspace{0.4em}
+Dear Editors,
+
+Structure-based molecular generation has become routine for protein pockets, but nucleic acids
+have been left behind, for two reasons. Part of the gap is data: curated nucleic-acid--small-molecule
+resources hold hundreds of non-redundant entries against the millions of protein complexes available
+for protein training. Part of it is representation. Most pocket-conditioned generators encode a
+pocket through amino-acid-specific features for which there is no nucleotide analogue, so a model
+trained on proteins cannot simply be pointed at an RNA site.
+
+We report NA2smol, a Bayesian flow network generator that addresses both constraints together.
+The pocket representation is restricted to descriptors that proteins and nucleic acids share:
+pharmacophore type, hybridisation state, van der Waals radius and partial charge. Structural
+supervision comes from ligand-only electron-density pretraining, transferred to the
+pocket-conditioned pathway by a teacher--student alignment loss, with a cross-view contrastive
+term completing the objective. One model generates three-dimensional ligands for either class of
+binding site.
+
+We benchmark against six structure-based generators spanning the main generation paradigms:
+MolCRAFT, Pocket2Mol and ED2Mol, together with DiffSBDD, GraphBP and FLAG. On the RNA test set,
+NA2smol retained 239 molecules across 17 of 27 evaluable targets under the most stringent tier of
+a four-stage screening cascade, 0.68\% of 35,358 valid generations, and the protein-trained
+baselines retained far fewer. On retrospective ECFP4 recovery, NA2smol leads both the RNA and protein benchmarks among these generators. The
+same output, carried through post-processing of the generated library, produced a
+bis-benzothiazole that reduced normalised thioflavin T fluorescence in a concentration-dependent
+manner, with an apparent half-maximal concentration of 22.4~$\mu$M in a KRAS promoter
+G-quadruplex assay.
+
+The paper reports where NA2smol leads and where it does not. On conformational strain it is
+mid-pack rather than leading, and the strain table reports success separately from the pass rate
+so that geometries which could not be evaluated are visible as such. The experimental endpoint
+rests on one compound selected through an integrated screen, which is what a first prospective
+test of a generative pipeline can offer.
+
+We believe the work suits \emph{Nature Computational Science} because its contribution is a
+computational design question rather than a single application: how to build a representation and
+a training strategy that transfer across two chemically different target classes when labelled
+structural data exist for only one. Nucleic-acid pockets are a demanding test of that question,
+and the paper reports the pipeline end to end. The complete training code, generated-molecule
+tables, screening summaries and figure source data are available at
+\url{https://github.com/Gallo13th/NA2mol} (commit \texttt{bac48aa}), and the manuscript states
+the target universes and yield denominators explicitly so that the reported counts can be
+recomputed.
+
+The manuscript is original, is not under consideration elsewhere, and all authors have approved
+this submission. We declare no competing interests. We would be glad to suggest referees in
+generative molecular design, nucleic-acid recognition and structure-based screening.
+
+Thank you for considering our work.
+
+\vspace{0.8em}
+Yours sincerely,
+
+\vspace{1.4em}
+Zhi John Lu\\
+Associate Professor, School of Life Sciences, Tsinghua University\\
+on behalf of all authors\\
+\href{mailto:zhilu@tsinghua.edu.cn}{zhilu@tsinghua.edu.cn}
+
+\end{document}

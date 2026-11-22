@@ -1,0 +1,21 @@
+\section*{Extended Data Table 2 | Cross-benchmark scaffold breadth after the screening filter}
+Unique canonical SMILES and unique Bemis--Murcko (BM) scaffold counts after the screening filter (docking score $<-8$~kcal~mol$^{-1}$, QED $>0.5$, SA score $<5$, SEI $>0.1$).
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \multicolumn{2}{c}{\textbf{RNA test set}} & \multicolumn{2}{c}{\textbf{DUD-E}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+\textbf{Method} & \textbf{Molecules} & \textbf{BM scaffolds} & \textbf{Molecules} & \textbf{BM scaffolds} \\
+\midrule
+NA2smol    & 6,618 & 5,671 & 32,400 & 24,270 \\
+MolCRAFT   &   301 &   287 &  9,012 &  8,316 \\
+Pocket2Mol & 1,523 &   700 &  5,039 &  2,714 \\
+ED2Mol     &   343 &   274 &  4,262 &  2,795 \\
+DiffSBDD   &    31 &    31 &  2,886 &  2,832 \\
+FLAG       &     0 &     0 &     55 &     31 \\
+GraphBP    &     0 &     0 &      2 &      2 \\
+\bottomrule
+\end{tabular}\end{center}
+
+NA2smol retains 6,618 molecules spanning 5,671 scaffolds on the RNA test set, approximately 4.3-fold more molecules and 8.1-fold more scaffolds than the best-performing baseline (Pocket2Mol). On DUD-E it retains 32,400 molecules spanning 24,270 scaffolds.
