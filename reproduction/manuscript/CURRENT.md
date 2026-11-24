@@ -435,3 +435,17 @@ whole text between rounds.
   sn-jnl class dependencies (`cuted`, `stfloats`, `threeparttable`, `appendix`, `lineno`, `natbib`
   and others), and mixing a current `hyperref` into a user texmf tree raises a version-mismatch
   error. The PDFs in the repository were therefore built on the Mac and committed.
+
+## 2026-11-24 — Local clone and GitHub push
+
+- Cloned the branch `paper-release` from the analysis host into
+  `repo_NA2mol/` (session workspace, 498 MB, HEAD `1bc797c`); the clone carries the full
+  114-commit history and is byte-identical to the workspace for `sn-article-revised.tex`,
+  `CURRENT.md` and both enquiry letters.
+- Added the GitHub remote `github` (git@github.com:Gallo13th/NA2mol.git) and pushed
+  `paper-release` as a new branch; the local branch now tracks `github/paper-release`.
+- GitHub `main` (56ec5c3) is an unrelated squashed snapshot from before the branch history and was
+  left untouched — repointing it would be a history rewrite and needs a decision.
+- Push emitted two size warnings from history (`property_landscape_audit.tiff` 71 MB,
+  `molcraft_mapping_control.tiff` 66 MB, plus `chemical_space_audit.tiff` 47 MB): under GitHub's
+  100 MB hard limit, but candidates for LFS or removal if the repo is ever made public.
