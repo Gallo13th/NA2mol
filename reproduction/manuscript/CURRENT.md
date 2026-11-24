@@ -452,3 +452,13 @@ whole text between rounds.
 - Host, Mac clone and GitHub `paper-release` were unified at `3a03b97` (host `git reset --hard` to
   the pushed commit after transferring it through a temporary ref). From now on the Mac is the push
   point: its SSH key authenticates as `Gallo13th`.
+
+## 2026-11-24 — History cleanup: no oversized files, images only PDF/PNG
+
+- The repository history was rewritten with git-filter-repo to remove every image file that is not
+  PDF or PNG (5 TIFF, 19 EPS, 85 SVG, all JPG/BMP/GIF if any) and the one remaining oversized blob
+  (`casestudy/sp1/library/cold_start_18641.sdf`, 38.7 MB). `.git` shrank from 151 MB to 104 MB and
+  the largest remaining blob is a 10.3 MB PDF.
+- Because the rewrite changes every commit hash, the Data and Code availability statement was
+  repointed from `80c2ceb` to the rewritten equivalent `5bd3a6b`, and the three PDFs were rebuilt.
+- GitHub `paper-release` and the analysis-host checkout were force-updated to the rewritten history.
