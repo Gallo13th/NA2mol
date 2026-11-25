@@ -462,3 +462,25 @@ whole text between rounds.
 - Because the rewrite changes every commit hash, the Data and Code availability statement was
   repointed from `80c2ceb` to the rewritten equivalent `5bd3a6b`, and the three PDFs were rebuilt.
 - GitHub `paper-release` and the analysis-host checkout were force-updated to the rewritten history.
+
+## 2026-11-25 — Authors, affiliations and experimental protocols
+
+- Author list updated: Wenjin Wan (affiliations 2 and 8, wanwenjin@him.cas.cn, ORCID 0009-0008-4628-528X)
+  and Yuxuan Mo (affiliation 7, moyuxuan25@mails.ucas.ac.cn, ORCID 0009-0001-8521-845X) added as
+  regular authors after Jiahao Chen, before the corresponding authors; Yi Li now carries affiliations
+  2 and 7 (Institute of Zoology, CAS and University of Chinese Academy of Sciences); new affiliations
+  7 (UCAS, 100049) and 8 (Hangzhou Institute of Medicine, CAS, 310022).
+- Methods gained the displacement-assay protocol (ThT 200 nM with the KRAS G-quadruplex 100 nM;
+  NBSI618 200 nM with the Clivia aptamer 100 nM; 0–20 µM compound; 425/490 nm and 510/618 nm;
+  DC50 in GraphPad Prism 9), the RNA-imaging protocol (Clivia plasmid in HEK293T cells, Hoechst
+  33342, NBSI618 0.1 µM, 561 nm excitation / 640 nm emission, Olympus SpinSR10 with live-cell
+  module, 20× objective, Prime BSI camera, Fiji quantification) and a qRT-PCR protocol (A549 cells,
+  2×10^5 per well, 8 h treatment, TransGen RNA kit, NanoDrop One, HiScript Q RT SuperMix, LightCycler
+  480 II with SYBR Green, GAPDH reference, triplicates over three biological replicates).
+- New **Supplementary Table 6** lists the KRAS G-quadruplex and qRT-PCR primer sequences.
+- The imaging cell line is now HEK293T throughout (Results, Fig. 4 caption, Methods) and the KRAS
+  readout is described as a transcript level measured by qRT-PCR (previously "KRAS DNA level");
+  the Reporting Summary was updated to match.
+- To confirm with the authors: the previous draft named HeLa for the imaging, gave the KRAS
+  G-quadruplex as a 35-nt sequence, quoted 451/481 nm for ThT, 0–1 mM compound and Origin 2021 for
+  the fits, and described the KRAS readout as DNA — all superseded here by the protocol text supplied.
