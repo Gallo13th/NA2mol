@@ -484,3 +484,9 @@ whole text between rounds.
 - To confirm with the authors: the previous draft named HeLa for the imaging, gave the KRAS
   G-quadruplex as a 35-nt sequence, quoted 451/481 nm for ThT, 0–1 mM compound and Origin 2021 for
   the fits, and described the KRAS readout as DNA — all superseded here by the protocol text supplied.
+- Follow-up (same day): the authors confirmed that the supplied protocol is authoritative. Panel h of
+  Fig. 5 was redrawn with the axis label "KRAS transcript level (% of control)", the caption now reads
+  "three independent biological replicates, each measured in triplicate" instead of "n = 5-6 from two
+  independent experiments", and the Results sentence names the qRT-PCR readout next to the ThT
+  result. The figure was rebuilt from `scripts/make_kras_qpcr_bar.py` and
+  `scripts/make_kras_figure5.py`, and `scripts/make_kras_qpcr_bar.py` was updated with the new label.
