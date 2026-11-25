@@ -23,7 +23,11 @@ sd = np.array([100 * np.std(DATA[c], ddof=1) for c in conc])
 TEAL = '#14615c'
 fig, ax = plt.subplots(figsize=(2.3, 2.15))
 x = np.arange(len(conc))
-ax.bar(x, mean, width=0.64, color='#bcd3d1', edgecolor=TEAL, lw=0.8, zorder=2, bottom=0.25)
+# bars run from the 0.25 % floor up to the mean: with a logarithmic axis the height must be
+# (mean - 0.25), otherwise the bottom offset shifts the bar top above the mean
+FLOOR = 0.25
+ax.bar(x, np.clip(mean - FLOOR, 1e-3, None), width=0.64, color='#bcd3d1',
+       edgecolor=TEAL, lw=0.8, zorder=2, bottom=FLOOR)
 ax.errorbar(x, mean, yerr=sd, fmt='none', ecolor='#333333', elinewidth=0.9, capsize=2.0, zorder=4)
 for i, c in enumerate(conc):
     pts = 100 * np.array(DATA[c])

@@ -490,3 +490,20 @@ whole text between rounds.
   independent experiments", and the Results sentence names the qRT-PCR readout next to the ThT
   result. The figure was rebuilt from `scripts/make_kras_qpcr_bar.py` and
   `scripts/make_kras_figure5.py`, and `scripts/make_kras_qpcr_bar.py` was updated with the new label.
+
+## 2026-11-25 — Fig. 4 panel d, Fig. 5 panel h and the page-number artefact
+
+- ORCID line removed from the title page on the authors' request.
+- **Fig. 5h** had been drawn with `ax.bar(..., bottom=0.25)` on a log axis, so the bottom offset was
+  added to the top and the bars overshot their means (0.78 → 1.03 at 20 µM); the whiskers then fell
+  inside the bars. Bars now plot `mean − 0.25` above the floor, so each bar ends at the mean and the
+  SD whiskers protrude. `scripts/make_kras_qpcr_bar.py` carries the fix.
+- **Fig. 4d** showed Al-1 and Al-2 overlaid in one view even though their 2,4-diarylquinoline cores
+  adopt different conformations, which invites the reading that one rigid scaffold carries the
+  substituent positions. The panel is now two views, Al-1 and Al-2 each in its own independently
+  docked and minimised pose (`panel_complex_pair.png`), the caption says so, and the Methods now state
+  that enumeration is defined on the 2D scaffold graph with every product docked independently.
+- The sn-jnl footer appends its page number to the last line of a page that ends inside a float
+  caption, which printed the page number on top of caption words (a "10" over the word
+  "minimisation"). `scripts/fix_page_numbers.py` repairs those runs (it found four pages), and
+  `scripts/build_submission_files.sh` now runs it on all three PDFs.

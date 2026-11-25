@@ -49,6 +49,15 @@ for doc in extended_data supplementary; do
   cp "$doc.pdf" "$ROOT/$doc.pdf"
 done
 
+# sn-jnl appends its footer number to the last line of a page that ends inside a float caption,
+# which prints the number on top of the caption. Repair those runs before shipping.
+FIXPN="$ROOT/scripts/fix_page_numbers.py"
+if command -v python3 >/dev/null 2>&1 && [ -f "$FIXPN" ]; then
+  for pdf in sn-article-revised.pdf extended_data.pdf supplementary.pdf; do
+    python3 "$FIXPN" "$ROOT/$pdf" || echo "warning: page-number repair failed for $pdf" >&2
+  done
+fi
+
 echo
 printf '%-26s %s pages\n' sn-article-revised.pdf "$(pdfinfo sn-article-revised.pdf | awk '/^Pages/{print $2}')"
 printf '%-26s %s pages\n' extended_data.pdf      "$(pdfinfo extended_data.pdf      | awk '/^Pages/{print $2}')"
