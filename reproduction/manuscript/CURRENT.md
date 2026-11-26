@@ -602,3 +602,25 @@ whole text between rounds.
 - Layout: two rows of three panels, uniform 58 mm row height, 7 mm column gutters, 11 mm row gutter, each row
   centred; the canvas is now roughly 179 x 121 mm, so all six panels print at a comparable size.
 - Caption updated from "Left/Right" to "Top/Bottom" for the stacked panel b.
+
+## 2026-11-26 — Nature Machine Intelligence package
+
+- Format checked against the NMI guidance (nature.com/natmachintell submission guidelines, fetched 26 Nov 2026):
+  Article main text up to 3,500 words excluding abstract/Methods/references/legends — ours 2,227; abstract up
+  to 150 words, unreferenced — ours 144; up to 6 display items — ours 5 figures + 1 table; references
+  guideline ~50 — ours 42; Extended Data up to 10 items — ours 10; structure Introduction (no heading),
+  Results, Discussion, Methods. No change to the manuscript was needed; only the SI gained a title page.
+- Submission package assembled in `submission/`:
+  - `NMI_cover_letter.docx` / `.pdf` — one page, addressed to the NMI editors, leading with the
+    machine-intelligence contribution (transferable pocket representation, complex-free density pretraining,
+    a validation suite separating data overlap from learned transfer), then the evidence and the standard
+    statements (not under consideration elsewhere, no prior editor discussion, all authors approved).
+  - `NMI_editorial_policy_checklist.docx` / `.pdf` — competing interests, author contributions, data and code
+    availability, ethics/dual use, materials availability, reporting standards, statistics, software, LLM use
+    (language editing only), funding, ORCID, pre-registration, third-party material.
+  - `Source_Data.xlsx` — README plus one sheet per figure and table (Fig. 2 metrics/scaffold coverage, Fig. 3
+    configurations and recovery curves, Fig. 4 scaffold counts and assay values, Fig. 5 ThT values, Table 1).
+  - `NMI_supplementary_front_matter.txt` and `NMI_source_data_descriptions.txt` — the SI title/contents page
+    text and the sheet-by-sheet source-data descriptions.
+- `supplementary.tex` now opens with a title page (authors, one-paragraph description) and a contents table
+  listing Supplementary Notes 1-6 and Supplementary Tables 1-6; the SI is 9 pages.

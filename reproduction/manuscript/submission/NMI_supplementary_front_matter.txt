@@ -1,0 +1,24 @@
+SUPPLEMENTARY INFORMATION
+
+Bridging protein and nucleic-acid pockets via shared physicochemical representations for 3D molecular generation with NA2smol
+
+Letian Gao, Yi Li, Wenbiao Zhou, Jiahao Chen, Wenjin Wan, Yuxuan Mo, Bing Su, Xing Li and Zhi John Lu
+
+This file documents the fixed-atom generation mode, the implementation and reproducibility details, the
+provenance of the fragment-based KRAS ligand, the forward-pass specification of the evaluated
+configuration, the chemical-overlap audit and the target-specificity control, together with six
+supplementary tables. Extended Data figures and tables are provided separately.
+
+CONTENTS
+Supplementary Note 1  Generation with fixed atom subsets
+Supplementary Note 2  Reproducibility and implementation details
+Supplementary Note 3  Provenance of the fragment-based KRAS G-quadruplex ligand
+Supplementary Note 4  Forward-pass specification of the evaluated configuration
+Supplementary Note 5  Chemical-overlap audit and recovery sensitivity
+Supplementary Note 6  Target specificity of ECFP4 recovery
+Supplementary Table 1  Scaffold counts at matched library sizes
+Supplementary Table 2  Structure-identifier exclusion sensitivity
+Supplementary Table 3  Training-scaffold overlap of screened molecules
+Supplementary Table 4  PDB entry modality and verified split counts
+Supplementary Table 5  Chemical overlap of benchmark reference and generated molecules with the training data
+Supplementary Table 6  DNA sequences used in this study

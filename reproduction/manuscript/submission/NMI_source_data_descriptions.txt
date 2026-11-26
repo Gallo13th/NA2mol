@@ -1,0 +1,31 @@
+SOURCE DATA — sheet descriptions
+
+Fig1                      Fig. 1 is a schematic of the NA2smol workflow; it contains no numerical data.
+Fig2_method_metrics       Panels a, b, c, e: per-method metrics on the RNA test set and on DUD-E. One row per
+                          method and benchmark: docking score (kcal mol-1), pose-relaxation RMSD (A), QED, SA
+                          score, SEI, strain (kcal mol-1), screening retention (molecules and targets) and
+                          target-level ECFP4-Tanimoto reference recovery (dimensionless, 0-1).
+Fig2_scaffold_coverage    Panels g, h: non-chiral Bemis-Murcko scaffold counts after the +SEI gate, the matched-
+                          library-size subsampling (counts and 2.5-97.5 percentile interval over 1,000 draws),
+                          and per-target coverage of the screening cascade for each target and method.
+Fig3_configurations       Panels a-f: the same metrics as Fig. 2 for the four training configurations (Baseline,
+                          Pretrain, Pretrain+Constrain, full model) on the 27 shared RNA targets, together with
+                          the per-target medians behind the docking and strain distributions and the waterfall
+                          counts between successive tiers.
+Fig3_recovery_curves      Panels b, g: fraction of eligible targets recovered as a function of the ECFP4-Tanimoto
+                          threshold (0.20-0.50, step 0.05), for each method and each of the three reference-set
+                          definitions (all actives, 27 targets; fine-tuning-similar actives removed, 18;
+                          pretraining-library-similar actives removed, 14).
+Fig4_scaffold_counts      Panel b: generated molecules for the 8HZE_A109 pocket with the size of the largest
+                          sp2-connected system (atoms), the largest system threshold cut at 20 atoms, and the
+                          Bemis-Murcko scaffold frequency ranking of the retained molecules.
+Fig4_assay_values         Panels d, f: fluorescence competition dose-response values (compound concentration in uM,
+                          normalised fluorescence, replicate values, fitted four-parameter logistic) and the
+                          per-cell cellular fluorescence quantification expressed as a percentage of the
+                          untreated control.
+Fig5_ThT_values           Panel g: normalised thioflavin T fluorescence versus compound concentration, with the
+                          fitted four-parameter logistic curve and the derived apparent DC50.
+Fig5_qPCR_values          Panel h: KRAS transcript level relative to GAPDH, normalised to the untreated control,
+                          for each concentration and replicate.
+Table1_metric_values      Table 1: metric values per method for the DUD-E protein benchmark, the RNA test set and
+                          the four training configurations, with the strain coverage percentages.
