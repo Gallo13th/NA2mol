@@ -591,3 +591,14 @@ whole text between rounds.
   both case studies use unconstrained generation; Reporting Summary gains Al-1/NBSI618, the corrected qPCR
   replication wording and the Fig. 4f pointer; both enquiry letters replace the old two-compound Clivia
   paragraph with the scaffold-frequency one.
+
+## 2026-11-26 — Figure 4 layout pass
+
+- Panel e was truncated: the imaging montage had been cropped to 921 px, which cut the Al-1 10 µM column and the
+  row labels. The montage's seven image columns were measured (236-471, 531-767, 773-1009, ...) and the crop is
+  now 0-1015 px by 0-880 px, keeping the label column and the Mock + Al-1 columns intact.
+- Panel b (scaffold selection) was a very wide 112 x 50 mm panel, which forced the whole first row to shrink.
+  Its two histograms are now stacked vertically at 56 x 58 mm, closer to square like the other panels.
+- Layout: two rows of three panels, uniform 58 mm row height, 7 mm column gutters, 11 mm row gutter, each row
+  centred; the canvas is now roughly 179 x 121 mm, so all six panels print at a comparable size.
+- Caption updated from "Left/Right" to "Top/Bottom" for the stacked panel b.

@@ -165,12 +165,12 @@ def draw_mol(smi, w=1300, h=430, highlight=None, hcol=None, notes=None,
 
 
 # --- merged panel: conjugation filter + full scaffold-frequency distribution ---
-FIG_W, FIG_H = 112.0, 50.0
+FIG_W, FIG_H = 56.0, 58.0
 fig = plt.figure(figsize=(FIG_W / 25.4, FIG_H / 25.4))
-gs = fig.add_gridspec(1, 2, width_ratios=[1.0, 1.15], wspace=0.28)
+gs = fig.add_gridspec(2, 1, height_ratios=[1.0, 1.0], hspace=0.55)
 
 # ---- left: conjugation-size distribution with the 20-atom cut ----
-ax = fig.add_subplot(gs[0, 0])
+ax = fig.add_subplot(gs[0])
 _pi = np.array([r['pi'] for r in rows])
 _bins = np.arange(0, 34, 1)
 _counts, _edges = np.histogram(_pi, bins=_bins)
@@ -186,7 +186,7 @@ ax.set_xlim(0, 34)
 clean(ax)
 
 # ---- right: how often each retained scaffold is repeated ----
-axr = fig.add_subplot(gs[0, 1])
+axr = fig.add_subplot(gs[1])
 _reps = np.array([n for _, n in ranked])
 _maxrep = int(_reps.max())
 _hist = np.bincount(_reps, minlength=_maxrep + 1)[1:]
@@ -409,5 +409,7 @@ save(fig, 'panel_competition')
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
 im = Image.open('/Users/letiangao/Documents/Clivia-Competition.tif').convert('RGB')
-im.crop((0, 0, 921, 900)).save(f'{OUT}/panel_imaging.png')
+# the montage holds Mock, Al-1 (two doses), Al-2 and Al-3; keep the label column and the
+# Mock + Al-1 columns (original pixels 100-1015 wide, rows 0-880)
+im.crop((0, 0, 1015, 880)).save(f'{OUT}/panel_imaging.png')
 print('wrote panel_imaging (png)')

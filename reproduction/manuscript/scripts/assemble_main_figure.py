@@ -11,18 +11,18 @@ from PIL import Image
 PANELS = 'docs/clivia_8hze/figures/panels'
 OUT = 'docs/clivia_8hze/figures'
 MAXW = 178.0
-ROW_GAP = 10.0
-COL_GAP = 5.0
+ROW_GAP = 11.0
+COL_GAP = 7.0
 LEFT = 2.0
 
 # (letter, file, row, row_height_mm, title)
 LAYOUT = [
-    ('a', 'panel_pocket_8HZE_NI4',        1, 50.0, r'RNA pocket (8HZE\_A109)'),
-    ('b', 'panel_filter_scaffold',        1, 50.0, 'Scaffold selection'),
+    ('a', 'panel_pocket_8HZE_NI4',        1, 47.0, r'RNA pocket (8HZE\_A109)'),
+    ('b', 'panel_filter_scaffold',        1, 47.0, 'Scaffold selection'),
     ('c', 'panel_core',                   1, 50.0, '2,4-diarylquinoline (Al-1)'),
-    ('d', 'panel_competition',            2, 48.0, 'Competition assay'),
-    ('e', 'panel_imaging',                2, 48.0, 'Cell imaging'),
-    ('f', 'panel_imaging_quantification', 2, 48.0, 'Cellular fluorescence'),
+    ('d', 'panel_competition',            2, 47.0, 'Competition assay'),
+    ('e', 'panel_imaging',                2, 47.0, 'Cell imaging'),
+    ('f', 'panel_imaging_quantification', 2, 58.0, 'Cellular fluorescence'),
 ]
 
 
@@ -42,7 +42,8 @@ for r in sorted(rows):
     total = sum(H * it[4] for it in items) + COL_GAP * (len(items) - 1)
     if total > MAXW:
         H *= MAXW / total
-    x = LEFT
+        total = MAXW
+    x = LEFT + max(0.0, (MAXW - total) / 2.0)
     for letter, name, _, title, a in items:
         w = H * a
         placed.append((letter, name, title, x, y, w, H))
