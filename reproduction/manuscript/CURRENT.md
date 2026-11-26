@@ -616,8 +616,8 @@ whole text between rounds.
     a validation suite separating data overlap from learned transfer), then the evidence and the standard
     statements (not under consideration elsewhere, no prior editor discussion, all authors approved).
   - `NMI_editorial_policy_checklist.docx` / `.pdf` — competing interests, author contributions, data and code
-    availability, ethics/dual use, materials availability, reporting standards, statistics, software, LLM use
-    (language editing only), funding, ORCID, pre-registration, third-party material.
+    availability, ethics/dual use, materials availability, reporting standards, statistics, software, funding,
+    ORCID, pre-registration, third-party material. No LLM-use item is included, at the authors' request.
   - `Source_Data.xlsx` — README plus one sheet per figure and table (Fig. 2 metrics/scaffold coverage, Fig. 3
     configurations and recovery curves, Fig. 4 scaffold counts and assay values, Fig. 5 ThT values, Table 1).
   - `NMI_supplementary_front_matter.txt` and `NMI_source_data_descriptions.txt` — the SI title/contents page
