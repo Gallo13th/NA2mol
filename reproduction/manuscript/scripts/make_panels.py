@@ -109,8 +109,7 @@ for r in csv.DictReader(open('docs/clivia_8hze/cold10k_score.csv')):
     rows.append(r)
 PI_MIN = 20
 QUIN = 'c1ccc(-c2cc(-c3ccccc3)c3ccccc3n2)cc1'
-kept = [r for r in rows if r['pi'] >= PI_MIN and r['n_arom'] >= 2 and r['sa'] <= 4.0
-        and 250 <= r['mw'] <= 600 and r['tpsa'] <= 120 and r['rot'] <= 9]
+kept = [r for r in rows if r['pi'] >= PI_MIN]
 cnt = Counter(r['scaffold'] for r in kept if r['scaffold'] not in ('', 'C', 'c1ccccc1', 'C1CCCCC1'))
 ranked = cnt.most_common()
 

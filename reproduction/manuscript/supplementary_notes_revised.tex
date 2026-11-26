@@ -2,7 +2,7 @@
 
 \section*{Supplementary Note 1 | Generation with fixed atom subsets}
 
-NA2smol includes an optional fixed-subset generation mode that retains specified atom positions and types (Algorithm~\ref{alg:constrained}). Reported benchmarks and the KRAS G-quadruplex case study use generation from the target pocket without fixed ligand fragments (Methods).
+NA2smol includes an optional fixed-subset generation mode that retains specified atom positions and types (Algorithm~\ref{alg:constrained}). All reported benchmarks and both experimental case studies (the Clivia aptamer and the KRAS G-quadruplex) use unconstrained generation from the target pocket without fixed ligand fragments (Methods).
 
 For scaffold-based redesign, this mode conditions generation on a subset of atoms with fixed positions and types (the fixed subset). The fixed atoms are made to follow the same forward Bayesian-flow dynamics used during training, whereas the remaining (free) atoms are generated through the standard reverse sampling process. Algorithm~\ref{alg:constrained} gives the corresponding fixed-code procedure.
 

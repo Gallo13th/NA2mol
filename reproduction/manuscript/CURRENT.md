@@ -571,3 +571,23 @@ whole text between rounds.
   selection paragraph now says the most frequent scaffold was taken as the compound to test.
 - Results subsection retitled "The most frequent generated scaffold binds the Clivia aptamer pocket";
   abstract (144 words) and Discussion updated to the same logic.
+
+## 2026-11-26 — Filter reduced to conjugation only; two-row figure; knock-on fixes
+
+- The selection rule is now applied exactly as stated: keep generated molecules whose largest sp2-connected
+  system is >= 20 atoms (no auxiliary property gates), count Bemis-Murcko scaffolds, take the most frequent.
+  Recounted from `cold10k_score.csv`: **1,080 molecules, 846 scaffolds, 2,4-diarylquinoline 15 times** (runners
+  up 10 and 9); the top five scaffolds are unchanged by the auxiliary gates, so the finding is robust to them.
+  `scripts/make_panels.py` now applies only the conjugation threshold, and the Results, caption and Methods
+  carry the 1,080/846 numbers.
+- Figure 4 is a two-row, six-panel layout at 178 mm (a pocket, b scaffold selection, c 2,4-diarylquinoline
+  (Al-1), d competition, e imaging, f quantification); canvas 178 x 106 mm, so the float now fits with its
+  caption and the former "Float too large" warning is gone.
+- Methods subsubsection retitled "pockets, scaffold selection and assays"; the scaffold-selection paragraph
+  describes the conjugation filter alone and names 2,4-diarylquinoline (Al-1).
+- Knock-on fixes while reading: the Introduction no longer mentions a combinatorial library or combinatorial
+  assay; *Limitations and scope* now describes both case studies (it still claimed a single DNA G-quadruplex
+  experiment); Data availability includes the Clivia and imaging measurements; Supplementary Note 1 states that
+  both case studies use unconstrained generation; Reporting Summary gains Al-1/NBSI618, the corrected qPCR
+  replication wording and the Fig. 4f pointer; both enquiry letters replace the old two-compound Clivia
+  paragraph with the scaffold-frequency one.

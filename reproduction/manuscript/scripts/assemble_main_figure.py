@@ -17,12 +17,12 @@ LEFT = 2.0
 
 # (letter, file, row, row_height_mm, title)
 LAYOUT = [
-    ('a', 'panel_pocket_8HZE_NI4',        1, 58.0, r'RNA pocket (8HZE\_A109)'),
-    ('b', 'panel_filter_scaffold',        1, 58.0, 'Scaffold selection'),
-    ('c', 'panel_core',                   2, 62.0, '2,4-diarylquinoline scaffold'),
-    ('d', 'panel_competition',            2, 62.0, 'Competition assay'),
-    ('e', 'panel_imaging',                3, 62.0, 'Cell imaging'),
-    ('f', 'panel_imaging_quantification', 3, 62.0, 'Cellular fluorescence'),
+    ('a', 'panel_pocket_8HZE_NI4',        1, 50.0, r'RNA pocket (8HZE\_A109)'),
+    ('b', 'panel_filter_scaffold',        1, 50.0, 'Scaffold selection'),
+    ('c', 'panel_core',                   1, 50.0, '2,4-diarylquinoline (Al-1)'),
+    ('d', 'panel_competition',            2, 48.0, 'Competition assay'),
+    ('e', 'panel_imaging',                2, 48.0, 'Cell imaging'),
+    ('f', 'panel_imaging_quantification', 2, 48.0, 'Cellular fluorescence'),
 ]
 
 
