@@ -555,3 +555,19 @@ whole text between rounds.
   old panel). Figure 4 is now eight panels: a pocket, b scaffold selection, c scaffold, d QED/SA gate,
   e rDock score, f competition, g imaging, h cellular fluorescence.
 - Caption and in-text references relettered; canvas 181 × 171 mm.
+
+## 2026-11-26 — Clivia case study reduced to its actual logic
+
+- The case study is now told as: generation -> keep molecules whose largest sp2-connected system is
+  >= 20 atoms (plus ordinary property ranges) -> count Bemis-Murcko scaffolds -> take the most frequent
+  one (2,4-diarylquinoline, 15 times) -> have that scaffold made and test it; it displaces the dye
+  (IC50 3.3 uM) and lowers cellular fluorescence. The fluorescence-design justification
+  ("a fluorogenic ligand requires an extended pi-system"), the substituent enumeration, the QED/SA gate
+  and the rDock percentile ranking are gone because they did not drive the choice.
+- Figure 4 is now six panels: a pocket, b scaffold selection (conjugation histogram and scaffold
+  frequency), c the bare scaffold with no position labels, d competition, e imaging, f quantification.
+  The gate and rDock panels were removed; the scaffold panel lost its C2/C4/C7 labels.
+- Methods subsections "Inpainting and enumeration" and "Non-docked scoring" deleted; the scaffold
+  selection paragraph now says the most frequent scaffold was taken as the compound to test.
+- Results subsection retitled "The most frequent generated scaffold binds the Clivia aptamer pocket";
+  abstract (144 words) and Discussion updated to the same logic.

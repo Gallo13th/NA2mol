@@ -19,12 +19,10 @@ LEFT = 2.0
 LAYOUT = [
     ('a', 'panel_pocket_8HZE_NI4',        1, 58.0, r'RNA pocket (8HZE\_A109)'),
     ('b', 'panel_filter_scaffold',        1, 58.0, 'Scaffold selection'),
-    ('c', 'panel_core',                   2, 50.0, '2,4-diarylquinoline scaffold'),
-    ('d', 'panel_gate_qed_sa',            2, 50.0, 'Drug-likeness gate'),
-    ('e', 'panel_rdock_histogram',        2, 50.0, 'rDock score'),
-    ('f', 'panel_competition',            3, 44.0, 'Competition assay'),
-    ('g', 'panel_imaging',                3, 44.0, 'Cell imaging'),
-    ('h', 'panel_imaging_quantification', 3, 44.0, 'Cellular fluorescence'),
+    ('c', 'panel_core',                   2, 62.0, '2,4-diarylquinoline scaffold'),
+    ('d', 'panel_competition',            2, 62.0, 'Competition assay'),
+    ('e', 'panel_imaging',                3, 62.0, 'Cell imaging'),
+    ('f', 'panel_imaging_quantification', 3, 62.0, 'Cellular fluorescence'),
 ]
 
 
