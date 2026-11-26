@@ -29,6 +29,7 @@ SIZES = {
     'panel_substituent_C7': (36, 42),
     'panel_rdock_histogram': (62, 48),
     'panel_competition': (55, 48),
+    'panel_core': (46, 44),
 }
 
 
@@ -278,6 +279,26 @@ if _cb:
 _xy = {k: (_d.GetDrawCoords(i).x - (max(0, _cb[0] - 8) if _cb else 0),
            _d.GetDrawCoords(i).y - (max(0, _cb[1] - 8) if _cb else 0)) for k, i in _pos.items()}
 print('substitution sites:', _pos)
+
+# --- standalone core panel: the bare 2,4-diarylquinoline scaffold ---
+figc, axc = plt.subplots(figsize=mm('panel_core'))
+_hh, _ww = _core_img.shape[:2]
+axc.imshow(_core_img)
+for _k, (_px, _py) in _xy.items():
+    _dx, _dy = _px - _ww / 2.0, _py - _hh / 2.0
+    _nrm = max((_dx ** 2 + _dy ** 2) ** 0.5, 1e-6)
+    _tx, _ty = _px + 105 * _dx / _nrm, _py + 105 * _dy / _nrm
+    axc.annotate(_k, xy=(_px, _py), xytext=(_tx, _ty), annotation_clip=False,
+                 fontsize=SZ_LABEL, fontweight='bold', color=_COLS[_k],
+                 ha='center', va='center',
+                 arrowprops=dict(arrowstyle='-', lw=0.9, color=_COLS[_k], shrinkA=0, shrinkB=6))
+axc.set_xlim(-55, _ww + 55)
+axc.set_ylim(_hh + 70, -70)
+axc.set_xticks([]); axc.set_yticks([])
+for _sp in axc.spines.values():
+    _sp.set_visible(False)
+figc.tight_layout(pad=0.1)
+save(figc, 'panel_core')
 
 fig = plt.figure(figsize=(242 / 25.4, 50 / 25.4))
 gs = fig.add_gridspec(1, 4, width_ratios=[1.38, 1.0, 1.0, 1.0], wspace=0.46)

@@ -544,3 +544,14 @@ whole text between rounds.
   pocket"; Results, Discussion and caption describe one tested analogue; Methods drop Al-2 from the
   competition and imaging protocols; the abstract reports a single IC50 (3.3 µM) and is 149 words.
 - Reporting Summary updated to 16 wells and the Al-1-only imaging panel.
+
+## 2026-11-26 — Fig. 4 reduced to the scaffold
+
+- Panel c (substitution sites and frequencies) deleted: with the story framed around the scaffold and a
+  single analogue, the substituent bar charts no longer carry a claim. The enumeration is described in
+  the Results and Methods instead.
+- Panel d no longer shows the Al-1 pose; the new panel c is the bare 2,4-diarylquinoline scaffold with
+  the C2/C4/C7 substitution positions marked (`panel_core`, drawn from the same RDKit depiction as the
+  old panel). Figure 4 is now eight panels: a pocket, b scaffold selection, c scaffold, d QED/SA gate,
+  e rDock score, f competition, g imaging, h cellular fluorescence.
+- Caption and in-text references relettered; canvas 181 × 171 mm.
