@@ -20,7 +20,7 @@ LAYOUT = [
     ('a', 'panel_pocket_8HZE_NI4',        1, 58.0, r'RNA pocket (8HZE\_A109)'),
     ('b', 'panel_filter_scaffold',        1, 58.0, 'Scaffold selection'),
     ('c', 'panel_substituents',           2, 46.0, 'Substitution sites and frequencies'),
-    ('d', 'panel_complex_pair',           3, 50.0, 'Al-1 and Al-2 in the pocket (independent poses)'),
+    ('d', 'panel_complex_AL1',            3, 50.0, 'Al-1 in the binding pocket'),
     ('e', 'panel_gate_qed_sa',            3, 50.0, 'Drug-likeness gate'),
     ('f', 'panel_rdock_histogram',        3, 50.0, 'rDock score'),
     ('g', 'panel_competition',            4, 44.0, 'Competition assay'),

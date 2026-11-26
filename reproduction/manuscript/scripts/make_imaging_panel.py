@@ -10,11 +10,11 @@ from panel_style import apply_style, clean, C_KEEP, C_AL1, C_AL2, C_GREY, C_TEXT
 from scipy import stats
 
 vals = np.load('/tmp/clivia_imaging.npy')
-labels = ['Mock', 'Al-1\n1 µM', 'Al-1\n10 µM', 'Al-2\n1 µM', 'Al-2\n10 µM']
-cols = ['#8a8a8a', C_AL1, C_AL1, C_AL2, C_AL2]
-fills = ['#e2e6e5', '#e8c8a4', '#d9a86f', '#d6c8e6', '#bca6d6']
+labels = ['Mock', 'Al-1\n1 µM', 'Al-1\n10 µM']
+cols = ['#8a8a8a', C_AL1, C_AL1]
+fills = ['#e2e6e5', '#e8c8a4', '#d9a86f']
 mock = vals[:, 0]
-N_COND = 5
+N_COND = 3
 mean = np.array([vals[:, j].mean() for j in range(N_COND)])
 sem = np.array([vals[:, j].std(ddof=1) / np.sqrt(vals.shape[0]) for j in range(N_COND)])
 rel = 100 * mean / mock.mean()

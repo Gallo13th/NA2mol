@@ -507,3 +507,40 @@ whole text between rounds.
   caption, which printed the page number on top of caption words (a "10" over the word
   "minimisation"). `scripts/fix_page_numbers.py` repairs those runs (it found four pages), and
   `scripts/build_submission_files.sh` now runs it on all three PDFs.
+
+## 2026-11-25 — Mapping-control pipeline shared with liweihang
+
+- Created `~/share/liweihang_rna_mapping/` on the analysis host (README, `scripts/`, `data/`,
+  `docs/`, `outputs/`, 1.4 MB) containing the random-residue mapping-control pipeline: the pocket
+  builders (`make_scrambled_pockets.py`, `make_mapped_pockets.py`), the baseline runners
+  (`batch_diffsbdd.py`, `batch_flag.py`, `batch_pocket2mol.py`), the arm capping and orchestration
+  scripts, the paired-effect/funnel statistics (`paired_mapping_effects.py`) and the paper-side table
+  and figure builders, together with the staged result CSVs, the pocket indexes, example pocket files
+  and the Extended Data table/figure LaTeX.
+- Read-only access for the other user: ACL `u:liweihang:r-X` on the whole tree plus a default ACL for
+  anything added later, and `u:liweihang:--x` on `~` so the path is traversable without exposing the
+  rest of the home directory. Nothing in the tree is writable by `liweihang`.
+- Revised the same day after clarification: the share is now organised around the **RNA** pipeline rather
+  than the DUD-E control — `01_pockets/` (target index + nucleotide→pseudo-amino-acid mapping with Cα
+  injection), `02_run_baselines/` (DiffSBDD, FLAG, Pocket2Mol runners + budget capping),
+  `03_evaluate/` (smina docking, PoseCheck strain, ECFP4 recovery, table assembly),
+  `04_export/` (manuscript table schema), `05_paper_side/` (per-target medians, radar table, recovery
+  curves). `data/rna_targets_reference.csv` (27 targets, reference SMILES, fine-tuning and pretraining
+  similarity of each active) was added so recovery can be recomputed without the 121 MB combined
+  results file. The residue-scrambling control moved to `extras_mapping_control/`.
+
+## 2026-11-26 — Clivia case study reframed around the scaffold (NMR check on Al-4)
+
+- The experimental side found by NMR that the compound designated Al-4 carries only the scaffold and no
+  substituents. The Clivia story is therefore told as a scaffold finding: the generation and scoring
+  cascade converged on the 2,4-diarylquinoline core (15 occurrences among 777 scaffolds), and Al-1 is
+  the substituted analogue that was synthesised and tested. Al-2 is no longer reported.
+- Figure 4 rebuilt for Al-1 only: panel d is a single Al-1 pose, panel e marks Al-1 only, panel f has a
+  single Al-1 line, panel g is the Al-1 competition curve, panel h crops the imaging montage to Mock and
+  the two Al-1 doses, panel i quantifies those three conditions (43.4% and 34.9% of Mock).
+  `scripts/make_panels.py`, `scripts/make_imaging_panel.py` and `scripts/assemble_main_figure.py` carry
+  the change; the two-view Al-1/Al-2 panel built earlier is no longer used.
+- Text: subsection retitled "NA2smol generation identifies the dominant scaffold of the Clivia aptamer
+  pocket"; Results, Discussion and caption describe one tested analogue; Methods drop Al-2 from the
+  competition and imaging protocols; the abstract reports a single IC50 (3.3 µM) and is 149 words.
+- Reporting Summary updated to 16 wells and the Al-1-only imaging panel.

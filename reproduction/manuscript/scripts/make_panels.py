@@ -333,7 +333,6 @@ SETS = {'C4': {'OH', 'Cl', 'Me', 'OMe', 'F', 'NH2', 'NHMe'},
         'C7': {'OMe', 'OH', 'Me', 'Cl', 'OEt', 'CF3', 'NH2', 'F'}}
 lib = [r for r in rows_e if r['C4'] in SETS['C4'] and r['C2'] in SETS['C2'] and r['Q'] in SETS['C7']]
 al1 = next(r for r in pruned if (r['C4'], r['C2'], r['Q']) == ('OMe', 'OH', 'OMe'))
-al2 = next(r for r in pruned if (r['C4'], r['C2'], r['Q']) == ('OMe', 'NH2', 'OMe'))
 DYES = {'NI4': -38.86, 'NJL': -37.26, 'O2I': -35.83, 'O00': -33.53}
 
 fig, ax = plt.subplots(figsize=mm('panel_gate_qed_sa'))
@@ -342,9 +341,8 @@ failg = [r for r in lib if not (r['qed'] >= 0.44 and r['sa'] <= 2.00)]
 ax.scatter([r['qed'] for r in failg], [r['sa'] for r in failg], s=7, color=C_GREY, lw=0, label='removed')
 ax.scatter([r['qed'] for r in passg], [r['sa'] for r in passg], s=7, color=C_KEEP, lw=0, label='retained')
 ax.axvline(0.44, color=C_TEXT, ls='--', lw=LW_THRESH); ax.axhline(2.00, color=C_TEXT, ls='--', lw=LW_THRESH)
-a1 = next(x for x in lib if x['key'] == al1['key']); a2 = next(x for x in lib if x['key'] == al2['key'])
+a1 = next(x for x in lib if x['key'] == al1['key'])
 ax.scatter([a1['qed']], [a1['sa']], s=28, color=C_AL1, marker='D', zorder=6, lw=0, label='Al-1')
-ax.scatter([a2['qed']], [a2['sa']], s=28, color=C_AL2, marker='s', zorder=6, lw=0, label='Al-2')
 ax.set_xlabel('QED'); ax.set_ylabel('SA score')
 clean(ax)
 ax.legend(loc='upper left', handletextpad=0.3, borderpad=0.2, labelspacing=0.25)
@@ -357,7 +355,7 @@ ax.hist(valid, bins=40, range=(-48, 0), color=C_DATA, lw=0)
 for i, (name, v) in enumerate(DYES.items()):
     ax.axvline(v, color='#1a1a1a', lw=LW_REF, ls='-' if name == 'NI4' else '--', alpha=0.9,
                label='crystal dyes' if i == 0 else None)
-for r, c, lab in ((al1, C_AL1, 'Al-1'), (al2, C_AL2, 'Al-2')):
+for r, c, lab in ((al1, C_AL1, 'Al-1'),):
     ax.axvline(r['rdock_min'], color=c, lw=LW_REF + 0.2, label=lab)
 ax.set_xlim(-48, 0)
 ax.set_xlabel('rDock score')
@@ -366,15 +364,14 @@ clean(ax)
 ax.legend(loc='upper right', handletextpad=0.5, borderpad=0.2, labelspacing=0.25)
 save(fig, 'panel_rdock_histogram')
 
-img = Draw.MolsToGridImage([Chem.MolFromSmiles(al1['smiles']), Chem.MolFromSmiles(al2['smiles'])],
-                           molsPerRow=2, subImgSize=(520, 380), legends=['Al-1', 'Al-2'])
-img.save(f'{OUT}/panel_structures_al12.png')
-print('wrote panel_structures_al12 (png)')
+img = Draw.MolsToGridImage([Chem.MolFromSmiles(al1['smiles'])],
+                           molsPerRow=1, subImgSize=(520, 380), legends=['Al-1'])
+img.save(f'{OUT}/panel_structures_al1.png')
+print('wrote panel_structures_al1 (png)')
 
 # ================= competition =================
-SRC = {'Al-1': '/Users/letiangao/Documents/AI-1-Compatative.xlsx',
-       'Al-2': '/Users/letiangao/Documents/AI-2-Compatative.xlsx'}
-COL = {'Al-1': C_AL1, 'Al-2': C_AL2}
+SRC = {'Al-1': '/Users/letiangao/Documents/AI-1-Compatative.xlsx'}
+COL = {'Al-1': C_AL1}
 def four_pl(x, b, t, ic50, h):
     return b + (t - b) / (1.0 + (x / ic50) ** h)
 fig, ax = plt.subplots(figsize=mm('panel_competition'))
@@ -403,5 +400,5 @@ save(fig, 'panel_competition')
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
 im = Image.open('/Users/letiangao/Documents/Clivia-Competition.tif').convert('RGB')
-im.crop((0, 0, 1535, 900)).save(f'{OUT}/panel_imaging.png')
+im.crop((0, 0, 921, 900)).save(f'{OUT}/panel_imaging.png')
 print('wrote panel_imaging (png)')
