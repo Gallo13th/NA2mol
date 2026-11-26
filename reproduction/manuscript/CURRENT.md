@@ -624,3 +624,13 @@ whole text between rounds.
     text and the sheet-by-sheet source-data descriptions.
 - `supplementary.tex` now opens with a title page (authors, one-paragraph description) and a contents table
   listing Supplementary Notes 1-6 and Supplementary Tables 1-6; the SI is 9 pages.
+
+## 2026-11-26 — Cover letter rewritten in the enquiry-letter style
+
+- The NMI cover letter now follows the layout and voice of the two pre-submission enquiry letters: same letterhead
+  (name, affiliation, e-mail), date, ruled title block, "Dear Editor," body in continuous prose, and the same
+  signature block. It keeps the enquiry wording for the context, the two-strategy method paragraph, the benchmark
+  paragraph, the Clivia and KRAS paragraphs and the threefold methodological-advance paragraph, and replaces the
+  enquiry's closing question with the NMI submission statements (not under consideration elsewhere, no related
+  manuscript in press, no prior discussion with an NMI editor, all authors approved).
+- One page, 483 words of body text.
