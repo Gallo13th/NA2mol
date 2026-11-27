@@ -683,3 +683,9 @@ whole text between rounds.
   (82371855, 82341101), National High Level Hospital Clinical Research Funding (2025-PUMCH-C-015), and the
   BioComputing Platform of the Tsinghua University Branch of China National Center for Protein Sciences.
 - The Editorial Policy Checklist funding item now records the same text.
+
+## 2026-11-27 — Title page: corresponding e-mails only
+
+- The `\email{}` entries of the two regular authors (Wenjin Wan, Yuxuan Mo) were removed, so the title page lists
+  only the three corresponding addresses (subingats@gmail.com, li@ioz.ac.cn, zhilu@tsinghua.edu.cn). Their
+  addresses stay in the submission system and in the Editorial Policy Checklist ORCID item if needed.
