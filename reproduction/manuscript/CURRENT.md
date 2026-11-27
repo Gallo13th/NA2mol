@@ -675,9 +675,9 @@ whole text between rounds.
   analysis or reference-set sensitivity section). The workspace text was therefore kept, and only its `README.md`
   was added as the project description. Overwriting the workspace with that export would have reverted the November
   revisions.
-- Affiliation 1 (Zhi John Lu) now reads "MOE Key Laboratory of Bioinformatics, State Key Laboratory of Green
-  Biomanufacturing, Center for Synthetic and Systems Biology, **Center for Life Sciences and Artificial
-  Intelligence**, School of Life Sciences, Tsinghua University, Beijing, China".
+- Affiliation 1 (Zhi John Lu) is left unchanged at the authors' request: "MOE Key Laboratory of Bioinformatics,
+  State Key Laboratory of Green Biomanufacturing, Center for Synthetic and Systems Biology, School of Life
+  Sciences, Tsinghua University, Beijing, China" (the additional centre suggested in the e-mail was withdrawn).
 - Acknowledgements now carry the funding text supplied by the corresponding author's office: National Key Research
   and Development Program of China (2024YFC3405900, 2024YFC2510300), National Natural Science Foundation of China
   (82371855, 82341101), National High Level Hospital Clinical Research Funding (2025-PUMCH-C-015), and the
