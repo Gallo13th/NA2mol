@@ -661,3 +661,8 @@ whole text between rounds.
   subdirectory of the analysis repository.
 - `scripts/sync_overleaf_repo.sh "message"` refreshes that mirror from `overleaf/`, commits and pushes; it reports
   the two commands needed the first time an `origin` remote is added.
+- The manuscript tree is also available as an **orphan branch `manuscript`** of `Gallo13th/NA2mol`
+  (commit `cc150e6`, 31 files, verified by cloning that branch alone and building: 30 + 10 + 9 pages,
+  no undefined references). Overleaf's GitHub integration can be pointed at that branch, which keeps the
+  analysis history on `paper-release` untouched; a dedicated repository remains the alternative if the
+  Overleaf plan only syncs a repository's default branch.
