@@ -666,3 +666,20 @@ whole text between rounds.
   no undefined references). Overleaf's GitHub integration can be pointed at that branch, which keeps the
   analysis history on `paper-release` untouched; a dedicated repository remains the alternative if the
   Overleaf plan only syncs a repository's default branch.
+
+## 2026-11-27 — Overleaf export merged; affiliation and funding
+
+- The Overleaf export `_1_2em.zip` was inspected file by file. Its figures, class, bibliography style and the
+  include files are identical to the workspace; its `sn-article-revised.tex` is an **older draft** (it still has the
+  pre-revision headings "Results of RNA and protein molecule generation", the old Fig. 1 caption, no component
+  analysis or reference-set sensitivity section). The workspace text was therefore kept, and only its `README.md`
+  was added as the project description. Overwriting the workspace with that export would have reverted the November
+  revisions.
+- Affiliation 1 (Zhi John Lu) now reads "MOE Key Laboratory of Bioinformatics, State Key Laboratory of Green
+  Biomanufacturing, Center for Synthetic and Systems Biology, **Center for Life Sciences and Artificial
+  Intelligence**, School of Life Sciences, Tsinghua University, Beijing, China".
+- Acknowledgements now carry the funding text supplied by the corresponding author's office: National Key Research
+  and Development Program of China (2024YFC3405900, 2024YFC2510300), National Natural Science Foundation of China
+  (82371855, 82341101), National High Level Hospital Clinical Research Funding (2025-PUMCH-C-015), and the
+  BioComputing Platform of the Tsinghua University Branch of China National Center for Protein Sciences.
+- The Editorial Policy Checklist funding item now records the same text.
