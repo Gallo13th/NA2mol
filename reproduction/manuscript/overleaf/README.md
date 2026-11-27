@@ -45,3 +45,11 @@ Both need two passes; neither uses BibTeX.
 - Figures are included at their final print size; please do not rescale them, the panel text is set for that width.
 - Page numbers that the class places inside a float caption are repaired by `scripts/fix_page_numbers.py` in the
   full repository; this does not affect Overleaf compilation of the text itself.
+
+## Shared project
+
+The co-authors edit this project on Overleaf at
+`https://www.overleaf.com/project/6b08dfdd9f9cbcc3669cfd8c` (invite link circulated separately).
+
+This folder in the repository is the source of truth. After any change here, regenerate the archive and
+re-upload it to Overleaf (`zip` the folder, then *New project -> Upload project*), so the two copies do not drift.

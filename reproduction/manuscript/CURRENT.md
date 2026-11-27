@@ -634,3 +634,20 @@ whole text between rounds.
   enquiry's closing question with the NMI submission statements (not under consideration elsewhere, no related
   manuscript in press, no prior discussion with an NMI editor, all authors approved).
 - One page, 483 words of body text.
+
+## 2026-11-27 — Clean Overleaf project
+
+- `overleaf/` holds a self-contained LaTeX project for sharing on Overleaf: the three masters
+  (`sn-article-revised.tex` as the main document, `extended_data.tex`, `supplementary.tex`), the class and
+  bibliography style, the bibliography, the six figure PDFs actually included, and only the section/table files
+  those masters input. Unused leftovers (`cover_letter_ncs.tex`, the `presub_table*` fragments) were dropped.
+- `README.md` states the main document, the compiler and the build sequence for all three PDFs.
+- Verified by unzipping `overleaf/RNA2smol_overleaf.zip` into an empty directory and building from scratch:
+  main 30 pp with no undefined references, Extended Data 10 pp, Supplementary 9 pp.
+
+## 2026-11-27 — Shared Overleaf project
+
+- The clean `overleaf/` project was uploaded to Overleaf and shared with the co-authors as project
+  `6b08dfdd9f9cbcc3669cfd8c`. The repository copy (`overleaf/`, plus `RNA2smol_overleaf.zip`) stays the source
+  of truth: changes are made here, the zip is regenerated and re-uploaded, so that the Overleaf copy never
+  drifts. The share token is deliberately not recorded in the repository.
