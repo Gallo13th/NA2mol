@@ -1,0 +1,84 @@
+\section*{Extended Data Table 9 | Sensitivity of each baseline to randomised residue assignment}
+
+Protein-oriented structure-based generators cannot encode nucleotide residues, so the RNA test set was scored with every nucleic-acid residue reassigned to one of the 20 amino-acid types before inference (Methods). To test whether that reassignment is itself responsible for the ordering seen on the benchmark, each baseline that accepts a residue-type channel was run on DUD-E twice: once with its native protein residue types, and once with every residue type reassigned at random while atomic coordinates, atom names and all sampling settings were held fixed. DiffSBDD, FLAG and Pocket2Mol were run for this control, and MolCRAFT was run earlier on the same protocol; GraphBP and ED2Mol take no residue-type input (element-only and electron-density conditioning, respectively), so the control has no meaning for them. Both arms of every pair were scored with the identical docking, screening and recovery pipeline, and the scrambling rule is the deterministic hash described in Methods.
+
+Both arms of a pair were trimmed to the same number of molecules at every target, so every median and every retention count below rests on identical pools; DiffSBDD, FLAG and Pocket2Mol were generated for this control at 300 molecules per target and MolCRAFT reuses its earlier campaign at about 1000. The budget is not cosmetic: at a budget of 25 molecules per target, Pocket2Mol showed no metric beyond $|d_z|=0.24$ and would have been called insensitive, whereas at 300 its docking score, pose-relaxation RMSD and ECFP4 similarity are all significantly degraded. Small controls therefore understate sensitivity, and the three regenerated methods use the same budget so their effect sizes are directly comparable. MolCRAFT is the exception in Panel~B only: its two arms were generated in an earlier campaign with different yields (76,351 native and 98,257 random molecules over the same 100 targets), so its per-target medians remain paired but its retention counts rest on unequal pools.
+\begin{samepage}
+\textbf{Panel A. Paired metric effects}
+\begin{center}\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}llcccccc@{}}
+\toprule
+\textbf{Method} & \textbf{Metric} & \textbf{$n$ targets} & \textbf{Native} & \textbf{Random} & \textbf{$\Delta$} & \textbf{$d_z$ (95\% CI)} & \textbf{$q$} \\
+\midrule
+\textit{MolCRAFT} & Docking & 100 & $-9.86$ & $-10.05$ & 0.17 & 0.35 (0.16, 0.55) & 0.007 \\
+ & RMSD & 100 & 0.371 & 0.371 & 0.005 & 0.03 ($-0.17$, 0.21) & 0.861 \\
+ & QED & 100 & 0.564 & 0.561 & $-0.012$ & $-0.16$ ($-0.36$, 0.03) & 0.158 \\
+ & SA & 100 & 4.08 & 4.10 & $-0.07$ & $-0.17$ ($-0.40$, 0.02) & 0.086 \\
+ & SEI & 100 & 0.115 & 0.108 & $-0.004$ & $-0.16$ ($-0.37$, 0.03) & 0.189 \\
+ & LLE & 100 & 7.07 & 7.27 & 0.17 & 0.16 ($-0.04$, 0.36) & 0.150 \\
+ & ECFP4 & 100 & 0.181 & 0.176 & $-0.007$ & $-0.38$ ($-0.56$, $-0.24$) & $<10^{-3}$ \\
+ & Strain & 100 & 254 & 264 & $-1$ & $-0.02$ ($-0.23$, 0.17) & 0.398 \\
+\midrule
+\textit{Pocket2Mol} & Docking & 102 & $-8.67$ & $-8.38$ & $-0.30$ & $-0.46$ ($-0.65$, $-0.28$) & $<10^{-3}$ \\
+ & RMSD & 102 & 0.829 & 0.856 & $-0.050$ & $-0.25$ ($-0.45$, $-0.06$) & 0.039 \\
+ & QED & 102 & 0.542 & 0.556 & 0.016 & 0.18 ($-0.01$, 0.38) & 0.183 \\
+ & SA & 102 & 4.58 & 4.58 & 0.01 & 0.01 ($-0.18$, 0.21) & 0.695 \\
+ & SEI & 102 & 0.097 & 0.092 & $-0.007$ & $-0.21$ ($-0.37$, $-0.03$) & 0.239 \\
+ & LLE & 102 & 5.58 & 5.45 & $-0.17$ & $-0.15$ ($-0.33$, 0.05) & 0.225 \\
+ & ECFP4 & 99 & 0.174 & 0.174 & $-0.004$ & $-0.30$ ($-0.51$, $-0.11$) & 0.022 \\
+ & Strain & 102 & 33 & 31 & 7 & 0.19 (0.02, 0.34) & 0.489 \\
+\midrule
+\textit{DiffSBDD} & Docking & 102 & $-5.51$ & $-4.76$ & $-1.01$ & $-0.44$ ($-0.79$, $-0.18$) & $<10^{-3}$ \\
+ & RMSD & 102 & 2.833 & 3.343 & $-0.548$ & $-1.13$ ($-1.40$, $-0.92$) & $<10^{-3}$ \\
+ & QED & 102 & 0.486 & 0.467 & $-0.031$ & $-0.35$ ($-0.58$, $-0.14$) & $<10^{-3}$ \\
+ & SA & 102 & 5.63 & 5.71 & $-0.08$ & $-0.16$ ($-0.36$, 0.03) & 0.116 \\
+ & SEI & 102 & 0.058 & 0.045 & $-0.016$ & $-0.58$ ($-0.88$, $-0.34$) & $<10^{-3}$ \\
+ & LLE & 102 & 3.11 & 2.91 & $-0.76$ & $-0.31$ ($-0.55$, $-0.10$) & $<10^{-3}$ \\
+ & ECFP4 & 99 & 0.155 & 0.151 & $-0.005$ & $-0.46$ ($-0.67$, $-0.26$) & $<10^{-3}$ \\
+ & Strain & 102 & 185 & 192 & 20 & 0.12 ($-0.09$, 0.26) & 0.499 \\
+\midrule
+\textit{FLAG} & Docking & 96 & $-3.91$ & $-3.84$ & $-0.04$ & $-0.10$ ($-0.32$, 0.10) & 0.394 \\
+ & RMSD & 96 & 3.215 & 3.252 & $-0.020$ & $-0.07$ ($-0.28$, 0.13) & 0.450 \\
+ & QED & 96 & 0.405 & 0.405 & 0.003 & 0.07 ($-0.12$, 0.28) & 0.498 \\
+ & SA & 96 & 6.52 & 6.62 & $-0.02$ & $-0.06$ ($-0.26$, 0.14) & 0.713 \\
+ & SEI & 96 & 0.043 & 0.042 & $-0.001$ & $-0.19$ ($-0.38$, 0.01) & 0.394 \\
+ & LLE & 96 & 4.76 & 4.91 & $-0.00$ & $-0.00$ ($-0.21$, 0.20) & 0.881 \\
+ & ECFP4 & 93 & 0.120 & 0.119 & $-0.000$ & $-0.00$ ($-0.21$, 0.20) & 0.779 \\
+ & Strain & 96 & 26 & 29 & $-3$ & $-0.13$ ($-0.28$, 0.07) & 0.394 \\
+\midrule
+\bottomrule
+\end{tabular}\end{center}
+
+Oriented $\Delta$ is the mean paired difference in the direction of better performance (positive means the random arm scores better); $d_z$ is Cohen's $d$ for paired samples with a 95\% percentile interval over targets, and $q$ is the Wilcoxon signed-rank $P$ value after Benjamini--Hochberg correction across the eight metrics of that method.
+
+\end{samepage}
+\begin{samepage}
+\textbf{Panel B. Screening retention under the four-tier cascade}
+\begin{center}\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+\textbf{Method} & \textbf{Arm} & \textbf{All} & \textbf{Pharma.} & \textbf{+SEI} & \textbf{Strict} & \textbf{Final tier} \\
+\midrule
+\textit{MolCRAFT} & Native & 76,351 & 29,639 & 24,377 & 11,667 & 2,471 \\
+\textit{MolCRAFT} & Random & 98,257 & 36,410 & 28,938 & 13,287 & 2,361 \\
+\midrule
+\textit{Pocket2Mol} & Native & 30,515 & 6,197 & 4,607 & 1,580 & 260 \\
+\textit{Pocket2Mol} & Random & 30,515 & 5,760 & 4,252 & 1,306 & 306 \\
+\midrule
+\textit{DiffSBDD} & Native & 30,600 & 1,093 & 884 & 217 & 17 \\
+\textit{DiffSBDD} & Random & 30,600 & 373 & 285 & 45 & 7 \\
+\midrule
+\textit{FLAG} & Native & 24,437 & 13 & 10 & 0 & 0 \\
+\textit{FLAG} & Random & 24,437 & 12 & 12 & 0 & 0 \\
+\midrule
+\bottomrule
+\end{tabular}\end{center}
+
+\end{samepage}
+Counts are valid generated molecules surviving each successive tier of the manuscript cascade (Pharma.: docking $<-8$~kcal~mol$^{-1}$, QED $>0.5$, SA $<5$; +SEI adds SEI $>0.1$; Strict: docking $<-9$~kcal~mol$^{-1}$, QED $>0.5$, SA $<5$, SEI $>0.15$; Final tier adds QED $>0.6$, SA $<4$, SEI $>0.2$ and strain $<200$~kcal~mol$^{-1}$). Both arms of a pair were generated and scored with the same settings, so the two rows are directly comparable within a method.
+
+\noindent\textbf{Summary.} 
+MolCRAFT: 2 of 8 metrics at $q<0.05$ (Docking score, ECFP4), largest shift ECFP4 ($|d_z|=0.38$); Pocket2Mol: 3 of 8 metrics at $q<0.05$ (Docking score, Relax. RMSD, ECFP4), largest shift Docking score ($|d_z|=0.46$); DiffSBDD: 6 of 8 metrics at $q<0.05$ (Docking score, Relax. RMSD, QED, SEI, LLE, ECFP4), largest shift Relax. RMSD ($|d_z|=1.13$); FLAG: none of 8 metrics at $q<0.05$, largest shift SEI ($|d_z|=0.19$). 
+Randomising residue identity therefore does not act uniformly across the four baselines; the effect scales with how much of the pocket chemistry each encoder carries in its residue channel. FLAG is unaffected on every metric. MolCRAFT and Pocket2Mol sit in between and disagree with themselves across axes: MolCRAFT docks slightly better from scrambled pockets while its best ECFP4 similarity falls, and Pocket2Mol loses docking quality, pose relaxation and ECFP4 similarity while gaining on the property axes. DiffSBDD is the extreme case, because its C$\alpha$-level representation encodes the pocket almost entirely through the amino-acid one-hot channel, so scrambling removes the signal it conditions on and degrades six of eight metrics, with retention at the first screening tier falling from 1,093 to 373 molecules on the same target set. Two consequences follow for how the external comparison should be read. Random residue assignment does not manufacture the benchmark ordering for FLAG, and only mildly perturbs MolCRAFT and Pocket2Mol, so those comparisons stand as performance context. For DiffSBDD the mapping is not a neutral compatibility device, and its RNA results should be read as a lower bound obtained under a degraded pocket representation rather than as an estimate of that architecture's ceiling.

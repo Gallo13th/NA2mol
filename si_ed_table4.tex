@@ -1,0 +1,28 @@
+\section*{Extended Data Table 5 | Composition of the supervised fine-tuning data}
+
+These are the counts behind the training-set description in the main text; the table records how
+the supervised records are distributed, not a result.
+
+{\footnotesize Composition of the supervised fine-tuning data. Counts are curated structures, not the approximately 2.4-million-molecule ligand-only ED pretraining library. Protein structures come from the PDB (experimental) and CrossDocked2020 (docked poses); 2,827 of 48,698 PDB entries were removed because their pockets were too similar to the DUD-E test pockets, using the shape- and ICP-based filter. The 738 nucleic-acid records comprise 457 RNA, 274 DNA and 7 hybrid entries by RCSB polymer annotation (Supplementary Table~4).}
+
+\begin{center}
+\small
+\begin{tabular}{@{}llc l@{}}
+\toprule
+\textbf{Training subset} & \textbf{Partition} & \textbf{Records} & \textbf{Target class} \\
+\midrule
+\multirow{2}{*}{PDB crystal structures}
+  & training   & 45,871 & Protein \\
+  & validation &  5,000 & Protein \\
+CrossDocked2020 docked poses & training & 81,028 & Protein \\
+\midrule
+\multirow{3}{*}{Nucleic-acid--ligand}
+  & total      & 738 & 457 RNA, 274 DNA, 7 hybrid \\
+  & training   & 356 & 147 RNA, 202 DNA, 7 hybrid \\
+  & validation & 382 & 310 RNA, 72 DNA, 0 hybrid \\
+\midrule
+\multicolumn{2}{@{}l}{Total, training}   & 127,255 & Protein and nucleic acid \\
+\multicolumn{2}{@{}l}{Total, validation} &   5,382 & Protein and nucleic acid \\
+\bottomrule
+\end{tabular}
+\end{center}

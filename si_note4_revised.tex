@@ -1,0 +1,21 @@
+\section*{Supplementary Note 4 | Forward-pass specification of the evaluated configuration}
+
+The teacher and the student have separate parameters; in the fine-tuning configuration both are initialised from checkpoint step 369999. Teacher calls use electron-density conditioning with empty pocket inputs, and student calls use pocket conditioning with empty electron-density inputs. Both receive the same noisy ligand state.
+
+\begin{algorithm}[H]
+\caption{Constrained training step as implemented}
+\begin{algorithmic}[1]
+\Require Ligand coordinates $X$, types $V$, pocket $P$, simulated ligand density $E$, timestep $t$
+\State Generate one noisy ligand state $(\mu_t,\theta_t)$ using the Bayesian-flow updates
+\State With gradients disabled, compute $(X_T,p_T,h_T)\gets f_T(\mu_t,\theta_t,t,E,\varnothing)$
+\State Compute $(X_S,p_S,h_S)\gets f_S(\mu_t,\theta_t,t,\varnothing,P)$
+\State \textbf{Output alignment.} $L_x\gets\operatorname{mean}_i\|X_{T,i}-X_{S,i}\|^2$ and $L_p\gets\frac12\operatorname{mean}_i[\mathrm{KL}(p_{T,i}\|p_{S,i})+\mathrm{KL}(p_{S,i}\|p_{T,i})]$
+\State $w\gets\operatorname{sigmoid}(10(t-0.5))$, which increases with $t$ so the alignment acts most strongly as $t\to1$
+\State \textbf{Contrastive term.} Pool $h_S$ and $h_T$ into molecule-level representations $z_S,z_T$ by attention pooling, project both through a shared projection head and $L_2$-normalise
+\State $L_{\mathrm{contrastive}}\gets$ symmetric InfoNCE between $\{z_S\}$ and $\{z_T\}$, with the student and teacher views of the same molecule as the positive pair
+\State $L\gets\operatorname{mean}_i[w_i(L_{\mathrm{coord},i}+L_{\mathrm{type},i})]+0.1\,w\,(L_x+L_p)+0.1\,L_{\mathrm{contrastive}}$
+\State Update student parameters only; the teacher is frozen
+\end{algorithmic}
+\end{algorithm}
+
+The teacher--student constraint therefore acts on the two paths' \emph{outputs}: the predicted coordinates and the predicted atom-type distributions. The contrastive term instead acts on pooled molecule-level representations of the two paths, and corresponds to the $d(z_{\mathrm{ED}},z_{\mathrm{lig}})$ distance drawn in the latent-space panel of Fig.~1. It is the objective that distinguishes the full-model configuration from Pretrain+Constrain, which applies the alignment term only.
