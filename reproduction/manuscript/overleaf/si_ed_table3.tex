@@ -1,0 +1,33 @@
+\section*{Extended Data Table 4 | PoseCheck strain calibration}
+Panel A: strain of 37 crystallographic reference ligands of RNA test-set pockets, evaluated from their structurally determined poses using the same smina minimisation and PoseCheck protocol as the generated molecules. All 37 reference ligands are evaluable. Panel B reports uncapped values; Table~1 and Fig.~3d use the censored convention below. ``Strain'' is the PoseCheck local strain energy (kcal~mol$^{-1}$) of the smina-minimised pose. Failures include minimisations exceeding the protocol budget and those with energy $>10^{4}$~kcal~mol$^{-1}$. ``PoseCheck success'' is the percentage of the group for which strain was computed. Reference scale strain is elevated relative to force-field minima; thus, the 200~kcal~mol$^{-1}$ final-tier threshold and cross-configuration differences are interpreted relative to this reference. Panel B: per-molecule strain distributions by configuration. Main-text yield percentages are computed over the full valid-generation pool.
+
+\textbf{Panel A. Crystallographic reference ligands}
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\textbf{Set} & \textbf{$n$} & \textbf{Success} & \textbf{median} & \textbf{mean} & \textbf{p90} & \textbf{p95} & \textbf{$\le$200, \%} \\
+\midrule
+Crystal reference ligands & 37 & 37/37 & 48.8 & 147.8 & 272.9 & 746.3 & 81 \\
+\bottomrule
+\end{tabular}\end{center}
+
+\textbf{Panel B. Generated molecules by configuration}
+\begin{center}\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\textbf{Set} & \textbf{Eval.\ (pool)} & \textbf{Success} & \textbf{median} & \textbf{p95} & \textbf{$>$10$^{3}$, \%} & \textbf{$>$10$^{4}$, \%} \\
+\midrule
+NA2smol (full)      & 35,235 (35,358) & 99.7\% & 218.3  & $4.4\times10^{4}$ & 24.0 & 7.7 \\
+NA2smol baseline    & 35,959 (36,209) & 99.3\% & 375.6  & $3.0\times10^{4}$ & 26.8 & 8.1 \\
+Pretrain Only       & 31,079 (32,782) & 94.8\% & 14,290 & $1.2\times10^{12}$ & 57.6 & 48.5 \\
+Pretrain+Constrain  & 35,180 (35,640) & 98.7\% & 284.6  & $1.0\times10^{7}$ & 25.2 & 14.9 \\
+\midrule
+MolCRAFT            & 34,893 (34,925) & 99.9\% & 125.4  & $3.6\times10^{3}$ & 9.9 & 3.2 \\
+ED2Mol              & 29,237 (29,932) & 97.7\% & 22.6   & $1.7\times10^{2}$ & 0.0 & 0.0 \\
+\bottomrule
+\end{tabular}\end{center}
+
+Median here is computed over all molecules with a finite strain value, so the high-strain tail above $10^{4}$~kcal~mol$^{-1}$ is included. Table~1 instead reports a censored median: values above $10^{4}$~kcal~mol$^{-1}$ and failed evaluations are set to $10^{4}$~kcal~mol$^{-1}$, a median at the bound is reported as $>10^{4}$, and the percentage of successfully evaluated molecules at or below this bound is given in parentheses. Fig.~3d plots per-target medians of the same censored values on the common 27-target set. These summaries therefore differ in aggregation and censoring rather than by discrepancy. The last two columns give the percentage of the full valid-generation pool, including molecules whose evaluation failed or was not completed, above $10^{3}$ and above $10^{4}$~kcal~mol$^{-1}$; the pool is the value in parentheses, and failures are counted in it but never among the exceeding molecules. The main text quotes the $10^{4}$ column, because $10^{4}$~kcal~mol$^{-1}$ is the censoring bound used in Table~1 and Fig.~3d. Success records only that the force-field evaluation finished; it is reported alongside ``Strain evaluated'' in Extended Data Table~8, which additionally requires the energy to stay at or below $10^{4}$~kcal~mol$^{-1}$.
+The Pretrain-Only pathology is pervasive: median 14,290~kcal~mol$^{-1}$ with 94.8\% PoseCheck success; 48.5\% of molecules exceed the $10^{4}$~kcal~mol$^{-1}$ bound (41.2\% above $10^{5}$~kcal~mol$^{-1}$; 57.6\% above $10^{3}$~kcal~mol$^{-1}$). ED2Mol shows essentially no strain (median 22.6~kcal~mol$^{-1}$; none above $10^{3}$~kcal~mol$^{-1}$).

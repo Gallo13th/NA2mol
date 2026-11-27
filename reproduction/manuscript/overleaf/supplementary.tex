@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{url}
+\usepackage[colorlinks=false,hidelinks]{hyperref}
+\graphicspath{{figures/}}
+\renewcommand{\thefigure}{ED~\arabic{figure}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\title{\vspace{-1.2em}\textbf{Supplementary Information}\par\vspace{0.6em}\large Bridging protein and nucleic-acid pockets via shared physicochemical representations for 3D molecular generation with NA2smol}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{center}
+{\normalsize Letian Gao, Yi Li, Wenbiao Zhou, Jiahao Chen, Wenjin Wan, Yuxuan Mo, Bing Su, Xing Li and Zhi John Lu}
+\end{center}
+
+\vspace{1.0em}
+\noindent This file documents the design of the fixed-atom generation mode, implementation and reproducibility details, the provenance of the KRAS ligand, the forward-pass specification, the chemical-overlap audit and the target-specificity control, together with the six supplementary tables. Extended Data figures and tables are provided separately.
+
+\vspace{0.6em}
+\noindent\textbf{Contents}
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{0.44\textwidth}p{0.50\textwidth}@{}}
+\toprule
+\textbf{Item} & \textbf{Content} \\
+\midrule
+Supplementary Note 1 & Generation with fixed atom subsets \\
+Supplementary Note 2 & Reproducibility and implementation details \\
+Supplementary Note 3 & Provenance of the fragment-based KRAS G-quadruplex ligand \\
+Supplementary Note 4 & Forward-pass specification of the evaluated configuration \\
+Supplementary Note 5 & Chemical-overlap audit and recovery sensitivity \\
+Supplementary Note 6 & Target specificity of ECFP4 recovery \\
+Supplementary Table 1 & Scaffold counts at matched library sizes \\
+Supplementary Table 2 & Structure-identifier exclusion sensitivity \\
+Supplementary Table 3 & Training-scaffold overlap of screened molecules \\
+Supplementary Table 4 & PDB entry modality and verified split counts \\
+Supplementary Table 5 & Chemical overlap of benchmark reference and generated molecules with the training data \\
+Supplementary Table 6 & DNA sequences used in this study \\
+\bottomrule
+\end{tabular}\end{center}
+\clearpage
+
+\input{supplementary_notes_revised}
+\clearpage
+\input{si_revision_v2_revised}
+\input{si_table_overlap}
+\clearpage
+\input{si_table_dna_sequences}
+\end{document}
