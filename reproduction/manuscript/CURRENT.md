@@ -651,3 +651,13 @@ whole text between rounds.
   `6b08dfdd9f9cbcc3669cfd8c`. The repository copy (`overleaf/`, plus `RNA2smol_overleaf.zip`) stays the source
   of truth: changes are made here, the zip is regenerated and re-uploaded, so that the Overleaf copy never
   drifts. The share token is deliberately not recorded in the repository.
+
+## 2026-11-27 — Manuscript repository for the Overleaf link
+
+- `overleaf-git/` is a standalone git repository holding exactly the files of the Overleaf project (33 files, the
+  same tree that compiles to 30 + 10 + 9 pages). It has its own history and `.gitattributes`/`.gitignore` so
+  Overleaf's GitHub sync sees clean LaTeX sources and no build artefacts. Overleaf's GitHub integration maps a
+  repository root onto the project root, which is why the manuscript gets a dedicated repository instead of a
+  subdirectory of the analysis repository.
+- `scripts/sync_overleaf_repo.sh "message"` refreshes that mirror from `overleaf/`, commits and pushes; it reports
+  the two commands needed the first time an `origin` remote is added.

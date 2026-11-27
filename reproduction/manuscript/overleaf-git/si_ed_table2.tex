@@ -1,0 +1,24 @@
+\section*{Extended Data Table 3 | Per-target summary statistics on the RNA test set (27 shared targets)}
+Values are mean $\pm$ s.d.\ of per-target medians. The two-sided Wilcoxon $P$ compares NA2smol with its baseline on the shared-target set ($N=27$). Aggregations vary by display: main-text ablation summaries use target-level means; Fig.~3d reports the median of per-target medians; this table reports the mean of per-target medians.
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+\textbf{Category} & \textbf{Metric} & \textbf{NA2smol baseline} & \textbf{NA2smol} & \textbf{$P$} \\
+\midrule
+\multirow{3}{*}{Drug-likeness}
+  & QED                              & $0.475 \pm 0.093$ & $0.622 \pm 0.060$ & $1.5\times10^{-8}$ \\
+  & SA score                         & $4.080 \pm 0.863$ & $3.530 \pm 0.537$ & $3.1\times10^{-6}$ \\
+  & LLE                              & $3.123 \pm 2.044$ & $4.220 \pm 1.954$ & $5.5\times10^{-3}$ \\
+\midrule
+\multirow{3}{*}{Docking and geometry}
+  & Docking score (kcal mol$^{-1}$)  & $-6.599 \pm 2.432$ & $-7.282 \pm 2.501$ & $1.3\times10^{-4}$ \\
+  & SEI                              & $0.103 \pm 0.066$ & $0.103 \pm 0.039$ & 0.35 \\
+  & Pose-relaxation RMSD (\AA)       & $1.319 \pm 0.781$ & $1.239 \pm 0.526$ & 1.00 \\
+\midrule
+Conformational
+  & Strain (kcal mol$^{-1}$)         & $730.1 \pm 940.6$ & $351.4 \pm 412.5$ & $1.5\times10^{-8}$ \\
+\bottomrule
+\end{tabular}\end{center}
+
+NA2smol improves docking score, QED, SA score and LLE, while SEI and pose-relaxation RMSD are statistically indistinguishable. Conformational strain is lower for the full model ($351.4$ versus $730.1$~kcal~mol$^{-1}$).
